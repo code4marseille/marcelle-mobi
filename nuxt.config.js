@@ -1,6 +1,9 @@
 
 export default {
   mode: 'spa',
+  router: {
+    linkActiveClass: 'active'
+  },
   /*
   ** Headers of the page
   */
@@ -23,11 +26,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/css/application.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/axios' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,6 +54,11 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://TODO_API_ENDPOINT'
+  },
+  bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false // Or `bvCSS: false`
   },
   /*
   ** Build configuration
@@ -57,7 +67,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }

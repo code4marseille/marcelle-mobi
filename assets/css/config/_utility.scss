@@ -1,0 +1,17 @@
+.no-underline {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.grabbable {
+  cursor: grab;
+}
+
+.modal-backdrop {
+  opacity: 0.5 !important;
+}
