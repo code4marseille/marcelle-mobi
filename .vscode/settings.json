@@ -1,0 +1,27 @@
+{
+  "files.encoding": "utf8",
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true,
+  "files.hotExit": "off",
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.useTabStops": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 1500,
+  "git.autofetch": true,
+  "breadcrumbs.enabled": true,
+  "emmet.showSuggestionsAsSnippets": true,
+  "editor.snippetSuggestions": "top",
+  "vetur.completion.tagCasing": "initial",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "yaml.format.enable": true,
+  "scssFormatter.singleQuote": true,
+  "editor.fontLigatures": true,
+}
