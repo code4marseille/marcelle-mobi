@@ -27,20 +27,15 @@
           <input type="text" name="from" id class="inputAsk" v-model="to" @blur="meansBoolean=true" />
         </div>
       </div>
-      <div class="rounded block">
+      <div class="rounded">
         <b-button-group v-if="meansBoolean">
           <b-button
             type="button"
             v-for="(mean, idx) in means"
             :key="idx"
             :pressed.sync="mean.state"
-            style="opacity:2"
           >
-            <img
-              style="width:45px;"
-              :src="require('~/assets/images/' + mean.logo)"
-              :alt="mean.text"
-            />
+            <img :src="require('~/assets/images/' + mean.logo)" :alt="mean.text" />
             <!-- <p class="align-self-end">{{mean.text}}</p> -->
           </b-button>
         </b-button-group>
