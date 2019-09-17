@@ -8,7 +8,7 @@
     <div>
       <p>
         <span>
-          <img src="/assets/img/sun.svg" />
+          <img src="~/assets/images/sun.svg" />
         </span>
         {{ temperature }}
       </p>
