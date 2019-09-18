@@ -3,6 +3,8 @@
     <div id="position">
       <v-map id="map" :zoom="150" :center="initialLocation">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+        <LayersCars />
+        <l-marker :lat-lng="[47.413220, -1.219482]"></l-marker>
         <v-locatecontrol />
       </v-map>
     </div>
@@ -43,12 +45,14 @@
 import { LMap, LTileLayer } from 'vue2-leaflet'
 import { latLng, Icon, icon } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
+import LayersCars from '~/components/LayersCars.vue'
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol
+    'v-locatecontrol': Vue2LeafletLocatecontrol,
+    LayersCars
   },
   data() {
     return {
@@ -71,6 +75,7 @@ export default {
   position: absolute;
   bottom: 2%;
   left: 2%;
+  right: 2%;
   z-index: 999;
   text-align: center;
   background-color: aliceblue;
@@ -96,13 +101,14 @@ export default {
 }
 
 .lettreTransport {
+  width: 40px;
+  height: 40px;
   display: inline-block;
-  width: 40%;
   border: 2px solid #0e5da4;
   border-radius: 75%;
   padding: 0.3rem;
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .borderCentral {
