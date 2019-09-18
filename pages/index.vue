@@ -35,6 +35,7 @@
     <div>
       <b-button pill variant="primary">Trouver un moyen de transport</b-button>
     </div>
+
     <!-- infos rtm -->
     <div>Infos trafic RTM</div>
   </div>
