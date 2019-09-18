@@ -1,56 +1,124 @@
 <template>
-  <div class="container">
+  <div class="d-flex flex-column justify-content-between dashboard-contener">
+    <header>
+      <!--<Navbar /> -->
+      <div class="display-4">Marseille</div>
+    </header>
+    <!-- meteo -->
     <div>
-      <logo />
-      <h1 class="title">marcelle-mobi</h1>
-      <h2 class="subtitle">Déplacez-vous autrement dans Marseille</h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--brand">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
+      <p>
+        <span>
+          <img src="~/assets/images/sun.svg" />
+        </span>
+        {{ temperature }}
+      </p>
+      <p>
+        {{ windSpeed }}
+        <span class="text-lowercase">km/h</span>
+      </p>
     </div>
+    <!-- air quality -->
+    <div>
+      <span class="indice-quality">{{ indiceQuality }}</span>/10
+      <div>{{textAirQuality}}</div>
+    </div>
+    <!-- what to do today -->
+    <div>
+      <p>à faire aujourd'hui :</p>
+      <div class="activities">
+        <i class="fas fa-basketball-ball px-5"></i>
+        <i class="fas fa-bicycle px-5"></i>
+      </div>
+      <p>Description de l'activité</p>
+    </div>
+    <!-- find transport -->
+    <div>
+      <b-button pill variant="primary">Trouver un moyen de transport</b-button>
+    </div>
+
+    <!-- infos rtm -->
+    <div>Infos trafic RTM</div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      temperature: '31°',
+      windSpeed: 10,
+      indiceQuality: 8
+    }
+  },
+
+  computed: {
+    textAirQuality() {
+      switch (this.indiceQuality) {
+        case 0:
+          return 'lorem0'
+          break
+        case 1:
+          return 'lorem1'
+          break
+        case 2:
+          return 'lorem2'
+          break
+        case 3:
+          return 'lorem3'
+          break
+        case 4:
+          return 'lorem4'
+          break
+        case 5:
+          return 'lorem5'
+          break
+        case 6:
+          return 'lorem6'
+          break
+        case 7:
+          return 'lorem7'
+          break
+        case 8:
+          return 'lorem8'
+          break
+        case 9:
+          return 'lorem9'
+          break
+        case 10:
+          return 'lorem10'
+          break
+        default:
+          return 'neant'
+      }
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  background-color: rgb(37, 169, 232);
+  color: white;
   text-align: center;
+  font-size: 1.1em;
+  text-transform: uppercase;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+body i {
+  font-size: 2.2em;
+  padding: 10px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.btn {
+  padding: 10px;
 }
 
-.links {
-  padding-top: 15px;
+.dashboard-contener {
+  min-height: 100vh;
+  padding: 2vh;
+}
+
+.indice-quality {
+  font-size: 2em;
 }
 </style>

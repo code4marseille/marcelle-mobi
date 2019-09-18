@@ -4,6 +4,22 @@
 
 ## SETUP
 
+Installer ou upgrader vers NodeJS 10
+```
+# OSX
+brew install node
+**OR**
+brew update 
+brew upgrade node
+```
+
+
+```
+# Ubuntu
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install nodejs
+```
+
 Installer Yarn (gestionnaire de packages)
 
 ```
