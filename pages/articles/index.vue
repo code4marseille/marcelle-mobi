@@ -5,8 +5,18 @@
     </header>
 
     <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
-
-    <b-button variant="light" class="text-uppercase btn-block p-3 mb-4 button-categories">Catégories</b-button>
+    <div class="contener-collapse mb-4">
+      <b-button
+        v-b-toggle="'collapse-2'"
+        class="btn-categorie m-1 text-uppercase btn-block p-3"
+      >Catégorie</b-button>
+      <b-collapse id="collapse-2">
+        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 1</b-button>
+        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
+        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
+        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
+      </b-collapse>
+    </div>
 
     <nuxt-link to="/articles/zz">
       <b-card
@@ -60,10 +70,22 @@ body {
   padding: 2vh 5vw;
 }
 
-.button-categories {
+button.btn.btn-categorie.btn-secondary.collapsed,
+button.btn.btn-categorie.btn-secondary {
   font-weight: bolder;
+  background-color: white;
   color: rgba(37, 169, 232);
   border-radius: 1rem !important;
+}
+
+.item-collapse {
+  margin: 0;
+  background-color: white;
+  color: rgba(37, 169, 232);
+}
+
+.btn-block + .btn-block {
+  margin-top: 0;
 }
 
 .card-text-cat {
@@ -73,6 +95,7 @@ body {
 .rounded {
   border-radius: 1rem !important;
 }
+
 .card-img {
   width: 100%;
   border-radius: calc(1rem - 1px);
