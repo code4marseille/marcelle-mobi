@@ -1,21 +1,21 @@
 // Graphical variables
-@import 'config/fonts';
-@import 'config/colors';
-@import 'config/bootstrap_variables';
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
 
 // External libraries
 // // Fontawesome 5
-@import '@fortawesome/fontawesome-free/scss/_variables.scss';
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
-@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '@fortawesome/fontawesome-free/scss/solid.scss';
-@import '@fortawesome/fontawesome-free/scss/brands.scss';
-@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import "@fortawesome/fontawesome-free/scss/_variables.scss";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
 
 // Bootstrap 4
-@import 'bootstrap/scss/bootstrap.scss';
-@import 'bootstrap-vue/src/index.scss';
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-vue/src/index.scss";
 
 // Design System
-@import 'config/overlay';
-@import 'config/utility';
+@import "config/overlay";
+@import "config/utility";
