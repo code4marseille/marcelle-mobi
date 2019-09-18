@@ -3,6 +3,7 @@
     <div id="position">
       <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+
         <template v-if="seeCars">
           <l-marker
             v-for="(car,i) in cars"
@@ -12,39 +13,42 @@
             :duration="5000"
           ></l-marker>
         </template>
+
         <v-locatecontrol />
       </v-map>
     </div>
+    <transition name="fade">
+      <div v-if="hideFilter" id="filter" class="container">
+        <div class="row justify-content-between">
+          <div class="col-4 borderBottom">
+            <h2 class="lettreTransport text-primary">B</h2>
+            <p class="textFilter">Bus</p>
+          </div>
+          <div class="col-4 borderCentral borderBottom">
+            <h2 class="lettreTransport text-primary">T</h2>
+            <p class="textFilter">Tram</p>
+          </div>
+          <div class="col-4 borderBottom">
+            <h2 class="lettreTransport text-primary">M</h2>
+            <p class="textFilter">Metro</p>
+          </div>
 
-    <div id="filter" class="container">
-      <div class="row justify-content-between">
-        <div class="col-4 borderBottom">
-          <h2 class="lettreTransport text-primary">B</h2>
-          <p class="textFilter">Bus</p>
-        </div>
-        <div class="col-4 borderCentral borderBottom">
-          <h2 class="lettreTransport text-primary">T</h2>
-          <p class="textFilter">Tram</p>
-        </div>
-        <div class="col-4 borderBottom">
-          <h2 class="lettreTransport text-primary">M</h2>
-          <p class="textFilter">Metro</p>
-        </div>
-
-        <div class="col-4">
-          <img src="~/assets/images/velo.svg" />
-          <p class="textFilter">Vélo</p>
-        </div>
-        <div v-on:click="toggleCar()" class="col-4 borderCentral">
-          <img src="~/assets/images/voiture.svg" />
-          <p class="textFilter">Totem</p>
-        </div>
-        <div class="col-4">
-          <img src="~/assets/images/trotinette.svg" />
-          <p class="textFilter">Trotinette</p>
+          <div class="col-4">
+            <img src="~/assets/images/velo.svg" />
+            <p class="textFilter">Vélo</p>
+          </div>
+          <div v-on:click="toggleCar()" class="col-4 borderCentral">
+            <img src="~/assets/images/voiture.svg" />
+            <p class="textFilter">Totem</p>
+          </div>
+          <div class="col-4">
+            <img src="~/assets/images/trotinette.svg" />
+            <p class="textFilter">Trotinette</p>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
+    <div v-on:click="toggleFilter()" class="buttonGo">GO</div>
   </div>
 </template>
 
@@ -63,7 +67,8 @@ export default {
     return {
       initialLocation: [43.295336, 5.373907],
       cars: [],
-      seeCars: true
+      seeCars: true,
+      hideFilter: true
     }
   },
   mounted() {
@@ -77,6 +82,10 @@ export default {
     },
     toggleCar: function() {
       this.seeCars = !this.seeCars
+    },
+
+    toggleFilter: function() {
+      this.hideFilter = !this.hideFilter
     }
   }
 }
@@ -103,6 +112,7 @@ export default {
   width: 96%;
   box-shadow: 5px 5px 5px gray;
   margin-bottom: 5px;
+  transition: transform 0.2s linear;
 }
 
 .fas {
@@ -139,6 +149,32 @@ export default {
 
 .borderBottom {
   border-bottom: 1px solid rgb(182, 181, 181, 0.5);
+}
+
+.buttonGo {
+  position: absolute;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  background: #0e5da4;
+  box-shadow: 2px 2px 8px #aaa;
+  font: bold 1rem Arial;
+  border-radius: 50%;
+  border: 2px solid White;
+  color: white;
+  bottom: 18%;
+  right: 2%;
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transform: translateY(200px);
+}
+.fade-enter,
+.fade-leave-to {
+  transform: translateY(200px);
 }
 </style>
 
