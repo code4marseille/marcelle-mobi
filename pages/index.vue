@@ -204,8 +204,8 @@ export default {
           color: ""
         },
         {
-          name: "petanque",
-          icon: '<img src="~/assets/images/petanque.svg" alt />',
+          name: "basket",
+          icon: '<i class="fas fa-basketball-ball"></i>',
           conditions: {
             beau: true,
             minTemp: 20,
