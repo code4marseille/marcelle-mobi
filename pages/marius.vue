@@ -55,7 +55,7 @@
             variant="primary"
             id="submit"
             :disabled="meanSelected===-1"
-            v-click="query=false"
+            @click="query=false"
           >Analyser mon parcours</b-button>
         </div>
       </div>
