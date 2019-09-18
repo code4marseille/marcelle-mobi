@@ -7,14 +7,16 @@
     <!-- meteo -->
     <div>
       <p>
-        <span>
-          <img src="~/assets/images/sun.svg" />
-        </span>
+        <span v-html="weatherIcon"></span>
         {{ temperature }}
       </p>
       <p>
+        <span v-html="windArrow"></span>
         {{ windSpeed }}
-        <span class="text-lowercase">km/h</span>
+        <span class="text-lowercase" style="letter-spacing:2px">
+          km
+          <span>/</span> h
+        </span>
       </p>
     </div>
     <!-- air quality -->
@@ -42,57 +44,118 @@
 </template>
 
 <script>
+import axios from "../plugins/axios";
 export default {
   data() {
     return {
-      temperature: '31°',
-      windSpeed: 10,
-      indiceQuality: 8
-    }
+      temperature: "",
+      windSpeed: 0,
+      indiceQuality: 0,
+      weatherIcon: "",
+      weatherIcons: {
+        Rain: {
+          icon: '<i class="wi wi-day-rain"></i>',
+          comment: "Pluie"
+        },
+
+        Clouds: {
+          icon: '<i class="wi wi-day-cloudy"></i>',
+          comment: "Nuageux"
+        },
+
+        Clear: {
+          icon: '<i class="wi wi-day-sunny"></i>',
+          comment: "Dégagé"
+        },
+
+        Snow: {
+          icon: '<i class="wi wi-day-snow"></i>',
+          comment: "Neige"
+        },
+
+        Mist: {
+          icon: '<i class="wi wi-day-fog"></i>',
+          comment: "Brumeux"
+        },
+        Fog: {
+          icon: '<i class="wi wi-day-fog"></i>',
+          comment: "Brouillard"
+        },
+
+        Drizzle: {
+          icon: '<i class="wi wi-day-sleet"></i>',
+          comment: "Grisaille"
+        },
+        Smoke: {
+          icon: '<i class="wi wi-day-sleet"></i>',
+          comment: "Grisaille"
+        },
+        Haze: {
+          icon: '<i class="wi wi-day-fog"></i>',
+          comment: "Brumeux"
+        }
+      },
+      windArrow: ""
+    };
   },
 
   computed: {
     textAirQuality() {
-      switch (this.indiceQuality) {
+      switch (Math.round(this.indiceQuality)) {
         case 0:
-          return 'lorem0'
-          break
+          return "lorem0";
+          break;
         case 1:
-          return 'lorem1'
-          break
+          return "lorem1";
+          break;
         case 2:
-          return 'lorem2'
-          break
+          return "lorem2";
+          break;
         case 3:
-          return 'lorem3'
-          break
+          return "lorem3";
+          break;
         case 4:
-          return 'lorem4'
-          break
+          return "lorem4";
+          break;
         case 5:
-          return 'lorem5'
-          break
+          return "lorem5";
+          break;
         case 6:
-          return 'lorem6'
-          break
+          return "lorem6";
+          break;
         case 7:
-          return 'lorem7'
-          break
+          return "lorem7";
+          break;
         case 8:
-          return 'lorem8'
-          break
+          return "lorem8";
+          break;
         case 9:
-          return 'lorem9'
-          break
+          return "lorem9";
+          break;
         case 10:
-          return 'lorem10'
-          break
+          return "lorem10";
+          break;
         default:
-          return 'neant'
+          return "neant";
       }
     }
+  },
+  created() {
+    this.$axios
+      .$get("http://marcelle-mobi-api.herokuapp.com/weathers/today")
+      .then(response => {
+        this.temperature = Math.round(response.main.temp) + " °C";
+        this.weatherIcon = this.weatherIcons[response.weather[0].main].icon;
+        this.windSpeed = Math.trunc(response.wind.speed * 3.6);
+        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}); font-size: 1.1em;"></i>`;
+      });
+    this.$axios
+      .$get("http://marcelle-mobi-api.herokuapp.com/airs/quality")
+      .then(response => {
+        this.indiceQuality = response.data.aqi / 10;
+      });
   }
-}
+};
 </script>
 
 <style>
