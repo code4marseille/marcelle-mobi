@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="fullscreen">
     <nuxt />
   </div>
 </template>
@@ -15,6 +15,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 *,
@@ -30,7 +31,6 @@ html {
   border: 1px solid var(--primary);
   color: var(--primary);
   text-decoration: none;
-  padding: 10px 30px;
 }
 
 .button--brand:hover {
@@ -45,11 +45,15 @@ html {
   color: #35495e;
   text-decoration: none;
   padding: 10px 30px;
-  margin-left: 15px;
 }
 
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+#fullscreen {
+  height: 100vh;
+  width: 100wh;
 }
 </style>

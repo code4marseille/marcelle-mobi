@@ -39,6 +39,8 @@ export default {
     this.ready = true
     this.parentContainer = findRealParent(this.$parent)
     this.mapObject.addTo(this.parentContainer.mapObject, !this.visible)
+    this.zoom = 200
+    this.zoomControl = true
   }
 }
 </script>
