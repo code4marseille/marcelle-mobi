@@ -138,8 +138,7 @@ export default {
             maxTemp: 20,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "cinema",
@@ -150,8 +149,7 @@ export default {
             maxTemp: 20,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "foot",
@@ -162,8 +160,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
 
         {
@@ -175,8 +172,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "rando",
@@ -187,8 +183,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "games",
@@ -199,8 +194,7 @@ export default {
             maxTemp: 10,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "plage",
@@ -211,8 +205,7 @@ export default {
             maxTemp: 50,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "basket",
@@ -223,8 +216,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "sieste",
@@ -235,8 +227,7 @@ export default {
             maxTemp: 100,
             minWind: 50,
             maxWind: 100
-          },
-          color: ""
+          }
         }
       ]
     };
