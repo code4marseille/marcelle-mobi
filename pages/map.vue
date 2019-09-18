@@ -1,10 +1,17 @@
 <template>
   <div>
     <div id="position">
-      <v-map id="map" :zoom="150" :center="initialLocation">
+      <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
-        <LayersCars />
-        <l-marker :lat-lng="[47.413220, -1.219482]"></l-marker>
+        <template v-if="seeCars">
+          <l-marker
+            v-for="(car,i) in cars"
+            :key="i"
+            :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
+            @click="setCurrentCar(car)"
+            :duration="5000"
+          ></l-marker>
+        </template>
         <v-locatecontrol />
       </v-map>
     </div>
@@ -28,7 +35,7 @@
           <img src="~/assets/images/velo.svg" />
           <p class="textFilter">Vélo</p>
         </div>
-        <div class="col-4 borderCentral">
+        <div v-on:click="toggleCar()" class="col-4 borderCentral">
           <img src="~/assets/images/voiture.svg" />
           <p class="textFilter">Totem</p>
         </div>
@@ -42,21 +49,34 @@
 </template>
 
 <script>
-import { LMap, LTileLayer } from 'vue2-leaflet'
+import { LMap, LTileLayer, LControlZoom } from 'vue2-leaflet'
 import { latLng, Icon, icon } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
-import LayersCars from '~/components/LayersCars.vue'
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol,
-    LayersCars
+    'v-locatecontrol': Vue2LeafletLocatecontrol
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      initialLocation: [43.295336, 5.373907],
+      cars: [],
+      seeCars: true
+    }
+  },
+  mounted() {
+    this.$axios
+      .$get('http://marcelle-mobi-api.herokuapp.com/vehicules/car')
+      .then(response => (this.cars = response))
+  },
+  methods: {
+    setCurrentCar(car) {
+      this.$refs.map.mapObject.flyTo([car.gpsLatitude, car.gpsLongitude], 18)
+    },
+    toggleCar: function() {
+      this.seeCars = !this.seeCars
     }
   }
 }
