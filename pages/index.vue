@@ -1,21 +1,26 @@
 <template>
-  <div class="d-flex flex-column justify-content-between dashboard-contener">
+  <div
+    class="d-flex flex-column justify-content-between dashboard-contener"
+    :style="{backgroundImage:'url('+activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
+  >
     <header>
       <!--<Navbar /> -->
       <div class="display-4">Marseille</div>
     </header>
-    <!-- meteo -->
+
     <div>
       <p>
         <span v-html="weatherIcon"></span>
+        <i class="fas fa-thermometer-half"></i>
         <span class="indice-quality">{{ temperature }}</span> °C
         <span :style="{color:tColor}">
           <i class="fas fa-circle"></i>
         </span>
       </p>
       <p>
+        <i class="fas fa-fan"></i>
         <span v-html="windArrow"></span>
-        {{ windSpeed }}
+        <span class="indice-quality">{{ windSpeed }}</span>
         <span class="text-lowercase">
           km/h
           <span :style="{color:wColor}">
@@ -26,10 +31,11 @@
     </div>
     <!-- air quality -->
     <div>
+      <i class="fas fa-wind"></i>
       <span class="indice-quality">{{ indiceQuality }}</span>/10
-      <span :style="{color:aQColor}">
+      <!-- <span :style="{color:aQColor}">
         <i class="fas fa-circle"></i>
-      </span>
+      </span>-->
       <div>{{textAirQuality}}</div>
     </div>
     <!-- what to do today -->
@@ -39,7 +45,9 @@
       <div class="activitiesProposees">
         <span v-for="(act, id)
          in activitesProposees" :key="id">
-          <span v-html="act"></span>
+          <acronym v-bind:title="act.nom">
+            <span v-html="act.icon"></span>
+          </acronym>
         </span>
         <!-- <i class="fas fa-basketball-ball px-5"></i>
         <i class="fas fa-bicycle px-5"></i>-->
@@ -65,8 +73,9 @@ import axios from '../plugins/axios'
 export default {
   data() {
     return {
-      aQColor: 'white',
-      temperature: 50,
+      // aQColor: "white",
+      wColor: 'white',
+      temperature: 20,
       windSpeed: 10,
       indiceQuality: 10,
       weatherIcon: '',
@@ -144,7 +153,7 @@ export default {
           }
         },
         {
-          name: 'cinema',
+          name: 'cinéma',
           icon: '<i class="fas fa-film"></i>',
           conditions: {
             beau: false,
@@ -155,7 +164,7 @@ export default {
           }
         },
         {
-          name: 'foot',
+          name: 'football',
           icon: '<i class="fas fa-futbol"></i>',
           conditions: {
             beau: true,
@@ -167,7 +176,7 @@ export default {
         },
 
         {
-          name: 'nautisme',
+          name: 'sports nautique',
           icon: '<i class="fas fa-ship"></i>',
           conditions: {
             beau: true,
@@ -178,7 +187,7 @@ export default {
           }
         },
         {
-          name: 'rando',
+          name: 'randonée',
           icon: '<i class="fas fa-hiking"></i>',
           conditions: {
             beau: true,
@@ -189,7 +198,7 @@ export default {
           }
         },
         {
-          name: 'games',
+          name: 'arcade',
           icon: '<i class="fas fa-gamepad"></i>',
           conditions: {
             beau: false,
@@ -229,10 +238,12 @@ export default {
             minTemp: 30,
             maxTemp: 100,
             minWind: 50,
-            maxWind: 100
+            maxWind: 1000
           }
         }
-      ]
+      ],
+
+      activeBackground: require('~/assets/images/lungs.svg')
     }
   },
 
@@ -278,11 +289,12 @@ export default {
     }
   },
   created() {
+    let temp, wind, aq
     this.$axios
       .$get('http://marcelle-mobi-api.herokuapp.com/weathers/today')
       .then(response => {
         let weather = ''
-        const temp = Math.round(response.main.temp)
+        temp = Math.round(response.main.temp)
         // const temp = 35;
         if (temp < 15) {
           this.tColor = this.colorTemp.cold
@@ -297,7 +309,7 @@ export default {
         // weather = weather.toLowerCase;
         // console.log("weather : " + weather);
         this.weatherIcon = this.weatherIcons[weather].icon
-        const wind = Math.trunc(response.wind.speed * 3.6)
+        wind = Math.trunc(response.wind.speed * 3.6)
         // const wind = 50;
         this.windSpeed = wind
         if (wind < 40) {
@@ -305,10 +317,8 @@ export default {
         } else {
           this.wColor = this.colorTemp.hot
         }
-        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}); "></i>`
-        // console.log(this.windArrow);
-        // console.log(this.activitesProposees);{}
-        // verfifieTemp(temp);
+        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`
+
         this.activites.forEach(element => {
           if (
             element.conditions.minTemp < temp &&
@@ -317,7 +327,10 @@ export default {
             element.conditions.maxWind > wind &&
             element.conditions.beau === this.weatherIcons[weather].clear
           ) {
-            this.activitesProposees.push(element.icon)
+            this.activitesProposees.push({
+              nom: element.name.toUpperCase(),
+              icon: element.icon
+            })
           }
         })
         // console.log(this.activitesProposees);
@@ -326,15 +339,27 @@ export default {
       .$get('http://marcelle-mobi-api.herokuapp.com/airs/quality')
       .then(response => {
         const aq = Math.round(10 - response.data.aqi / 10)
+
         // const aq = 0;
-        if (aq > 5) {
-          this.aQColor = this.colorTemp.normal
-        } else {
-          this.aQColor = this.colorTemp.hot
+        if (aq > 7) {
+          this.activeBackground = this.activeBackground.replace(
+            'lungs',
+            'lavande'
+          )
+
+          // this.aQColor = this.colorTemp.normal;
+        } else if (aq < 4) {
+          // this.aQColo this.activeBackground = "require(this.bg.lungs)";r = this.colorTemp.hot;
+
+          this.activeBackground = this.activeBackground.replace(
+            'lungs',
+            'scuba'
+          )
         }
 
         this.indiceQuality = aq
       })
+    // console.log("temp :" + temp, aq, wind);
   },
 
   methods: {}
@@ -344,6 +369,8 @@ export default {
 <style>
 body {
   background-color: rgb(37, 169, 232);
+  /* background-color: black; */
+
   color: white;
   text-align: center;
   font-size: 1.1em;
@@ -368,17 +395,18 @@ body i {
   font-size: 2em;
 }
 
-.fa-angle-up {
-  padding: 0px;
-  display: flex;
-  justify-content: space-around;
-}
-.text-rtm-slide {
-  line-height: 1.5;
+.fa-circle,
+.fa-thermometer-half {
+  font-size: 1rem;
 }
 
-.fa-circle {
-  font-size: 0.8rem;
+.fa-arrow-up {
+  font-size: 1.5rem;
+}
+
+.fas:hover {
+  transform: rotate(360deg);
+  transition: transform 5s;
 }
 /* "Info Traffic RTM" Slide In Up*/
 .slideInUp {
