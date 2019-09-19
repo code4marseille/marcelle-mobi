@@ -18,11 +18,7 @@
         °C
       </p>
       <p>
-        <i
-          class="fas fa-fan"
-          style="animation-name:'rotated'; animation-iteration-count:'infinite'"
-          :style="fanSpeed"
-        ></i>
+        <i class="fas fa-fan" style="animation:rotated infinite" :style="fanSpeed"></i>
         <span v-html="windArrow"></span>
         <span class="indice-quality">{{ windSpeed }}</span>
         <span class="text-lowercase">km/h</span>
