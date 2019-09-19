@@ -11,6 +11,8 @@
     <div>
       <p>
         <span v-html="weatherIcon"></span>
+        <!-- {{ weatherIcon}}  -->
+        <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
         <span class="indice-quality">{{ temperature }}</span> °C
         <span :style="{color:tColor}">
@@ -34,7 +36,7 @@
       <i class="fas fa-wind"></i>
       <span class="indice-quality">{{ indiceQuality }}</span>/10
       <!-- <span :style="{color:aQColor}">
-        <i class="fas fa-circle"></i>
+    <i class="fas fa-circle"></i>
       </span>-->
       <div>{{textAirQuality}}</div>
     </div>
@@ -44,7 +46,7 @@
     <div>
       <div class="activitiesProposees">
         <span v-for="(act, id)
-         in activitesProposees" :key="id">
+     in activitesProposees" :key="id">
           <acronym v-bind:title="act.nom">
             <span v-html="act.icon"></span>
           </acronym>
@@ -77,56 +79,27 @@ export default {
       indiceQuality: 10,
       weatherIcon: "",
       weatherIcons: {
-        Rain: {
-          icon: '<i class="wi wi-day-rain"></i>',
-          comment: "Pluie",
-          clear: true
-        },
-
-        Clouds: {
-          icon: '<i class="wi wi-day-cloudy"></i>',
-          comment: "Nuageux",
-          clear: true
-        },
-
-        Clear: {
-          icon: '<i class="wi wi-day-sunny"></i>',
-          comment: "Dégagé",
-          clear: true
-        },
-
-        Snow: {
-          icon: '<i class="wi wi-day-snow"></i>',
-          comment: "Neige",
+        Thunderstorm: {
+          icon: "wi-day-thunderstorm",
           clear: false
         },
-
-        Mist: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux",
+        Drizzle: { icon: "wi-day-sleet", clear: false },
+        Rain: { icon: "wi-day-rain", clear: false },
+        Snow: { icon: "wi-day-snow", clear: false },
+        Mist: { icon: " wi-day-fog", clear: false },
+        Smoke: { icon: "wi-day-sleet", clear: false },
+        Haze: { icon: "wi-day-haze", clear: false },
+        Dust: { icon: "wi-dust", clear: false },
+        Fog: { icon: "wi-day-fog", clear: false },
+        Sand: { icon: "wi-sandstorm", clear: false },
+        Ash: { icon: "wi-volcano", clear: false },
+        Squall: {
+          icon: "wi-day-cloudy-gusts",
           clear: false
         },
-        Fog: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brouillard",
-          clear: false
-        },
-
-        Drizzle: {
-          icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille",
-          clear: false
-        },
-        Smoke: {
-          icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille",
-          clear: false
-        },
-        Haze: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux",
-          clear: false
-        }
+        Tornado: { icon: "wi-tornado", clear: false },
+        Clear: { icon: "wi-day-sunny", clear: true },
+        Clouds: { icon: "wi-day-cloudy", clear: true }
       },
       windArrow: "",
       tColor: "",
@@ -144,7 +117,7 @@ export default {
           conditions: {
             beau: false,
             minTemp: -50,
-            maxTemp: 20,
+            maxTemp: 30,
             minWind: 0,
             maxWind: 100
           }
@@ -155,7 +128,7 @@ export default {
           conditions: {
             beau: false,
             minTemp: -50,
-            maxTemp: 20,
+            maxTemp: 30,
             minWind: 0,
             maxWind: 100
           }
@@ -184,7 +157,7 @@ export default {
           }
         },
         {
-          name: "randonée",
+          name: "randonnée",
           icon: '<i class="fas fa-hiking"></i>',
           conditions: {
             beau: true,
@@ -303,9 +276,12 @@ export default {
         this.temperature = temp;
 
         weather = response.weather[0].main;
-        // weather = weather.toLowerCase;
+
+        // weather = "Squall";
         // console.log("weather : " + weather);
-        this.weatherIcon = this.weatherIcons[weather].icon;
+        const icone =
+          '<i class="wi ' + this.weatherIcons[weather].icon + '"></i>';
+        this.weatherIcon = icone;
         wind = Math.trunc(response.wind.speed * 3.6);
         // const wind = 50;
         this.windSpeed = wind;
