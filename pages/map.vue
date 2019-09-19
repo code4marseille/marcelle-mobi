@@ -12,12 +12,26 @@
             @click="setCurrentCar(car)"
             :duration="5000"
             :icon="citizIcon"
-          ></l-marker>
+          >
+            <l-popup class="myPop">
+              <br />
+              <strong>Nom: {{car.name}}</strong>
+              <br />
+              <strong>plaque: {{car.licencePlate}}</strong>
+              <br />
+              <strong>Niveau carburant: {{car.fuelLevel}}%</strong>
+              <br />
+              <strong>Electrique: {{car.electricEngine}}</strong>
+              <br />
+              <strong>Categorie: {{car.category}}</strong>
+              <br />
+              <a href="#">Vers l'appli</a>
+            </l-popup>
+          </l-marker>
         </template>
 
         <v-locatecontrol />
       </v-map>
-
       <transition name="fade">
         <div class="filterGo">
           <div v-on:click="toggleFilter()" class="buttonGo">GO</div>
@@ -58,7 +72,7 @@
 
 <script>
 import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
-import { latLng, Icon, icon } from 'leaflet'
+import { latLng, Icon, icon, popup } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
 
 export default {
@@ -96,8 +110,8 @@ export default {
   computed: {
     citizIcon() {
       return icon({
-        iconUrl: require('~/assets/images/citiz.png'),
-        iconSize: [40, 40], // size of the icon
+        iconUrl: require('~/assets/images/citiz_marker.svg'),
+        iconSize: [30, 40], // size of the icon
         iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
         popupAnchor: [-3, -76] // point from which the po
       })
@@ -140,6 +154,17 @@ export default {
   box-shadow: 5px 5px 5px gray;
   margin-bottom: 5px;
   transition: transform 0.2s linear;
+}
+
+.myPop {
+  width: auto;
+  height: auto;
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
 }
 
 .fas {
