@@ -276,7 +276,7 @@ export default {
         this.windSpeed = wind;
 
         this.fanSpeed = {
-          animationDuration: wind / 42
+          animationDuration: wind / 20
         };
         // this.fanSpeed = { color: "red" };
 
