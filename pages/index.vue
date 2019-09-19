@@ -14,30 +14,25 @@
         <!-- {{ weatherIcon}}  -->
         <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
-        <span class="indice-quality">{{ temperature }}</span> °C
-        <span :style="{color:tColor}">
-          <i class="fas fa-circle"></i>
-        </span>
+        <span class="indice-quality">{{ temperature }}</span>
+        °C
       </p>
       <p>
-        <i class="fas fa-fan"></i>
+        <i
+          class="fas fa-fan"
+          style="animation-name:'rotated'; animation-iteration-count:'infinite'"
+          :style="fanSpeed"
+        ></i>
         <span v-html="windArrow"></span>
         <span class="indice-quality">{{ windSpeed }}</span>
-        <span class="text-lowercase">
-          km/h
-          <span :style="{color:wColor}">
-            <i class="fas fa-circle"></i>
-          </span>
-        </span>
+        <span class="text-lowercase">km/h</span>
       </p>
     </div>
     <!-- air quality -->
     <div>
       <i class="fas fa-wind"></i>
-      <span class="indice-quality">{{ indiceQuality }}</span>/10
-      <!-- <span :style="{color:aQColor}">
-    <i class="fas fa-circle"></i>
-      </span>-->
+      <span class="indice-quality">{{ indiceQuality }}</span>
+      /10
       <div>{{textAirQuality}}</div>
     </div>
     <!-- what to do today -->
@@ -72,11 +67,9 @@ import axios from "../plugins/axios";
 export default {
   data() {
     return {
-      // aQColor: "white",
-      wColor: "white",
-      temperature: 20,
-      windSpeed: 10,
-      indiceQuality: 10,
+      temperature: "-",
+      windSpeed: "-",
+      indiceQuality: "-",
       weatherIcon: "",
       weatherIcons: {
         Thunderstorm: {
@@ -102,7 +95,6 @@ export default {
         Clouds: { icon: "wi-day-cloudy", clear: true }
       },
       windArrow: "",
-      tColor: "",
 
       colorTemp: {
         cold: "#7AE5ED",
@@ -213,7 +205,8 @@ export default {
         }
       ],
 
-      activeBackground: require("~/assets/images/lungs.svg")
+      activeBackground: require("~/assets/images/lungs.svg"),
+      fanSpeed: { animationDuration: "42s" }
     };
   },
 
@@ -266,13 +259,13 @@ export default {
         let weather = "";
         temp = Math.round(response.main.temp);
         // const temp = 35;
-        if (temp < 15) {
-          this.tColor = this.colorTemp.cold;
-        } else if (temp < 30) {
-          this.tColor = this.colorTemp.normal;
-        } else {
-          this.tColor = this.colorTemp.hot;
-        }
+        // if (temp < 15) {
+        //   this.tColor = this.colorTemp.cold;
+        // } else if (temp < 30) {
+        //   this.tColor = this.colorTemp.normal;
+        // } else {
+        //   this.tColor = this.colorTemp.hot;
+        // }
         this.temperature = temp;
 
         weather = response.weather[0].main;
@@ -285,11 +278,12 @@ export default {
         wind = Math.trunc(response.wind.speed * 3.6);
         // const wind = 50;
         this.windSpeed = wind;
-        if (wind < 40) {
-          this.wColor = this.colorTemp.normal;
-        } else {
-          this.wColor = this.colorTemp.hot;
-        }
+
+        this.fanSpeed = {
+          animationDuration: wind / 42
+        };
+        // this.fanSpeed = { color: "red" };
+
         this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`;
 
         this.activites.forEach(element => {
@@ -333,9 +327,7 @@ export default {
         this.indiceQuality = aq;
       });
     // console.log("temp :" + temp, aq, wind);
-  },
-
-  methods: {}
+  }
 };
 </script>
 
@@ -377,8 +369,12 @@ body i {
   font-size: 1.5rem;
 }
 
-.fas:hover {
-  transform: rotate(360deg);
-  transition: transform 5s;
+@keyframes rotated {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
