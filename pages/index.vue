@@ -57,89 +57,92 @@
     <!-- </keep-alive> -->
     <!-- find transport -->
     <div>
-      <b-button pill variant="primary">Trouver un moyen de transport</b-button>
+      <b-button class="btn-dark-blue" pill variant="primary">Trouver un moyen de transport</b-button>
     </div>
 
     <!-- infos rtm -->
-    <div>Infos trafic RTM</div>
+    <div class="slideInUp">
+      <i class="fas fa-angle-up"></i>
+      <p>INFOS TRAFIC RTM</p>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "../plugins/axios";
+import axios from '../plugins/axios'
 export default {
   data() {
     return {
       // aQColor: "white",
-      wColor: "white",
+      wColor: 'white',
       temperature: 20,
       windSpeed: 10,
       indiceQuality: 10,
-      weatherIcon: "",
+      weatherIcon: '',
       weatherIcons: {
         Rain: {
           icon: '<i class="wi wi-day-rain"></i>',
-          comment: "Pluie",
+          comment: 'Pluie',
           clear: true
         },
 
         Clouds: {
           icon: '<i class="wi wi-day-cloudy"></i>',
-          comment: "Nuageux",
+          comment: 'Nuageux',
           clear: true
         },
 
         Clear: {
           icon: '<i class="wi wi-day-sunny"></i>',
-          comment: "Dégagé",
+          comment: 'Dégagé',
           clear: true
         },
 
         Snow: {
           icon: '<i class="wi wi-day-snow"></i>',
-          comment: "Neige",
+          comment: 'Neige',
           clear: false
         },
 
         Mist: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux",
+          comment: 'Brumeux',
           clear: false
         },
         Fog: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brouillard",
+          comment: 'Brouillard',
           clear: false
         },
 
         Drizzle: {
           icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille",
+          comment: 'Grisaille',
           clear: false
         },
         Smoke: {
           icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille",
+          comment: 'Grisaille',
           clear: false
         },
         Haze: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux",
+          comment: 'Brumeux',
           clear: false
         }
       },
-      windArrow: "",
-      tColor: "",
+      windArrow: '',
+      tColor: '',
 
       colorTemp: {
-        cold: "#7AE5ED",
-        hot: "#F9B34D",
-        normal: "#AAEC76"
+        cold: '#7AE5ED',
+        hot: '#F9B34D',
+        normal: '#AAEC76'
       },
       activitesProposees: [],
       activites: [
         {
-          name: "bowling",
+          name: 'bowling',
           icon: '<i class="fas fa-bowling-ball"></i>',
           conditions: {
             beau: false,
@@ -150,7 +153,7 @@ export default {
           }
         },
         {
-          name: "cinéma",
+          name: 'cinéma',
           icon: '<i class="fas fa-film"></i>',
           conditions: {
             beau: false,
@@ -161,7 +164,7 @@ export default {
           }
         },
         {
-          name: "football",
+          name: 'football',
           icon: '<i class="fas fa-futbol"></i>',
           conditions: {
             beau: true,
@@ -173,7 +176,7 @@ export default {
         },
 
         {
-          name: "sports nautique",
+          name: 'sports nautique',
           icon: '<i class="fas fa-ship"></i>',
           conditions: {
             beau: true,
@@ -184,7 +187,7 @@ export default {
           }
         },
         {
-          name: "randonée",
+          name: 'randonée',
           icon: '<i class="fas fa-hiking"></i>',
           conditions: {
             beau: true,
@@ -195,7 +198,7 @@ export default {
           }
         },
         {
-          name: "arcade",
+          name: 'arcade',
           icon: '<i class="fas fa-gamepad"></i>',
           conditions: {
             beau: false,
@@ -206,7 +209,7 @@ export default {
           }
         },
         {
-          name: "plage",
+          name: 'plage',
           icon: '<i class="fas fa-water"></i>',
           conditions: {
             beau: true,
@@ -217,7 +220,7 @@ export default {
           }
         },
         {
-          name: "basket",
+          name: 'basket',
           icon: '<i class="fas fa-basketball-ball"></i>',
           conditions: {
             beau: true,
@@ -228,7 +231,7 @@ export default {
           }
         },
         {
-          name: "sieste",
+          name: 'sieste',
           icon: '<i class="fas fa-bed"></i>',
           conditions: {
             beau: false,
@@ -240,81 +243,81 @@ export default {
         }
       ],
 
-      activeBackground: require("~/assets/images/lungs.svg")
-    };
+      activeBackground: require('~/assets/images/lungs.svg')
+    }
   },
 
   computed: {
     textAirQuality() {
       switch (Math.round(this.indiceQuality)) {
         case 0:
-          return "lorem0";
-          break;
+          return 'lorem0'
+          break
         case 1:
-          return "lorem1";
-          break;
+          return 'lorem1'
+          break
         case 2:
-          return "lorem2";
-          break;
+          return 'lorem2'
+          break
         case 3:
-          return "lorem3";
-          break;
+          return 'lorem3'
+          break
         case 4:
-          return "lorem4";
-          break;
+          return 'lorem4'
+          break
         case 5:
-          return "lorem5";
-          break;
+          return 'lorem5'
+          break
         case 6:
-          return "lorem6";
-          break;
+          return 'lorem6'
+          break
         case 7:
-          return "lorem7";
-          break;
+          return 'lorem7'
+          break
         case 8:
-          return "lorem8";
-          break;
+          return 'lorem8'
+          break
         case 9:
-          return "lorem9";
-          break;
+          return 'lorem9'
+          break
         case 10:
-          return "lorem10";
-          break;
+          return 'lorem10'
+          break
         default:
-          return "neant";
+          return 'neant'
       }
     }
   },
   created() {
-    let temp, wind, aq;
+    let temp, wind, aq
     this.$axios
-      .$get("http://marcelle-mobi-api.herokuapp.com/weathers/today")
+      .$get('http://marcelle-mobi-api.herokuapp.com/weathers/today')
       .then(response => {
-        let weather = "";
-        temp = Math.round(response.main.temp);
+        let weather = ''
+        temp = Math.round(response.main.temp)
         // const temp = 35;
         if (temp < 15) {
-          this.tColor = this.colorTemp.cold;
+          this.tColor = this.colorTemp.cold
         } else if (temp < 30) {
-          this.tColor = this.colorTemp.normal;
+          this.tColor = this.colorTemp.normal
         } else {
-          this.tColor = this.colorTemp.hot;
+          this.tColor = this.colorTemp.hot
         }
-        this.temperature = temp;
+        this.temperature = temp
 
-        weather = response.weather[0].main;
+        weather = response.weather[0].main
         // weather = weather.toLowerCase;
         // console.log("weather : " + weather);
-        this.weatherIcon = this.weatherIcons[weather].icon;
-        wind = Math.trunc(response.wind.speed * 3.6);
+        this.weatherIcon = this.weatherIcons[weather].icon
+        wind = Math.trunc(response.wind.speed * 3.6)
         // const wind = 50;
-        this.windSpeed = wind;
+        this.windSpeed = wind
         if (wind < 40) {
-          this.wColor = this.colorTemp.normal;
+          this.wColor = this.colorTemp.normal
         } else {
-          this.wColor = this.colorTemp.hot;
+          this.wColor = this.colorTemp.hot
         }
-        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`;
+        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`
 
         this.activites.forEach(element => {
           if (
@@ -327,40 +330,40 @@ export default {
             this.activitesProposees.push({
               nom: element.name.toUpperCase(),
               icon: element.icon
-            });
+            })
           }
-        });
+        })
         // console.log(this.activitesProposees);
-      });
+      })
     this.$axios
-      .$get("http://marcelle-mobi-api.herokuapp.com/airs/quality")
+      .$get('http://marcelle-mobi-api.herokuapp.com/airs/quality')
       .then(response => {
-        const aq = Math.round(10 - response.data.aqi / 10);
+        const aq = Math.round(10 - response.data.aqi / 10)
 
         // const aq = 0;
         if (aq > 7) {
           this.activeBackground = this.activeBackground.replace(
-            "lungs",
-            "lavande"
-          );
+            'lungs',
+            'lavande'
+          )
 
           // this.aQColor = this.colorTemp.normal;
         } else if (aq < 4) {
           // this.aQColo this.activeBackground = "require(this.bg.lungs)";r = this.colorTemp.hot;
 
           this.activeBackground = this.activeBackground.replace(
-            "lungs",
-            "scuba"
-          );
+            'lungs',
+            'scuba'
+          )
         }
 
-        this.indiceQuality = aq;
-      });
+        this.indiceQuality = aq
+      })
     // console.log("temp :" + temp, aq, wind);
   },
 
   methods: {}
-};
+}
 </script>
 
 <style>
@@ -379,9 +382,9 @@ body i {
   padding: 10px;
 }
 
-.btn {
+/* .btn {
   padding: 10px;
-}
+} */
 
 .dashboard-contener {
   min-height: 100vh;
@@ -404,5 +407,44 @@ body i {
 .fas:hover {
   transform: rotate(360deg);
   transition: transform 5s;
+}
+/* "Info Traffic RTM" Slide In Up*/
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(30);
+  }
+}
+@keyframes slideInUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.btn-dark-blue {
+  background-color: #0e5da4;
+  padding: 7px 70px !important;
+  border-radius: 50px !important;
+  color: white !important;
+  width: 300px;
 }
 </style>
