@@ -59,7 +59,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://TODO_API_ENDPOINT"
+    baseURL: "http://marcelle-mobi-api.herokuapp.com"
   },
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
@@ -72,6 +72,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 };

@@ -4,13 +4,12 @@
       <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
 
-        <template v-if="seeCars">
+        <template v-if="$store.state.map.seeCars">
           <l-marker
-            v-for="(car,i) in cars"
+            v-for="(car,i) in $store.state.map.cars"
             :key="i"
             :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
-            @click="setCurrentCar(car)"
-            :duration="5000"
+            @click="flyTo([car.gpsLatitude, car.gpsLongitude])"
             :icon="citizIcon"
           >
             <l-popup class="myPop">
@@ -33,38 +32,7 @@
         <v-locatecontrol />
       </v-map>
       <transition name="fade">
-        <div class="filterGo">
-          <div v-on:click="toggleFilter()" class="buttonGo">GO</div>
-          <div v-if="hideFilter" id="filter" class="container">
-            <div class="row justify-content-between">
-              <div class="col-4 borderBottom">
-                <h2 class="lettreTransport text-primary">B</h2>
-                <p class="textFilter">Bus</p>
-              </div>
-              <div class="col-4 borderCentral borderBottom">
-                <h2 class="lettreTransport text-primary">T</h2>
-                <p class="textFilter">Tram</p>
-              </div>
-              <div class="col-4 borderBottom">
-                <h2 class="lettreTransport text-primary">M</h2>
-                <p class="textFilter">Metro</p>
-              </div>
-
-              <div class="col-4">
-                <img src="~/assets/images/velo.svg" />
-                <p class="textFilter">Vélo</p>
-              </div>
-              <div v-on:click="toggleCar()" class="col-4 borderCentral">
-                <img src="~/assets/images/voiture.svg" />
-                <p class="textFilter">Totem</p>
-              </div>
-              <div class="col-4">
-                <img src="~/assets/images/trotinette.svg" />
-                <p class="textFilter">Trotinette</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MapFilter />
       </transition>
     </div>
   </div>
@@ -74,36 +42,26 @@
 import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
 import { latLng, Icon, icon, popup } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
+import MapFilter from '~/components/MapFilter.vue'
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol
+    'v-locatecontrol': Vue2LeafletLocatecontrol,
+    MapFilter
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
-      cars: [],
-      seeCars: true,
-      hideFilter: true
+      initialLocation: [43.295336, 5.373907]
     }
   },
-  mounted() {
-    this.$axios
-      .$get('http://marcelle-mobi-api.herokuapp.com/vehicules/car')
-      .then(response => (this.cars = response))
+  created() {
+    this.$store.dispatch('map/fetchCars')
   },
   methods: {
-    setCurrentCar(car) {
-      this.$refs.map.mapObject.flyTo([car.gpsLatitude, car.gpsLongitude], 18)
-    },
-    toggleCar: function() {
-      this.seeCars = !this.seeCars
-    },
-
-    toggleFilter: function() {
-      this.hideFilter = !this.hideFilter
+    flyTo(latLng) {
+      this.$refs.map.mapObject.flyTo(latLng, 18)
     }
   },
 
@@ -111,9 +69,9 @@ export default {
     citizIcon() {
       return icon({
         iconUrl: require('~/assets/images/citiz_marker.svg'),
-        iconSize: [30, 40], // size of the icon
-        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-        popupAnchor: [-3, -76] // point from which the po
+        iconSize: [30, 40] // size of the icon
+        // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
+        // popupAnchor: [-3, -76] // point from which the po
       })
     }
   }
@@ -219,6 +177,7 @@ export default {
   align-self: self-end;
   margin-right: 10px;
   margin-bottom: 10px;
+  right: 0;
 }
 
 .fade-enter-active,
