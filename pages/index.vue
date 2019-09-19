@@ -8,41 +8,45 @@
     <div>
       <p>
         <span v-html="weatherIcon"></span>
+        <span class="indice-quality">{{ temperature }}</span> °C
         <span :style="{color:tColor}">
           <i class="fas fa-circle"></i>
         </span>
-        <span class="indice-quality">{{ temperature }}</span> °C
       </p>
       <p>
         <span v-html="windArrow"></span>
         {{ windSpeed }}
-        <span class="text-lowercase" style="letter-spacing:2px">
-          km
-          <span>/</span> h
+        <span class="text-lowercase">
+          km/h
+          <span :style="{color:wColor}">
+            <i class="fas fa-circle"></i>
+          </span>
         </span>
       </p>
     </div>
     <!-- air quality -->
     <div>
+      <span class="indice-quality">{{ indiceQuality }}</span>/10
       <span :style="{color:aQColor}">
         <i class="fas fa-circle"></i>
       </span>
-      <span class="indice-quality">{{ indiceQuality }}</span>/10
       <div>{{textAirQuality}}</div>
     </div>
     <!-- what to do today -->
+    <!-- <keep-alive> -->
+    <p>à faire aujourd'hui :</p>
     <div>
-      <p>à faire aujourd'hui :</p>
-      <div class="activities">
+      <div class="activitiesProposees">
         <span v-for="(act, id)
-         in activites" :key="id" :style="act.color">
-          <span v-html="act.icon"></span>
+         in activitesProposees" :key="id">
+          <span v-html="act"></span>
         </span>
         <!-- <i class="fas fa-basketball-ball px-5"></i>
         <i class="fas fa-bicycle px-5"></i>-->
       </div>
       <p>Description de l'activité</p>
     </div>
+    <!-- </keep-alive> -->
     <!-- find transport -->
     <div>
       <b-button pill variant="primary">Trouver un moyen de transport</b-button>
@@ -59,54 +63,60 @@ export default {
   data() {
     return {
       aQColor: "white",
-      temperature: "",
-      windSpeed: 0,
-      indiceQuality: 0,
+      temperature: 50,
+      windSpeed: 10,
+      indiceQuality: 10,
       weatherIcon: "",
       weatherIcons: {
         Rain: {
           icon: '<i class="wi wi-day-rain"></i>',
           comment: "Pluie",
-          family: "clear"
+          clear: true
         },
 
         Clouds: {
           icon: '<i class="wi wi-day-cloudy"></i>',
           comment: "Nuageux",
-          family: "clear"
+          clear: true
         },
 
         Clear: {
           icon: '<i class="wi wi-day-sunny"></i>',
           comment: "Dégagé",
-          family: "clear"
+          clear: true
         },
 
         Snow: {
           icon: '<i class="wi wi-day-snow"></i>',
-          comment: "Neige"
+          comment: "Neige",
+          clear: false
         },
 
         Mist: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux"
+          comment: "Brumeux",
+          clear: false
         },
         Fog: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brouillard"
+          comment: "Brouillard",
+          clear: false
         },
 
         Drizzle: {
           icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille"
+          comment: "Grisaille",
+          clear: false
         },
         Smoke: {
           icon: '<i class="wi wi-day-sleet"></i>',
-          comment: "Grisaille"
+          comment: "Grisaille",
+          clear: false
         },
         Haze: {
           icon: '<i class="wi wi-day-fog"></i>',
-          comment: "Brumeux"
+          comment: "Brumeux",
+          clear: false
         }
       },
       windArrow: "",
@@ -117,6 +127,7 @@ export default {
         hot: "#F9B34D",
         normal: "#AAEC76"
       },
+      activitesProposees: [],
       activites: [
         {
           name: "bowling",
@@ -127,8 +138,7 @@ export default {
             maxTemp: 20,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "cinema",
@@ -139,20 +149,18 @@ export default {
             maxTemp: 20,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "foot",
-          icon: '<i class="far fa-futbol"></i>',
+          icon: '<i class="fas fa-futbol"></i>',
           conditions: {
             beau: true,
             minTemp: 10,
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
 
         {
@@ -164,8 +172,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "rando",
@@ -176,8 +183,7 @@ export default {
             maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "games",
@@ -185,47 +191,43 @@ export default {
           conditions: {
             beau: false,
             minTemp: -50,
-            maxTemp: 30,
+            maxTemp: 10,
             minWind: 0,
             maxWind: 100
-          },
-          color: ""
+          }
         },
         {
           name: "plage",
-          icon: '<i class="fas fa-umbrella-beach"></i>',
+          icon: '<i class="fas fa-water"></i>',
           conditions: {
             beau: true,
             minTemp: 20,
             maxTemp: 50,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "basket",
           icon: '<i class="fas fa-basketball-ball"></i>',
           conditions: {
             beau: true,
-            minTemp: 20,
-            maxTemp: 50,
+            minTemp: 10,
+            maxTemp: 30,
             minWind: 0,
             maxWind: 40
-          },
-          color: ""
+          }
         },
         {
           name: "sieste",
           icon: '<i class="fas fa-bed"></i>',
           conditions: {
             beau: false,
-            minTemp: -50,
-            maxTemp: 10,
-            minWind: 0,
+            minTemp: 30,
+            maxTemp: 100,
+            minWind: 50,
             maxWind: 100
-          },
-          color: ""
+          }
         }
       ]
     };
@@ -277,8 +279,8 @@ export default {
       .$get("http://marcelle-mobi-api.herokuapp.com/weathers/today")
       .then(response => {
         let weather = "";
-
         const temp = Math.round(response.main.temp);
+        // const temp = 35;
         if (temp < 15) {
           this.tColor = this.colorTemp.cold;
         } else if (temp < 30) {
@@ -292,9 +294,30 @@ export default {
         // weather = weather.toLowerCase;
         // console.log("weather : " + weather);
         this.weatherIcon = this.weatherIcons[weather].icon;
-        this.windSpeed = Math.trunc(response.wind.speed * 3.6);
+        const wind = Math.trunc(response.wind.speed * 3.6);
+        // const wind = 50;
+        this.windSpeed = wind;
+        if (wind < 40) {
+          this.wColor = this.colorTemp.normal;
+        } else {
+          this.wColor = this.colorTemp.hot;
+        }
         this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}); "></i>`;
         // console.log(this.windArrow);
+        // console.log(this.activitesProposees);{}
+        // verfifieTemp(temp);
+        this.activites.forEach(element => {
+          if (
+            element.conditions.minTemp < temp &&
+            element.conditions.maxTemp > temp &&
+            element.conditions.minWind < wind &&
+            element.conditions.maxWind > wind &&
+            element.conditions.beau === this.weatherIcons[weather].clear
+          ) {
+            this.activitesProposees.push(element.icon);
+          }
+        });
+        // console.log(this.activitesProposees);
       });
     this.$axios
       .$get("http://marcelle-mobi-api.herokuapp.com/airs/quality")
@@ -310,21 +333,8 @@ export default {
         this.indiceQuality = aq;
       });
   },
-  mounted() {
-    this.activites.forEach(e => {
-      if (
-        this.temperature < e.maxTemp &&
-        (this.temperature > e.minTemp && this.windSpeed > e.minWind) &&
-        this.windSpeed < e.maxWind
-      ) {
-        e.color = this.colorTemp.normal;
-      } else {
-        e.color = this.colorTemp.hot;
-      }
 
-      console.log(e.name, e.color);
-    });
-  }
+  methods: {}
 };
 </script>
 
