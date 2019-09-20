@@ -70,25 +70,15 @@
         </div>
       </b-button>
 
-      <b-modal id="bv-modal-example" hide-footer>
+      <b-modal id="bv-modal-example" scrollable class="mh-75" hide-footer>
         <template v-slot:modal-title>
           <p class="modal_header mx-3 mb-0">perturbations en cours</p>
         </template>
         <!-- Carousel de la Modal -->
-        <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
-          <v-carousel-item v-for="(slide, i) in slides" :key="i">
-            <v-sheet height="300px">
-              <v-row class="fill-height" align="center" justify="center">
-                <div class="display-3">
-                  <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
-                  <p class="modal_description">{{ textModalDescriptionRtm }}</p>
-                </div>
-              </v-row>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
-
-        <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button>
+        <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
+        <p class="modal_date">{{ dateModal }}</p>
+        <p class="modal_description">{{ textModalDescriptionRtm }}</p>
+        <!-- <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button> -->
       </b-modal>
     </div>
   </div>
@@ -96,6 +86,7 @@
 
 <script>
 import axios from '../plugins/axios'
+import Vuetify from 'vuetify/lib'
 export default {
   data() {
     return {
@@ -268,11 +259,11 @@ export default {
           }
         }
       ],
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
       // TEXT MODAL
       textTitleModalRtm: 'M2 - Saint Just',
-      textModalDescriptionRtm: 'HELLO cest vendredi',
-
+      textModalDescriptionRtm:
+        'Ipsum est plicationer. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. ',
+      dateModal: ' Du 18 au 22 septembre',
       activeBackground: require('~/assets/images/lungs.svg')
     }
   },
@@ -406,18 +397,11 @@ body {
   font-size: 1.1em;
   text-transform: uppercase;
 }
-.carousel p {
-  color: rgb(37, 169, 232);
-}
 
 body i {
   font-size: 2.2em;
   padding: 10px;
 }
-
-/* .btn {
-  padding: 10px;
-} */
 
 .dashboard-contener {
   min-height: 100vh;
@@ -449,8 +433,8 @@ body i {
   color: white !important;
   width: 300px;
 }
-
-/* "Info Traffic RTM" Slide In Up*/
+/* ------------------------------------------- */
+/* "INFOS TRAFFIC RTM" Slide In Up*/
 .slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
@@ -481,7 +465,7 @@ body i {
     transform: translateY(0);
   }
 }
-
+/* ------------------------------------------- */
 /* MODAL DESIGN  */
 .modal_header {
   color: rgb(37, 169, 232);
@@ -498,31 +482,34 @@ body i {
   font-size: 1rem;
   text-transform: lowercase;
 }
+
+.modal_date {
+  color: rgba(255, 0, 0, 0.5);
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+.modal_date::first-letter {
+  text-transform: uppercase;
+}
 .button_modal {
   border-radius: 20px;
   width: 200px;
   margin: 0 auto;
 }
-
-.carousel-indicators-numbers {
-  li {
-    text-indent: 0;
-    margin: 0 2px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 100%;
-    line-height: 30px;
-    color: #fff;
-    background-color: #999;
-    transition: all 0.25s ease;
-    &.active,
-    &:hover {
-      margin: 0 2px;
-      width: 30px;
-      height: 30px;
-      background-color: #337ab7;
-    }
-  }
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding-bottom: 30px;
 }
+
+.modal-dialog-scrollable {
+  display: flex;
+  max-height: 75%;
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+/* ------------------------------------------- */
 </style>
