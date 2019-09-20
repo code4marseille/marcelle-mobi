@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import Vuetify from 'vuetify/lib'
 export default {
   name: 'Sidebar',
   data() {
