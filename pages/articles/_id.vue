@@ -1,5 +1,5 @@
 <template>
-  <div class="article">
+  <div id="pageArticle">
     <header class="px-3 py-2">
       <i class="fas fa-bars"></i>
       <span class="small text-lowercase d-flex align-items-center">Mobilité</span>
@@ -20,7 +20,7 @@ export default {}
 </script>
 
 <style lang="scss">
-.article {
+#pageArticle {
   .fa-bars {
     font-size: 2em;
   }

@@ -9,6 +9,7 @@
         <v-list-item @click.stop="drawer = !drawer" class="items-container text-right">
           <v-icon class="text-white text-right">fas fa-times</v-icon>
         </v-list-item>
+
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
           <v-list-item-icon>
             <v-icon class="text-white px-3">{{ item.icon }}</v-icon>
