@@ -74,25 +74,20 @@
         <template v-slot:modal-title>
           <p class="modal_header mx-3 mb-0">perturbations en cours</p>
         </template>
+        <!-- Carousel de la Modal -->
+        <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+          <v-carousel-item v-for="(slide, i) in slides" :key="i">
+            <v-sheet height="300px">
+              <v-row class="fill-height" align="center" justify="center">
+                <div class="display-3">
+                  <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
+                  <p class="modal_description">{{ textModalDescriptionRtm }}</p>
+                </div>
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
 
-        <div class="carousel">
-          <b-carousel
-            id="carousel-1"
-            v-model="slide"
-            :interval="4000"
-            controls
-            indicators
-            background="white"
-            color="rgb(37, 169, 232);"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
-          >
-            <b-carousel-slide>
-              <h4 class="modal_title d-block text-center text-capitalize">{{textPlaceModal}}</h4>
-              <p class="modal_description text-lowercase">{{textDescriptionModal}}</p>
-            </b-carousel-slide>
-          </b-carousel>
-        </div>
         <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button>
       </b-modal>
     </div>
@@ -273,11 +268,11 @@ export default {
           }
         }
       ],
+      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
       // TEXT MODAL
-      textDescriptionModal: 'Lorem, ipsum dolor sit amet consectetur',
-      textPlaceModal: 'M2 - Saint Just',
-      slide: 0,
-      sliding: null,
+      textTitleModalRtm: 'M2 - Saint Just',
+      textModalDescriptionRtm: 'HELLO cest vendredi',
+
       activeBackground: require('~/assets/images/lungs.svg')
     }
   },
@@ -397,14 +392,7 @@ export default {
     // console.log("temp :" + temp, aq, wind);
   },
 
-  methods: {
-    onSlideStart(slide) {
-      this.sliding = true
-    },
-    onSlideEnd(slide) {
-      this.sliding = false
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -508,10 +496,33 @@ body i {
 .modal_description {
   color: rgba(0, 0, 0, 0.3);
   font-size: 1rem;
+  text-transform: lowercase;
 }
 .button_modal {
   border-radius: 20px;
   width: 200px;
   margin: 0 auto;
+}
+
+.carousel-indicators-numbers {
+  li {
+    text-indent: 0;
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 100%;
+    line-height: 30px;
+    color: #fff;
+    background-color: #999;
+    transition: all 0.25s ease;
+    &.active,
+    &:hover {
+      margin: 0 2px;
+      width: 30px;
+      height: 30px;
+      background-color: #337ab7;
+    }
+  }
 }
 </style>
