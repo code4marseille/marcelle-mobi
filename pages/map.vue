@@ -9,31 +9,15 @@
             v-for="(car,i) in $store.state.map.cars"
             :key="i"
             :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
-            @click="flyTo([car.gpsLatitude, car.gpsLongitude])"
+            @click="selectCar([car.gpsLatitude, car.gpsLongitude], car) "
             :icon="citizIcon"
-          >
-            <l-popup class="myPop">
-              <br />
-              <strong>Nom: {{car.name}}</strong>
-              <br />
-              <strong>plaque: {{car.licencePlate}}</strong>
-              <br />
-              <strong>Niveau carburant: {{car.fuelLevel}}%</strong>
-              <br />
-              <strong>Electrique: {{car.electricEngine}}</strong>
-              <br />
-              <strong>Categorie: {{car.category}}</strong>
-              <br />
-              <a href="#">Vers l'appli</a>
-            </l-popup>
-          </l-marker>
+          ></l-marker>
         </template>
 
         <v-locatecontrol />
       </v-map>
-      <transition name="fade">
-        <MapFilter />
-      </transition>
+
+      <MapFilter />
     </div>
   </div>
 </template>
@@ -43,13 +27,15 @@ import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
 import { latLng, Icon, icon, popup } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
 import MapFilter from '~/components/MapFilter.vue'
+import selectedVehicule from '~/components/selectedVehicule.vue'
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer': LTileLayer,
     'v-locatecontrol': Vue2LeafletLocatecontrol,
-    MapFilter
+    MapFilter,
+    selectedVehicule
   },
   data() {
     return {
@@ -60,8 +46,9 @@ export default {
     this.$store.dispatch('map/fetchCars')
   },
   methods: {
-    flyTo(latLng) {
+    selectCar(latLng, car) {
       this.$refs.map.mapObject.flyTo(latLng, 18)
+      this.$store.commit('map/SELECT_CAR', car)
     }
   },
 
@@ -69,7 +56,7 @@ export default {
     citizIcon() {
       return icon({
         iconUrl: require('~/assets/images/citiz_marker.svg'),
-        iconSize: [30, 40] // size of the icon
+        iconSize: [40, 50] // size of the icon
         // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
         // popupAnchor: [-3, -76] // point from which the po
       })
@@ -90,46 +77,14 @@ export default {
     position: relative;
   }
 
-  .filterGo {
-    position: absolute;
-    bottom: 0;
-    z-index: 999;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
   #map {
     width: 100wh;
     height: 100vh;
   }
 
-  #filter {
-    z-index: 999;
-    text-align: center;
-    background-color: aliceblue;
-    border-radius: 0.5rem;
-    width: 96%;
-    box-shadow: 5px 5px 5px gray;
-    margin-bottom: 5px;
-    transition: transform 0.2s linear;
-  }
-
   .myPop {
     width: auto;
     height: auto;
-  }
-
-  .leaflet-popup-tip-container {
-    display: none;
-    position: fixed;
-    bottom: 0;
-  }
-
-  .fas {
-    font-size: 2rem;
-    padding: 0.5rem;
-    color: rgb(97, 198, 245);
   }
 
   .textFilter {
@@ -139,55 +94,6 @@ export default {
 
   .leaflet-control-attribution {
     display: none;
-  }
-
-  .lettreTransport {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    border: 2px solid #0e5da4;
-    border-radius: 75%;
-    padding: 0.3rem;
-    margin-top: 0.5rem;
-    font-size: 1.3rem;
-  }
-
-  .borderCentral {
-    border-right: 1px solid rgba(182, 181, 181, 0.5);
-
-    border-left: 1px solid rgba(182, 181, 181, 0.5);
-  }
-
-  .borderBottom {
-    border-bottom: 1px solid rgba(182, 181, 181, 0.5);
-  }
-
-  .buttonGo {
-    width: 50px;
-    height: 50px;
-    background: #0e5da4;
-    box-shadow: 2px 2px 8px #aaa;
-    font: bold 1rem Arial;
-    border-radius: 50%;
-    border: 2px solid White;
-    color: white;
-    bottom: 18%;
-    right: 2%;
-    text-align: center;
-    padding: 15px 0px;
-    align-self: self-end;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    right: 0;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transform: translateY(200px);
-  }
-  .fade-enter,
-  .fade-leave-to {
-    transform: translateY(200px);
   }
 }
 </style>

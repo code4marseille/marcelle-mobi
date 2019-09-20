@@ -1,7 +1,7 @@
 <template>
   <div class="filterGo">
     <div @click="$store.commit('map/TOGGLE_FILTER')" class="buttonGo">GO</div>
-    <div v-if="$store.state.map.filterHidden" id="filter" class="container">
+    <div v-if="$store.state.map.filterVisible" id="filter" class="container">
       <div class="row justify-content-between">
         <div class="col-4 borderBottom">
           <h2 class="lettreTransport text-primary">B</h2>
@@ -30,12 +30,80 @@
         </div>
       </div>
     </div>
+    <selectedVehicule />
   </div>
 </template>
 
 <script>
-export default {}
+import selectedVehicule from '~/components/selectedVehicule.vue'
+
+export default {
+  components: {
+    selectedVehicule
+  }
+}
 </script>
 
 <style>
+#filter {
+  z-index: 999;
+  text-align: center;
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+  width: 96%;
+  box-shadow: 5px 5px 5px gray;
+  margin-bottom: 5px;
+  transition: transform 0.2s linear;
+  height: 60%;
+}
+
+.filterGo {
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.borderCentral {
+  border-right: 1px solid rgba(182, 181, 181, 0.5);
+
+  border-left: 1px solid rgba(182, 181, 181, 0.5);
+}
+
+.borderBottom {
+  border-bottom: 1px solid rgba(182, 181, 181, 0.5);
+}
+
+.buttonGo {
+  width: 50px;
+  height: 50px;
+  background: #0e5da4;
+  box-shadow: 2px 2px 8px #aaa;
+  font: bold 1rem Arial;
+  border-radius: 50%;
+  border: 2px solid White;
+  color: white;
+  bottom: 18%;
+  right: 2%;
+  text-align: center;
+  padding: 15px 0px;
+  align-self: self-end;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  right: 0;
+  z-index: 999;
+}
+
+.lettreTransport {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 2px solid #0e5da4;
+  border-radius: 75%;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}
 </style>
