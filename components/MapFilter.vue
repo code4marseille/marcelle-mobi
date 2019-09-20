@@ -16,7 +16,7 @@
           <p class="textFilter">Metro</p>
         </div>
 
-        <div class="col-4">
+        <div @click="$store.commit('map/TOGGLE_BIKES')" class="col-4">
           <img src="~/assets/images/velo.svg" />
           <p class="textFilter">Vélo</p>
         </div>

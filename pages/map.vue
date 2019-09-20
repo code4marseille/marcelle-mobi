@@ -7,26 +7,20 @@
         <template v-if="$store.state.map.seeCars">
           <l-marker
             v-for="(car,i) in $store.state.map.cars"
-            :key="i"
+            :key="'car'+i"
             :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
             @click="flyTo([car.gpsLatitude, car.gpsLongitude])"
             :icon="citizIcon"
-          >
-            <l-popup class="myPop">
-              <br />
-              <strong>Nom: {{car.name}}</strong>
-              <br />
-              <strong>plaque: {{car.licencePlate}}</strong>
-              <br />
-              <strong>Niveau carburant: {{car.fuelLevel}}%</strong>
-              <br />
-              <strong>Electrique: {{car.electricEngine}}</strong>
-              <br />
-              <strong>Categorie: {{car.category}}</strong>
-              <br />
-              <a href="#">Vers l'appli</a>
-            </l-popup>
-          </l-marker>
+          ></l-marker>
+        </template>
+        <template v-if="$store.state.map.seeBikes">
+          <l-marker
+            v-for="(bike,i) in $store.state.map.bikes"
+            :key="'bike'+i"
+            :lat-lng="[bike.position.lat,bike.position.lng]"
+            @click="flyTo([bike.position.lat,bike.position.lng])"
+            :icon="bikeIcon"
+          ></l-marker>
         </template>
 
         <v-locatecontrol />
@@ -57,7 +51,8 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCars')
+    this.$store.dispatch('map/fetchCars'),
+      this.$store.dispatch('map/fetchBikes')
   },
   methods: {
     flyTo(latLng) {
@@ -69,6 +64,14 @@ export default {
     citizIcon() {
       return icon({
         iconUrl: require('~/assets/images/citiz_marker.svg'),
+        iconSize: [30, 40] // size of the icon
+        // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
+        // popupAnchor: [-3, -76] // point from which the po
+      })
+    },
+    bikeIcon() {
+      return icon({
+        iconUrl: require('~/assets/images/iBike.svg'),
         iconSize: [30, 40] // size of the icon
         // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
         // popupAnchor: [-3, -76] // point from which the po
@@ -113,11 +116,6 @@ export default {
     box-shadow: 5px 5px 5px gray;
     margin-bottom: 5px;
     transition: transform 0.2s linear;
-  }
-
-  .myPop {
-    width: auto;
-    height: auto;
   }
 
   .leaflet-popup-tip-container {
