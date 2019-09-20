@@ -1,180 +1,194 @@
 <template>
-  <div>
+  <div id="mapPage">
     <div id="position">
       <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
 
-        <template v-if="seeCars">
+        <template v-if="$store.state.map.seeCars">
           <l-marker
-            v-for="(car,i) in cars"
+            v-for="(car,i) in $store.state.map.cars"
             :key="i"
             :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
-            @click="setCurrentCar(car)"
-            :duration="5000"
-          ></l-marker>
+            @click="flyTo([car.gpsLatitude, car.gpsLongitude])"
+            :icon="citizIcon"
+          >
+            <l-popup class="myPop">
+              <br />
+              <strong>Nom: {{car.name}}</strong>
+              <br />
+              <strong>plaque: {{car.licencePlate}}</strong>
+              <br />
+              <strong>Niveau carburant: {{car.fuelLevel}}%</strong>
+              <br />
+              <strong>Electrique: {{car.electricEngine}}</strong>
+              <br />
+              <strong>Categorie: {{car.category}}</strong>
+              <br />
+              <a href="#">Vers l'appli</a>
+            </l-popup>
+          </l-marker>
         </template>
 
         <v-locatecontrol />
       </v-map>
+      <transition name="fade">
+        <MapFilter />
+      </transition>
     </div>
-    <transition name="fade">
-      <div v-if="hideFilter" id="filter" class="container">
-        <div class="row justify-content-between">
-          <div class="col-4 borderBottom">
-            <h2 class="lettreTransport text-primary">B</h2>
-            <p class="textFilter">Bus</p>
-          </div>
-          <div class="col-4 borderCentral borderBottom">
-            <h2 class="lettreTransport text-primary">T</h2>
-            <p class="textFilter">Tram</p>
-          </div>
-          <div class="col-4 borderBottom">
-            <h2 class="lettreTransport text-primary">M</h2>
-            <p class="textFilter">Metro</p>
-          </div>
-
-          <div class="col-4">
-            <img src="~/assets/images/velo.svg" />
-            <p class="textFilter">Vélo</p>
-          </div>
-          <div v-on:click="toggleCar()" class="col-4 borderCentral">
-            <img src="~/assets/images/voiture.svg" />
-            <p class="textFilter">Totem</p>
-          </div>
-          <div class="col-4">
-            <img src="~/assets/images/trotinette.svg" />
-            <p class="textFilter">Trotinette</p>
-          </div>
-        </div>
-      </div>
-    </transition>
-    <div v-on:click="toggleFilter()" class="buttonGo">GO</div>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LControlZoom } from 'vue2-leaflet'
-import { latLng, Icon, icon } from 'leaflet'
+import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
+import { latLng, Icon, icon, popup } from 'leaflet'
 import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
+import MapFilter from '~/components/MapFilter.vue'
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol
+    'v-locatecontrol': Vue2LeafletLocatecontrol,
+    MapFilter
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
-      cars: [],
-      seeCars: true,
-      hideFilter: true
+      initialLocation: [43.295336, 5.373907]
     }
   },
-  mounted() {
-    this.$axios
-      .$get('http://marcelle-mobi-api.herokuapp.com/vehicules/car')
-      .then(response => (this.cars = response))
+  created() {
+    this.$store.dispatch('map/fetchCars')
   },
   methods: {
-    setCurrentCar(car) {
-      this.$refs.map.mapObject.flyTo([car.gpsLatitude, car.gpsLongitude], 18)
-    },
-    toggleCar: function() {
-      this.seeCars = !this.seeCars
-    },
+    flyTo(latLng) {
+      this.$refs.map.mapObject.flyTo(latLng, 18)
+    }
+  },
 
-    toggleFilter: function() {
-      this.hideFilter = !this.hideFilter
+  computed: {
+    citizIcon() {
+      return icon({
+        iconUrl: require('~/assets/images/citiz_marker.svg'),
+        iconSize: [30, 40] // size of the icon
+        // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
+        // popupAnchor: [-3, -76] // point from which the po
+      })
     }
   }
 }
 </script>
 
-<style>
-#map {
-  width: 100wh;
-  height: 100vh;
-}
+<style lang="scss">
+#mapPage {
+  .leaflet-left {
+    right: 0 !important;
+    padding-right: 10px;
+    left: unset;
+  }
 
-#position {
-  position: relative;
-}
-#filter {
-  position: absolute;
-  bottom: 2%;
-  left: 2%;
-  right: 2%;
-  z-index: 999;
-  text-align: center;
-  background-color: aliceblue;
-  border-radius: 0.5rem;
-  width: 96%;
-  box-shadow: 5px 5px 5px gray;
-  margin-bottom: 5px;
-  transition: transform 0.2s linear;
-}
+  #position {
+    position: relative;
+  }
 
-.fas {
-  font-size: 2rem;
-  padding: 0.5rem;
-  color: rgb(97, 198, 245);
-}
+  .filterGo {
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-.textFilter {
-  font-size: 0.5rem;
-  margin-bottom: 0;
-}
+  #map {
+    width: 100wh;
+    height: 100vh;
+  }
 
-.leaflet-control-attribution {
-  display: none;
-}
+  #filter {
+    z-index: 999;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    width: 96%;
+    box-shadow: 5px 5px 5px gray;
+    margin-bottom: 5px;
+    transition: transform 0.2s linear;
+  }
 
-.lettreTransport {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border: 2px solid #0e5da4;
-  border-radius: 75%;
-  padding: 0.3rem;
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-}
+  .myPop {
+    width: auto;
+    height: auto;
+  }
 
-.borderCentral {
-  border-right: 1px solid rgb(182, 181, 181, 0.5);
+  .leaflet-popup-tip-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+  }
 
-  border-left: 1px solid rgb(182, 181, 181, 0.5);
-}
+  .fas {
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: rgb(97, 198, 245);
+  }
 
-.borderBottom {
-  border-bottom: 1px solid rgb(182, 181, 181, 0.5);
-}
+  .textFilter {
+    font-size: 0.5rem;
+    margin-bottom: 0;
+  }
 
-.buttonGo {
-  position: absolute;
-  z-index: 999;
-  width: 50px;
-  height: 50px;
-  background: #0e5da4;
-  box-shadow: 2px 2px 8px #aaa;
-  font: bold 1rem Arial;
-  border-radius: 50%;
-  border: 2px solid White;
-  color: white;
-  bottom: 18%;
-  right: 2%;
-  text-align: center;
-  padding: 15px 0px;
-}
+  .leaflet-control-attribution {
+    display: none;
+  }
 
-.fade-enter-active,
-.fade-leave-active {
-  transform: translateY(200px);
-}
-.fade-enter,
-.fade-leave-to {
-  transform: translateY(200px);
+  .lettreTransport {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border: 2px solid #0e5da4;
+    border-radius: 75%;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .borderCentral {
+    border-right: 1px solid rgba(182, 181, 181, 0.5);
+
+    border-left: 1px solid rgba(182, 181, 181, 0.5);
+  }
+
+  .borderBottom {
+    border-bottom: 1px solid rgba(182, 181, 181, 0.5);
+  }
+
+  .buttonGo {
+    width: 50px;
+    height: 50px;
+    background: #0e5da4;
+    box-shadow: 2px 2px 8px #aaa;
+    font: bold 1rem Arial;
+    border-radius: 50%;
+    border: 2px solid White;
+    color: white;
+    bottom: 18%;
+    right: 2%;
+    text-align: center;
+    padding: 15px 0px;
+    align-self: self-end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    right: 0;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transform: translateY(200px);
+  }
+  .fade-enter,
+  .fade-leave-to {
+    transform: translateY(200px);
+  }
 }
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="overflow-hidden" style="position: fixe;">
+  <v-sheet id="sidebarComponent" class="overflow-hidden" style="position: fixe;">
     <v-btn @click.stop="drawer = !drawer" text white class="btn-fa-bars text-white">
       <i class="fas fa-bars"></i>
     </v-btn>
@@ -46,29 +46,26 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    consoleLog() {
-      console.log(this)
-    }
   }
 }
 </script>
 
-<style>
-.btn-fa-bars {
-  position: fixed;
-  z-index: 450; /* z-index max = 4xx */
-  margin: 15px 0 0 0;
-  left: 1vw;
-}
+<style lang="scss">
+#sidebarComponent {
+  .btn-fa-bars {
+    position: fixed;
+    z-index: 450; /* z-index max = 4xx */
+    margin: 15px 0 0 0;
+    left: 1vw;
+  }
 
-.items-container {
-  border-bottom: 0.5px solid white;
-  padding: 10px;
-}
-.sidebar {
-  background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
-  z-index: 470;
+  .items-container {
+    border-bottom: 0.5px solid white;
+    padding: 10px;
+  }
+  .sidebar {
+    background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
+    z-index: 470;
+  }
 }
 </style>
