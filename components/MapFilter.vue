@@ -24,7 +24,7 @@
           <img src="~/assets/images/voiture.svg" />
           <p class="textFilter">Totem</p>
         </div>
-        <div class="col-4">
+        <div @click="$store.commit('map/TOGGLE_TROTS')" class="col-4">
           <img src="~/assets/images/trotinette.svg" />
           <p class="textFilter">Trotinette</p>
         </div>

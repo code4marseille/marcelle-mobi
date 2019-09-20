@@ -22,6 +22,15 @@
             :icon="bikeIcon"
           ></l-marker>
         </template>
+        <template v-if="$store.state.map.seeTrots">
+          <l-marker
+            v-for="(trot,i) in $store.state.map.trots"
+            :key="'trot'+i"
+            :lat-lng="[trot.lat,trot.lng]"
+            @click="flyTo([trot.lat,trot.lng])"
+            :icon="limeIcon"
+          ></l-marker>
+        </template>
 
         <v-locatecontrol />
       </v-map>
@@ -52,6 +61,7 @@ export default {
   },
   created() {
     this.$store.dispatch('map/fetchCars'),
+      this.$store.dispatch('map/fetchTrots'),
       this.$store.dispatch('map/fetchBikes')
   },
   methods: {
@@ -64,6 +74,14 @@ export default {
     citizIcon() {
       return icon({
         iconUrl: require('~/assets/images/citiz_marker.svg'),
+        iconSize: [30, 40] // size of the icon
+        // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
+        // popupAnchor: [-3, -76] // point from which the po
+      })
+    },
+    limeIcon() {
+      return icon({
+        iconUrl: require('~/assets/images/lime.svg'),
         iconSize: [30, 40] // size of the icon
         // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
         // popupAnchor: [-3, -76] // point from which the po
