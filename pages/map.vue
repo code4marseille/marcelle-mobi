@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mapPage">
     <div id="position">
       <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
@@ -78,115 +78,117 @@ export default {
 }
 </script>
 
-<style>
-.leaflet-left {
-  right: 0 !important;
-  padding-right: 10px;
-  left: unset;
-}
+<style lang="scss">
+#mapPage {
+  .leaflet-left {
+    right: 0 !important;
+    padding-right: 10px;
+    left: unset;
+  }
 
-#position {
-  position: relative;
-}
+  #position {
+    position: relative;
+  }
 
-.filterGo {
-  position: absolute;
-  bottom: 0;
-  z-index: 999;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
+  .filterGo {
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-#map {
-  width: 100wh;
-  height: 100vh;
-}
+  #map {
+    width: 100wh;
+    height: 100vh;
+  }
 
-#filter {
-  z-index: 999;
-  text-align: center;
-  background-color: aliceblue;
-  border-radius: 0.5rem;
-  width: 96%;
-  box-shadow: 5px 5px 5px gray;
-  margin-bottom: 5px;
-  transition: transform 0.2s linear;
-}
+  #filter {
+    z-index: 999;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    width: 96%;
+    box-shadow: 5px 5px 5px gray;
+    margin-bottom: 5px;
+    transition: transform 0.2s linear;
+  }
 
-.myPop {
-  width: auto;
-  height: auto;
-}
+  .myPop {
+    width: auto;
+    height: auto;
+  }
 
-.leaflet-popup-tip-container {
-  display: none;
-  position: fixed;
-  bottom: 0;
-}
+  .leaflet-popup-tip-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+  }
 
-.fas {
-  font-size: 2rem;
-  padding: 0.5rem;
-  color: rgb(97, 198, 245);
-}
+  .fas {
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: rgb(97, 198, 245);
+  }
 
-.textFilter {
-  font-size: 0.5rem;
-  margin-bottom: 0;
-}
+  .textFilter {
+    font-size: 0.5rem;
+    margin-bottom: 0;
+  }
 
-.leaflet-control-attribution {
-  display: none;
-}
+  .leaflet-control-attribution {
+    display: none;
+  }
 
-.lettreTransport {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border: 2px solid #0e5da4;
-  border-radius: 75%;
-  padding: 0.3rem;
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-}
+  .lettreTransport {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border: 2px solid #0e5da4;
+    border-radius: 75%;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+  }
 
-.borderCentral {
-  border-right: 1px solid rgb(182, 181, 181, 0.5);
+  .borderCentral {
+    border-right: 1px solid rgba(182, 181, 181, 0.5);
 
-  border-left: 1px solid rgb(182, 181, 181, 0.5);
-}
+    border-left: 1px solid rgba(182, 181, 181, 0.5);
+  }
 
-.borderBottom {
-  border-bottom: 1px solid rgb(182, 181, 181, 0.5);
-}
+  .borderBottom {
+    border-bottom: 1px solid rgba(182, 181, 181, 0.5);
+  }
 
-.buttonGo {
-  width: 50px;
-  height: 50px;
-  background: #0e5da4;
-  box-shadow: 2px 2px 8px #aaa;
-  font: bold 1rem Arial;
-  border-radius: 50%;
-  border: 2px solid White;
-  color: white;
-  bottom: 18%;
-  right: 2%;
-  text-align: center;
-  padding: 15px 0px;
-  align-self: self-end;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  right: 0;
-}
+  .buttonGo {
+    width: 50px;
+    height: 50px;
+    background: #0e5da4;
+    box-shadow: 2px 2px 8px #aaa;
+    font: bold 1rem Arial;
+    border-radius: 50%;
+    border: 2px solid White;
+    color: white;
+    bottom: 18%;
+    right: 2%;
+    text-align: center;
+    padding: 15px 0px;
+    align-self: self-end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    right: 0;
+  }
 
-.fade-enter-active,
-.fade-leave-active {
-  transform: translateY(200px);
-}
-.fade-enter,
-.fade-leave-to {
-  transform: translateY(200px);
+  .fade-enter-active,
+  .fade-leave-active {
+    transform: translateY(200px);
+  }
+  .fade-enter,
+  .fade-leave-to {
+    transform: translateY(200px);
+  }
 }
 </style>
 
