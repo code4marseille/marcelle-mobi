@@ -70,7 +70,7 @@
         </div>
       </b-button>
 
-      <b-modal id="bv-modal-example" scrollable class="mh-75" hide-footer>
+      <b-modal id="bv-modal-example" scrollable class="modal" hide-footer>
         <template v-slot:modal-title>
           <p class="modal_header mx-3 mb-0">perturbations en cours</p>
         </template>
@@ -504,12 +504,29 @@ body i {
 
 .modal-dialog-scrollable {
   display: flex;
-  max-height: 75%;
+  max-height: 50%;
+  width: 100%;
+  padding-left: 0px;
+  margin-left: 0px;
+  position: fixed;
+}
+
+.modal-content {
+  border-radius: 15px 15px 0px 0px;
 }
 
 .modal-dialog-scrollable .modal-body {
   overflow-y: auto;
   margin-bottom: 20px;
 }
+
+.modal.fade .modal-dialog {
+  transform: translate3d(0, 50vh, 0);
+}
+
+.modal.in .modal-dialog {
+  transform: translate3d(0, 0, 0);
+}
+
 /* ------------------------------------------- */
 </style>
