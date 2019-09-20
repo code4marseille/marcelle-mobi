@@ -74,10 +74,17 @@
         <template v-slot:modal-title>
           <p class="modal_header mx-3 mb-0">perturbations en cours</p>
         </template>
+        <div v-for="alert in alertRtm">
+          <h4 class="modal_title">{{ alert[0] }}</h4>
+          <p class="modal_date">{{ alert[1] }}</p>
+          <p class="modal_description">{{ alert[2] }}</p>
+        </div>
+
         <!-- Carousel de la Modal -->
-        <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
+        <!-- <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
         <p class="modal_date">{{ dateModal }}</p>
-        <p class="modal_description">{{ textModalDescriptionRtm }}</p>
+        <p class="modal_description">{{ textModalDescriptionRtm }}</p>-->
+        -->
         <!-- <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button> -->
       </b-modal>
     </div>
@@ -264,7 +271,8 @@ export default {
       textModalDescriptionRtm:
         'Ipsum est plicationer. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. ',
       dateModal: ' Du 18 au 22 septembre',
-      activeBackground: require('~/assets/images/lungs.svg')
+      activeBackground: require('~/assets/images/lungs.svg'),
+      alertRtm: []
     }
   },
 
@@ -380,7 +388,13 @@ export default {
 
         this.indiceQuality = aq
       })
-    // console.log("temp :" + temp, aq, wind);
+
+    this.$axios
+      .$get('http://marcelle-mobi-api.herokuapp.com/alerts/rtm')
+      .then(response => {
+        // let tabInfo = []
+        response.forEach(e => this.alertRtm.push(e.title.split(':')))
+      })
   },
 
   methods: {}
