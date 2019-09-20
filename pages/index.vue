@@ -60,10 +60,41 @@
       <b-button class="btn-dark-blue" pill variant="primary">Trouver un moyen de transport</b-button>
     </div>
 
-    <!-- infos rtm -->
-    <div class="slideInUp">
-      <i class="fas fa-angle-up"></i>
-      <p>INFOS TRAFIC RTM</p>
+    <!-- INFOS RTM MODAL -->
+
+    <div>
+      <b-button id="show-btn" @click="$bvModal.show('bv-modal-example')">
+        <div class="slideInUp">
+          <img src="~/assets/images/up-arrow.svg" width="30px" alt />
+          <p class="mb-0">Infos Traffic RTM</p>
+        </div>
+      </b-button>
+
+      <b-modal id="bv-modal-example" hide-footer>
+        <template v-slot:modal-title>
+          <p class="modal_header mx-3 mb-0">perturbations en cours</p>
+        </template>
+
+        <div class="carousel">
+          <b-carousel
+            id="carousel-1"
+            v-model="slide"
+            :interval="4000"
+            controls
+            indicators
+            background="white"
+            color="rgb(37, 169, 232);"
+            @sliding-start="onSlideStart"
+            @sliding-end="onSlideEnd"
+          >
+            <b-carousel-slide>
+              <h4 class="modal_title d-block text-center text-capitalize">{{textPlaceModal}}</h4>
+              <p class="modal_description text-lowercase">{{textDescriptionModal}}</p>
+            </b-carousel-slide>
+          </b-carousel>
+        </div>
+        <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -242,7 +273,11 @@ export default {
           }
         }
       ],
-
+      // TEXT MODAL
+      textDescriptionModal: 'Lorem, ipsum dolor sit amet consectetur',
+      textPlaceModal: 'M2 - Saint Just',
+      slide: 0,
+      sliding: null,
       activeBackground: require('~/assets/images/lungs.svg')
     }
   },
@@ -362,7 +397,14 @@ export default {
     // console.log("temp :" + temp, aq, wind);
   },
 
-  methods: {}
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    }
+  }
 }
 </script>
 
@@ -375,6 +417,9 @@ body {
   text-align: center;
   font-size: 1.1em;
   text-transform: uppercase;
+}
+.carousel p {
+  color: rgb(37, 169, 232);
 }
 
 body i {
@@ -408,6 +453,15 @@ body i {
   transform: rotate(360deg);
   transition: transform 5s;
 }
+
+.btn-dark-blue {
+  background-color: #0e5da4;
+  padding: 7px 70px !important;
+  border-radius: 50px !important;
+  color: white !important;
+  width: 300px;
+}
+
 /* "Info Traffic RTM" Slide In Up*/
 .slideInUp {
   -webkit-animation-name: slideInUp;
@@ -440,11 +494,24 @@ body i {
   }
 }
 
-.btn-dark-blue {
-  background-color: #0e5da4;
-  padding: 7px 70px !important;
-  border-radius: 50px !important;
-  color: white !important;
-  width: 300px;
+/* MODAL DESIGN  */
+.modal_header {
+  color: rgb(37, 169, 232);
+  display: block !important;
+}
+.modal_title {
+  color: rgba(0, 0, 0, 0.7);
+}
+.modal_description::first-letter {
+  text-transform: uppercase;
+}
+.modal_description {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+}
+.button_modal {
+  border-radius: 20px;
+  width: 200px;
+  margin: 0 auto;
 }
 </style>
