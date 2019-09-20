@@ -56,4 +56,8 @@ html {
   height: 100vh;
   width: 100wh;
 }
+
+body {
+  background-color: rgb(37, 169, 232);
+}
 </style>
