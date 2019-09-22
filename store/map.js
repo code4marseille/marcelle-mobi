@@ -1,18 +1,21 @@
 import Vue from 'vue'
 
 export const state = () => ({
+  filterVisible: true,
   cars: [],
   bikes: [],
   trots: [],
   seeCars: true,
-  filterHidden: true,
   seeBikes: true,
-  seeTrots: true
+  seeTrots: true,
+  selectedVehicule: null,
 
 })
 
 export const getters = ({
-
+  carByIdx: state => (idx) => {
+    return state.cars[idx]
+  }
 })
 
 export const mutations = {
@@ -38,10 +41,17 @@ export const mutations = {
     state.seeBikes = !state.seeBikes
   },
   'TOGGLE_FILTER'(state) {
-    state.filterHidden = !state.filterHidden
+    state.filterVisible = !state.filterVisible
+    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
+  },
+  'SELECT_VEHICULE'(state, vehicule, provider) {
+    vehicule.provider = provider
+    state.selectedVehicule = vehicule
+    if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
-
 }
+
+
 
 export const actions = {
   async fetchCars({ commit }) {
@@ -53,7 +63,7 @@ export const actions = {
     commit('SET_BIKES', bikes)
   },
   async fetchTrots({ commit }) {
-    const trots = await this.$axios.$get('/vehicules/scooter?lat=43.3&lng=5.4')
+    const trots = await this.$axios.$get('/vehicules/scooter?lat=43.2941748&lng=5.3743276')
     commit('SET_TROTS', trots)
   }
 }
