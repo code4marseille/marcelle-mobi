@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secondary">
+  <div id="marius" class="bg-secondary">
     <div v-if="query">
       <div
         class="d-flex flex-column justify-content-center align-content-center vh-100"
@@ -73,80 +73,80 @@ export default {
     return {
       loading: true,
       formTo: false,
-      from: "",
-      to: "",
+      from: '',
+      to: '',
       meansBoolean: false,
 
       means: [
-        { logo: "trot.svg", text: "Trotinette", state: false },
-        { logo: "walk.svg", text: "Marche", state: false },
-        { logo: "rtm.svg.png", text: "Transport en commun", state: false },
-        { logo: "bike.svg", text: "Vélo", state: false },
-        { logo: "car.svg", text: "Voiture", state: false }
+        { logo: 'trot.svg', text: 'Trotinette', state: false },
+        { logo: 'walk.svg', text: 'Marche', state: false },
+        { logo: 'rtm.svg.png', text: 'Transport en commun', state: false },
+        { logo: 'bike.svg', text: 'Vélo', state: false },
+        { logo: 'car.svg', text: 'Voiture', state: false }
       ],
       meanSelected: -1,
       query: true
-    };
+    }
   },
   computed: {},
   methods: {
     deactive: function(id) {
       for (let i = 0; i < this.means.length; i++) {
         if (id != i) {
-          this.means[i].state = false;
+          this.means[i].state = false
           // console.log("toto");
         }
-        this.isSelected();
+        this.isSelected()
         // console.log(this.means.map(mean => mean.state));
       }
     },
 
     isSelected: function() {
       const activated = this.means.findIndex(function(e) {
-        return e.state === true;
-      });
-      this.meanSelected = activated;
+        return e.state === true
+      })
+      this.meanSelected = activated
     }
   },
   mounted() {
     setTimeout(() => {
-      this.loading = false;
-    }, 5000);
+      this.loading = false
+    }, 5000)
   }
-};
+}
 </script>
 
-<style >
-body {
+<style lang="scss">
+#marius {
   color: white;
   text-transform: uppercase;
   text-align: center;
   height: 100%;
-}
-.ask {
-  background-color: white;
-  color: var(--secondary);
-  padding: 0.5rem;
-  border-radius: 15px;
-}
-.askBlock {
-  width: 50%;
-  display: inline-block;
-  margin: 20px;
-}
+  .ask {
+    background-color: white;
+    color: var(--secondary);
+    padding: 0.5rem;
+    border-radius: 15px;
+  }
+  .askBlock {
+    width: 50%;
+    display: inline-block;
+    margin: 20px;
+  }
 
-.inputAsk {
-  background-color: var(--secondary);
-  color: white;
-  border-width: 0 0 1px 0;
-  border-color: white;
-  width: 100%;
-}
-button.active {
-  background-color: white !important;
-}
+  .inputAsk {
+    background-color: var(--secondary);
+    color: white;
+    border-width: 0 0 1px 0;
+    border-color: white;
+    width: 100%;
+  }
+  button.active {
+    background-color: white !important;
+  }
 
-.block {
-  margin: 5% 0 5% 0;
+  .block {
+    margin: 5% 0 5% 0;
+  }
 }
 </style>

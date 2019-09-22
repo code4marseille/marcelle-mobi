@@ -16,30 +16,30 @@
           <p class="textFilter">Metro</p>
         </div>
 
-        <div class="col-4">
+        <div @click="$store.commit('map/TOGGLE_BIKES')" class="col-4">
           <img src="~/assets/images/velo.svg" />
           <p class="textFilter">Vélo</p>
         </div>
         <div @click="$store.commit('map/TOGGLE_CARS')" class="col-4 borderCentral">
           <img src="~/assets/images/voiture.svg" />
-          <p class="textFilter">Totem</p>
+          <p class="textFilter">Voiture</p>
         </div>
-        <div class="col-4">
+        <div @click="$store.commit('map/TOGGLE_TROTS')" class="col-4">
           <img src="~/assets/images/trotinette.svg" />
           <p class="textFilter">Trotinette</p>
         </div>
       </div>
     </div>
-    <selectedVehicule />
+    <SelectedVehicule />
   </div>
 </template>
 
 <script>
-import selectedVehicule from '~/components/selectedVehicule.vue'
+import SelectedVehicule from '~/components/SelectedVehicule.vue'
 
 export default {
   components: {
-    selectedVehicule
+    SelectedVehicule
   }
 }
 </script>

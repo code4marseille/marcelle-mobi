@@ -1,21 +1,35 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
-        <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+      <l-map id="map" :zoom="15" :center="initialLocation" ref="map">
+        <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
 
-        <template v-if="$store.state.map.seeCars">
-          <l-marker
-            v-for="(car,i) in $store.state.map.cars"
-            :key="i"
-            :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
-            @click="selectCar([car.gpsLatitude, car.gpsLongitude], car) "
-            :icon="citizIcon"
-          ></l-marker>
-        </template>
+        <CarMarker
+          v-for="(car,i) in $store.state.map.cars"
+          :key="'car'+i"
+          :car="car"
+          :select="selectVehicule"
+          provider="citiz"
+        />
 
-        <v-locatecontrol />
-      </v-map>
+        <BikeMarker
+          v-for="(bike,i) in $store.state.map.bikes"
+          :key="'bike'+i"
+          :bike="bike"
+          :select="selectVehicule"
+          provider="leVelo"
+        />
+
+        <TrotMarker
+          v-for="(trot,i) in $store.state.map.trots"
+          :key="'trot'+i"
+          :trot="trot"
+          :select="selectVehicule"
+          :provider="trot.typename"
+        />
+
+        <Locatecontrol />
+      </l-map>
 
       <MapFilter />
     </div>
@@ -24,18 +38,21 @@
 
 <script>
 import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
-import { latLng, Icon, icon, popup } from 'leaflet'
-import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
+import Locatecontrol from 'vue2-leaflet-locatecontrol'
 import MapFilter from '~/components/MapFilter.vue'
-import selectedVehicule from '~/components/selectedVehicule.vue'
+import CarMarker from '~/components/CarMarker.vue'
+import BikeMarker from '~/components/BikeMarker.vue'
+import TrotMarker from '~/components/TrotMarker.vue'
 
 export default {
   components: {
-    'v-map': LMap,
-    'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol,
+    Locatecontrol,
+    LMap,
+    LTileLayer,
     MapFilter,
-    selectedVehicule
+    CarMarker,
+    BikeMarker,
+    TrotMarker
   },
   data() {
     return {
@@ -44,22 +61,16 @@ export default {
   },
   created() {
     this.$store.dispatch('map/fetchCars')
+    this.$store.dispatch('map/fetchTrots')
+    this.$store.dispatch('map/fetchBikes')
   },
   methods: {
-    selectCar(latLng, car) {
-      this.$refs.map.mapObject.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_CAR', car)
-    }
-  },
-
-  computed: {
-    citizIcon() {
-      return icon({
-        iconUrl: require('~/assets/images/citiz_marker.svg'),
-        iconSize: [40, 50] // size of the icon
-        // iconAnchor: [0, 15] // point of the icon which will correspond to marker's location
-        // popupAnchor: [-3, -76] // point from which the po
-      })
+    flyTo(latLng, zoom) {
+      this.$refs.map.mapObject.flyTo(latLng, zoom)
+    },
+    selectVehicule(latLng, car, provider) {
+      this.flyTo(latLng, 18)
+      this.$store.commit('map/SELECT_VEHICULE', car, provider)
     }
   }
 }
@@ -80,11 +91,6 @@ export default {
   #map {
     width: 100wh;
     height: 100vh;
-  }
-
-  .myPop {
-    width: auto;
-    height: auto;
   }
 
   .textFilter {

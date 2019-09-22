@@ -1,5 +1,5 @@
 <template>
-  <div id="bandeau_details" v-if="$store.state.map.selectedCar !== null">
+  <div id="bandeau_details" v-if="$store.state.map.selectedVehicule !== null">
     <div class="container-fluid">
       <div class="row">
         <div class="col-3">
@@ -8,8 +8,8 @@
           </div>
         </div>
         <div class="col-4 descriptionVehicule">
-          Modele: {{$store.state.map.selectedCar.name}}
-          Immatriculation: {{$store.state.map.selectedCar.licencePlate}}
+          Modele: {{$store.state.map.selectedVehicule.name}}
+          Immatriculation: {{$store.state.map.selectedVehicule.licencePlate}}
         </div>
         <div class="col-5 align-self-center">
           <a href="#">

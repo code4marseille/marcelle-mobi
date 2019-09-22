@@ -1,10 +1,15 @@
 import Vue from 'vue'
 
 export const state = () => ({
-  cars: [],
-  seeCars: true,
   filterVisible: true,
-  selectedCar: null
+  cars: [],
+  bikes: [],
+  trots: [],
+  seeCars: true,
+  seeBikes: true,
+  seeTrots: true,
+  selectedVehicule: null,
+
 })
 
 export const getters = ({
@@ -20,20 +25,30 @@ export const mutations = {
   'SET_CARS'(state, cars) {
     state.cars = cars
   },
+  'SET_TROTS'(state, trots) {
+    state.trots = trots
+  },
+  'SET_BIKES'(state, bikes) {
+    state.bikes = bikes
+  },
   'TOGGLE_CARS'(state) {
     state.seeCars = !state.seeCars
   },
-  'TOGGLE_FILTER'(state) {
-
-    state.filterVisible = !state.filterVisible
-    if (state.selectedCar && state.filterVisible) state.selectedCar = null
-
+  'TOGGLE_TROTS'(state) {
+    state.seeTrots = !state.seeTrots
   },
-  'SELECT_CAR'(state, car) {
-    state.selectedCar = car
-    if (state.selectedCar && state.filterVisible) { state.filterVisible = false }
+  'TOGGLE_BIKES'(state) {
+    state.seeBikes = !state.seeBikes
+  },
+  'TOGGLE_FILTER'(state) {
+    state.filterVisible = !state.filterVisible
+    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
+  },
+  'SELECT_VEHICULE'(state, vehicule, provider) {
+    vehicule.provider = provider
+    state.selectedVehicule = vehicule
+    if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
-
 }
 
 
@@ -42,8 +57,14 @@ export const actions = {
   async fetchCars({ commit }) {
     const cars = await this.$axios.$get('/vehicules/car')
     commit('SET_CARS', cars)
+  },
+  async fetchBikes({ commit }) {
+    const bikes = await this.$axios.$get('/vehicules/bike')
+    commit('SET_BIKES', bikes)
+  },
+  async fetchTrots({ commit }) {
+    const trots = await this.$axios.$get('/vehicules/scooter?lat=43.2941748&lng=5.3743276')
+    commit('SET_TROTS', trots)
   }
-
-
 }
 

@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <i class="fas fa-bars"></i>
-      <h2 class="text-uppercase flex-grow-1">Votre article</h2>
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Votre article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->
@@ -108,53 +107,55 @@ export default {
 }
 </script>
 
-<style>
-.fa-bars {
-  font-size: 2em;
-}
-header {
-  color: white;
-  background-color: rgb(37, 169, 232);
-  display: flex;
-}
-.contener-categories div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
-}
+<style lang="scss">
+#createArticlePage {
+  .fa-bars {
+    font-size: 2em;
+  }
+  header {
+    color: white;
+    background-color: rgb(37, 169, 232);
+    display: flex;
+  }
+  .contener-categories div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 
-.contener-categories div .btn-caption {
-  border-radius: 15px !important;
-}
+  .contener-categories div .btn-caption {
+    border-radius: 15px !important;
+  }
 
-header {
-  color: white;
-  background-color: rgb(37, 169, 232);
-}
+  header {
+    color: white;
+    background-color: rgb(37, 169, 232);
+  }
 
-.form-contener {
-  padding: 0 7vw;
-}
+  .form-contener {
+    padding: 0 7vw;
+  }
 
-label {
-  text-transform: uppercase;
-  color: white;
-  margin-bottom: 10px;
-}
+  label {
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+  }
 
-button.active {
-  background-color: white !important;
-  color: rgb(37, 169, 232) !important;
-  opacity: 1;
-}
+  button.active {
+    background-color: white !important;
+    color: rgb(37, 169, 232) !important;
+    opacity: 1;
+  }
 
-.btn-caption {
-  background-color: rgba(255, 255, 255, 0.2);
-  opacity: 0.5;
-}
+  .btn-caption {
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.5;
+  }
 
-.btn-dark-blue[type='submit'] {
-  margin: 15vh auto;
-  display: flex;
+  .btn-dark-blue[type='submit'] {
+    margin: 15vh auto;
+    display: flex;
+  }
 }
 </style>
