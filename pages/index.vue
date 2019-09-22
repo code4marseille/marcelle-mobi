@@ -74,9 +74,9 @@
         <template v-slot:modal-title>
           <p class="modal_header mx-3 mb-0">perturbations en cours</p>
         </template>
-        <div v-for="alert in alertRtm">
+        <div v-for="alert in alertRtm" class="content-alert-rtm mt-4 border-bottom">
           <h4 class="modal_title">{{ alert[0] }}</h4>
-          <p class="modal_date">{{ alert[1] }}</p>
+          <p class="modal_date text-uppercase">{{ alert[1] }}</p>
           <p class="modal_description">{{ alert[2] }}</p>
         </div>
 
@@ -266,11 +266,6 @@ export default {
           }
         }
       ],
-      // TEXT MODAL
-      textTitleModalRtm: 'M2 - Saint Just',
-      textModalDescriptionRtm:
-        'Ipsum est plicationer. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. ',
-      dateModal: ' Du 18 au 22 septembre',
       activeBackground: require('~/assets/images/lungs.svg'),
       alertRtm: []
     }
@@ -393,7 +388,9 @@ export default {
       .$get('http://marcelle-mobi-api.herokuapp.com/alerts/rtm')
       .then(response => {
         // let tabInfo = []
-        response.forEach(e => this.alertRtm.push(e.title.split(':')))
+        response.forEach(e =>
+          this.alertRtm.push(e.title.replace('-', '').split(':'))
+        )
       })
   },
 
