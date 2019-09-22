@@ -60,9 +60,9 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCars'),
-      this.$store.dispatch('map/fetchTrots'),
-      this.$store.dispatch('map/fetchBikes')
+    this.$store.dispatch('map/fetchCars')
+    this.$store.dispatch('map/fetchTrots')
+    this.$store.dispatch('map/fetchBikes')
   },
   methods: {
     flyTo(latLng) {
