@@ -1,8 +1,7 @@
 <template>
   <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <i class="fas fa-bars"></i>
-      <h2 class="text-uppercase flex-grow-1">Votre article</h2>
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Votre article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->

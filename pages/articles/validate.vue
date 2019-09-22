@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex flex-column justify-content-between h-100">
     <header class="px-3 py-4 d-flex">
-      <i class="fas fa-bars"></i>
       <h2 class="text-uppercase flex-grow-1">Validation</h2>
     </header>
     <div class="text-uppercase w-75 mx-auto">

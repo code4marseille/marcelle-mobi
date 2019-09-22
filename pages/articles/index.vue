@@ -61,43 +61,42 @@ export default {
 }
 </script>
 
-<style>
-body {
-  font-size: 1.1em;
-}
-
+<style lang="scss">
 .contener-blog {
   padding: 2vh 5vw;
-}
 
-button.btn.btn-categorie.btn-secondary.collapsed,
-button.btn.btn-categorie.btn-secondary {
-  font-weight: bolder;
-  background-color: white;
-  color: rgba(37, 169, 232);
-  border-radius: 1rem !important;
-}
+  body {
+    font-size: 1.1em;
+  }
+  button.btn.btn-categorie.btn-secondary.collapsed,
+  button.btn.btn-categorie.btn-secondary {
+    font-weight: bolder;
+    background-color: white;
+    color: rgba(37, 169, 232);
+    border-radius: 1rem !important;
+  }
 
-.item-collapse {
-  margin: 0;
-  background-color: white;
-  color: rgba(37, 169, 232);
-}
+  .item-collapse {
+    margin: 0;
+    background-color: white;
+    color: rgba(37, 169, 232);
+  }
 
-.btn-block + .btn-block {
-  margin-top: 0;
-}
+  .btn-block + .btn-block {
+    margin-top: 0;
+  }
 
-.card-text-cat {
-  color: rgba(37, 169, 232);
-}
+  .card-text-cat {
+    color: rgba(37, 169, 232);
+  }
 
-.rounded {
-  border-radius: 1rem !important;
-}
+  .rounded {
+    border-radius: 1rem !important;
+  }
 
-.card-img {
-  width: 100%;
-  border-radius: calc(1rem - 1px);
+  .card-img {
+    width: 100%;
+    border-radius: calc(1rem - 1px);
+  }
 }
 </style>
