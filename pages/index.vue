@@ -413,7 +413,7 @@ body i {
   font-size: 2.2em;
   padding: 10px;
 }
-
+/* ------------------------------------------- */
 .dashboard-contener {
   min-height: 100vh;
   padding: 2vh;
@@ -524,6 +524,7 @@ body i {
 
 .modal-content {
   border-radius: 15px 15px 0px 0px;
+  /* . */
 }
 
 .modal-dialog-scrollable .modal-body {
