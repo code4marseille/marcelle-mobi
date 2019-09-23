@@ -2,10 +2,8 @@
   <div class="filterGo">
     <div
       @click="$store.commit('map/TOGGLE_FILTER')"
-      v-if="$store.state.map.filterVisible"
       class="buttonGo"
-    >X</div>
-    <div @click="!$store.commit('map/TOGGLE_FILTER')" v-else class="buttonGo">Go</div>
+    >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
     <div v-if="$store.state.map.filterVisible" id="filter" class="container">
       <div class="row justify-content-between">
         <div class="col-4 borderBottom">
