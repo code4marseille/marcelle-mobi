@@ -1,6 +1,9 @@
 <template>
   <div class="filterGo">
-    <div @click="$store.commit('map/TOGGLE_FILTER')" class="buttonGo">GO</div>
+    <div
+      @click="$store.commit('map/TOGGLE_FILTER')"
+      class="buttonGo"
+    >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
     <div v-if="$store.state.map.filterVisible" id="filter" class="container">
       <div class="row justify-content-between">
         <div class="col-4 borderBottom">
@@ -16,15 +19,28 @@
           <p class="textFilter">Metro</p>
         </div>
 
-        <div @click="$store.commit('map/TOGGLE_BIKES')" class="col-4">
+        <div
+          @click="$store.commit('map/TOGGLE_BIKES')"
+          class="col-4"
+          :class="{active: $store.state.map.seeBikes}"
+        >
           <img src="~/assets/images/velo.svg" />
           <p class="textFilter">Vélo</p>
         </div>
-        <div @click="$store.commit('map/TOGGLE_CARS')" class="col-4 borderCentral">
+        <div
+          @click="$store.commit('map/TOGGLE_CARS')"
+          class="col-4 borderCentral"
+          :class="{active: $store.state.map.seeCars}"
+        >
           <img src="~/assets/images/voiture.svg" />
           <p class="textFilter">Voiture</p>
         </div>
-        <div @click="$store.commit('map/TOGGLE_TROTS')" class="col-4">
+
+        <div
+          @click="$store.commit('map/TOGGLE_TROTS')"
+          class="col-4"
+          :class="{active: $store.state.map.seeTrots}"
+        >
           <img src="~/assets/images/trotinette.svg" />
           <p class="textFilter">Trotinette</p>
         </div>
@@ -45,6 +61,10 @@ export default {
 </script>
 
 <style>
+.active {
+  background-color: rgba(187, 231, 255, 0.38);
+}
+
 #filter {
   z-index: 999;
   text-align: center;
@@ -55,6 +75,7 @@ export default {
   margin-bottom: 5px;
   transition: transform 0.2s linear;
   height: 60%;
+  padding: 0;
 }
 
 .filterGo {
