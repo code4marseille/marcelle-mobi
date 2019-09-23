@@ -63,30 +63,32 @@
     <!-- INFOS RTM MODAL -->
 
     <div>
-      <b-button id="show-btn" @click="$bvModal.show('bv-modal-example')">
+      <b-button id="show-btn" @click="show = !show">
         <div class="slideInUp">
           <img src="~/assets/images/up-arrow.svg" width="30px" alt />
           <p class="mb-0">Infos Traffic RTM</p>
         </div>
       </b-button>
-
-      <b-modal id="bv-modal-example" scrollable class="modal" hide-footer>
-        <template v-slot:modal-title>
-          <p class="modal_header mx-3 mb-0">perturbations en cours</p>
-        </template>
-        <div v-for="alert in alertRtm" class="content-alert-rtm mt-4 border-bottom">
-          <h4 class="modal_title">{{ alert[0] }}</h4>
-          <p class="modal_date text-uppercase">{{ alert[1] }}</p>
-          <p class="modal_description">{{ alert[2] }}</p>
-        </div>
-
-        <!-- Carousel de la Modal -->
-        <!-- <h4 class="modal_title">Lignes: {{ textTitleModalRtm }}</h4>
-        <p class="modal_date">{{ dateModal }}</p>
-        <p class="modal_description">{{ textModalDescriptionRtm }}</p>-->
-        -->
-        <!-- <b-button class="mt-3 button_modal" block @click="$bvModal.hide('bv-modal-example')">Close</b-button> -->
-      </b-modal>
+      <transition name="slide-fade" :duration="5000">
+        <b-modal
+          id="bv-modal-example"
+          scrollable
+          size="xl"
+          dialog-class="fixed-bottom"
+          hide-footer
+          v-model="show"
+          no-fade
+        >
+          <template v-slot:modal-title>
+            <p class="modal_header mx-3 mb-0">perturbations en cours</p>
+          </template>
+          <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 border-bottom">
+            <h4 class="modal_title text-uppercase font-weight-bold">{{ alert[1] }}</h4>
+            <p class="modal_date">{{ alert[0] }}</p>
+            <p class="modal_description">{{ alert[2] }}</p>
+          </div>
+        </b-modal>
+      </transition>
     </div>
   </div>
 </template>
@@ -97,6 +99,8 @@ import Vuetify from 'vuetify/lib'
 export default {
   data() {
     return {
+      show: false,
+      // ---------------
       // aQColor: "white",
       wColor: 'white',
       temperature: 20,
@@ -401,8 +405,6 @@ export default {
 <style>
 body {
   background-color: rgb(37, 169, 232);
-  /* background-color: black; */
-
   color: white;
   text-align: center;
   font-size: 1.1em;
@@ -431,18 +433,20 @@ body i {
 .fa-arrow-up {
   font-size: 1.5rem;
 }
-
-.fas:hover {
-  transform: rotate(360deg);
-  transition: transform 5s;
-}
-
+/* ------------------------------------------- */
+/* Buttons Dashboard */
 .btn-dark-blue {
   background-color: #0e5da4;
-  padding: 7px 70px !important;
+  padding: 5px 30px !important;
   border-radius: 50px !important;
   color: white !important;
-  width: 300px;
+  width: 330px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
 }
 /* ------------------------------------------- */
 /* "INFOS TRAFFIC RTM" Slide In Up*/
@@ -477,68 +481,43 @@ body i {
   }
 }
 /* ------------------------------------------- */
-/* MODAL DESIGN  */
+/* FONT MODAL DESIGN  */
 .modal_header {
   color: rgb(37, 169, 232);
-  display: block !important;
 }
+
 .modal_title {
   color: rgba(0, 0, 0, 0.7);
 }
+
 .modal_description::first-letter {
   text-transform: uppercase;
 }
+
 .modal_description {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   text-transform: lowercase;
 }
 
 .modal_date {
-  color: rgba(255, 0, 0, 0.5);
+  color: #0e5da4;
   font-size: 1rem;
   text-transform: lowercase;
 }
 .modal_date::first-letter {
   text-transform: uppercase;
 }
-.button_modal {
-  border-radius: 20px;
-  width: 200px;
-  margin: 0 auto;
-}
-.modal-body {
-  position: relative;
-  flex: 1 1 auto;
-  padding-bottom: 30px;
+/* MODAL DESIGN  */
+.modal-dialog-scrollable {
+  max-height: 70%;
 }
 
-.modal-dialog-scrollable {
-  display: flex;
-  max-height: 50%;
-  width: 100%;
-  padding-left: 0px;
-  margin-left: 0px;
-  position: fixed;
+.modal-dialog {
+  margin: 0 auto !important;
 }
 
 .modal-content {
   border-radius: 15px 15px 0px 0px;
-  /* . */
 }
-
-.modal-dialog-scrollable .modal-body {
-  overflow-y: auto;
-  margin-bottom: 20px;
-}
-
-.modal.fade .modal-dialog {
-  transform: translate3d(0, 50vh, 0);
-}
-
-.modal.in .modal-dialog {
-  transform: translate3d(0, 0, 0);
-}
-
-/* ------------------------------------------- */
 </style>
