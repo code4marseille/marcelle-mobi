@@ -42,7 +42,9 @@ export const mutations = {
   },
   'TOGGLE_FILTER'(state) {
     state.filterVisible = !state.filterVisible
-    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
+    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null;
+
+
   },
   'SELECT_VEHICULE'(state, vehicule, provider) {
     vehicule.provider = provider
