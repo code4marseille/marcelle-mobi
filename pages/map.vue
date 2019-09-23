@@ -68,9 +68,9 @@ export default {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    selectVehicule(latLng, car, provider) {
+    selectVehicule(latLng, vehicule, provider) {
       this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', car, provider)
+      this.$store.commit('map/SELECT_VEHICULE', { vehicule, provider })
     }
   }
 }

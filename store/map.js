@@ -46,7 +46,7 @@ export const mutations = {
 
 
   },
-  'SELECT_VEHICULE'(state, vehicule, provider) {
+  'SELECT_VEHICULE'(state, { vehicule, provider }) {
     vehicule.provider = provider
     state.selectedVehicule = vehicule
     if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }

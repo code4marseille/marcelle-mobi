@@ -56,7 +56,8 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     // leaflet map
-    "nuxt-leaflet"
+    "nuxt-leaflet",
+    "@nuxtjs/device"
   ],
   /*
    ** Axios module configuration

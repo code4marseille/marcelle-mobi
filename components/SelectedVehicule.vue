@@ -8,12 +8,21 @@
           </div>
         </div>
         <div class="col-4 descriptionVehicule">
-          Modele: {{$store.state.map.selectedVehicule.name}}
-          Immatriculation: {{$store.state.map.selectedVehicule.licencePlate}}
+          {{vehiculeInfo('line1')}}
+          {{vehiculeInfo('line2')}}
+          {{vehiculeInfo('line3')}}
         </div>
         <div class="col-5 align-self-center">
           <a href="#">
-            <button type="button" class="btn buttonGoApp">Vers l'appli</button>
+            <div v-if="$device.isIos">
+              <button type="button" class="btn buttonGoApp">Vers l'appli Ios</button>
+            </div>
+            <div v-else-if="$device.isMobileOrTablet">
+              <button type="button" class="btn buttonGoApp">Vers l'appli android</button>
+            </div>
+            <div v-else>
+              <button type="button" class="btn buttonGoApp">Vers le site web</button>
+            </div>
           </a>
         </div>
       </div>
@@ -22,7 +31,32 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    vehiculeInfo(key) {
+      function providers(v) {
+        return {
+          citiz: {
+            line1: v.name,
+            line2: v.licencePlate,
+            line3: v.fuelLevel
+          },
+          leVelo: {
+            line1: v.address,
+            line2: `Velo dispo ${v.availableBikes}  - Place dispo : ${v.availableBikeStands}`,
+            line3: v.availableBikeStands
+          }
+        }
+      }
+      return providers(this.v)[this.v.provider][key]
+    }
+  },
+  computed: {
+    v() {
+      return this.$store.state.map.selectedVehicule
+    }
+  }
+}
 </script>
 
 <style>
