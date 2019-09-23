@@ -1,7 +1,13 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+      <l-map
+        id="map"
+        :zoom="16"
+        :center="initialLocation"
+        ref="map"
+        @update:center="updateVehicules"
+      >
         <l-tile-layer
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
@@ -66,7 +72,10 @@ export default {
   },
   created() {
     this.$store.dispatch('map/fetchCars')
-    this.$store.dispatch('map/fetchTrots')
+    this.$store.dispatch('map/fetchTrots', {
+      lat: this.initialLocation[0],
+      lng: this.initialLocation[1]
+    })
     this.$store.dispatch('map/fetchBikes')
   },
   methods: {
@@ -76,6 +85,9 @@ export default {
     selectVehicule(latLng, car, provider) {
       this.flyTo(latLng, 18)
       this.$store.commit('map/SELECT_VEHICULE', car, provider)
+    },
+    updateVehicules(center) {
+      this.$store.dispatch('map/fetchTrots', center)
     }
   }
 }
