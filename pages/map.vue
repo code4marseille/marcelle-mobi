@@ -1,8 +1,10 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="15" :center="initialLocation" ref="map">
-        <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
+      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+        <l-tile-layer
+          :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
+        ></l-tile-layer>
 
         <CarMarker
           v-for="(car,i) in $store.state.map.cars"
@@ -28,7 +30,7 @@
           :provider="trot.typename"
         />
 
-        <Locatecontrol />
+        <LocateControl />
       </l-map>
 
       <MapFilter />
@@ -38,7 +40,8 @@
 
 <script>
 import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
-import Locatecontrol from 'vue2-leaflet-locatecontrol'
+import LocateControl from '~/components/LocateControl'
+
 import MapFilter from '~/components/MapFilter.vue'
 import CarMarker from '~/components/CarMarker.vue'
 import BikeMarker from '~/components/BikeMarker.vue'
@@ -46,7 +49,7 @@ import TrotMarker from '~/components/TrotMarker.vue'
 
 export default {
   components: {
-    Locatecontrol,
+    LocateControl,
     LMap,
     LTileLayer,
     MapFilter,
@@ -56,7 +59,9 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      initialLocation: [43.295336, 5.373907],
+      mapBoxToken:
+        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
   },
   created() {
