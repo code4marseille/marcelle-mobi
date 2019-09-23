@@ -1,36 +1,37 @@
 <template>
   <div class="contener-blog">
-    <header class="mb-4">
-      <h2 class="text-uppercase display-4 text-center text-white">Bon à savoir</h2>
+    <header class="px-3 py-2 d-flex">
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Bon à savoir</h2>
     </header>
+    <main>
+      <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
+      <div class="contener-collapse mb-4">
+        <b-button
+          v-b-toggle="'collapse-2'"
+          class="btn-categorie m-1 text-uppercase btn-block p-3"
+        >Catégorie</b-button>
+        <b-collapse id="collapse-2">
+          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 1</b-button>
+          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
+          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
+          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
+        </b-collapse>
+      </div>
 
-    <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
-    <div class="contener-collapse mb-4">
-      <b-button
-        v-b-toggle="'collapse-2'"
-        class="btn-categorie m-1 text-uppercase btn-block p-3"
-      >Catégorie</b-button>
-      <b-collapse id="collapse-2">
-        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 1</b-button>
-        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
-        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
-        <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
-      </b-collapse>
-    </div>
+      <nuxt-link to="/articles/zz">
+        <b-card
+          v-for="(article, id) in articles"
+          :key="id"
+          class="mb-4 rounded"
+          :img-src="article.imgUrl"
+        >
+          <b-card-title class="title">{{article.title}}</b-card-title>
 
-    <nuxt-link to="/articles/zz">
-      <b-card
-        v-for="{article, index} in articles"
-        :key="index"
-        class="mb-4 rounded"
-        img-src="https://picsum.photos/600/300/?image=25"
-      >
-        <b-card-title class="title">title</b-card-title>
-
-        <b-card-sub-title>En région PACA</b-card-sub-title>
-        <b-card-text class="small text-lowercase text-right card-text-cat">Mobilité</b-card-text>
-      </b-card>
-    </nuxt-link>
+          <b-card-sub-title>{{article.description}}</b-card-sub-title>
+          <b-card-text class="small text-lowercase text-right card-text-cat">Mobilité</b-card-text>
+        </b-card>
+      </nuxt-link>
+    </main>
   </div>
 </template>
 
@@ -38,36 +39,39 @@
 export default {
   data() {
     return {
-      articles: [
-        {
-          id: 'id',
-          title: 'title',
-          content: 'content',
-          img: 'img',
-          localisation: 'localisation',
-          categorie: ['']
-        },
-        {
-          id: 'id',
-          title: 'title',
-          content: 'content',
-          img: 'img',
-          localisation: 'localisation',
-          categorie: ['']
-        }
-      ]
+      articles: ''
     }
+  },
+  mounted() {
+    this.$axios
+      .$get('/articles')
+      .then(
+        response => (this.articles = response),
+        console.log('reponse : ' + this.articles)
+      )
+    console.log('reponse : ' + this.articles)
   }
 }
 </script>
 
 <style lang="scss">
 .contener-blog {
-  padding: 2vh 5vw;
-
   body {
     font-size: 1.1em;
   }
+
+  main {
+    padding: 70px 7vw 0;
+  }
+
+  header {
+    color: white;
+    background-color: rgb(37, 169, 232);
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+  }
+
   button.btn.btn-categorie.btn-secondary.collapsed,
   button.btn.btn-categorie.btn-secondary {
     font-weight: bolder;
@@ -96,7 +100,9 @@ export default {
 
   .card-img {
     width: 100%;
-    border-radius: calc(1rem - 1px);
+    max-height: 30vh;
+    border-top-left-radius: calc(1rem - 1px);
+    border-top-right-radius: calc(1rem - 1px);
   }
 }
 </style>
