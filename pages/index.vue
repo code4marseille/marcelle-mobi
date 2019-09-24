@@ -2,7 +2,7 @@
   <div
     id="dashboardPage"
     class="d-flex flex-column justify-content-between"
-    :style="{backgroundImage:'url('+$store.state.dashboard.activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
+    :style="{backgroundImage:'url('+$store.state.dashboard.activeBackground+')', backgroundSize:'cover'}"
   >
     <header>
       <!--<Navbar /> -->
@@ -35,35 +35,11 @@
       <span class="indice-quality">{{ $store.state.dashboard.airQuality}}</span>
       <span>/10</span>
       <div>{{$store.state.dashboard.airQualityText}}</div>
-      <div></div>
     </div>
     <!-- what to do today -->
     <!-- <keep-alive> -->
-
-    <!-- <div>
-      <p>à faire aujourd'hui :</p>
-    <!--  <div class="activitiesProposees">-->
-    <!-- <span v-for="act, id
-   in $store.getters['dashboard/activitiesFiltered']" :key="id">
-    <!-- <acronym v-bind:title="act.nom">-->
-    <!-- <span v-html="act.icon"></span> -->
-    <span></span>
-    <!-- </acronym> -->
-    <!-- </span> -->
-    <!-- </div>
-      <p>Description de l'activité</p>
-    </div>-->
-
-    <!-- </keep-alive> -->
-    <!-- find transport -->
     <div>
-      <b-button class="btn-dark-blue" pill variant="primary" to="/map">Trouver un moyen de transport</b-button>
-    </div>
-
-    <!-- INFOS RTM MODAL -->
-
-    <div>
-      <!-- <b-button id="show-btn" @click="show = !show">
+      <b-button id="show-btn" @click="show = !show">
         <div class="slideInUp">
           <img src="~/assets/images/up-arrow.svg" width="30px" alt />
           <p class="mb-0">Infos Traffic RTM</p>
@@ -82,39 +58,33 @@
           <template v-slot:modal-title>
             <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
           </template>
-          <!-- <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 text-center border-bottom">
+          <div
+            v-for="(alert, id) in $store.state.dashboard.alertsRtm"
+            :key="id"
+            class="content-alert-rtm mt-3 text-center border-bottom"
+          >
             <h4 class="modal_title text-uppercase text-uppercase font-weight-bold">{{ alert[1] }}</h4>
             <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
             <p class="modal_description">{{ alert[2] }}</p>
-      </div>-->
-      <!-- </b-modal> -->
-      <!-- </transition> -->
+          </div>
+        </b-modal>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
-import axios from '../plugins/axios'
+import Vuetify from 'vuetify/lib'
 export default {
+  data() {
+    return {
+      show: false
+    }
+  },
   created() {
     this.$store.dispatch('dashboard/fetchWeather')
     this.$store.dispatch('dashboard/fetchAirQuality')
-
-    // this.$store.state.dashboard.activitesProposees.activities.forEach(e => {
-
-    // if (
-    //   e.conditions.minTemp < $store.state.dashboard.temperature &&
-    //   e.conditions.maxTemp > $store.state.dashboard.temperature &&
-    //   e.conditions.minWind < $store.state.dashboard.windSpeed &&
-    //   e.conditions.maxWind > $store.state.dashboard.windSpeed &&
-    //   e.conditions.beau === $store.state.dashboard.weather.clear
-    // ) {
-    //   this.tabActivities.push({
-    //     nom: e.name.toUpperCase(),
-    //     icon: e.icon
-    //   })
-    // }
-    // })
+    this.$store.dispatch('dashboard/fetchAlertsRtm')
   }
 }
 </script>
@@ -139,11 +109,10 @@ export default {
     font-size: 2em;
   }
 
-  <<<<<<< head .fa-thermometer-half {
+  .fa-thermometer-half {
     font-size: 1rem;
   }
-
-  =======>>>>>>>7c45c2f1494578886c5174557a8379d9b5123b62 .fa-arrow-up {
+  .fa-arrow-up {
     font-size: 1.5rem;
   }
 

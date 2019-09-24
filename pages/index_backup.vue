@@ -2,7 +2,7 @@
   <div
     id="dashboardPage"
     class="d-flex flex-column justify-content-between"
-    :style="{backgroundImage:'url('+activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
+    :style="{backgroundImage:'url('+activeBackground+')',  backgroundRepeat:'no-repeat', backgroundSize:'cover'}"
   >
     <header>
       <!--<Navbar /> -->

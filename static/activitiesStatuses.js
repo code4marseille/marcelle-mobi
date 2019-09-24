@@ -2,7 +2,7 @@ export default {
   activities: [
     {
       name: 'bowling',
-      icon: '<i class="fas fa-bowling-ball"></i>',
+      icon: 'fa-bowling-ball"></i>',
       conditions: {
         beau: false,
         minTemp: -50,
@@ -13,7 +13,7 @@ export default {
     },
     {
       name: 'cinéma',
-      icon: '<i class="fas fa-film"></i>',
+      icon: 'fa-film',
       conditions: {
         beau: false,
         minTemp: -50,
@@ -24,7 +24,7 @@ export default {
     },
     {
       name: 'football',
-      icon: '<i class="fas fa-futbol"></i>',
+      icon: 'fa-futbol',
       conditions: {
         beau: true,
         minTemp: 10,
@@ -36,7 +36,7 @@ export default {
 
     {
       name: 'sports nautique',
-      icon: '<i class="fas fa-ship"></i>',
+      icon: 'fa-ship',
       conditions: {
         beau: true,
         minTemp: 10,
@@ -47,7 +47,7 @@ export default {
     },
     {
       name: 'randonnée',
-      icon: '<i class="fas fa-hiking"></i>',
+      icon: 'fa-hiking',
       conditions: {
         beau: true,
         minTemp: 10,
@@ -58,7 +58,7 @@ export default {
     },
     {
       name: 'arcade',
-      icon: '<i class="fas fa-gamepad"></i>',
+      icon: 'fa-gamepad',
       conditions: {
         beau: false,
         minTemp: -50,
@@ -69,7 +69,7 @@ export default {
     },
     {
       name: 'plage',
-      icon: '<i class="fas fa-water"></i>',
+      icon: 'fa-water',
       conditions: {
         beau: true,
         minTemp: 20,
@@ -80,7 +80,7 @@ export default {
     },
     {
       name: 'basket',
-      icon: '<i class="fas fa-basketball-ball"></i>',
+      icon: 'fa-basketball-ball',
       conditions: {
         beau: true,
         minTemp: 10,
@@ -91,7 +91,7 @@ export default {
     },
     {
       name: 'sieste',
-      icon: '<i class="fas fa-bed"></i>',
+      icon: 'fa-bed',
       conditions: {
         beau: false,
         minTemp: 30,

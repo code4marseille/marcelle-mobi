@@ -8,7 +8,7 @@ export const state = () => ({
   activitesProposees: [],
   airQuality: '-',
   airQualityText: "",
-  alertRtm: [],
+  alertsRtm: [],
   colorTemp: {
     cold: '#7AE5ED',
     hot: '#F9B34D',
@@ -24,22 +24,7 @@ export const state = () => ({
   weatherIcon: ""
 })
 
-export const getters = ({
-  activitiesFiltered: state => {
-    return state.activitesProposees.filter(activity => {
-      console.return(activity)
-      // if (activity.condition.minTemp < state.temperature &&
-      //   activity.conditions.maxTemp > state.temperature &&
-      //   activity.conditions.minWind < state.windSpeed &&
-      //   activity.conditions.maxWind > state.windSpeed &&
-      //   activity.conditions.beau === state.weather.clean
 
-      // ) {
-      //   return activity
-      // }
-    })
-  }
-})
 
 export const mutations = {
   'SET'(state, payload) {
@@ -72,9 +57,13 @@ export const mutations = {
   'SET_ORIENTATION'(state, orientation) {
     state.orientation = "transform:rotate(" + orientation + "deg)"
   },
-  // 'SET_ACTIVITIES'(state, activities) {
-  //   state.activitesProposees = activities
-  // },
+  'SET_ACTIVITIES'(state, activities) {
+    state.activitesProposees = activities
+  },
+  'SET_ALERTSRTM'(state, alertsRtm) {
+    state.alertsRtm = alertsRtm
+
+  }
 
 
 
@@ -90,37 +79,32 @@ export const actions = {
     commit('SET_WEATHER', weatherStatuses[weatherStatus])
     commit('SET_WIND', Math.trunc(wind.speed * 3.6))
     commit('SET_ORIENTATION', wind.deg)
-    commit('SET_ACTIVITIES', activitiesStatuses)
-
-
-
-
-    // let tabActivities = [];
-    // // activites = this.activitiesStatuses.activities
-    // console.log(activites)
-    // activites.forEach(e => {
-    //   if (
-    //     e.conditions.minTemp < temperature &&
-    //     e.conditions.maxTemp > temperature &&
-    //     e.conditions.minWind < windSpeed &&
-    //     e.conditions.maxWind > windSpeed &&
-    //     e.conditions.beau === this.weatherIcons[weather].clear
-    //   ) {
-    //     tabActivities.push({
-    //       nom: e.name.toUpperCase(),
-    //       icon: e.icon
-    //     })
-    //   }
-    // })
-    // commit('SET_ACTIVITES', tabActivities)
-
-
+    commit('SET_ACTIVITIES', activitiesStatuses.activities.filter(activity => activity.conditions.minTemp < state.temperature && activity.conditions.maxTemp > state.temperature &&
+      activity.conditions.minWind < state.windSpeed &&
+      activity.conditions.maxWind > state.windSpeed
+      && activity.conditions.beau === state.weather.clear
+    ))
   },
   async fetchAirQuality({ commit }) {
     const airQuality = await this.$axios.$get('/airs/quality')
     commit('SET_AIRQUALITY', Math.round(10 - airQuality.data.aqi / 10))
 
+  },
+  async fetchAlertsRtm({ commit }) {
+    let tabInfos = []
+    const alertsRtm = await this.$axios
+      .$get('/alerts/rtm')
+    alertsRtm.forEach(e => {
+
+      tabInfos.push(e.title.replace('-', '').split(':'))
+    });
+
+    // tabInfos = alertsRtm.flat()
+    // console.log(tabInfos)
+    commit("SET_ALERTSRTM", tabInfos)
   }
 
 }
+
+
 
