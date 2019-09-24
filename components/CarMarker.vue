@@ -33,8 +33,8 @@ export default {
         citiz: function(car) {
           return {
             latLng: [car.gpsLatitude, car.gpsLongitude],
-            iconUrl: require('~/assets/images/totem.png'),
-            iconSize: [40, 50]
+            iconUrl: require('~/assets/images/totem.svg'),
+            iconSize: [40, 40]
           }
         }
       }

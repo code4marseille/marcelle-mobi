@@ -1,7 +1,13 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+      <l-map
+        id="map"
+        :zoom="16"
+        :center="initialLocation"
+        ref="map"
+        @update:center="updateVehicules"
+      >
         <l-tile-layer
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
@@ -31,9 +37,8 @@
         />
 
         <LocateControl />
+        <MapFilter />
       </l-map>
-
-      <MapFilter />
     </div>
   </div>
 </template>
@@ -66,17 +71,23 @@ export default {
   },
   created() {
     this.$store.dispatch('map/fetchCitiz')
-    this.$store.dispatch('map/fetchTrots')
-    this.$store.dispatch('map/fetchBikes')
     this.$store.dispatch('map/fetchTotems')
+    this.$store.dispatch('map/fetchTrots', {
+      lat: this.initialLocation[0],
+      lng: this.initialLocation[1]
+    })
+    this.$store.dispatch('map/fetchBikes')
   },
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    selectVehicule(latLng, car, provider) {
+    selectVehicule(latLng, vehicule, provider) {
       this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', car, provider)
+      this.$store.commit('map/SELECT_VEHICULE', { vehicule, provider })
+    },
+    updateVehicules(center) {
+      this.$store.dispatch('map/fetchTrots', center)
     }
   }
 }
@@ -92,11 +103,14 @@ export default {
 
   #position {
     position: relative;
+    display: flex;
   }
 
   #map {
     width: 100wh;
     height: 100vh;
+    position: relative;
+    display: flex;
   }
 
   .textFilter {
