@@ -25,6 +25,7 @@ export const mutations = {
   'SET_CARS'(state, cars) {
     state.cars = cars
   },
+
   'SET_TROTS'(state, trots) {
     state.trots = trots
   },
@@ -33,6 +34,9 @@ export const mutations = {
   },
   'TOGGLE_CARS'(state) {
     state.seeCars = !state.seeCars
+  },
+  'TOGGLE_TOTEMS'(state) {
+    state.seeTotems = !state.seeTotems
   },
   'TOGGLE_TROTS'(state) {
     state.seeTrots = !state.seeTrots
@@ -56,9 +60,13 @@ export const mutations = {
 
 
 export const actions = {
-  async fetchCars({ commit }) {
-    const cars = await this.$axios.$get('/vehicules/car')
-    commit('SET_CARS', cars)
+  async fetchCitiz({ commit, state }) {
+    const citizs = await this.$axios.$get('/vehicules/citiz')
+    commit('SET_CARS', [...citizs, ...state.cars])
+  },
+  async fetchTotems({ commit, state }) {
+    const totems = await this.$axios.$get('/vehicules/totem')
+    commit('SET_CARS', [...totems, ...state.cars])
   },
   async fetchBikes({ commit }) {
     const bikes = await this.$axios.$get('/vehicules/bike')
