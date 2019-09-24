@@ -36,10 +36,9 @@
           :provider="trot.typename"
         />
 
-        <LocateControl />
+        <Locatecontrol />
+        <MapFilter />
       </l-map>
-
-      <MapFilter />
     </div>
   </div>
 </template>
@@ -82,9 +81,9 @@ export default {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    selectVehicule(latLng, car, provider) {
+    selectVehicule(latLng, vehicule, provider) {
       this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', car, provider)
+      this.$store.commit('map/SELECT_VEHICULE', { vehicule, provider })
     },
     updateVehicules(center) {
       this.$store.dispatch('map/fetchTrots', center)
@@ -103,11 +102,14 @@ export default {
 
   #position {
     position: relative;
+    display: flex;
   }
 
   #map {
     width: 100wh;
     height: 100vh;
+    position: relative;
+    display: flex;
   }
 
   .textFilter {

@@ -42,19 +42,17 @@ export const mutations = {
     if (state.selectedVehicule && state.filterVisible)
       state.selectedVehicule = null;
   },
-  SELECT_VEHICULE(state, vehicule, provider) {
-    vehicule.provider = provider;
-    state.selectedVehicule = vehicule;
-    if (state.selectedVehicule && state.filterVisible) {
-      state.filterVisible = false;
-    }
+  SELECT_VEHICULE(state, { vehicule, provider }) {
+    vehicule.provider = provider.toLowerCase()
+    state.selectedVehicule = vehicule
+    if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
 };
 
 export const actions = {
   async fetchCars({ commit }) {
-    const cars = await this.$axios.$get("/vehicules/car");
-    commit("SET_CARS", cars);
+    const cars = await this.$axios.$get('/vehicules/citiz')
+    commit('SET_CARS', cars)
   },
   async fetchBikes({ commit }) {
     const bikes = await this.$axios.$get("/vehicules/bike");
