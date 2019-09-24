@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang=scss>
+<style lang="scss">
 .filterGo {
   width: 100%;
   z-index: 999;

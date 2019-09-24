@@ -11,7 +11,7 @@
 
         <p class="mb-0">{{vehiculeInfo('line2')}}</p>
 
-        <p v-if="vehiculeInfo('line3')  ==! ''">{{vehiculeInfo('line3')}}</p>
+        <p v-if="vehiculeInfo('line3')  !== ''">{{vehiculeInfo('line3')}}</p>
       </div>
       <div class="flex3">
         <a href="#">
