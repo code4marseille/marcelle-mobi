@@ -7,7 +7,7 @@
     <v-navigation-drawer v-model="drawer" absolute temporary class="sidebar">
       <v-list dense>
         <v-list-item @click.stop="drawer = !drawer" class="items-container text-right">
-          <v-icon class="text-white text-right">fas fa-times</v-icon>
+          <img src="~/assets/images/cancel.svg" alt="close" class="close-svg" />
         </v-list-item>
 
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
@@ -66,6 +66,13 @@ export default {
   .sidebar {
     background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
     z-index: 470;
+    position: fixed;
+  }
+
+  .close-svg {
+    font-size: 30%;
+    width: 10%;
+    margin: 1vh 1vw 1vh auto;
   }
 }
 </style>
