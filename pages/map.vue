@@ -1,180 +1,111 @@
 <template>
-  <div>
+  <div id="mapPage">
     <div id="position">
-      <v-map id="map" :zoom="15" :center="initialLocation" ref="map">
-        <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+        <l-tile-layer
+          :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
+        ></l-tile-layer>
 
-        <template v-if="seeCars">
-          <l-marker
-            v-for="(car,i) in cars"
-            :key="i"
-            :lat-lng="[car.gpsLatitude,car.gpsLongitude]"
-            @click="setCurrentCar(car)"
-            :duration="5000"
-          ></l-marker>
-        </template>
+        <CarMarker
+          v-for="(car,i) in $store.state.map.cars"
+          :key="'car'+i"
+          :car="car"
+          :select="selectVehicule"
+          provider="citiz"
+        />
 
-        <v-locatecontrol />
-      </v-map>
+        <BikeMarker
+          v-for="(bike,i) in $store.state.map.bikes"
+          :key="'bike'+i"
+          :bike="bike"
+          :select="selectVehicule"
+          provider="leVelo"
+        />
+
+        <TrotMarker
+          v-for="(trot,i) in $store.state.map.trots"
+          :key="'trot'+i"
+          :trot="trot"
+          :select="selectVehicule"
+          :provider="trot.typename"
+        />
+
+        <LocateControl />
+      </l-map>
+
+      <MapFilter />
     </div>
-    <transition name="fade">
-      <div v-if="hideFilter" id="filter" class="container">
-        <div class="row justify-content-between">
-          <div class="col-4 borderBottom">
-            <h2 class="lettreTransport text-primary">B</h2>
-            <p class="textFilter">Bus</p>
-          </div>
-          <div class="col-4 borderCentral borderBottom">
-            <h2 class="lettreTransport text-primary">T</h2>
-            <p class="textFilter">Tram</p>
-          </div>
-          <div class="col-4 borderBottom">
-            <h2 class="lettreTransport text-primary">M</h2>
-            <p class="textFilter">Metro</p>
-          </div>
-
-          <div class="col-4">
-            <img src="~/assets/images/velo.svg" />
-            <p class="textFilter">Vélo</p>
-          </div>
-          <div v-on:click="toggleCar()" class="col-4 borderCentral">
-            <img src="~/assets/images/voiture.svg" />
-            <p class="textFilter">Totem</p>
-          </div>
-          <div class="col-4">
-            <img src="~/assets/images/trotinette.svg" />
-            <p class="textFilter">Trotinette</p>
-          </div>
-        </div>
-      </div>
-    </transition>
-    <div v-on:click="toggleFilter()" class="buttonGo">GO</div>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LControlZoom } from 'vue2-leaflet'
-import { latLng, Icon, icon } from 'leaflet'
-import Vue2LeafletLocatecontrol from '~/components/Vue2LeafletLocatecontrol'
+import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
+import LocateControl from '~/components/LocateControl'
+
+import MapFilter from '~/components/MapFilter.vue'
+import CarMarker from '~/components/CarMarker.vue'
+import BikeMarker from '~/components/BikeMarker.vue'
+import TrotMarker from '~/components/TrotMarker.vue'
 
 export default {
   components: {
-    'v-map': LMap,
-    'v-tilelayer': LTileLayer,
-    'v-locatecontrol': Vue2LeafletLocatecontrol
+    LocateControl,
+    LMap,
+    LTileLayer,
+    MapFilter,
+    CarMarker,
+    BikeMarker,
+    TrotMarker
   },
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-      cars: [],
-      seeCars: true,
-      hideFilter: true
+      mapBoxToken:
+        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
   },
-  mounted() {
-    this.$axios
-      .$get('http://marcelle-mobi-api.herokuapp.com/vehicules/car')
-      .then(response => (this.cars = response))
+  created() {
+    this.$store.dispatch('map/fetchCars')
+    this.$store.dispatch('map/fetchTrots')
+    this.$store.dispatch('map/fetchBikes')
   },
   methods: {
-    setCurrentCar(car) {
-      this.$refs.map.mapObject.flyTo([car.gpsLatitude, car.gpsLongitude], 18)
+    flyTo(latLng, zoom) {
+      this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    toggleCar: function() {
-      this.seeCars = !this.seeCars
-    },
-
-    toggleFilter: function() {
-      this.hideFilter = !this.hideFilter
+    selectVehicule(latLng, car, provider) {
+      this.flyTo(latLng, 18)
+      this.$store.commit('map/SELECT_VEHICULE', car, provider)
     }
   }
 }
 </script>
 
-<style>
-#map {
-  width: 100wh;
-  height: 100vh;
-}
+<style lang="scss">
+#mapPage {
+  .leaflet-left {
+    right: 0 !important;
+    padding-right: 10px;
+    left: unset;
+  }
 
-#position {
-  position: relative;
-}
-#filter {
-  position: absolute;
-  bottom: 2%;
-  left: 2%;
-  right: 2%;
-  z-index: 999;
-  text-align: center;
-  background-color: aliceblue;
-  border-radius: 0.5rem;
-  width: 96%;
-  box-shadow: 5px 5px 5px gray;
-  margin-bottom: 5px;
-  transition: transform 0.2s linear;
-}
+  #position {
+    position: relative;
+  }
 
-.fas {
-  font-size: 2rem;
-  padding: 0.5rem;
-  color: rgb(97, 198, 245);
-}
+  #map {
+    width: 100wh;
+    height: 100vh;
+  }
 
-.textFilter {
-  font-size: 0.5rem;
-  margin-bottom: 0;
-}
+  .textFilter {
+    font-size: 0.5rem;
+    margin-bottom: 0;
+  }
 
-.leaflet-control-attribution {
-  display: none;
-}
-
-.lettreTransport {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border: 2px solid #0e5da4;
-  border-radius: 75%;
-  padding: 0.3rem;
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-}
-
-.borderCentral {
-  border-right: 1px solid rgb(182, 181, 181, 0.5);
-
-  border-left: 1px solid rgb(182, 181, 181, 0.5);
-}
-
-.borderBottom {
-  border-bottom: 1px solid rgb(182, 181, 181, 0.5);
-}
-
-.buttonGo {
-  position: absolute;
-  z-index: 999;
-  width: 50px;
-  height: 50px;
-  background: #0e5da4;
-  box-shadow: 2px 2px 8px #aaa;
-  font: bold 1rem Arial;
-  border-radius: 50%;
-  border: 2px solid White;
-  color: white;
-  bottom: 18%;
-  right: 2%;
-  text-align: center;
-  padding: 15px 0px;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transform: translateY(200px);
-}
-.fade-enter,
-.fade-leave-to {
-  transform: translateY(200px);
+  .leaflet-control-attribution {
+    display: none;
+  }
 }
 </style>
 

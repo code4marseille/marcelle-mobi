@@ -1,6 +1,7 @@
 <template>
   <div
-    class="d-flex flex-column justify-content-between dashboard-contener"
+    id="dashboardPage"
+    class="d-flex flex-column justify-content-between"
     :style="{backgroundImage:'url('+activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
   >
     <header>
@@ -11,40 +12,34 @@
     <div>
       <p>
         <span v-html="weatherIcon"></span>
+        <!-- {{ weatherIcon}}  -->
+        <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
-        <span class="indice-quality">{{ temperature }}</span> °C
-        <span :style="{color:tColor}">
-          <i class="fas fa-circle"></i>
-        </span>
+        <span class="indice-quality">{{ temperature }}</span>
+        °C
       </p>
       <p>
-        <i class="fas fa-fan"></i>
+        <i class="fas fa-fan" style="animation:rotated infinite" :style="fanSpeed"></i>
         <span v-html="windArrow"></span>
         <span class="indice-quality">{{ windSpeed }}</span>
-        <span class="text-lowercase">
-          km/h
-          <span :style="{color:wColor}">
-            <i class="fas fa-circle"></i>
-          </span>
-        </span>
+        <span class="text-lowercase">km/h</span>
       </p>
     </div>
     <!-- air quality -->
     <div>
       <i class="fas fa-wind"></i>
-      <span class="indice-quality">{{ indiceQuality }}</span>/10
-      <!-- <span :style="{color:aQColor}">
-        <i class="fas fa-circle"></i>
-      </span>-->
+      <span class="indice-quality">{{ indiceQuality }}</span>
+      /10
       <div>{{textAirQuality}}</div>
     </div>
     <!-- what to do today -->
     <!-- <keep-alive> -->
-    <p>à faire aujourd'hui :</p>
+
     <div>
+      <p>à faire aujourd'hui :</p>
       <div class="activitiesProposees">
         <span v-for="(act, id)
-         in activitesProposees" :key="id">
+     in activitesProposees" :key="id">
           <acronym v-bind:title="act.nom">
             <span v-html="act.icon"></span>
           </acronym>
@@ -57,7 +52,7 @@
     <!-- </keep-alive> -->
     <!-- find transport -->
     <div>
-      <b-button class="btn-dark-blue" pill variant="primary">Trouver un moyen de transport</b-button>
+      <b-button class="btn-dark-blue" pill variant="primary" to="/map">Trouver un moyen de transport</b-button>
     </div>
 
     <!-- INFOS RTM MODAL -->
@@ -80,11 +75,11 @@
           no-fade
         >
           <template v-slot:modal-title>
-            <p class="modal_header mx-3 mb-0">perturbations en cours</p>
+            <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
           </template>
-          <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 border-bottom">
-            <h4 class="modal_title text-uppercase font-weight-bold">{{ alert[1] }}</h4>
-            <p class="modal_date">{{ alert[0] }}</p>
+          <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 text-center border-bottom">
+            <h4 class="modal_title text-uppercase text-uppercase font-weight-bold">{{ alert[1] }}</h4>
+            <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
             <p class="modal_description">{{ alert[2] }}</p>
           </div>
         </b-modal>
@@ -100,67 +95,34 @@ export default {
   data() {
     return {
       show: false,
-      // ---------------
-      // aQColor: "white",
-      wColor: 'white',
-      temperature: 20,
-      windSpeed: 10,
-      indiceQuality: 10,
+      temperature: '-',
+      windSpeed: '-',
+      indiceQuality: '-',
       weatherIcon: '',
       weatherIcons: {
-        Rain: {
-          icon: '<i class="wi wi-day-rain"></i>',
-          comment: 'Pluie',
-          clear: true
-        },
-
-        Clouds: {
-          icon: '<i class="wi wi-day-cloudy"></i>',
-          comment: 'Nuageux',
-          clear: true
-        },
-
-        Clear: {
-          icon: '<i class="wi wi-day-sunny"></i>',
-          comment: 'Dégagé',
-          clear: true
-        },
-
-        Snow: {
-          icon: '<i class="wi wi-day-snow"></i>',
-          comment: 'Neige',
+        Thunderstorm: {
+          icon: 'wi-day-thunderstorm',
           clear: false
         },
-
-        Mist: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: 'Brumeux',
+        Drizzle: { icon: 'wi-day-sleet', clear: false },
+        Rain: { icon: 'wi-day-rain', clear: false },
+        Snow: { icon: 'wi-day-snow', clear: false },
+        Mist: { icon: ' wi-day-fog', clear: false },
+        Smoke: { icon: 'wi-day-sleet', clear: false },
+        Haze: { icon: 'wi-day-haze', clear: false },
+        Dust: { icon: 'wi-dust', clear: false },
+        Fog: { icon: 'wi-day-fog', clear: false },
+        Sand: { icon: 'wi-sandstorm', clear: false },
+        Ash: { icon: 'wi-volcano', clear: false },
+        Squall: {
+          icon: 'wi-day-cloudy-gusts',
           clear: false
         },
-        Fog: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: 'Brouillard',
-          clear: false
-        },
-
-        Drizzle: {
-          icon: '<i class="wi wi-day-sleet"></i>',
-          comment: 'Grisaille',
-          clear: false
-        },
-        Smoke: {
-          icon: '<i class="wi wi-day-sleet"></i>',
-          comment: 'Grisaille',
-          clear: false
-        },
-        Haze: {
-          icon: '<i class="wi wi-day-fog"></i>',
-          comment: 'Brumeux',
-          clear: false
-        }
+        Tornado: { icon: 'wi-tornado', clear: false },
+        Clear: { icon: 'wi-day-sunny', clear: true },
+        Clouds: { icon: 'wi-day-cloudy', clear: true }
       },
       windArrow: '',
-      tColor: '',
 
       colorTemp: {
         cold: '#7AE5ED',
@@ -175,7 +137,7 @@ export default {
           conditions: {
             beau: false,
             minTemp: -50,
-            maxTemp: 20,
+            maxTemp: 30,
             minWind: 0,
             maxWind: 100
           }
@@ -186,7 +148,7 @@ export default {
           conditions: {
             beau: false,
             minTemp: -50,
-            maxTemp: 20,
+            maxTemp: 30,
             minWind: 0,
             maxWind: 100
           }
@@ -215,7 +177,7 @@ export default {
           }
         },
         {
-          name: 'randonée',
+          name: 'randonnée',
           icon: '<i class="fas fa-hiking"></i>',
           conditions: {
             beau: true,
@@ -270,8 +232,9 @@ export default {
           }
         }
       ],
+      alertRtm: [],
       activeBackground: require('~/assets/images/lungs.svg'),
-      alertRtm: []
+      fanSpeed: ''
     }
   },
 
@@ -280,113 +243,63 @@ export default {
       switch (Math.round(this.indiceQuality)) {
         case 0:
           return 'lorem0'
-          break
         case 1:
           return 'lorem1'
-          break
         case 2:
           return 'lorem2'
-          break
         case 3:
           return 'lorem3'
-          break
         case 4:
           return 'lorem4'
-          break
         case 5:
           return 'lorem5'
-          break
         case 6:
           return 'lorem6'
-          break
         case 7:
           return 'lorem7'
-          break
         case 8:
           return 'lorem8'
-          break
         case 9:
           return 'lorem9'
-          break
         case 10:
           return 'lorem10'
-          break
         default:
           return 'neant'
       }
     }
   },
   created() {
-    let temp, wind, aq
-    this.$axios
-      .$get('http://marcelle-mobi-api.herokuapp.com/weathers/today')
-      .then(response => {
-        let weather = ''
-        temp = Math.round(response.main.temp)
-        // const temp = 35;
-        if (temp < 15) {
-          this.tColor = this.colorTemp.cold
-        } else if (temp < 30) {
-          this.tColor = this.colorTemp.normal
-        } else {
-          this.tColor = this.colorTemp.hot
-        }
-        this.temperature = temp
+    this.$axios.$get('/weathers/today').then(response => {
+      const temp = Math.round(response.main.temp)
+      this.temperature = temp
+      const weather = response.weather[0].main
+      const icone = '<i class="wi ' + this.weatherIcons[weather].icon + '"></i>'
+      this.weatherIcon = icone
+      const wind = Math.trunc(response.wind.speed * 3.6)
+      // const wind = 50;
+      this.windSpeed = wind
 
-        weather = response.weather[0].main
-        // weather = weather.toLowerCase;
-        // console.log("weather : " + weather);
-        this.weatherIcon = this.weatherIcons[weather].icon
-        wind = Math.trunc(response.wind.speed * 3.6)
-        // const wind = 50;
-        this.windSpeed = wind
-        if (wind < 40) {
-          this.wColor = this.colorTemp.normal
-        } else {
-          this.wColor = this.colorTemp.hot
-        }
-        this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`
+      this.fanSpeed = {
+        animationDuration: (20 / wind) * 3 + 's'
+      }
 
-        this.activites.forEach(element => {
-          if (
-            element.conditions.minTemp < temp &&
-            element.conditions.maxTemp > temp &&
-            element.conditions.minWind < wind &&
-            element.conditions.maxWind > wind &&
-            element.conditions.beau === this.weatherIcons[weather].clear
-          ) {
-            this.activitesProposees.push({
-              nom: element.name.toUpperCase(),
-              icon: element.icon
-            })
-          }
-        })
-        // console.log(this.activitesProposees);
+      this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`
+
+      this.activites.forEach(element => {
+        if (
+          element.conditions.minTemp < temp &&
+          element.conditions.maxTemp > temp &&
+          element.conditions.minWind < wind &&
+          element.conditions.maxWind > wind &&
+          element.conditions.beau === this.weatherIcons[weather].clear
+        ) {
+          this.activitesProposees.push({
+            nom: element.name.toUpperCase(),
+            icon: element.icon
+          })
+        }
       })
-    this.$axios
-      .$get('http://marcelle-mobi-api.herokuapp.com/airs/quality')
-      .then(response => {
-        const aq = Math.round(10 - response.data.aqi / 10)
-
-        // const aq = 0;
-        if (aq > 7) {
-          this.activeBackground = this.activeBackground.replace(
-            'lungs',
-            'lavande'
-          )
-
-          // this.aQColor = this.colorTemp.normal;
-        } else if (aq < 4) {
-          // this.aQColo this.activeBackground = "require(this.bg.lungs)";r = this.colorTemp.hot;
-
-          this.activeBackground = this.activeBackground.replace(
-            'lungs',
-            'scuba'
-          )
-        }
-
-        this.indiceQuality = aq
-      })
+    })
 
     this.$axios
       .$get('http://marcelle-mobi-api.herokuapp.com/alerts/rtm')
@@ -396,88 +309,109 @@ export default {
           this.alertRtm.push(e.title.replace('-', '').split(':'))
         )
       })
-  },
 
-  methods: {}
+    this.$axios.$get('/airs/quality').then(response => {
+      const aq = Math.round(10 - response.data.aqi / 10)
+
+      if (aq > 7) {
+        this.activeBackground = this.activeBackground.replace(
+          'lungs',
+          'lavande'
+        )
+      } else if (aq < 4) {
+        this.activeBackground = this.activeBackground.replace('lungs', 'scuba')
+      }
+
+      this.indiceQuality = aq
+    })
+  }
 }
 </script>
 
-<style>
-body {
+<style lang="scss">
+#dashboardPage {
   background-color: rgb(37, 169, 232);
   color: white;
   text-align: center;
   font-size: 1.1em;
   text-transform: uppercase;
-}
-
-body i {
-  font-size: 2.2em;
-  padding: 10px;
-}
-/* ------------------------------------------- */
-.dashboard-contener {
   min-height: 100vh;
   padding: 2vh;
-}
 
-.indice-quality {
-  font-size: 2em;
-}
-
-.fa-circle,
-.fa-thermometer-half {
-  font-size: 1rem;
-}
-
-.fa-arrow-up {
-  font-size: 1.5rem;
-}
-/* ------------------------------------------- */
-/* Buttons Dashboard */
-.btn-dark-blue {
-  background-color: #0e5da4;
-  padding: 5px 30px !important;
-  border-radius: 50px !important;
-  color: white !important;
-  width: 330px;
-}
-
-.btn-secondary {
-  color: #fff;
-  background-color: transparent;
-  border-color: transparent;
-}
-/* ------------------------------------------- */
-/* "INFOS TRAFFIC RTM" Slide In Up*/
-.slideInUp {
-  -webkit-animation-name: slideInUp;
-  animation-name: slideInUp;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes slideInUp {
-  0% {
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-    visibility: visible;
+  i {
+    font-size: 2.2em;
+    padding: 10px;
   }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(30);
+
+  .indice-quality {
+    font-size: 2em;
   }
-}
-@keyframes slideInUp {
-  0% {
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-    visibility: visible;
+
+  .fa-arrow-up {
+    font-size: 1.5rem;
   }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+
+  .fa-thermometer-half {
+    font-size: 1rem;
+  }
+
+  @keyframes rotated {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ------------------------------------------- */
+  /* Buttons Dashboard */
+  .btn-dark-blue {
+    background-color: #0e5da4;
+    padding: 7px 20px !important;
+    border-radius: 50px !important;
+    color: white !important;
+    width: 330px;
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  /* "Info Traffic RTM" Slide In Up*/
+  .slideInUp {
+    -webkit-animation-name: slideInUp;
+    animation-name: slideInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes slideInUp {
+    0% {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(30);
+    }
+  }
+
+  @keyframes slideInUp {
+    0% {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
   }
 }
 /* ------------------------------------------- */
@@ -508,6 +442,7 @@ body i {
 .modal_date::first-letter {
   text-transform: uppercase;
 }
+
 /* MODAL DESIGN  */
 .modal-dialog-scrollable {
   max-height: 70%;
@@ -519,5 +454,13 @@ body i {
 
 .modal-content {
   border-radius: 15px 15px 0px 0px;
+}
+
+.btn-dark-blue {
+  background-color: #0e5da4;
+  padding: 7px 70px !important;
+  border-radius: 50px !important;
+  color: white !important;
+  width: 300px;
 }
 </style>

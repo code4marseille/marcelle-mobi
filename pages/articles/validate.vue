@@ -1,7 +1,6 @@
 <template>
-  <div class="d-flex flex-column justify-content-between h-100">
+  <div class="d-flex flex-column justify-content-between h-100" id="validatePage">
     <header class="px-3 py-4 d-flex">
-      <i class="fas fa-bars"></i>
       <h2 class="text-uppercase flex-grow-1">Validation</h2>
     </header>
     <div class="text-uppercase w-75 mx-auto">
@@ -26,29 +25,31 @@
 export default {}
 </script>
 
-<style>
-body > div {
-  color: white;
-  text-align: center;
-}
+<style lang=scss>
+#validatePage {
+  body > div {
+    color: white;
+    text-align: center;
+  }
 
-.fa-bars {
-  font-size: 2em;
-}
+  .fa-bars {
+    font-size: 2em;
+  }
 
-header {
-  color: white;
-  background-color: rgb(37, 169, 232);
-  display: flex;
-  justify-content: space-between;
-}
+  header {
+    color: white;
+    background-color: rgb(37, 169, 232);
+    display: flex;
+    justify-content: space-between;
+  }
 
-.fa-paper-plane {
-  font-size: 50%;
-}
+  .fa-paper-plane {
+    font-size: 50%;
+  }
 
-img {
-  width: 20%;
-  margin: 0 auto 10vh auto;
+  img {
+    width: 20%;
+    margin: 0 auto 10vh auto;
+  }
 }
 </style>

@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <i class="fas fa-bars"></i>
-      <h2 class="text-uppercase flex-grow-1">Votre article</h2>
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Votre article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->
-      <b-form v-if="show">
+      <b-form v-if="show" method="post">
         <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
           <b-form-input
             id="input-1"
-            v-model="text"
+            v-model="title"
             type="text"
             required
             placeholder="Titre de votre article"
@@ -44,6 +43,32 @@
           ></b-form-input>
         </b-form-group>
       </b-form>
+      <!-- name -->
+      <b-form v-if="show">
+        <b-form-group id="input-group-1" label="Nom" label-for="input-3" class="label">
+          <b-form-input
+            id="input-4"
+            v-model="publisher_name"
+            type="text"
+            required
+            placeholder="Votre nom"
+            class="mb-4"
+          ></b-form-input>
+        </b-form-group>
+      </b-form>
+      <!-- mail -->
+      <b-form v-if="show">
+        <b-form-group id="input-group-1" label="Mail" label-for="input-3" class="label">
+          <b-form-input
+            id="input-5"
+            v-model="publisher_email"
+            type="email"
+            required
+            placeholder="Votre mail"
+            class="mb-4"
+          ></b-form-input>
+        </b-form-group>
+      </b-form>
       <!-- Categories -->
       <b-form v-if="show">
         <b-form-group
@@ -61,26 +86,35 @@
           >{{ btn.caption }}</b-button>
         </b-form-group>
 
-        <b-button type="submit" variant="primary" class="btn btn-dark-blue">Valider votre article</b-button>
+        <b-button
+          v-on:click.prevent="sendArticle()"
+          type="submit"
+          variant="primary"
+          class="btn btn-dark-blue"
+        >Valider votre article</b-button>
       </b-form>
     </div>
   </div>
 </template>
 
 <script>
+import axios from '~/plugins/axios'
 export default {
   data() {
     return {
-      text: '',
+      title: '',
       description: '',
       url: '',
       show: true,
+      publisher_name: '',
+      publisher_email: '',
       buttons: [
         { caption: 'écologie', state: false },
         { caption: 'mobilité', state: false },
         { caption: 'politique', state: false },
         { caption: 'bons plans', state: false }
       ],
+
       buttonSelected: 1
     }
   },
@@ -103,58 +137,74 @@ export default {
 
       this.buttonSelected = activated
       console.log(this.buttonSelected)
+    },
+
+    sendArticle: function() {
+      this.$axios
+        .$post('/articles', {
+          title: this.title,
+          description: this.description,
+          url: this.url,
+          publisher_name: this.publisher_name,
+          publisher_email: this.publisher_email
+        })
+        .then(response => {})
+        .then(err => {
+          console.log(err)
+        })
+      this.$router.push('/articles/validate')
     }
   }
 }
 </script>
 
-<style>
-.fa-bars {
-  font-size: 2em;
-}
-header {
-  color: white;
-  background-color: rgb(37, 169, 232);
-  display: flex;
-}
-.contener-categories div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
-}
+<style lang="scss">
+#createArticlePage {
+  .fa-bars {
+    font-size: 2em;
+  }
 
-.contener-categories div .btn-caption {
-  border-radius: 15px !important;
-}
+  .contener-categories div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 
-header {
-  color: white;
-  background-color: rgb(37, 169, 232);
-}
+  .contener-categories div .btn-caption {
+    border-radius: 15px !important;
+  }
 
-.form-contener {
-  padding: 0 7vw;
-}
+  header {
+    color: white;
+    background-color: rgb(37, 169, 232);
+    position: fixed;
+    width: 100vw;
+  }
 
-label {
-  text-transform: uppercase;
-  color: white;
-  margin-bottom: 10px;
-}
+  .form-contener {
+    padding: 70px 7vw 0;
+  }
 
-button.active {
-  background-color: white !important;
-  color: rgb(37, 169, 232) !important;
-  opacity: 1;
-}
+  label {
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+  }
 
-.btn-caption {
-  background-color: rgba(255, 255, 255, 0.2);
-  opacity: 0.5;
-}
+  button.active {
+    background-color: white !important;
+    color: rgb(37, 169, 232) !important;
+    opacity: 1;
+  }
 
-.btn-dark-blue[type='submit'] {
-  margin: 15vh auto;
-  display: flex;
+  .btn-caption {
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.5;
+  }
+
+  .btn-dark-blue[type='submit'] {
+    margin: 3vh auto;
+    display: flex;
+  }
 }
 </style>

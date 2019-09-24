@@ -43,6 +43,7 @@ export default {
    */
   buildModules: ['@nuxtjs/vuetify'],
 
+
   vuetify: {},
 
   /*
@@ -55,14 +56,14 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     // leaflet map
-    "nuxt-leaflet"
+    "nuxt-leaflet",
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://TODO_API_ENDPOINT"
+    baseURL: "http://marcelle-mobi-api.herokuapp.com"
   },
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`

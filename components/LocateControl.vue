@@ -8,6 +8,7 @@
 import L, { DomEvent } from 'leaflet'
 import { findRealParent, propsBinder } from 'vue2-leaflet'
 import 'leaflet.locatecontrol'
+
 const props = {
   options: {
     type: Object,
@@ -21,17 +22,22 @@ const props = {
     default: true
   }
 }
+
 export default {
   name: 'Vue2LeafletLocatecontrol',
+
   props: props,
+
   data() {
     return {
       ready: false
     }
   },
+
   beforeDestroy() {
     this.parentContainer.removeLayer(this)
   },
+
   mounted() {
     this.mapObject = L.control.locate(this.options)
     DomEvent.on(this.mapObject, this.$listeners)
@@ -39,11 +45,10 @@ export default {
     this.ready = true
     this.parentContainer = findRealParent(this.$parent)
     this.mapObject.addTo(this.parentContainer.mapObject, !this.visible)
-    this.zoom = 200
-    this.zoomControl = true
   }
 }
 </script>
 
 <style>
+@import 'leaflet.locatecontrol/dist/L.Control.Locate.css';
 </style>
