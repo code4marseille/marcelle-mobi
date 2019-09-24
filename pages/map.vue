@@ -36,7 +36,7 @@
           :provider="trot.typename"
         />
 
-        <Locatecontrol />
+        <LocateControl />
         <MapFilter />
       </l-map>
     </div>
