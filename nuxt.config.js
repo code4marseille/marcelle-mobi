@@ -43,9 +43,9 @@ export default {
    */
   buildModules: ['@nuxtjs/vuetify'],
 
-  vuetify: {
-    // treeShake: true,
-  },
+
+  vuetify: {},
+
   /*
    ** Nuxt.js modules
    */
