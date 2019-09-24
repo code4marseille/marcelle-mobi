@@ -43,9 +43,9 @@ export default {
    */
   buildModules: ['@nuxtjs/vuetify'],
 
-  vuetify: {
-    // treeShake: true,
-  },
+
+  vuetify: {},
+
   /*
    ** Nuxt.js modules
    */
@@ -56,7 +56,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     // leaflet map
-    "nuxt-leaflet"
+    "nuxt-leaflet",
   ],
   /*
    ** Axios module configuration

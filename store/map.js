@@ -12,9 +12,7 @@ export const state = () => ({
 });
 
 export const getters = {
-  carByIdx: state => idx => {
-    return state.cars[idx];
-  }
+  carByIdx: state => idx => state.cars[idx]
 };
 
 export const mutations = {
