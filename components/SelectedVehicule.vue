@@ -7,12 +7,11 @@
         </div>
       </div>
       <div class="flex2 descriptionVehicule">
-        {{vehiculeInfo('line1')}}
-        <br />
-        {{vehiculeInfo('line2')}}
-        <br />
-        {{vehiculeInfo('line3')}}
-        <br />
+        <p>{{vehiculeInfo('line1')}}</p>
+
+        <p class="mb-0">{{vehiculeInfo('line2')}}</p>
+
+        <p v-if="vehiculeInfo('line3')  !== ''">{{vehiculeInfo('line3')}}</p>
       </div>
       <div class="flex3">
         <a href="#">
@@ -50,7 +49,7 @@ export default {
             line1: v.name,
             line2: v.licencePlate,
             line3: v.fuelLevel,
-            icon: `~/assets/images/citiz_marker.svg`,
+            icon: require(`~/assets/images/citiz_marker.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/citiz/id726185820`,
             linkBrowser: `https://citiz.coop/`
@@ -60,8 +59,8 @@ export default {
           levelo: {
             line1: v.address,
             line2: `Velo dispo ${v.availableBikes}  - Place dispo : ${v.availableBikeStands}`,
-            line3: ``,
-            icon: `~/assets/images/velo.svg`,
+            line3: '',
+            icon: require(`~/assets/images/velo.svg`),
             linkAndroid: `http://www.levelo-mpm.fr/`,
             linkIos: `http://www.levelo-mpm.fr/`,
             linkBrowser: `http://www.levelo-mpm.fr/`
@@ -71,8 +70,8 @@ export default {
           lime: {
             line1: v.name,
             line2: `Batterie: ${v.battery} %,`,
-            line3: ``,
-            icon: `~/assets/images/lime.svg`,
+            line3: '',
+            icon: require(`~/assets/images/lime.svg`),
             linkAndroid: `href="https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"`,
             linkIos: `https://itunes.apple.com/us/app/limebike-your-ride-anytime/id1199780189?ls=1&mt=8`,
             linkBrowser: `https://www.li.me/fr/page-daccueil`
@@ -81,8 +80,8 @@ export default {
           circ: {
             line1: v.provider,
             line2: `Batterie: ${v.battery} %,`,
-            line3: ``,
-            icon: `~/assets/images/circ.svg`,
+            line3: '',
+            icon: require(`~/assets/images/circ.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/circ-trottinettes-%C3%A9lectrique/id1446543957`,
             linkBrowser: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`
@@ -91,8 +90,8 @@ export default {
           bird: {
             line1: v.provider,
             line2: `Batterie: ${v.battery} %,`,
-            line3: ``,
-            icon: `~/assets/images/bird.svg`,
+            line3: '',
+            icon: require(`~/assets/images/bird.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
@@ -101,8 +100,8 @@ export default {
           tier: {
             line1: v.provider,
             line2: `Batterie: ${v.battery} %`,
-            line3: ``,
-            icon: `~/assets/images/tier.svg`,
+            line3: '',
+            icon: require(`~/assets/images/tier.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
@@ -159,27 +158,36 @@ export default {
   width: 100%;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 .flex1 {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  max-width: 10%;
+  max-width: 30%;
+  align-self: center;
 }
 
 .flex2 {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   text-align: left;
-  max-width: 50%;
+  max-width: 45%;
+  font-size: 0.7rem;
 }
 
 .flex3 {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   align-content: center;
+  font-size: 0.6rem;
+  max-width: 45%;
+  align-self: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
 }
 </style>
