@@ -50,9 +50,13 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchCars({ commit }) {
-    const cars = await this.$axios.$get('/vehicules/citiz')
-    commit('SET_CARS', cars)
+  async fetchCitiz({ commit, state }) {
+    const citizs = await this.$axios.$get('/vehicules/citiz')
+    commit('SET_CARS', [...citizs, ...state.cars])
+  },
+  async fetchTotems({ commit, state }) {
+    const totems = await this.$axios.$get('/vehicules/totem')
+    commit('SET_CARS', [...totems, ...state.cars])
   },
   async fetchBikes({ commit }) {
     const bikes = await this.$axios.$get("/vehicules/bike");

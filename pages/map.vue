@@ -17,7 +17,7 @@
           :key="'car'+i"
           :car="car"
           :select="selectVehicule"
-          provider="citiz"
+          :provider="car.provider"
         />
 
         <BikeMarker
@@ -70,7 +70,8 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCars')
+    this.$store.dispatch('map/fetchCitiz')
+    this.$store.dispatch('map/fetchTotems')
     this.$store.dispatch('map/fetchTrots', {
       lat: this.initialLocation[0],
       lng: this.initialLocation[1]
