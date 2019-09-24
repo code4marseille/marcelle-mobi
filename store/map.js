@@ -60,10 +60,8 @@ export const actions = {
     const bikes = await this.$axios.$get("/vehicules/bike");
     commit("SET_BIKES", bikes);
   },
-  async fetchTrots({ commit }) {
-    const trots = await this.$axios.$get(
-      "/vehicules/scooter?lat=43.2941748&lng=5.3743276"
-    );
-    commit("SET_TROTS", trots);
+  async fetchTrots({ commit }, { lat, lng }) {
+    const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
+    commit('SET_TROTS', trots)
   }
 };
