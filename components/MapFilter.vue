@@ -1,54 +1,54 @@
 <template>
-  <div class="filterGo">
-    <div
-      @click="$store.commit('map/TOGGLE_FILTER')"
-      v-if="$store.state.map.filterVisible"
-      class="buttonGo"
-    >X</div>
-    <div @click="!$store.commit('map/TOGGLE_FILTER')" v-else class="buttonGo">Go</div>
-    <div v-if="$store.state.map.filterVisible" id="filter" class="container">
-      <div class="row justify-content-between">
-        <div class="col-4 borderBottom">
-          <h2 class="lettreTransport text-primary">B</h2>
-          <p class="textFilter">Bus</p>
-        </div>
-        <div class="col-4 borderCentral borderBottom">
-          <h2 class="lettreTransport text-primary">T</h2>
-          <p class="textFilter">Tram</p>
-        </div>
-        <div class="col-4 borderBottom">
-          <h2 class="lettreTransport text-primary">M</h2>
-          <p class="textFilter">Metro</p>
-        </div>
+  <div>
+    <div class="filterGo">
+      <div
+        @click="$store.commit('map/TOGGLE_FILTER')"
+        class="buttonGo"
+      >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
+      <div v-if="$store.state.map.filterVisible" id="filter" class="container">
+        <div class="row justify-content-between mx-0">
+          <div class="col-4 borderBottom">
+            <h2 class="lettreTransport text-primary">B</h2>
+            <p class="textFilter">Bus</p>
+          </div>
+          <div class="col-4 borderCentral borderBottom">
+            <h2 class="lettreTransport text-primary">T</h2>
+            <p class="textFilter">Tram</p>
+          </div>
+          <div class="col-4 borderBottom">
+            <h2 class="lettreTransport text-primary">M</h2>
+            <p class="textFilter">Metro</p>
+          </div>
 
-        <div
-          @click="$store.commit('map/TOGGLE_BIKES')"
-          class="col-4"
-          :class="{active: $store.state.map.seeBikes}"
-        >
-          <img src="~/assets/images/velo.svg" />
-          <p class="textFilter">Vélo</p>
-        </div>
-        <div
-          @click="$store.commit('map/TOGGLE_CARS')"
-          class="col-4 borderCentral"
-          :class="{active: $store.state.map.seeCars}"
-        >
-          <img src="~/assets/images/voiture.svg" />
-          <p class="textFilter">Voiture</p>
-        </div>
+          <div
+            @click="$store.commit('map/TOGGLE_BIKES')"
+            class="col-4"
+            :class="{active: $store.state.map.seeBikes}"
+          >
+            <img src="~/assets/images/velo.svg" />
+            <p class="textFilter">Vélo</p>
+          </div>
+          <div
+            @click="$store.commit('map/TOGGLE_CARS')"
+            class="col-4 borderCentral"
+            :class="{active: $store.state.map.seeCars}"
+          >
+            <img src="~/assets/images/voiture.svg" />
+            <p class="textFilter">Voiture</p>
+          </div>
 
-        <div
-          @click="$store.commit('map/TOGGLE_TROTS')"
-          class="col-4"
-          :class="{active: $store.state.map.seeTrots}"
-        >
-          <img src="~/assets/images/trotinette.svg" />
-          <p class="textFilter">Trotinette</p>
+          <div
+            @click="$store.commit('map/TOGGLE_TROTS')"
+            class="col-4"
+            :class="{active: $store.state.map.seeTrots}"
+          >
+            <img src="~/assets/images/trotinette.svg" />
+            <p class="textFilter">Trotinette</p>
+          </div>
         </div>
       </div>
+      <SelectedVehicule />
     </div>
-    <SelectedVehicule />
   </div>
 </template>
 
@@ -76,17 +76,15 @@ export default {
   box-shadow: 5px 5px 5px gray;
   margin-bottom: 5px;
   transition: transform 0.2s linear;
-  height: 60%;
   padding: 0;
 }
 
 .filterGo {
-  position: absolute;
-  bottom: 0;
-  z-index: 999;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .borderCentral {
@@ -108,7 +106,7 @@ export default {
   border-radius: 50%;
   border: 2px solid White;
   color: white;
-  bottom: 18%;
+  bottom: 115%;
   right: 2%;
   text-align: center;
   padding: 15px 0px;
@@ -117,6 +115,8 @@ export default {
   margin-bottom: 10px;
   right: 0;
   z-index: 999;
+  align-self: flex-end;
+  position: absolute;
 }
 
 .lettreTransport {

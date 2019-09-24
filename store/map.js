@@ -47,7 +47,7 @@ export const mutations = {
 
   },
   'SELECT_VEHICULE'(state, { vehicule, provider }) {
-    vehicule.provider = provider
+    vehicule.provider = provider.toLowerCase()
     state.selectedVehicule = vehicule
     if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
@@ -57,7 +57,7 @@ export const mutations = {
 
 export const actions = {
   async fetchCars({ commit }) {
-    const cars = await this.$axios.$get('/vehicules/car')
+    const cars = await this.$axios.$get('/vehicules/citiz')
     commit('SET_CARS', cars)
   },
   async fetchBikes({ commit }) {

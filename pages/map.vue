@@ -29,9 +29,9 @@
         />
 
         <Locatecontrol />
-      </l-map>
 
-      <MapFilter />
+        <MapFilter />
+      </l-map>
     </div>
   </div>
 </template>
@@ -86,11 +86,14 @@ export default {
 
   #position {
     position: relative;
+    display: flex;
   }
 
   #map {
     width: 100wh;
     height: 100vh;
+    position: relative;
+    display: flex;
   }
 
   .textFilter {
