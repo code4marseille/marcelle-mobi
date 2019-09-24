@@ -1,10 +1,10 @@
 <template>
   <l-marker
-    @click="select(carInfo['latLng'], car, provider)"
-    :lat-lng="carInfo['latLng']"
+    @click="select(carInfos.latLng, car, provider)"
+    :lat-lng="carInfos.latLng"
     :visible="$store.state.map.seeCars"
   >
-    <l-icon :icon-size="carInfo['iconSize']" :icon-url="carInfo['iconUrl']"></l-icon>
+    <l-icon :icon-size="carInfos.iconSize" :icon-url="carInfos.iconUrl"></l-icon>
   </l-marker>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     select: { type: Function, required: true }
   },
   computed: {
-    carInfo() {
+    carInfos() {
       const providers = {
         totem: function(car) {
           return {
@@ -38,8 +38,6 @@ export default {
           }
         }
       }
-      console.log(providers[this.provider](this.car))
-
       return providers[this.provider](this.car)
     }
   }
