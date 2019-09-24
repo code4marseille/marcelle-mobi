@@ -34,8 +34,9 @@
     </div>
     <!-- what to do today -->
     <!-- <keep-alive> -->
-    <p>à faire aujourd'hui :</p>
+
     <div>
+      <p>à faire aujourd'hui :</p>
       <div class="activitiesProposees">
         <span v-for="(act, id)
      in activitesProposees" :key="id">
@@ -54,15 +55,41 @@
       <b-button class="btn-dark-blue" pill variant="primary" to="/map">Trouver un moyen de transport</b-button>
     </div>
 
-    <!-- infos rtm -->
-    <div class="slideInUp">
-      <i class="fas fa-angle-up"></i>
-      <p>INFOS TRAFIC RTM</p>
+    <!-- INFOS RTM MODAL -->
+
+    <div>
+      <b-button id="show-btn" @click="show = !show">
+        <div class="slideInUp">
+          <img src="~/assets/images/up-arrow.svg" width="30px" alt />
+          <p class="mb-0">Infos Traffic RTM</p>
+        </div>
+      </b-button>
+      <transition name="slide-fade" :duration="5000">
+        <b-modal
+          id="bv-modal-example"
+          scrollable
+          size="xl"
+          dialog-class="fixed-bottom"
+          hide-footer
+          v-model="show"
+          no-fade
+        >
+          <template v-slot:modal-title>
+            <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
+          </template>
+          <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 text-center border-bottom">
+            <h4 class="modal_title text-uppercase text-uppercase font-weight-bold">{{ alert[1] }}</h4>
+            <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
+            <p class="modal_description">{{ alert[2] }}</p>
+          </div>
+        </b-modal>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import axios from "../plugins/axios";
 export default {
   data() {
@@ -71,6 +98,18 @@ export default {
       windSpeed: "-",
       indiceQuality: "-",
       weatherIcon: "",
+=======
+import axios from '../plugins/axios'
+import Vuetify from 'vuetify/lib'
+export default {
+  data() {
+    return {
+      show: false,
+      temperature: '-',
+      windSpeed: '-',
+      indiceQuality: '-',
+      weatherIcon: '',
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
       weatherIcons: {
         Thunderstorm: {
           icon: "wi-day-thunderstorm",
@@ -204,10 +243,17 @@ export default {
           }
         }
       ],
+<<<<<<< HEAD
 
       activeBackground: require("~/assets/images/lungs.svg"),
       fanSpeed: ""
     };
+=======
+      alertRtm: [],
+      activeBackground: require('~/assets/images/lungs.svg'),
+      fanSpeed: ''
+    }
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
   },
 
   computed: {
@@ -241,6 +287,7 @@ export default {
     }
   },
   created() {
+<<<<<<< HEAD
     let temp, wind, aq;
     this.$axios.$get("/weathers/today").then(response => {
       let weather = "";
@@ -253,12 +300,26 @@ export default {
       this.weatherIcon = icone;
       wind = Math.trunc(response.wind.speed * 3.6);
       // wind = 20;
+=======
+    this.$axios.$get('/weathers/today').then(response => {
+      const temp = Math.round(response.main.temp)
+      this.temperature = temp
+      const weather = response.weather[0].main
+      const icone = '<i class="wi ' + this.weatherIcons[weather].icon + '"></i>'
+      this.weatherIcon = icone
+      const wind = Math.trunc(response.wind.speed * 3.6)
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
       // const wind = 50;
       this.windSpeed = wind;
 
       this.fanSpeed = {
+<<<<<<< HEAD
         animationDuration: (20 / wind) * 3 + "s"
       };
+=======
+        animationDuration: (20 / wind) * 3 + 's'
+      }
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
 
       this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg;); "></i>`;
 
@@ -275,10 +336,27 @@ export default {
             icon: element.icon
           });
         }
+<<<<<<< HEAD
       });
     });
     this.$axios.$get("/airs/quality").then(response => {
       const aq = Math.round(10 - response.data.aqi / 10);
+=======
+      })
+    })
+
+    this.$axios
+      .$get('http://marcelle-mobi-api.herokuapp.com/alerts/rtm')
+      .then(response => {
+        // let tabInfo = []
+        response.forEach(e =>
+          this.alertRtm.push(e.title.replace('-', '').split(':'))
+        )
+      })
+
+    this.$axios.$get('/airs/quality').then(response => {
+      const aq = Math.round(10 - response.data.aqi / 10)
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
 
       if (aq > 7) {
         this.activeBackground = this.activeBackground.replace(
@@ -314,12 +392,19 @@ export default {
     font-size: 2em;
   }
 
+<<<<<<< HEAD
   .fa-thermometer-half {
     font-size: 1rem;
   }
 
+=======
+>>>>>>> 7c45c2f1494578886c5174557a8379d9b5123b62
   .fa-arrow-up {
     font-size: 1.5rem;
+  }
+
+  .fa-thermometer-half {
+    font-size: 1rem;
   }
 
   @keyframes rotated {
@@ -330,6 +415,23 @@ export default {
       transform: rotate(360deg);
     }
   }
+
+  /* ------------------------------------------- */
+  /* Buttons Dashboard */
+  .btn-dark-blue {
+    background-color: #0e5da4;
+    padding: 7px 20px !important;
+    border-radius: 50px !important;
+    color: white !important;
+    width: 330px;
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
   /* "Info Traffic RTM" Slide In Up*/
   .slideInUp {
     -webkit-animation-name: slideInUp;
@@ -339,6 +441,7 @@ export default {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
   }
+
   @-webkit-keyframes slideInUp {
     0% {
       -webkit-transform: translateY(100%);
@@ -350,6 +453,7 @@ export default {
       transform: translateY(30);
     }
   }
+
   @keyframes slideInUp {
     0% {
       -webkit-transform: translateY(100%);
@@ -361,13 +465,54 @@ export default {
       transform: translateY(0);
     }
   }
+}
+/* ------------------------------------------- */
+/* FONT MODAL DESIGN  */
+.modal_header {
+  color: rgb(37, 169, 232);
+}
 
-  .btn-dark-blue {
-    background-color: #0e5da4;
-    padding: 7px 70px !important;
-    border-radius: 50px !important;
-    color: white !important;
-    width: 300px;
-  }
+.modal_title {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.modal_description::first-letter {
+  text-transform: uppercase;
+}
+
+.modal_description {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.modal_date {
+  color: #0e5da4;
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+.modal_date::first-letter {
+  text-transform: uppercase;
+}
+
+/* MODAL DESIGN  */
+.modal-dialog-scrollable {
+  max-height: 70%;
+}
+
+.modal-dialog {
+  margin: 0 auto !important;
+}
+
+.modal-content {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.btn-dark-blue {
+  background-color: #0e5da4;
+  padding: 7px 70px !important;
+  border-radius: 50px !important;
+  color: white !important;
+  width: 300px;
 }
 </style>
