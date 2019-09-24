@@ -2,7 +2,7 @@
   <div
     id="dashboardPage"
     class="d-flex flex-column justify-content-between"
-    :style="{backgroundImage:'url('+$store.state.dashboard.activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
+    :style="{backgroundImage:'url('+activeBackground+')', backgroundPosition:'center', backgroundRepeat:'no-repeat'}"
   >
     <header>
       <!--<Navbar /> -->
@@ -11,49 +11,44 @@
 
     <div>
       <p>
-        <i :class="['wi', $store.state.dashboard.weather.icon]"></i>
+        <span v-html="weatherIcon"></span>
         <!-- {{ weatherIcon}}  -->
         <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
-        <span class="indice-quality">{{$store.state.dashboard.temperature}}</span>
+        <span class="indice-quality">{{ temperature }}</span>
         °C
       </p>
       <p>
-        <i
-          class="fas fa-fan"
-          style="animation:rotated infinite"
-          :style="$store.state.dashboard.speedRotation"
-        ></i>
-        <i class="fas fa-arrow-up" :style="$store.state.dashboard.orientation"></i>
-        <span class="indice-quality">{{ $store.state.dashboard.windSpeed }}</span>
+        <i class="fas fa-fan" style="animation:rotated infinite" :style="fanSpeed"></i>
+        <span v-html="windArrow"></span>
+        <span class="indice-quality">{{ windSpeed }}</span>
         <span class="text-lowercase">km/h</span>
       </p>
     </div>
     <!-- air quality -->
     <div>
       <i class="fas fa-wind"></i>
-      <span class="indice-quality">{{ $store.state.dashboard.airQuality}}</span>
-      <span>/10</span>
-      <div>{{$store.state.dashboard.airQualityText}}</div>
-      <div></div>
+      <span class="indice-quality">{{ indiceQuality }}</span>
+      /10
+      <div>{{textAirQuality}}</div>
     </div>
     <!-- what to do today -->
     <!-- <keep-alive> -->
 
-    <!-- <div>
+    <div>
       <p>à faire aujourd'hui :</p>
-    <!--  <div class="activitiesProposees">-->
-    <!-- <span v-for="act, id
-   in $store.getters['dashboard/activitiesFiltered']" :key="id">
-    <!-- <acronym v-bind:title="act.nom">-->
-    <!-- <span v-html="act.icon"></span> -->
-    <span></span>
-    <!-- </acronym> -->
-    <!-- </span> -->
-    <!-- </div>
+      <div class="activitiesProposees">
+        <span v-for="(act, id)
+     in activitesProposees" :key="id">
+          <acronym v-bind:title="act.nom">
+            <span v-html="act.icon"></span>
+          </acronym>
+        </span>
+        <!-- <i class="fas fa-basketball-ball px-5"></i>
+        <i class="fas fa-bicycle px-5"></i>-->
+      </div>
       <p>Description de l'activité</p>
-    </div>-->
-
+    </div>
     <!-- </keep-alive> -->
     <!-- find transport -->
     <div>
@@ -63,7 +58,7 @@
     <!-- INFOS RTM MODAL -->
 
     <div>
-      <!-- <b-button id="show-btn" @click="show = !show">
+      <b-button id="show-btn" @click="show = !show">
         <div class="slideInUp">
           <img src="~/assets/images/up-arrow.svg" width="30px" alt />
           <p class="mb-0">Infos Traffic RTM</p>
@@ -82,47 +77,110 @@
           <template v-slot:modal-title>
             <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
           </template>
-          <!-- <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 text-center border-bottom">
+          <div v-for="alert in alertRtm" class="content-alert-rtm mt-3 text-center border-bottom">
             <h4 class="modal_title text-uppercase text-uppercase font-weight-bold">{{ alert[1] }}</h4>
             <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
             <p class="modal_description">{{ alert[2] }}</p>
-      </div>-->
-      <!-- </b-modal> -->
-      <!-- </transition> -->
+          </div>
+        </b-modal>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+import axios from '../plugins/axios'
+import Vuetify from 'vuetify/lib'
 export default {
-  data() {
-    return {
-      tabActivities: []
+  computed: {
+    textAirQuality() {
+      switch (Math.round(this.indiceQuality)) {
+        case 0:
+          return 'lorem0'
+        case 1:
+          return 'lorem1'
+        case 2:
+          return 'lorem2'
+        case 3:
+          return 'lorem3'
+        case 4:
+          return 'lorem4'
+        case 5:
+          return 'lorem5'
+        case 6:
+          return 'lorem6'
+        case 7:
+          return 'lorem7'
+        case 8:
+          return 'lorem8'
+        case 9:
+          return 'lorem9'
+        case 10:
+          return 'au top'
+        default:
+          return 'neant'
+      }
     }
   },
   created() {
-    this.$store.dispatch('dashboard/fetchWeather')
-    this.$store.dispatch('dashboard/fetchAirQuality')
+    this.$axios.$get('/weathers/today').then(response => {
+      // const temp = Math.round(response.main.temp)
+      // this.temperature = temp
+      // const weather = response.weather[0].main
+      // const icone = '<i class="wi ' + this.weatherIcons[weather].icon + '"></i>'
+      // this.weatherIcon = icone
+      // const wind = Math.trunc(response.wind.speed * 3.6)
+      // const wind = 50;
+      // this.windSpeed = wind
 
-    // this.$store.state.dashboard.activitesProposees.activities.forEach(e => {
+      this.fanSpeed = {
+        animationDuration: (20 / wind) * 3 + 's'
+      }
 
-    // if (
-    //   e.conditions.minTemp < $store.state.dashboard.temperature &&
-    //   e.conditions.maxTemp > $store.state.dashboard.temperature &&
-    //   e.conditions.minWind < $store.state.dashboard.windSpeed &&
-    //   e.conditions.maxWind > $store.state.dashboard.windSpeed &&
-    //   e.conditions.beau === $store.state.dashboard.weather.clear
-    // ) {
-    //   this.tabActivities.push({
-    //     nom: e.name.toUpperCase(),
-    //     icon: e.icon
-    //   })
-    // }
-    // })
+      // this.windArrow = `<i class="fas fa-arrow-up" style="transform:rotate(${response.wind.deg}deg); "></i>`
+
+      //   this.activites.forEach(element => {
+      //     if (
+      //       element.conditions.minTemp < temp &&
+      //       element.conditions.maxTemp > temp &&
+      //       element.conditions.minWind < wind &&
+      //       element.conditions.maxWind > wind &&
+      //       element.conditions.beau === this.weatherIcons[weather].clear
+      //     ) {
+      //       this.activitesProposees.push({
+      //         nom: element.name.toUpperCase(),
+      //         icon: element.icon
+      //       })
+      //     }
+      //   })
+    })
+
+    this.$axios
+      .$get('http://marcelle-mobi-api.herokuapp.com/alerts/rtm')
+      .then(response => {
+        // let tabInfo = []
+        response.forEach(e =>
+          this.alertRtm.push(e.title.replace('-', '').split(':'))
+        )
+      })
+
+    this.$axios.$get('/airs/quality').then(response => {
+      const aq = Math.round(10 - response.data.aqi / 10)
+
+      if (aq > 7) {
+        this.activeBackground = this.activeBackground.replace(
+          'lungs',
+          'lavande'
+        )
+      } else if (aq < 4) {
+        this.activeBackground = this.activeBackground.replace('lungs', 'scuba')
+      }
+
+      this.indiceQuality = aq
+    })
   }
 }
 </script>
-
 
 <style lang="scss">
 #dashboardPage {

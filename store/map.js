@@ -10,6 +10,7 @@ export const state = () => ({
   seeTrots: true,
   selectedVehicule: null,
 
+
 })
 
 export const getters = ({
