@@ -24,4 +24,5 @@
   "yaml.format.enable": true,
   "scssFormatter.singleQuote": true,
   "editor.fontLigatures": true,
+  "javascript.format.enable": true,
 }

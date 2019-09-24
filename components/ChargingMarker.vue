@@ -1,7 +1,5 @@
 <template>
   <l-marker :lat-lng="[charging.addressInfo.latitude,charging.addressInfo.longitude]">
-    <!-- @click="select(charging.addressInfo, charging.addressInfo.latitude,charging.addressInfo.longitude)"  -->
-
     <l-popup style="text-align:center">
       <p style="font-weight:bold">{{charging.addressInfo.title}}</p>
       <p>{{charging.addressInfo.addressLine1}},{{charging.addressInfo.postcode}},{{charging.addressInfo.town}}</p>
@@ -13,17 +11,13 @@
 </template>
 
 <script>
-import { LMarker, LIcon } from "vue2-leaflet";
-import { icon } from "leaflet";
+import { LMarker, LIcon } from 'vue2-leaflet'
+import { icon } from 'leaflet'
 
 export default {
   components: { LMarker, LIcon },
   props: {
-    charging: { type: Object, required: true },
-    select: { type: Function, required: true }
-  },
-  created() {
-    // console.log(this.charging);
+    charging: { type: Object, required: true }
   }
-};
+}
 </script>
