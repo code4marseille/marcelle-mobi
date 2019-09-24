@@ -63,7 +63,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://marcelle-mobi-api.herokuapp.com"
+    baseURL: "https://marcelle-mobi-api.herokuapp.com"
   },
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
