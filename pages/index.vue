@@ -49,9 +49,11 @@
         <!-- <i class="fas fa-basketball-ball px-5"></i>
         <i class="fas fa-bicycle px-5"></i>-->
       </div>
-      <p>Description de l'activité</p>
     </div>
     <!-- <keep-alive> -->
+    <div>
+      <b-button class="btn-dark-blue" pill variant="primary" to="/map">Trouver un moyen de transport</b-button>
+    </div>
     <div>
       <b-button id="show-btn" @click="show = !show">
         <div class="slideInUp">
