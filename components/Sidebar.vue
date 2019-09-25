@@ -13,7 +13,7 @@
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
           <v-list-item-icon>
             <!-- <v-icon class="text-white px-3">{{ item.icon }}</v-icon> -->
-            <img svg-inline :src="item.icon" />
+            <img svg-inline :src="item.icon" class="icon-sidebar" />
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -36,26 +36,30 @@ export default {
     return {
       drawer: null,
       items: [
-        { title: 'Accueil', link: '/', icon: '~/assets/images/navbarHome.svg' },
+        {
+          title: 'Accueil',
+          link: '/',
+          icon: require('~/assets/images/navbarHome.svg')
+        },
         {
           title: 'Se déplacer',
           link: '/map',
-          icon: '~/assets/images/navbarMap.svg'
+          icon: require('~/assets/images/navbarMap.svg')
         },
         {
           title: 'Marius',
           link: '/marius',
-          icon: '~/assets/images/navbarMarius.svg'
+          icon: require('~/assets/images/navbarMarius.svg')
         },
         {
           title: 'Bon à savoir',
           link: '/articles',
-          icon: '~/assets/images/navbarBlog.svg'
+          icon: require('~/assets/images/navbarBlog.svg')
         },
         {
           title: 'Proposer un article',
           link: '/articles/create',
-          icon: '~/assets/images/navbarCreateArticle.svg'
+          icon: require('~/assets/images/navbarCreateArticle.svg')
         }
       ]
     }
@@ -86,6 +90,13 @@ export default {
     background-color: none !important;
   }
 
+  .icon-sidebar {
+    min-width: 40px;
+    min-height: 40px;
+    width: 6vw;
+    height: 5vw;
+    margin: 0 20px 0 1vh;
+  }
   .close-svg {
     font-size: 30%;
     width: 10%;
