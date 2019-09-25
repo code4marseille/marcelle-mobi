@@ -11,11 +11,11 @@
         </v-list-item>
 
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
-          <v-list-item-icon>
+          <v-list-item-icon style="width:60px">
             <v-icon class="text-white px-3">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
-          <v-list-item-content>
+          <v-list-item-content class="icon_sidebar_align">
             <nuxt-link :to="item.link">
               <v-list-item-title
                 class="text-uppercase text-white items-sidebar display-1"
@@ -44,7 +44,7 @@ export default {
           link: '/articles/create',
           icon: 'far fa-edit'
         },
-        { title: 'À propos', link: '/apropos', icon: 'fas fa-info' }
+        { title: 'À propos', link: '/apropos', icon: 'far fa-question-circle' }
       ]
     }
   }
@@ -74,6 +74,14 @@ export default {
     font-size: 30%;
     width: 10%;
     margin: 1vh 1vw 1vh auto;
+  }
+
+  .fa-info {
+    margin-left: 7px;
+  }
+
+  .fa-cloud {
+    margin-left: -5px;
   }
 }
 </style>

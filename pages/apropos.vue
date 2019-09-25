@@ -19,10 +19,26 @@
                   href="https://openweathermap.org/"
                   active
                 >Open Weather Map</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://www.atmosud.org/">Atmo Sud</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://www.navitia.io/">Navitia</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://fluctuo.com/">Fluctuo</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://citiz.coop/">Citiz</b-list-group-item>
+                <b-list-group-item
+                  class="list-group-item"
+                  href="https://www.atmosud.org/"
+                  target="_blank"
+                >Atmo Sud</b-list-group-item>
+                <b-list-group-item
+                  class="list-group-item"
+                  href="https://www.navitia.io/"
+                  target="_blank"
+                >Navitia</b-list-group-item>
+                <b-list-group-item
+                  class="list-group-item"
+                  href="https://fluctuo.com/"
+                  target="_blank"
+                >Fluctuo</b-list-group-item>
+                <b-list-group-item
+                  class="list-group-item"
+                  href="https://citiz.coop/"
+                  target="_blank"
+                >Citiz</b-list-group-item>
               </b-list-group>
             </b-card>
           </b-collapse>
@@ -65,28 +81,34 @@
                 <b-list-group-item
                   class="list-group-item"
                   href="https://www.departement13.fr"
+                  target="_blank"
                 >Departement Bouches du Rhone</b-list-group-item>
                 <b-list-group-item
                   class="list-group-item"
                   href="https://code4marseille.fr"
+                  target="_blank"
                 >Code4MArseille</b-list-group-item>
                 <b-list-group-item
                   class="list-group-item"
                   href="https://www.lecloitre13.fr"
+                  target="_blank"
                 >Le cloître</b-list-group-item>
                 <b-list-group-item class="list-group-item" href="https://simplon.co">Simplon</b-list-group-item>
                 <b-list-group-item
                   class="list-group-item"
                   href="https://www.lewagon.com/fr/marseille"
+                  target="_blank"
                 >Le Wagon</b-list-group-item>
                 <b-list-group-item class="list-group-item" href="https://www.wf3.fr">WebForce3</b-list-group-item>
                 <b-list-group-item
                   class="list-group-item"
                   href="https://www.pole-emploi.fr/accueil/"
+                  target="_blank"
                 >Pôle Emploi</b-list-group-item>
                 <b-list-group-item
                   class="list-group-item"
                   href="https://missionlocalemarseille.fr"
+                  target="_blank"
                 >Mission Locale Marseille</b-list-group-item>
               </b-list-group>
             </b-card>
