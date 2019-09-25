@@ -42,9 +42,9 @@
       <div class="activitiesProposees">
         <span v-for="(act, id)
      in $store.state.dashboard.activitesProposees" :key="id">
-          <acronym v-bind:title="act.name">
+          <b-button v-b-tooltip.hover v-bind:title="act.name">
             <i class="fa" :class="act.icon"></i>
-          </acronym>
+          </b-button>
         </span>
         <!-- <i class="fas fa-basketball-ball px-5"></i>
         <i class="fas fa-bicycle px-5"></i>-->

@@ -1,7 +1,7 @@
 export default {
   activities: [
     {
-      name: 'bowling',
+      name: 'Bowling',
       icon: 'fa-bowling-ball"></i>',
       conditions: {
         beau: false,
@@ -12,7 +12,7 @@ export default {
       }
     },
     {
-      name: 'cinéma',
+      name: 'Cinéma',
       icon: 'fa-film',
       conditions: {
         beau: false,
@@ -23,7 +23,7 @@ export default {
       }
     },
     {
-      name: 'football',
+      name: 'Football',
       icon: 'fa-futbol',
       conditions: {
         beau: true,
@@ -35,7 +35,7 @@ export default {
     },
 
     {
-      name: 'sports nautique',
+      name: 'Sports nautique',
       icon: 'fa-ship',
       conditions: {
         beau: true,
@@ -46,7 +46,7 @@ export default {
       }
     },
     {
-      name: 'randonnée',
+      name: 'Randonnée',
       icon: 'fa-hiking',
       conditions: {
         beau: true,
@@ -57,7 +57,7 @@ export default {
       }
     },
     {
-      name: 'arcade',
+      name: 'Arcade',
       icon: 'fa-gamepad',
       conditions: {
         beau: false,
@@ -68,7 +68,7 @@ export default {
       }
     },
     {
-      name: 'plage',
+      name: 'Plage',
       icon: 'fa-water',
       conditions: {
         beau: true,
@@ -79,7 +79,7 @@ export default {
       }
     },
     {
-      name: 'basket',
+      name: 'Basket',
       icon: 'fa-basketball-ball',
       conditions: {
         beau: true,
@@ -90,7 +90,7 @@ export default {
       }
     },
     {
-      name: 'sieste',
+      name: 'Sieste',
       icon: 'fa-bed',
       conditions: {
         beau: false,
