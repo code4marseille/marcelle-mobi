@@ -43,7 +43,8 @@ export default {
           title: 'Ajouter un article',
           link: '/articles/create',
           icon: 'far fa-edit'
-        }
+        },
+        { title: 'À propos', link: '/apropos', icon: 'fas fa-info' }
       ]
     }
   }
