@@ -11,26 +11,32 @@
           class="btn-categorie m-1 text-uppercase btn-block p-3"
         >Catégorie</b-button>
         <b-collapse id="collapse-2">
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 1</b-button>
+          <b-button
+            v-b-toggle="'collapse-2'"
+            class="btn-block item-collapse"
+            v-on:click="showCategories()"
+          >Catégorie 1</b-button>
           <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
           <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
           <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
         </b-collapse>
       </div>
 
-      <nuxt-link to="/articles/zz">
-        <b-card
-          v-for="(article, id) in articles"
-          :key="id"
-          class="mb-4 rounded"
-          :img-src="article.imgUrl"
-        >
+      <b-card
+        v-for="(article, id) in articles"
+        :key="id"
+        class="mb-4 rounded"
+        :img-src="article.imgUrl"
+        v-if="selected"
+      >
+        <a :href="article.url" target="_blank" append="true" class="stretched-link">
           <b-card-title class="title">{{article.title}}</b-card-title>
 
           <b-card-sub-title>{{article.description}}</b-card-sub-title>
-          <b-card-text class="small text-lowercase text-right card-text-cat">Mobilité</b-card-text>
-        </b-card>
-      </nuxt-link>
+          <b-card-sub-title class="small mt-3">Partagé par {{article.publisherName}}</b-card-sub-title>
+          <b-card-text class="small text-lowercase text-right card-text-cat">{{ article.category }}</b-card-text>
+        </a>
+      </b-card>
     </main>
   </div>
 </template>
@@ -39,17 +45,30 @@
 export default {
   data() {
     return {
-      articles: ''
+      articles: '',
+      selected: true
+    }
+  },
+  methods: {
+    showCategories() {
+      for (let article in this.articles) {
+        let category = this.articles[article].category
+        let title = this.articles[article].title // just for debug
+
+        console.log(title + ' | catégorie: ' + category)
+
+        if (category === 'écologie') {
+          this.selected = true
+        } else {
+          this.selected = false
+        }
+        console.log(this.selected)
+      }
+      console.log('~~~~~~~~~~~~~~~~~~~~~~~~')
     }
   },
   mounted() {
-    this.$axios
-      .$get('/articles')
-      .then(
-        response => (this.articles = response),
-        console.log('reponse : ' + this.articles)
-      )
-    console.log('reponse : ' + this.articles)
+    this.$axios.$get('/articles').then(response => (this.articles = response))
   }
 }
 </script>
@@ -103,6 +122,11 @@ export default {
     max-height: 30vh;
     border-top-left-radius: calc(1rem - 1px);
     border-top-right-radius: calc(1rem - 1px);
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: none;
   }
 }
 </style>

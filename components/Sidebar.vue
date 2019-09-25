@@ -12,11 +12,12 @@
 
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
           <v-list-item-icon>
-            <v-icon class="text-white px-3">{{ item.icon }}</v-icon>
+            <!-- <v-icon class="text-white px-3">{{ item.icon }}</v-icon> -->
+            <img svg-inline :src="item.icon" />
           </v-list-item-icon>
 
           <v-list-item-content>
-            <nuxt-link :to="item.link">
+            <nuxt-link :to="item.link" class="stretched-link">
               <v-list-item-title
                 class="text-uppercase text-white items-sidebar display-1"
               >{{ item.title }}</v-list-item-title>
@@ -35,14 +36,26 @@ export default {
     return {
       drawer: null,
       items: [
-        { title: 'Accueil', link: '/', icon: 'fas fa-cloud' },
-        { title: 'Se déplacer', link: '/map', icon: 'fas fa-map-marker-alt' },
-        { title: 'Marius', link: '/marius', icon: 'far fa-user' },
-        { title: 'Bon à savoir', link: '/articles', icon: 'fas fa-info' },
+        { title: 'Accueil', link: '/', icon: '~/assets/images/navbarHome.svg' },
         {
-          title: 'Ajouter un article',
+          title: 'Se déplacer',
+          link: '/map',
+          icon: '~/assets/images/navbarMap.svg'
+        },
+        {
+          title: 'Marius',
+          link: '/marius',
+          icon: '~/assets/images/navbarMarius.svg'
+        },
+        {
+          title: 'Bon à savoir',
+          link: '/articles',
+          icon: '~/assets/images/navbarBlog.svg'
+        },
+        {
+          title: 'Proposer un article',
           link: '/articles/create',
-          icon: 'far fa-edit'
+          icon: '~/assets/images/navbarCreateArticle.svg'
         }
       ]
     }
@@ -67,6 +80,10 @@ export default {
     background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
     z-index: 470;
     position: fixed;
+  }
+
+  .active {
+    background-color: none !important;
   }
 
   .close-svg {
