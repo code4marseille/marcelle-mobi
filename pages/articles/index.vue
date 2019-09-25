@@ -25,13 +25,8 @@
         </b-collapse>
       </div>
       <b-row>
-        <b-col cols="12" md="6">
-          <b-card
-            v-for="(article, id) in filteredArticles"
-            :key="id"
-            class="mb-4 rounded"
-            :img-src="article.imgUrl"
-          >
+        <b-col cols="12" md="6" v-for="(article, id) in filteredArticles" :key="id">
+          <b-card class="mb-4 rounded" :img-src="article.imgUrl">
             <a :href="article.url" target="_blank" append="true" class="stretched-link">
               <b-card-title class="title">{{article.title}}</b-card-title>
 
