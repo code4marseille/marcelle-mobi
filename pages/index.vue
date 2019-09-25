@@ -37,6 +37,20 @@
       <div>{{$store.state.dashboard.airQualityText}}</div>
     </div>
     <!-- what to do today -->
+    <div>
+      <p>à faire aujourd'hui :</p>
+      <div class="activitiesProposees">
+        <span v-for="(act, id)
+     in $store.state.dashboard.activitesProposees" :key="id">
+          <acronym v-bind:title="act.name">
+            <i class="fa" :class="act.icon"></i>
+          </acronym>
+        </span>
+        <!-- <i class="fas fa-basketball-ball px-5"></i>
+        <i class="fas fa-bicycle px-5"></i>-->
+      </div>
+      <p>Description de l'activité</p>
+    </div>
     <!-- <keep-alive> -->
     <div>
       <b-button id="show-btn" @click="show = !show">
