@@ -7,11 +7,13 @@
         </div>
       </div>
       <div class="flex2 descriptionVehicule">
-        <p>{{vehiculeInfo('line1')}}</p>
+        <p>
+          <strong>{{vehiculeInfo('line1')}}</strong>
+        </p>
 
         <p class="mb-0">{{vehiculeInfo('line2')}}</p>
 
-        <p v-if="vehiculeInfo('line3')  !== ''">{{vehiculeInfo('line3')}}</p>
+        <p class="mb-0" v-if="vehiculeInfo('line3')  !== ''">{{vehiculeInfo('line3')}}</p>
       </div>
       <div class="flex3">
         <a href="#">
@@ -47,8 +49,8 @@ export default {
           //Voiture Citiz
           citiz: {
             line1: v.name,
-            line2: v.licencePlate,
-            line3: v.fuelLevel,
+            line2: `Immat.: ${v.licencePlate}`,
+            line3: `Réservoir: ${v.fuelLevel} %`,
             icon: require(`~/assets/images/citiz_marker.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/citiz/id726185820`,
@@ -58,7 +60,7 @@ export default {
           //Borne vélo
           levelo: {
             line1: v.address,
-            line2: `Velo dispo ${v.availableBikes}  - Place dispo : ${v.availableBikeStands}`,
+            line2: `Velo dispo.: ${v.availableBikes}  - Place dispo.: ${v.availableBikeStands}`,
             line3: '',
             icon: require(`~/assets/images/velo.svg`),
             linkAndroid: `http://www.levelo-mpm.fr/`,
@@ -79,7 +81,7 @@ export default {
 
           circ: {
             line1: v.provider,
-            line2: `Batterie: ${v.battery} %,`,
+            line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/circ.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
@@ -89,7 +91,7 @@ export default {
 
           bird: {
             line1: v.provider,
-            line2: `Batterie: ${v.battery} %,`,
+            line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/bird.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
@@ -102,6 +104,15 @@ export default {
             line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/tier.svg`),
+            linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
+            linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
+            linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
+          },
+          totem: {
+            line1: v.provider,
+            line2: `Immat.: ${v.imat}`,
+            line3: `Batterie: ${v.batteryLevel} %`,
+            icon: require(`~/assets/images/totem.svg`),
             linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
