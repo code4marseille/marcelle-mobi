@@ -7,6 +7,7 @@
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'charging'+i"
           :charging="charging"
+          :moreInfo="$store.state.chargingmap.moreInfo"
         />
 
         <Locatecontrol />
@@ -43,18 +44,16 @@ export default {
       longitude: this.initialLocation[1]
     })
     this.$store.dispatch('parkingMap/fetchChargingStationReferences')
-  },
-  methods: {
-    updateParking(center) {
-      const coord = { latitude: center.lat, longitude: center.lng }
-      this.$store.dispatch('parkingMap/fetchChargingStations', coord)
-    }
   }
 }
 </script>
 
 <style lang="scss">
 #parkingMapPage {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
   .leaflet-left {
     right: 0 !important;
     padding-right: 10px;
@@ -78,21 +77,15 @@ export default {
   .leaflet-control-attribution {
     display: none;
   }
-}
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-.h_iframe iframe {
-  width: 100%;
-  height: 100%;
-}
-.h_iframe {
-  height: 100%;
-  width: 100%;
+  .h_iframe iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .h_iframe {
+    height: 100%;
+    width: 100%;
+  }
 }
 </style>
 
