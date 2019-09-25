@@ -5,16 +5,14 @@
     </header>
     <main>
       <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
-      <div class="contener-collapse mb-4">
+      <div class="contener-collapse">
         <b-button
           v-b-toggle="'collapse-2'"
-          class="btn-categorie m-1 text-uppercase btn-block p-3"
+          class="btn-categorie text-uppercase btn-block p-3"
         >{{selectedCategory}}</b-button>
-        <b-button
-          v-on:click="returnAllArticles()"
-          v-if="selectedCategoryTrue"
-          class="btn-block small"
-        >Revenir sur tous les articles</b-button>
+        <b-button v-on:click="returnAllArticles()" v-if="selectedCategoryTrue" class="btn-block">
+          <span class="small">Revenir sur tous les articles</span>
+        </b-button>
 
         <b-collapse id="collapse-2">
           <b-button
@@ -26,21 +24,26 @@
           >{{category}}</b-button>
         </b-collapse>
       </div>
+      <b-row>
+        <b-col cols="12" md="6">
+          <b-card
+            v-for="(article, id) in filteredArticles"
+            :key="id"
+            class="mb-4 rounded"
+            :img-src="article.imgUrl"
+          >
+            <a :href="article.url" target="_blank" append="true" class="stretched-link">
+              <b-card-title class="title">{{article.title}}</b-card-title>
 
-      <b-card
-        v-for="(article, id) in filteredArticles"
-        :key="id"
-        class="mb-4 rounded"
-        :img-src="article.imgUrl"
-      >
-        <a :href="article.url" target="_blank" append="true" class="stretched-link">
-          <b-card-title class="title">{{article.title}}</b-card-title>
-
-          <b-card-sub-title>{{article.description}}</b-card-sub-title>
-          <b-card-sub-title class="small mt-3">Partagé par {{article.publisherName}}</b-card-sub-title>
-          <b-card-text class="small text-lowercase text-right card-text-cat">{{ article.category }}</b-card-text>
-        </a>
-      </b-card>
+              <b-card-sub-title>{{article.description}}</b-card-sub-title>
+              <b-card-sub-title class="small mt-3">Partagé par {{article.publisherName}}</b-card-sub-title>
+              <b-card-text
+                class="small text-lowercase text-right card-text-cat"
+              >{{ article.category }}</b-card-text>
+            </a>
+          </b-card>
+        </b-col>
+      </b-row>
     </main>
   </div>
 </template>
