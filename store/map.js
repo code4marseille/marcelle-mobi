@@ -9,16 +9,11 @@ export const state = () => ({
   seeBikes: true,
   seeTrots: true,
   selectedVehicule: null,
-  // vehiculeInfo: []
 });
 
 export const getters = {
   carByIdx: state => idx => state.cars[idx],
-  //allVehicules: state => state.cars.concat(state.trots).concat(state.bikes)
   allVehicules: state => [...state.cars, ...state.bikes, ...state.trots]
-
-  // commit('SET_CARS', [...citizs, ...state.cars])
-
 };
 
 export const mutations = {
@@ -48,13 +43,10 @@ export const mutations = {
     if (state.selectedVehicule && state.filterVisible)
       state.selectedVehicule = null;
   },
-  SELECT_VEHICULE(state, { vehicule, provider }) {
-    vehicule.provider = provider.toLowerCase()
+  SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
     if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
-  // Dans la mutations je fait VEHICULE-INFO dans lequel sera stocké CARS BIKES et TROTS
-  // Afin de pouvoir m'en servier pour les markers
 };
 
 export const actions = {

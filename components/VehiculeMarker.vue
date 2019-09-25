@@ -1,8 +1,8 @@
 <template>
   <l-marker
-    @click="select(vehiculeInfos.latLng, vehiculeInfo, provider)"
+    @click="select(vehiculeInfos.latLng, vehicule, provider)"
     :lat-lng="vehiculeInfos.latLng"
-    :visible="$store.state.map.vehiculeInfos"
+    :visible="vehiculeInfos.visible"
   >
     <l-icon :icon-size="vehiculeInfos.iconSize" :icon-url="vehiculeInfos.iconUrl"></l-icon>
   </l-marker>
@@ -28,8 +28,7 @@ export default {
             latLng: [vehicule.position.lat, vehicule.position.lng],
             iconUrl: require('~/assets/images/totem.svg'),
             iconSize: [40, 50],
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            visible: '$store.state.map.seeCars'
+            visible: this.$store.state.map.seeCars
           }
         },
         citiz: vehicule => {
@@ -37,95 +36,94 @@ export default {
             latLng: [vehicule.gpsLatitude, vehicule.gpsLongitude],
             iconUrl: require('~/assets/images/citiz_marker.svg'),
             iconSize: [40, 40],
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            visible: '$store.state.map.seeCars'
+            visible: this.$store.state.map.seeCars
           }
         },
-        Lime: vehicule => {
+        lime: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/lime.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Circ: vehicule => {
+        circ: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/circ.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Hive: vehicule => {
+        hive: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/hive.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Jump: vehicule => {
+        jump: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/jump.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Tier: vehicule => {
+        tier: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/tier.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Voi: vehicule => {
+        voi: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/voi.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Wind: vehicule => {
+        wind: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/wind.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
-        Bird: vehicule => {
+        bird: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/bird.svg'),
-            click: 'select(vehiculeInfos.latLng, vehiculeInfo, provider)',
-            latLng: vehicule.latLng,
-            visible: '$store.state.map.seeTrots'
+
+            latLng: [vehicule.lat, vehicule.lng],
+            visible: this.$store.state.map.seeTrots
           }
         },
         leVelo: vehicule => {
           return {
             size: [30, 40],
             iconUrl: require('~/assets/images/iBike.svg'),
-            click:
-              'select([vehiculeInfo.position.lat,vehiculeInfo.position.lng], vehiculeInfo, provider)',
+
             latLng: [vehicule.position.lat, vehicule.position.lng],
-            visible: '$store.state.map.seeBikes'
+            visible: this.$store.state.map.seeBikes
           }
         }
       }
-      return providers[this.provider](this.vehicule)
-    } //:visible="$store.state.map.seeCars"
+      const infos = providers[this.provider]
+      return infos ? infos(this.vehicule) : console.log(this.provider)
+    }
   }
 }
 </script>
