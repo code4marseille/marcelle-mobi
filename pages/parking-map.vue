@@ -1,13 +1,14 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="15" :center="initialLocation" ref="parkingMap">
+      <l-map id="map" :zoom="10" :center="initialLocation" ref="parkingMap">
         <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'charging'+i"
           :charging="charging"
         />
+
         <Locatecontrol />
       </l-map>
     </div>
@@ -37,7 +38,17 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('parkingMap/fetchChargingStations')
+    this.$store.dispatch('parkingMap/fetchChargingStations', {
+      latitude: this.initialLocation[0],
+      longitude: this.initialLocation[1]
+    })
+    this.$store.dispatch('parkingMap/fetchChargingStationReferences')
+  },
+  methods: {
+    updateParking(center) {
+      const coord = { latitude: center.lat, longitude: center.lng }
+      this.$store.dispatch('parkingMap/fetchChargingStations', coord)
+    }
   }
 }
 </script>
@@ -67,6 +78,21 @@ export default {
   .leaflet-control-attribution {
     display: none;
   }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.h_iframe iframe {
+  width: 100%;
+  height: 100%;
+}
+.h_iframe {
+  height: 100%;
+  width: 100%;
 }
 </style>
 
