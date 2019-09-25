@@ -9,7 +9,13 @@
         <b-button
           v-b-toggle="'collapse-2'"
           class="btn-categorie m-1 text-uppercase btn-block p-3"
-        >Catégorie</b-button>
+        >{{selectedCategory}}</b-button>
+        <b-button
+          v-on:click="returnAllArticles()"
+          v-if="selectedCategoryTrue"
+          class="btn-block small"
+        >Revenir sur tous les articles</b-button>
+
         <b-collapse id="collapse-2">
           <b-button
             v-b-toggle="'collapse-2'"
@@ -44,28 +50,36 @@ export default {
   data() {
     return {
       articles: [],
-      categories: ['mobilité', 'écologie', 'politique', 'bons plans', 'tout'],
-      selectedCategory: null
+      categories: ['mobilité', 'écologie', 'politique', 'bons plans'],
+      selectedCategory: 'Catégories'
+      // selectedCategoryTrue: false
     }
   },
   methods: {
     selectCategory(category) {
       this.selectedCategory = category
+    },
+    returnAllArticles() {
+      this.selectedCategory = 'catégories'
     }
   },
   computed: {
     filteredArticles() {
-      if (this.selectedCategory == null || this.selectedCategory == 'tout')
+      if (
+        this.selectedCategory == null ||
+        this.selectedCategory.toLowerCase() == 'catégories'
+      )
         return this.articles
       else {
-        let filteredArticles = []
-
-        for (let article in this.articles) {
-          if (this.articles[article].category === this.selectedCategory)
-            filteredArticles.push(this.articles[article])
-        }
+        const filteredArticles = this.articles.filter(
+          article => article.category == this.selectedCategory
+        )
         return filteredArticles
       }
+    },
+    selectedCategoryTrue() {
+      if (this.selectedCategory.toLocaleLowerCase() != 'catégories') return true
+      else return false
     }
   },
 
