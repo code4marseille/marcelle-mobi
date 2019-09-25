@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       articles: [],
-      categories: ['mobilité', 'politique', 'bons plans', 'écologie', 'tout'],
+      categories: ['mobilité', 'écologie', 'politique', 'bons plans', 'tout'],
       selectedCategory: null
     }
   },
