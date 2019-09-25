@@ -14,20 +14,18 @@
           <b-button
             v-b-toggle="'collapse-2'"
             class="btn-block item-collapse"
-            v-on:click="showCategories()"
-          >Catégorie 1</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
+            v-on:click="selectCategory(category)"
+            v-for="(category, idx) in categories"
+            :key="idx"
+          >{{category}}</b-button>
         </b-collapse>
       </div>
 
       <b-card
-        v-for="(article, id) in articles"
+        v-for="(article, id) in filteredArticles"
         :key="id"
         class="mb-4 rounded"
         :img-src="article.imgUrl"
-        v-if="selected"
       >
         <a :href="article.url" target="_blank" append="true" class="stretched-link">
           <b-card-title class="title">{{article.title}}</b-card-title>
@@ -45,28 +43,32 @@
 export default {
   data() {
     return {
-      articles: '',
-      selected: true
+      articles: [],
+      categories: ['mobilité', 'politique', 'bons plans', 'écologie', 'tout'],
+      selectedCategory: null
     }
   },
   methods: {
-    showCategories() {
-      for (let article in this.articles) {
-        let category = this.articles[article].category
-        let title = this.articles[article].title // just for debug
-
-        console.log(title + ' | catégorie: ' + category)
-
-        if (category === 'écologie') {
-          this.selected = true
-        } else {
-          this.selected = false
-        }
-        console.log(this.selected)
-      }
-      console.log('~~~~~~~~~~~~~~~~~~~~~~~~')
+    selectCategory(category) {
+      this.selectedCategory = category
     }
   },
+  computed: {
+    filteredArticles() {
+      if (this.selectedCategory == null || this.selectedCategory == 'tout')
+        return this.articles
+      else {
+        let filteredArticles = []
+
+        for (let article in this.articles) {
+          if (this.articles[article].category === this.selectedCategory)
+            filteredArticles.push(this.articles[article])
+        }
+        return filteredArticles
+      }
+    }
+  },
+
   mounted() {
     this.$axios.$get('/articles').then(response => (this.articles = response))
   }
