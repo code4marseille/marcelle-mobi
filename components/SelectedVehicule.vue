@@ -1,5 +1,5 @@
 <template>
-  <div id="bandeau_details" v-if="$store.state.map.selectedVehicule !== null">
+  <div id="bandeau_details" v-if="$store.state.map.selectedVehicule">
     <div class="flexContainer">
       <div class="flex1">
         <div class="bgLogo">
@@ -58,7 +58,7 @@ export default {
           },
 
           //Borne vélo
-          levelo: {
+          leVelo: {
             line1: v.address,
             line2: `Velo dispo.: ${v.availableBikes}  - Place dispo.: ${v.availableBikeStands}`,
             line3: '',

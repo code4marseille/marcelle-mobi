@@ -12,28 +12,12 @@
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
 
-        <CarMarker
-          v-for="(car,i) in $store.state.map.cars"
-          :key="'car'+i"
-          :car="car"
+        <VehiculeMarker
+          v-for="(vehicule, i) in $store.getters['map/allVehicules']"
+          :key="i"
+          :vehicule="vehicule"
           :select="selectVehicule"
-          :provider="car.provider"
-        />
-
-        <BikeMarker
-          v-for="(bike,i) in $store.state.map.bikes"
-          :key="'bike'+i"
-          :bike="bike"
-          :select="selectVehicule"
-          provider="leVelo"
-        />
-
-        <TrotMarker
-          v-for="(trot,i) in $store.state.map.trots"
-          :key="'trot'+i"
-          :trot="trot"
-          :select="selectVehicule"
-          :provider="trot.typename"
+          :provider="vehicule.provider"
         />
 
         <LocateControl />
@@ -48,19 +32,15 @@ import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
 import LocateControl from '~/components/LocateControl'
 
 import MapFilter from '~/components/MapFilter.vue'
-import CarMarker from '~/components/CarMarker.vue'
-import BikeMarker from '~/components/BikeMarker.vue'
-import TrotMarker from '~/components/TrotMarker.vue'
-
+import VehiculeMarker from '~/components/VehiculeMarker.vue'
 export default {
   components: {
     LocateControl,
     LMap,
     LTileLayer,
     MapFilter,
-    CarMarker,
-    BikeMarker,
-    TrotMarker
+    LMarker,
+    VehiculeMarker
   },
   data() {
     return {
@@ -84,7 +64,7 @@ export default {
     },
     selectVehicule(latLng, vehicule, provider) {
       this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', { vehicule, provider })
+      this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
       this.$store.dispatch('map/fetchTrots', center)
