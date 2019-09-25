@@ -7,6 +7,7 @@
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'charging'+i"
           :charging="charging"
+          :moreInfo="$store.state.chargingmap.moreInfo"
         />
         <Locatecontrol />
       </l-map>
@@ -37,7 +38,8 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('parkingMap/fetchChargingStations')
+    this.$store.dispatch('chargingmap/fetchCharging')
+    this.$store.dispatch('chargingmap/fetchMoreInfo')
   }
 }
 </script>
