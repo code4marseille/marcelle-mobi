@@ -26,14 +26,14 @@ export default {
         totem: car => {
           return {
             latLng: [car.position.lat, car.position.lng],
-            iconUrl: require('~/assets/images/citiz_marker.svg'),
+            iconUrl: require('~/assets/images/totem.svg'),
             iconSize: [40, 50]
           }
         },
         citiz: car => {
           return {
             latLng: [car.gpsLatitude, car.gpsLongitude],
-            iconUrl: require('~/assets/images/totem.svg'),
+            iconUrl: require('~/assets/images/citiz_marker.svg'),
             iconSize: [40, 40]
           }
         }

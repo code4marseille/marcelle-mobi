@@ -1,7 +1,7 @@
 <template>
   <l-marker
-    :lat-lng="[trot.lat,trot.lng]"
     @click="select([trot.lat,trot.lng], trot, provider)"
+    :lat-lng="[trot.lat,trot.lng]"
     :visible="$store.state.map.seeTrots"
   >
     <l-icon :icon-size="providers[provider].size" :icon-url="providers[provider].iconUrl"></l-icon>
