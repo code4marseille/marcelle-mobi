@@ -21,4 +21,8 @@ body {
 .v-btn__content {
   font-size: 1.4rem;
 }
+
+header {
+  color: white;
+}
 </style>
