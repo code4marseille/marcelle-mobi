@@ -5,7 +5,7 @@
     </header>
     <main>
       <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
-      <div class="contener-collapse">
+      <div class="contener-collapse mb-2">
         <b-button
           v-b-toggle="'collapse-2'"
           class="btn-categorie text-uppercase btn-block p-3"
@@ -15,18 +15,18 @@
         </b-button>
 
         <b-collapse id="collapse-2">
-          <b-button
+          <b-list-group-item
             v-b-toggle="'collapse-2'"
             class="btn-block item-collapse"
             v-on:click="selectCategory(category)"
             v-for="(category, idx) in categories"
             :key="idx"
-          >{{category}}</b-button>
+          >{{category}}</b-list-group-item>
         </b-collapse>
       </div>
       <b-row>
         <b-col cols="12" md="6" v-for="(article, id) in filteredArticles" :key="id">
-          <b-card class="mb-4 rounded" :img-src="article.imgUrl">
+          <b-card class="mb-1 rounded" :img-src="article.imgUrl">
             <a :href="article.url" target="_blank" append="true" class="stretched-link">
               <b-card-title class="title">{{article.title}}</b-card-title>
 
@@ -63,18 +63,21 @@ export default {
   },
   computed: {
     filteredArticles() {
+      const filteredArticles = this.articles.filter(
+        article => article.category == this.selectedCategory
+      )
       if (
         this.selectedCategory == null ||
         this.selectedCategory.toLowerCase() == 'catégories'
       )
         return this.articles
-      else {
-        const filteredArticles = this.articles.filter(
-          article => article.category == this.selectedCategory
-        )
+      else if (Object.keys(filteredArticles).length == 0) {
+        return null
+      } else {
         return filteredArticles
       }
     },
+
     selectedCategoryTrue() {
       if (this.selectedCategory.toLocaleLowerCase() != 'catégories') return true
       else return false
@@ -114,7 +117,6 @@ export default {
   }
 
   .item-collapse {
-    margin: 0;
     background-color: white;
     color: rgba(37, 169, 232);
   }
@@ -141,6 +143,18 @@ export default {
   a:hover,
   a:active {
     text-decoration: none;
+  }
+
+  .list-group-item {
+    border: none;
+  }
+  .list-group-item:first-child {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .list-group-item:last-child {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
   }
 }
 </style>
