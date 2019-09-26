@@ -28,7 +28,7 @@ export const actions = {
 
 
   async fetchParkingStations({ commit }) {
-    const ParkingStations = await this.$axios.get("https://uws2.mappy.net/data/poi/5.3/applications/parking?bbox=43.09747329341403,5.164260864257813,43.49178653083377,5.608520507812501&max=100&extend_bbox=1&mid=1525863837&tagid=SPD_RESPONSE_CATEGORY&abtest=NA")
+    const ParkingStations = await this.$axios.get("https://uws2.mappy.net/data/poi/5.3/applications/parking", { params: { bbox: "43.20525712103248,5.592577232855179,43.393463513774186,5.291813644399666", max: 500, } })
 
 
     commit("SET_PARKING_STATIONS", ParkingStations)
