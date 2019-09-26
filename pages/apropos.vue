@@ -5,46 +5,30 @@
     </header>
     <content class="d-flex justify-content-around">
       <div class="mt-5">
-        <first-box>
+        <first>
           <div class="category_apropos" v-b-toggle.collapse-1>
             <p class="text_card_apropos" style="position: absolute; top: 65px; right: 20px;">Données</p>
             <img src="~/assets/images/Data.svg" class="image_data" alt style="width:220px;" />
           </div>
           <b-collapse id="collapse-1" class="mt-2">
             <b-card class="collapse_card_apropos">
-              <b-list-group class="list-group list-group-flush">
-                <b-list-group-item class="list-group-item" href="http://www.rtm.fr">RTM</b-list-group-item>
+              <b-list-group
+                class="list-group list-group-flush links-container border-bottom"
+                v-for="link in links"
+                :key="link.title"
+              >
+                <img svg-inline :src="link.icon" alt class="icon-list-links" />
                 <b-list-group-item
                   class="list-group-item"
-                  href="https://openweathermap.org/"
-                  active
-                >Open Weather Map</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://www.atmosud.org/"
+                  :href="link.site"
                   target="_blank"
-                >Atmo Sud</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://www.navitia.io/"
-                  target="_blank"
-                >Navitia</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://fluctuo.com/"
-                  target="_blank"
-                >Fluctuo</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://citiz.coop/"
-                  target="_blank"
-                >Citiz</b-list-group-item>
+                >{{link.title}}</b-list-group-item>
               </b-list-group>
             </b-card>
           </b-collapse>
-        </first-box>
+        </first>
 
-        <second-box>
+        <second>
           <div class="category_apropos mt-4" v-b-toggle.collapse-2>
             <p
               class="text_card_apropos"
@@ -59,9 +43,9 @@
               </b-list-group>
             </b-card>
           </b-collapse>
-        </second-box>
+        </second>
 
-        <third-box>
+        <third>
           <div class="category_apropos mt-4" v-b-toggle.collapse-3>
             <p
               class="text_card_apropos"
@@ -113,14 +97,141 @@
               </b-list-group>
             </b-card>
           </b-collapse>
-        </third-box>
+        </third>
       </div>
     </content>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'apropos',
+  data() {
+    return {
+      links: [
+        {
+          title: 'ATMO SUD',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/atmo.svg')
+        },
+        {
+          title: 'FLUCTUO',
+          site: 'https://fluctuo.com/',
+          icon: require('~/assets/images/fluctuo.svg')
+        },
+        {
+          title: 'NAVITIA',
+          site: 'https://www.navitia.io/',
+          icon: require('~/assets/images/navitia.svg')
+        },
+        {
+          title: 'OPEN WEATHER MAP',
+          site: 'https://openweathermap.org/',
+          icon: require('~/assets/images/openweather.svg')
+        },
+        {
+          title: 'RTM',
+          site: 'http://www.rtm.fr',
+          icon: require('~/assets/images/rtm.svg')
+        }
+      ],
+      applications: [
+        {
+          title: 'BIRD',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/bird.svg')
+        },
+        {
+          title: 'CIRC',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/circ.svg')
+        },
+        {
+          title: 'JUMP',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/jump.svg')
+        },
+        {
+          title: 'HIVE',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/hive.svg')
+        },
+        {
+          title: 'LIME',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/lime.svg')
+        },
+        {
+          title: 'LE VELO',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/levelo.svg')
+        },
+        {
+          title: 'TIER',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/tier.svg')
+        },
+        {
+          title: 'TOTEM',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/totem.svg')
+        },
+        {
+          title: 'VOI',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        }
+      ],
+      partenaires: [
+        {
+          title: 'CODE4MARSEILLE',
+          site: 'https://code4marseille.fr/',
+          icon: require('~/assets/images/code4marseille.svg')
+        },
+        {
+          title: 'DEPARTEMENT BOUCHES DU RHONE',
+          site: 'https://www.departement13.fr/',
+          icon: require('~/assets/images/departementbdr.svg')
+        },
+        {
+          title: 'LE CLOITRE',
+          site: 'https://www.lecloitre13.fr',
+          icon: require('~/assets/images/cloitre.svg')
+        },
+        {
+          title: 'MISSION LOCALE MARSEILLE',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        },
+        {
+          title: 'PÔLE EMPLOI',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        },
+        {
+          title: 'SIMPLON',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        },
+        {
+          title: 'VILLE DE MARSEILLE',
+          site: 'http://www.marseille.fr/',
+          icon: require('~/assets/images/marseille.svg')
+        },
+        {
+          title: 'WAGON',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        },
+        {
+          title: 'WEBFORCE3',
+          site: 'https://www.atmosud.org/',
+          icon: require('~/assets/images/voi.svg')
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -133,7 +244,8 @@ export default {}
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
   }
-
+  // ---------------------------
+  // IMAGE DESS CARDS
   .image_data {
     position: absolute;
     bottom: -19px;
@@ -151,13 +263,10 @@ export default {}
     bottom: -37px;
     left: 2px;
   }
-
+  // ---------------------------
   .text_card_apropos {
     text-transform: uppercase;
     color: #0e5da4;
-  }
-  .collapse_card_apropos {
-    border-radius: 15px;
   }
 
   .card {
@@ -165,9 +274,14 @@ export default {}
     border: none !important;
 
     .list-group-item {
-      text-decoration: none !important ;
       color: white;
       background-color: transparent !important;
+      padding-left: 20px;
+      padding-right: 9px;
+    }
+
+    .list-group {
+      flex-direction: row;
     }
 
     .list-group-item:active {
@@ -175,10 +289,20 @@ export default {}
     }
 
     .list-group-flush .list-group-item {
-      border-bottom-color: white;
-      border-top-color: white;
+      // border-bottom-color: white;
+      border-top-color: transparent;
       border-block-end-style: none;
       text-transform: uppercase;
+    }
+
+    .links-container {
+      padding: 0 13px;
+      width: 270px;
+    }
+
+    .icon-list-links {
+      min-width: 60px;
+      min-height: 55px;
     }
   }
 }
