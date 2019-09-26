@@ -38,6 +38,14 @@
             </a>
           </b-card>
         </b-col>
+        <p v-if="filteredArticles == null" class="white py-5 text-center text-white">
+          Aucun article à afficher dans
+          <span class="font-weight-bold">{{selectedCategory}}</span>
+
+          <nuxt-link to="/articles/create">
+            <b-button variant="primary" class="btn btn-dark-blue my-3">Proposer un article</b-button>
+          </nuxt-link>
+        </p>
       </b-row>
     </main>
   </div>
@@ -50,7 +58,6 @@ export default {
       articles: [],
       categories: ['mobilité', 'écologie', 'politique', 'bons plans'],
       selectedCategory: 'Catégories'
-      // selectedCategoryTrue: false
     }
   },
   methods: {
@@ -66,6 +73,7 @@ export default {
       const filteredArticles = this.articles.filter(
         article => article.category == this.selectedCategory
       )
+
       if (
         this.selectedCategory == null ||
         this.selectedCategory.toLowerCase() == 'catégories'
