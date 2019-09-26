@@ -5,7 +5,7 @@
     </header>
     <div class="form-contener">
       <!-- title -->
-      <b-form v-if="show" method="post">
+      <b-form v-if="show">
         <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
           <b-form-input
             id="input-1"
@@ -13,7 +13,7 @@
             type="text"
             required
             placeholder="Titre de votre article"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -26,7 +26,7 @@
             type="text"
             required
             placeholder="Courte description"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -39,7 +39,7 @@
             type="text"
             required
             placeholder="Lien votre article"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -52,7 +52,7 @@
             type="text"
             required
             placeholder="Votre nom"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -65,7 +65,7 @@
             type="email"
             required
             placeholder="Votre mail"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -91,6 +91,7 @@
           type="submit"
           variant="primary"
           class="btn btn-dark-blue"
+          id="btnSubmitArticle"
         >Valider votre article</b-button>
       </b-form>
     </div>
@@ -118,6 +119,20 @@ export default {
       buttonSelected: 1
     }
   },
+
+  // created() {
+  //   let fieldsRequired = document.getElementsByClassName(
+  //     'inputFormCreateArticle'
+  //   )
+  //   let btn = document.getElementById('btnSubmitArticle')
+
+  //   if (fieldsRequired.value === '') {
+  //     btn.disabled = true
+  //   } else {
+  //     btn.disabled = false
+  //   }
+  // },
+
   methods: {
     deactive: function(id) {
       for (let i = 0; i < this.buttons.length; i++) {
@@ -146,7 +161,8 @@ export default {
           description: this.description,
           url: this.url,
           publisher_name: this.publisher_name,
-          publisher_email: this.publisher_email
+          publisher_email: this.publisher_email,
+          category: this.buttons[this.buttonSelected].caption
         })
         .then(response => {})
         .then(err => {

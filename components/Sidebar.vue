@@ -11,12 +11,15 @@
         </v-list-item>
 
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
-          <v-list-item-icon style="width:60px">
-            <v-icon class="text-white px-3">{{ item.icon }}</v-icon>
+
+          <v-list-item-icon>
+            <!-- <v-icon class="text-white px-3">{{ item.icon }}</v-icon> -->
+            <img svg-inline :src="item.icon" class="icon-sidebar" />
           </v-list-item-icon>
 
-          <v-list-item-content class="icon_sidebar_align">
-            <nuxt-link :to="item.link">
+          <v-list-item-content>
+            <nuxt-link :to="item.link" class="stretched-link">
+
               <v-list-item-title
                 class="text-uppercase text-white items-sidebar display-1"
               >{{ item.title }}</v-list-item-title>
@@ -35,16 +38,35 @@ export default {
     return {
       drawer: null,
       items: [
-        { title: 'Accueil', link: '/', icon: 'fas fa-cloud' },
-        { title: 'Se déplacer', link: '/map', icon: 'fas fa-map-marker-alt' },
-        { title: 'Marius', link: '/marius', icon: 'far fa-user' },
-        { title: 'Bon à savoir', link: '/articles', icon: 'fas fa-info' },
         {
-          title: 'Ajouter un article',
-          link: '/articles/create',
-          icon: 'far fa-edit'
+          title: 'Accueil',
+          link: '/',
+          icon: require('~/assets/images/navbarHome.svg')
         },
-        { title: 'À propos', link: '/apropos', icon: 'far fa-question-circle' }
+        {
+          title: 'Se déplacer',
+          link: '/map',
+          icon: require('~/assets/images/navbarMap.svg')
+        },
+        {
+          title: 'Marius',
+          link: '/marius',
+          icon: require('~/assets/images/navbarMarius.svg')
+        },
+        {
+          title: 'Bon à savoir',
+          link: '/articles',
+          icon: require('~/assets/images/navbarBlog.svg')
+        },
+        {
+          title: 'Proposer un article',
+          link: '/articles/create',
+          icon: require('~/assets/images/navbarCreateArticle.svg')
+        },
+        { title: 'À propos',
+          link: '/apropos', 
+          icon: require('~/assets/images/help.svg')
+        }
       ]
     }
   }
@@ -70,18 +92,21 @@ export default {
     position: fixed;
   }
 
+  .active {
+    background-color: none !important;
+  }
+
+  .icon-sidebar {
+    min-width: 40px;
+    min-height: 40px;
+    width: 6vw;
+    height: 5vw;
+    margin: 0 20px 0 1vh;
+  }
   .close-svg {
     font-size: 30%;
     width: 10%;
     margin: 1vh 1vw 1vh auto;
-  }
-
-  .fa-info {
-    margin-left: 7px;
-  }
-
-  .fa-cloud {
-    margin-left: -5px;
   }
 }
 </style>
