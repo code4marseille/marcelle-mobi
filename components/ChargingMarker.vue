@@ -2,7 +2,7 @@
   <l-marker :lat-lng="[charging.addressInfo.latitude,charging.addressInfo.longitude]">
     <l-popup style="text-align:center">
       <p style="font-weight:bold; font-size:1rem;">{{charging.addressInfo.title}}</p>
-      <p><i class="fas fa-map-marker-alt"></i> {{charging.addressInfo.addressLine1}}, {{charging.addressInfo.postcode}} {{charging.addressInfo.town}}</p>
+      <p><i class="fas fa-map-marker-alt"></i> <a :href="this.googleMap(charging.addressInfo.latitude,charging.addressInfo.longitude)" target='_blank'>{{charging.addressInfo.addressLine1}}, {{charging.addressInfo.postcode}} {{charging.addressInfo.town}}</a></p>
       <p v-if="charging.addressInfo.contactTelephone1">
         <i class="fas fa-phone"></i> <span style="font-weight:bold">{{charging.addressInfo.contactTelephone1}}</span>
       </p>
@@ -17,7 +17,7 @@
       </ul>
       </p>
       <p v-if="charging.generalComments"><i class="fas fa-comment-dots"></i> {{charging.generalComments}}</p>
-      <p v-if="charging.usageType.title.indexOf('nknown')<0"><i class="fas fa-info"></i> {{charging.usageType.title}}</p>
+      <p v-if="usageTypeUnknownFilter"><i class="fas fa-info"></i> {{usageTypeUnknownFilter}}</p>
     </l-popup>
 
     <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon>
@@ -31,13 +31,18 @@ import { icon } from 'leaflet'
 export default {
   components: { LMarker, LIcon },
   props: {
-    charging: { type: Object, required: true }
+    charging: { type: Object, required: true },
+    googleMap: { type: Function, require: true }
   },
   computed: {
      connectionUnknownFilter: function() {
 
        return this.charging.connections.length>0 ?this.charging.connections.filter(connection =>connection.connectionType.title.indexOf('kown')>0):""
-     }
+     },
 
-}}
+    usageTypeUnknownFilter: function() {
+
+       return this.charging.usageType.title.search("Unknown")<0 ? this.charging.usageType.title:""
+     },
+  }}
 </script>

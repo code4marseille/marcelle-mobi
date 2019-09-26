@@ -8,14 +8,15 @@
             v-for="(charging,i) in $store.state.parkingMap.chargingStations"
             :key="i"
             :charging="charging"
+            :googleMap="googleRoute"
           />
         </div>
         <div id="ViewParkinggMarkers" v-if="!toggleView">
-          >
           <ParkingMarker
             v-for="(parking,i) in $store.state.parkingMap.parkingStations"
             :key="i"
             :parking="parking"
+            :googleMap="googleRoute"
           />
         </div>
         <Locatecontrol />
@@ -25,9 +26,9 @@
     <div style="z-index:470; ">
       <b-button
         block
-        style="z-index:470; padding:20px; opacity:.8;"
+        style="z-index:470; padding:20px; opacity:.8; text-shadow:1px 0 black;"
         class="fixed-bottom"
-        @click="toggleParkingButton"
+        @click="this.toggleParkingButton"
       >{{toggleButton}}</b-button>
     </div>
     <!-- Fin Block -->
@@ -63,6 +64,11 @@ export default {
     updateParking(center) {
       const coord = { latitude: center.lat, longitude: center.lng }
       this.$store.dispatch('parkingMap/fetchChargingStations', coord)
+    },
+    googleRoute(lat, long) {
+      return (
+        'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
+      )
     },
     toggleParkingButton() {
       this.toggleView = !this.toggleView
