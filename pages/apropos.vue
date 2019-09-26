@@ -210,8 +210,8 @@ export default {
         },
         {
           title: 'SIMPLON',
-          site: 'https://www.atmosud.org/',
-          icon: require('~/assets/images/voi.svg')
+          site: 'https://simplon.co/marseille-cloitre1/',
+          icon: require('~/assets/images/simplon.svg')
         },
         {
           title: 'VILLE DE MARSEILLE',
@@ -220,13 +220,13 @@ export default {
         },
         {
           title: 'WAGON',
-          site: 'https://www.atmosud.org/',
-          icon: require('~/assets/images/voi.svg')
+          site: 'https://www.lewagon.com/fr/marseille',
+          icon: require('~/assets/images/wagon.svg')
         },
         {
           title: 'WEBFORCE3',
-          site: 'https://www.atmosud.org/',
-          icon: require('~/assets/images/voi.svg')
+          site: 'https://www.wf3.fr/',
+          icon: require('~/assets/images/webforce3.svg')
         }
       ]
     }
