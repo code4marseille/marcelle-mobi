@@ -8,9 +8,7 @@
         ref="map"
         @update:center="updateVehicules"
       >
-        <l-tile-layer
-          :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
-        ></l-tile-layer>
+        <MapboxTile />
 
         <VehiculeMarker
           v-for="(vehicule, i) in $store.getters['map/allVehicules']"
@@ -28,25 +26,23 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
+import { LMap } from 'vue2-leaflet'
 import LocateControl from '~/components/LocateControl'
-
 import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
+import MapboxTile from '~/components/MapboxTile.vue'
+
 export default {
   components: {
-    LocateControl,
     LMap,
-    LTileLayer,
+    LocateControl,
     MapFilter,
-    LMarker,
-    VehiculeMarker
+    VehiculeMarker,
+    MapboxTile
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
-      mapBoxToken:
-        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
+      initialLocation: [43.295336, 5.373907]
     }
   },
   created() {
