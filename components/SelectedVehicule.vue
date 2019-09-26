@@ -120,7 +120,7 @@ export default {
         }
       }
       return providers(this.v)[this.v.provider][key]
-    }
+     }
   },
   computed: {
     v() {
