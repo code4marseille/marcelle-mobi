@@ -12,7 +12,7 @@
     <img src="~/assets/images/paper-plane.svg" alt="paper plane" />
     <div>
       <nuxt-link to="/articles/create">
-        <b-button variant="primary" class="btn btn-dark-blue mb-3">Ecrire un autre article</b-button>
+        <b-button variant="primary" class="btn btn-dark-blue mb-3">Proposer un autre article</b-button>
       </nuxt-link>
       <nuxt-link to="/articles">
         <b-button variant="primary" class="btn btn-dark-blue mb-3">Retourner sur le blog</b-button>
