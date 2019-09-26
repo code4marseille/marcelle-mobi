@@ -1,17 +1,36 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="10" :center="initialLocation" ref="parkingMap">
+      <l-map id="map" :zoom="15" :center="initialLocation" ref="parkingMap">
         <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
-        <ChargingMarker
-          v-for="(charging,i) in $store.state.parkingMap.chargingStations"
-          :key="'charging'+i"
-          :charging="charging"
-        />
-
+        <div id="ViewChargingMarkers" v-if="toggleView">
+          <ChargingMarker
+            v-for="(charging,i) in $store.state.parkingMap.chargingStations"
+            :key="i"
+            :charging="charging"
+          />
+        </div>
+        <div id="ViewParkinggMarkers" v-if="!toggleView">
+          >
+          <ParkingMarker
+            v-for="(parking,i) in $store.state.parkingMap.parkingStations"
+            :key="i"
+            :parking="parking"
+          />
+        </div>
         <Locatecontrol />
       </l-map>
     </div>
+    <!-- Block de bouttons -->
+    <div style="z-index:470; ">
+      <b-button
+        block
+        style="z-index:470; padding:20px; opacity:.8;"
+        class="fixed-bottom"
+        @click="toggleParkingButton"
+      >{{toggleButton}}</b-button>
+    </div>
+    <!-- Fin Block -->
   </div>
 </template>
 
@@ -19,22 +38,43 @@
 import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
 import Locatecontrol from 'vue2-leaflet-locatecontrol'
 import ChargingMarker from '~/components/ChargingMarker.vue'
+import ParkingMarker from '~/components/ParkingMarker.vue'
+
 export default {
   components: {
     Locatecontrol,
     LMap,
     LTileLayer,
-    ChargingMarker
+    ChargingMarker,
+    ParkingMarker
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      initialLocation: [43.295336, 5.373907],
+      toggleView: true,
+      toggleButton: 'Afficher les parkings'
     }
   },
 
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.parkingMap.mapObject.flyTo(latLng, zoom)
+    },
+    updateParking(center) {
+      const coord = { latitude: center.lat, longitude: center.lng }
+      this.$store.dispatch('parkingMap/fetchChargingStations', coord)
+    },
+    toggleParkingButton() {
+      this.toggleView = !this.toggleView
+      switch (this.toggleView) {
+        case true:
+          this.toggleButton = 'Afficher les parkings'
+          break
+
+        default:
+          this.toggleButton = 'Afficher les bornes de recharge'
+          break
+      }
     }
   },
   created() {
@@ -42,13 +82,10 @@ export default {
       latitude: this.initialLocation[0],
       longitude: this.initialLocation[1]
     })
-    this.$store.dispatch('parkingMap/fetchChargingStationReferences')
-  },
-  methods: {
-    updateParking(center) {
-      const coord = { latitude: center.lat, longitude: center.lng }
-      this.$store.dispatch('parkingMap/fetchChargingStations', coord)
-    }
+    this.$store.dispatch('parkingMap/fetchParkingStations', {
+      lat: this.initialLocation[0],
+      long: this.initialLocation[1]
+    })
   }
 }
 </script>
