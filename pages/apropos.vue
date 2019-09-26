@@ -38,8 +38,17 @@
           </div>
           <b-collapse id="collapse-2" class="mt-2">
             <b-card class="collapse_card_apropos">
-              <b-list-group class="list-group list-group-flush">
-                <b-list-group-item class="list-group-item" href="#">...</b-list-group-item>
+              <b-list-group
+                class="list-group list-group-flush links-container border-bottom"
+                v-for="application in applications"
+                :key="application.title"
+              >
+                <img svg-inline :src="application.icon" alt class="icon-app-list-links" />
+                <b-list-group-item
+                  class="list-group-item"
+                  :href="application.site"
+                  target="_blank"
+                >{{application.title}}</b-list-group-item>
               </b-list-group>
             </b-card>
           </b-collapse>
@@ -60,40 +69,17 @@
           </div>
           <b-collapse id="collapse-3" class="mt-2">
             <b-card class="collapse_card_apropos">
-              <b-list-group class="list-group list-group-flush">
-                <b-list-group-item class="list-group-item" href="#">La ville de Marseille</b-list-group-item>
+              <b-list-group
+                class="list-group list-group-flush links-container border-bottom"
+                v-for="partenaire in partenaires"
+                :key="partenaire.title"
+              >
+                <img svg-inline :src="partenaire.icon" alt class="icon-list-links" />
                 <b-list-group-item
                   class="list-group-item"
-                  href="https://www.departement13.fr"
+                  :href="partenaire.site"
                   target="_blank"
-                >Departement Bouches du Rhone</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://code4marseille.fr"
-                  target="_blank"
-                >Code4MArseille</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://www.lecloitre13.fr"
-                  target="_blank"
-                >Le cloître</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://simplon.co">Simplon</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://www.lewagon.com/fr/marseille"
-                  target="_blank"
-                >Le Wagon</b-list-group-item>
-                <b-list-group-item class="list-group-item" href="https://www.wf3.fr">WebForce3</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://www.pole-emploi.fr/accueil/"
-                  target="_blank"
-                >Pôle Emploi</b-list-group-item>
-                <b-list-group-item
-                  class="list-group-item"
-                  href="https://missionlocalemarseille.fr"
-                  target="_blank"
-                >Mission Locale Marseille</b-list-group-item>
+                >{{partenaire.title}}</b-list-group-item>
               </b-list-group>
             </b-card>
           </b-collapse>
@@ -125,7 +111,7 @@ export default {
           icon: require('~/assets/images/navitia.svg')
         },
         {
-          title: 'OPEN WEATHER MAP',
+          title: 'OPEN WEATHER',
           site: 'https://openweathermap.org/',
           icon: require('~/assets/images/openweather.svg')
         },
@@ -138,27 +124,28 @@ export default {
       applications: [
         {
           title: 'BIRD',
-          site: 'https://www.atmosud.org/',
+          site: 'https://www.bird.co/',
           icon: require('~/assets/images/bird.svg')
         },
         {
           title: 'CIRC',
-          site: 'https://www.atmosud.org/',
+          site:
+            'https://apps.apple.com/fr/app/circ-trottinettes-%C3%A9lectrique/id1446543957',
           icon: require('~/assets/images/circ.svg')
         },
         {
           title: 'JUMP',
-          site: 'https://www.atmosud.org/',
+          site: 'https://fr.jump.com/fr/fr/',
           icon: require('~/assets/images/jump.svg')
         },
         {
           title: 'HIVE',
-          site: 'https://www.atmosud.org/',
+          site: 'https://www.ridehive.com/home-fr',
           icon: require('~/assets/images/hive.svg')
         },
         {
           title: 'LIME',
-          site: 'https://www.atmosud.org/',
+          site: 'https://www.li.me/fr/page-daccueil',
           icon: require('~/assets/images/lime.svg')
         },
         {
@@ -168,18 +155,23 @@ export default {
         },
         {
           title: 'TIER',
-          site: 'https://www.atmosud.org/',
+          site: 'https://www.tier.app/fr/',
           icon: require('~/assets/images/tier.svg')
         },
         {
           title: 'TOTEM',
-          site: 'https://www.atmosud.org/',
+          site: 'http://www.totem-mobi.fr/',
           icon: require('~/assets/images/totem.svg')
         },
         {
           title: 'VOI',
-          site: 'https://www.atmosud.org/',
+          site: 'https://www.voiscooters.com/fr/',
           icon: require('~/assets/images/voi.svg')
+        },
+        {
+          title: 'CITIZ',
+          site: 'https://provence.citiz.coop/',
+          icon: require('~/assets/images/citiz.svg')
         }
       ],
       partenaires: [
@@ -189,7 +181,7 @@ export default {
           icon: require('~/assets/images/code4marseille.svg')
         },
         {
-          title: 'DEPARTEMENT BOUCHES DU RHONE',
+          title: 'DEPARTEMENT 13',
           site: 'https://www.departement13.fr/',
           icon: require('~/assets/images/departementbdr.svg')
         },
@@ -199,14 +191,14 @@ export default {
           icon: require('~/assets/images/cloitre.svg')
         },
         {
-          title: 'MISSION LOCALE MARSEILLE',
-          site: 'https://www.atmosud.org/',
-          icon: require('~/assets/images/voi.svg')
+          title: 'MISSION LOCALE',
+          site: 'https://missionlocalemarseille.fr/',
+          icon: require('~/assets/images/missionlocale.svg')
         },
         {
           title: 'PÔLE EMPLOI',
-          site: 'https://www.atmosud.org/',
-          icon: require('~/assets/images/voi.svg')
+          site: 'https://www.pole-emploi.fr/accueil/',
+          icon: require('~/assets/images/poleemploi.svg')
         },
         {
           title: 'SIMPLON',
@@ -301,8 +293,13 @@ export default {
     }
 
     .icon-list-links {
-      min-width: 60px;
-      min-height: 55px;
+      min-width: 70px;
+      min-height: 50px;
+    }
+
+    .icon-app-list-links {
+      min-width: 35px;
+      min-height: 35px;
     }
   }
 }
