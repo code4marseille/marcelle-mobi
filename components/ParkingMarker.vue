@@ -1,5 +1,5 @@
 <template>
-  <l-marker :lat-lng="[parking.lat,parking.lng]">
+  <l-marker :lat-lng="[parking.lat,parking.lng]" :visible="visible">
     <l-popup style="text-align:center">
       <p style="font-weight:bold; font-size:1rem;">{{parking.name}}</p>
       <p>
@@ -35,7 +35,8 @@ export default {
   components: { LMarker, LIcon },
   props: {
     parking: { type: Object, required: true },
-    googleMap: { type: Function, required: true }
+    googleMap: { type: Function, required: true },
+    visible: { type: Boolean, required: true }
   }
 }
 </script>

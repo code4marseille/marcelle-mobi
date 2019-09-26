@@ -26,19 +26,19 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
+import { LMap } from 'vue2-leaflet'
 import LocateControl from '~/components/LocateControl'
-
 import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
+import MapboxTile from '~/components/MapboxTile.vue'
+
 export default {
   components: {
-    LocateControl,
     LMap,
-    LTileLayer,
+    LocateControl,
     MapFilter,
-    LMarker,
-    VehiculeMarker
+    VehiculeMarker,
+    MapboxTile
   },
   data() {
     return {

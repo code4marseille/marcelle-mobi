@@ -2,23 +2,22 @@
   <div id="parkingMapPage">
     <div id="position">
       <l-map id="map" :zoom="15" :center="initialLocation" ref="parkingMap">
-        <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
-        <div id="ViewChargingMarkers" v-if="toggleView">
-          <ChargingMarker
-            v-for="(charging,i) in $store.state.parkingMap.chargingStations"
-            :key="'c'+i"
-            :charging="charging"
-            :googleMap="googleRoute"
-          />
-        </div>
-        <div id="ViewParkinggMarkers" v-if="!toggleView">
-          <ParkingMarker
-            v-for="(parking,i) in $store.state.parkingMap.parkingStations"
-            :key="'p'+i"
-            :parking="parking"
-            :googleMap="googleRoute"
-          />
-        </div>
+        <MapboxTile />
+        <ChargingMarker
+          v-for="(charging,i) in $store.state.parkingMap.chargingStations"
+          :key="'c'+i"
+          :charging="charging"
+          :googleMap="googleRoute"
+          :visible="toggleView"
+        />
+
+        <ParkingMarker
+          v-for="(parking,i) in $store.state.parkingMap.parkingStations"
+          :key="'p'+i"
+          :parking="parking"
+          :googleMap="googleRoute"
+          :visible="!toggleView"
+        />
         <Locatecontrol />
       </l-map>
     </div>
@@ -36,27 +35,33 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LControlZoom, LMarker } from 'vue2-leaflet'
+import { LMap } from 'vue2-leaflet'
 import Locatecontrol from 'vue2-leaflet-locatecontrol'
 import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
+import MapboxTile from '~/components/MapboxTile.vue'
 
 export default {
   components: {
-    Locatecontrol,
     LMap,
-    LTileLayer,
+    Locatecontrol,
     ChargingMarker,
-    ParkingMarker
+    ParkingMarker,
+    MapboxTile
   },
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-      toggleView: true,
-      toggleButton: 'Afficher les parkings'
+      toggleView: true
     }
   },
-
+  computed: {
+    toggleButton() {
+      return this.toggleView
+        ? 'Afficher les parkings'
+        : 'Afficher les bornes de recharge'
+    }
+  },
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.parkingMap.mapObject.flyTo(latLng, zoom)
@@ -72,15 +77,6 @@ export default {
     },
     toggleParkingButton() {
       this.toggleView = !this.toggleView
-      switch (this.toggleView) {
-        case true:
-          this.toggleButton = 'Afficher les parkings'
-          break
-
-        default:
-          this.toggleButton = 'Afficher les bornes de recharge'
-          break
-      }
     }
   },
   created() {
