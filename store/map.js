@@ -8,11 +8,12 @@ export const state = () => ({
   seeCars: true,
   seeBikes: true,
   seeTrots: true,
-  selectedVehicule: null
+  selectedVehicule: null,
 });
 
 export const getters = {
-  carByIdx: state => idx => state.cars[idx]
+  carByIdx: state => idx => state.cars[idx],
+  allVehicules: state => [...state.cars, ...state.bikes, ...state.trots]
 };
 
 export const mutations = {
@@ -42,8 +43,7 @@ export const mutations = {
     if (state.selectedVehicule && state.filterVisible)
       state.selectedVehicule = null;
   },
-  SELECT_VEHICULE(state, { vehicule, provider }) {
-    vehicule.provider = provider.toLowerCase()
+  SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
     if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
   }
@@ -66,4 +66,5 @@ export const actions = {
     const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
     commit('SET_TROTS', trots)
   }
+
 };

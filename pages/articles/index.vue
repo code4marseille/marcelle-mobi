@@ -5,32 +5,48 @@
     </header>
     <main>
       <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
-      <div class="contener-collapse mb-4">
+      <div class="contener-collapse mb-2">
         <b-button
           v-b-toggle="'collapse-2'"
-          class="btn-categorie m-1 text-uppercase btn-block p-3"
-        >Catégorie</b-button>
+          class="btn-categorie text-uppercase btn-block p-3"
+        >{{selectedCategory}}</b-button>
+        <b-button v-on:click="returnAllArticles()" v-if="selectedCategoryTrue" class="btn-block">
+          <span class="small">Revenir sur tous les articles</span>
+        </b-button>
+
         <b-collapse id="collapse-2">
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 1</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 2</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 3</b-button>
-          <b-button v-b-toggle="'collapse-2'" class="btn-block item-collapse">Catégorie 4</b-button>
+          <b-list-group-item
+            v-b-toggle="'collapse-2'"
+            class="btn-block item-collapse"
+            v-on:click="selectCategory(category)"
+            v-for="(category, idx) in categories"
+            :key="idx"
+          >{{category}}</b-list-group-item>
         </b-collapse>
       </div>
+      <b-row>
+        <b-col cols="12" md="6" v-for="(article, id) in filteredArticles" :key="id">
+          <b-card class="mb-1 rounded" :img-src="article.imgUrl">
+            <a :href="article.url" target="_blank" append="true" class="stretched-link">
+              <b-card-title class="title">{{article.title}}</b-card-title>
 
-      <nuxt-link to="/articles/zz">
-        <b-card
-          v-for="(article, id) in articles"
-          :key="id"
-          class="mb-4 rounded"
-          :img-src="article.imgUrl"
-        >
-          <b-card-title class="title">{{article.title}}</b-card-title>
+              <b-card-sub-title>{{article.description}}</b-card-sub-title>
+              <b-card-sub-title class="small mt-3">Partagé par {{article.publisherName}}</b-card-sub-title>
+              <b-card-text
+                class="small text-lowercase text-right card-text-cat"
+              >{{ article.category }}</b-card-text>
+            </a>
+          </b-card>
+        </b-col>
+        <p v-if="filteredArticles == null" class="white py-5 text-center text-white">
+          Aucun article à afficher dans
+          <span class="font-weight-bold">{{selectedCategory}}</span>
 
-          <b-card-sub-title>{{article.description}}</b-card-sub-title>
-          <b-card-text class="small text-lowercase text-right card-text-cat">Mobilité</b-card-text>
-        </b-card>
-      </nuxt-link>
+          <nuxt-link to="/articles/create">
+            <b-button variant="primary" class="btn btn-dark-blue my-3">Proposer un article</b-button>
+          </nuxt-link>
+        </p>
+      </b-row>
     </main>
   </div>
 </template>
@@ -39,17 +55,45 @@
 export default {
   data() {
     return {
-      articles: ''
+      articles: [],
+      categories: ['mobilité', 'écologie', 'politique', 'bons plans'],
+      selectedCategory: 'Catégories'
     }
   },
-  mounted() {
-    this.$axios
-      .$get('/articles')
-      .then(
-        response => (this.articles = response),
-        console.log('reponse : ' + this.articles)
+  methods: {
+    selectCategory(category) {
+      this.selectedCategory = category
+    },
+    returnAllArticles() {
+      this.selectedCategory = 'catégories'
+    }
+  },
+  computed: {
+    filteredArticles() {
+      const filteredArticles = this.articles.filter(
+        article => article.category == this.selectedCategory
       )
-    console.log('reponse : ' + this.articles)
+
+      if (
+        this.selectedCategory == null ||
+        this.selectedCategory.toLowerCase() == 'catégories'
+      )
+        return this.articles
+      else if (Object.keys(filteredArticles).length == 0) {
+        return null
+      } else {
+        return filteredArticles
+      }
+    },
+
+    selectedCategoryTrue() {
+      if (this.selectedCategory.toLocaleLowerCase() != 'catégories') return true
+      else return false
+    }
+  },
+
+  mounted() {
+    this.$axios.$get('/articles').then(response => (this.articles = response))
   }
 }
 </script>
@@ -81,7 +125,6 @@ export default {
   }
 
   .item-collapse {
-    margin: 0;
     background-color: white;
     color: rgba(37, 169, 232);
   }
@@ -103,6 +146,23 @@ export default {
     max-height: 30vh;
     border-top-left-radius: calc(1rem - 1px);
     border-top-right-radius: calc(1rem - 1px);
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+
+  .list-group-item {
+    border: none;
+  }
+  .list-group-item:first-child {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .list-group-item:last-child {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
   }
 }
 </style>

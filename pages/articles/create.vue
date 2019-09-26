@@ -1,76 +1,66 @@
 <template>
   <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Votre article</h2>
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1 w-75">Proposer votre article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->
-      <b-form v-if="show" method="post">
+      <b-form>
         <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
           <b-form-input
             id="input-1"
-            v-model="title"
+            v-model="form.title"
             type="text"
             required
             placeholder="Titre de votre article"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
-      </b-form>
-      <!-- description -->
-      <b-form v-if="show">
+
         <b-form-group id="input-group-1" label="Description" label-for="input-2" class="label">
           <b-form-input
             id="input-2"
-            v-model="description"
+            v-model="form.description"
             type="text"
             required
             placeholder="Courte description"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
-      </b-form>
-      <!-- url -->
-      <b-form v-if="show">
+
         <b-form-group id="input-group-1" label="Lien url" label-for="input-3" class="label">
           <b-form-input
             id="input-3"
-            v-model="url"
+            v-model="form.url"
             type="text"
             required
             placeholder="Lien votre article"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
-      </b-form>
-      <!-- name -->
-      <b-form v-if="show">
+
         <b-form-group id="input-group-1" label="Nom" label-for="input-3" class="label">
           <b-form-input
             id="input-4"
-            v-model="publisher_name"
+            v-model="form.publisherName"
             type="text"
             required
             placeholder="Votre nom"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
-      </b-form>
-      <!-- mail -->
-      <b-form v-if="show">
+
         <b-form-group id="input-group-1" label="Mail" label-for="input-3" class="label">
           <b-form-input
             id="input-5"
-            v-model="publisher_email"
+            v-model="form.publisherEmail"
             type="email"
             required
             placeholder="Votre mail"
-            class="mb-4"
+            class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
-      </b-form>
-      <!-- Categories -->
-      <b-form v-if="show">
+
         <b-form-group
           id="input-group-1"
           label="Catégorie"
@@ -78,19 +68,20 @@
           class="label contener-categories"
         >
           <b-button
-            v-for="(btn, idx) in buttons"
+            v-for="(category, idx) in categories"
             :key="idx"
-            :pressed.sync="btn.state"
-            @click="deactive(idx)"
+            :pressed="form.selectedCategory === category"
+            @click="selectCategory(category)"
             class="p-4 text-uppercase btn-caption border-0"
-          >{{ btn.caption }}</b-button>
+          >{{category }}</b-button>
         </b-form-group>
 
         <b-button
-          v-on:click.prevent="sendArticle()"
+          @click.prevent="sendArticle"
           type="submit"
           variant="primary"
           class="btn btn-dark-blue"
+          :disabled="emptyFields"
         >Valider votre article</b-button>
       </b-form>
     </div>
@@ -102,56 +93,40 @@ import axios from '~/plugins/axios'
 export default {
   data() {
     return {
-      title: '',
-      description: '',
-      url: '',
-      show: true,
-      publisher_name: '',
-      publisher_email: '',
-      buttons: [
-        { caption: 'écologie', state: false },
-        { caption: 'mobilité', state: false },
-        { caption: 'politique', state: false },
-        { caption: 'bons plans', state: false }
-      ],
-
-      buttonSelected: 1
+      form: {
+        title: '',
+        description: '',
+        url: '',
+        publisherName: '',
+        publisherEmail: '',
+        selectedCategory: ''
+      },
+      categories: ['écologie', 'mobilité', 'politique', 'bons plans']
     }
   },
-  methods: {
-    deactive: function(id) {
-      for (let i = 0; i < this.buttons.length; i++) {
-        if (id != i) {
-          this.buttons[i].state = false
-          // console.log("toto");
-        }
-        this.isSelected()
+
+  computed: {
+    emptyFields() {
+      for (let field in this.form) {
+        if (this.form[field] == '') return true
       }
-    },
+      return false
+    }
+  },
 
-    isSelected: function() {
-      // console.log(this.buttons.map(button => button.state))
-      const activated = this.buttons.findIndex(function(e) {
-        return e.state === true
+  methods: {
+    selectCategory(category) {
+      this.form.selectedCategory = category
+    },
+    async sendArticle() {
+      await this.$axios.$post('/articles', {
+        title: this.form.title,
+        description: this.form.description,
+        url: this.form.url,
+        publisher_name: this.form.publisherName,
+        publisher_email: this.form.publisherEmail,
+        category: this.form.selectedCategory
       })
-
-      this.buttonSelected = activated
-      console.log(this.buttonSelected)
-    },
-
-    sendArticle: function() {
-      this.$axios
-        .$post('/articles', {
-          title: this.title,
-          description: this.description,
-          url: this.url,
-          publisher_name: this.publisher_name,
-          publisher_email: this.publisher_email
-        })
-        .then(response => {})
-        .then(err => {
-          console.log(err)
-        })
       this.$router.push('/articles/validate')
     }
   }

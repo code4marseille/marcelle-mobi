@@ -6,7 +6,7 @@
         <div id="ViewChargingMarkers" v-if="toggleView">
           <ChargingMarker
             v-for="(charging,i) in $store.state.parkingMap.chargingStations"
-            :key="i"
+            :key="'c'+i"
             :charging="charging"
             :googleMap="googleRoute"
           />
@@ -14,7 +14,7 @@
         <div id="ViewParkinggMarkers" v-if="!toggleView">
           <ParkingMarker
             v-for="(parking,i) in $store.state.parkingMap.parkingStations"
-            :key="i"
+            :key="'p'+i"
             :parking="parking"
             :googleMap="googleRoute"
           />
@@ -98,6 +98,10 @@ export default {
 
 <style lang="scss">
 #parkingMapPage {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
   .leaflet-left {
     right: 0 !important;
     padding-right: 10px;
@@ -121,21 +125,15 @@ export default {
   .leaflet-control-attribution {
     display: none;
   }
-}
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-.h_iframe iframe {
-  width: 100%;
-  height: 100%;
-}
-.h_iframe {
-  height: 100%;
-  width: 100%;
+  .h_iframe iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .h_iframe {
+    height: 100%;
+    width: 100%;
+  }
 }
 </style>
 

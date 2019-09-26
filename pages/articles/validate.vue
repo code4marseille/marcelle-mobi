@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex flex-column justify-content-between h-100" id="validatePage">
-    <header class="px-3 py-4 d-flex">
-      <h2 class="text-uppercase flex-grow-1">Validation</h2>
+  <div class="d-flex flex-column justify-content-between" id="validatePage">
+    <header class="px-3 py-2 d-flex">
+      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Envoyé</h2>
     </header>
     <div class="text-uppercase w-75 mx-auto">
       <p>La création de votre article a bien été prise en compte !</p>
@@ -12,7 +12,7 @@
     <img src="~/assets/images/paper-plane.svg" alt="paper plane" />
     <div>
       <nuxt-link to="/articles/create">
-        <b-button variant="primary" class="btn btn-dark-blue mb-3">Ecrire un autre article</b-button>
+        <b-button variant="primary" class="btn btn-dark-blue mb-3">Proposer un autre article</b-button>
       </nuxt-link>
       <nuxt-link to="/articles">
         <b-button variant="primary" class="btn btn-dark-blue mb-3">Retourner sur le blog</b-button>
@@ -27,7 +27,9 @@ export default {}
 
 <style lang="scss">
 #validatePage {
-  body > div {
+  height: 100vh;
+
+  div {
     color: white;
     text-align: center;
   }
