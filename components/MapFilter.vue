@@ -105,7 +105,7 @@ export default {
     border-radius: 50%;
     border: 2px solid White;
     color: white;
-    bottom: 115%;
+    bottom: 100%;
     right: 2%;
     text-align: center;
     padding: 15px 0px;
