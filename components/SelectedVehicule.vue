@@ -23,7 +23,7 @@
             </a>
           </div>
           <div v-else-if="$device.isMobileOrTablet">
-            <a :href="vehiculeInfo('linkAndroid')">
+            <a @click="openApp(vehiculeInfo('linkApp'),vehiculeInfo('linkStore') )">
               <button type="button" class="btn buttonGoApp">Vers l'appli android</button>
             </a>
           </div>
@@ -52,7 +52,8 @@ export default {
             line2: `Immat.: ${v.licencePlate}`,
             line3: `Réservoir: ${v.fuelLevel} %`,
             icon: require(`~/assets/images/citiz_marker.svg`),
-            linkAndroid: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
+            linkApp: `coop.lestilleuls.citiz://`,
+            linkStore: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/citiz/id726185820`,
             linkBrowser: `https://citiz.coop/`
           },
@@ -63,7 +64,7 @@ export default {
             line2: `Velo dispo.: ${v.availableBikes}  - Place dispo.: ${v.availableBikeStands}`,
             line3: '',
             icon: require(`~/assets/images/velo.svg`),
-            linkAndroid: `http://www.levelo-mpm.fr/`,
+            linkStore: `http://www.levelo-mpm.fr/`,
             linkIos: `http://www.levelo-mpm.fr/`,
             linkBrowser: `http://www.levelo-mpm.fr/`
           },
@@ -74,7 +75,8 @@ export default {
             line2: `Batterie: ${v.battery} %,`,
             line3: '',
             icon: require(`~/assets/images/lime.svg`),
-            linkAndroid: `href="https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"`,
+            linkApp: `limebike://`,
+            linkStore: `href="https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"`,
             linkIos: `https://itunes.apple.com/us/app/limebike-your-ride-anytime/id1199780189?ls=1&mt=8`,
             linkBrowser: `https://www.li.me/fr/page-daccueil`
           },
@@ -84,7 +86,8 @@ export default {
             line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/circ.svg`),
-            linkAndroid: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
+            linkApp: `goflash://`,
+            linkStore: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/circ-trottinettes-%C3%A9lectrique/id1446543957`,
             linkBrowser: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`
           },
@@ -94,7 +97,8 @@ export default {
             line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/bird.svg`),
-            linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
+            linkApp: 'bird.android://',
+            linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
           },
@@ -104,7 +108,8 @@ export default {
             line2: `Batterie: ${v.battery} %`,
             line3: '',
             icon: require(`~/assets/images/tier.svg`),
-            linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
+            linkApp: `tier://`,
+            linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
           },
@@ -113,13 +118,23 @@ export default {
             line2: `Immat.: ${v.imat}`,
             line3: `Batterie: ${v.batteryLevel} %`,
             icon: require(`~/assets/images/totem.svg`),
-            linkAndroid: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
+            linkApp: 'com.atrioom.totem_mobi://',
+            linkStore: `https://play.google.com/store/apps/details?id=com.atrioom.totem_mobi&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
             linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
           }
         }
       }
       return providers(this.v)[this.v.provider][key]
+    },
+
+    openApp(linkApp, linkStore) {
+      console.log(linkApp, linkStore)
+
+      //Deep link URL for existing users with app already installed on their device
+      window.open(linkApp)
+      //Download URL (TUNE link) for new users to download the app -->
+      setTimeout(window.open(linkStore), 1000)
     }
   },
   computed: {
