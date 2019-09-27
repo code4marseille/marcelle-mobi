@@ -5,6 +5,7 @@ export const state = () => ({
   itineraries: { sections: [{ geojson: { coordinates: [] } }] },
 
 
+
 })
 
 export const getters = ({
@@ -22,16 +23,18 @@ export const mutations = {
   SET_ITINERARIES(state, payload) {
     payload.sections[0].geojson.coordinates.map(x => x.reverse())
     state.itineraries = payload;
-  }
+  },
 
 
 }
 
 export const actions = {
 
-  async fetchItineraries({ commit }) {
+
+
+  async fetchitineraries({ commit }, { departure_address, arrival_address, mode }) {
     const itineraries = await this.$axios.$get(
-      "http://marcelle-mobi-api.herokuapp.com/itineraries/calculate?departure_address=metro%20dromel&arrival_address=12%20impasse%20abeille&mode=bike"
+      "/itineraries/calculate", { params: { departure_address, arrival_address, mode } }
 
 
     )

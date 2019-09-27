@@ -40,6 +40,7 @@
           <h4>Choisissez votre moyen de transport</h4>
           <b-button-group class="d-flex justify-content-center align-content-center">
             <b-button
+              v-model="value"
               type="button"
               v-for="(mean, idx) in means"
               :key="idx"
@@ -55,7 +56,7 @@
             variant="primary"
             id="submit"
             :disabled="meanSelected===-1"
-            @click="query=false"
+            @click="submitMarius"
           >Analyser mon parcours</b-button>
         </div>
       </div>
@@ -78,18 +79,32 @@ export default {
       meansBoolean: false,
 
       means: [
-        { logo: 'trot.svg', text: 'Trotinette', state: false },
-        { logo: 'walk.svg', text: 'Marche', state: false },
-        { logo: 'rtm.svg.png', text: 'Transport en commun', state: false },
-        { logo: 'bike.svg', text: 'Vélo', state: false },
-        { logo: 'car.svg', text: 'Voiture', state: false }
+        { logo: 'trot.svg', value: 'bikes', state: false },
+        { logo: 'walk.svg', value: 'walking', state: false },
+        { logo: 'rtm.svg.png', value: 'walking', state: false },
+        { logo: 'bike.svg', value: 'bike', state: false },
+        { logo: 'car.svg', value: 'car', state: false }
       ],
       meanSelected: -1,
       query: true
     }
   },
+
   computed: {},
   methods: {
+    submitMarius: function() {
+      const value = this.means.find(e => e.state).value
+
+      this.$store.dispatch('marius/fetchitineraries', {
+        from: this.from,
+        to: this.to,
+        mode: this.value
+      }),
+        this.$router.push({
+          path: '/marius_map'
+        })
+    },
+
     deactive: function(id) {
       for (let i = 0; i < this.means.length; i++) {
         if (id != i) {

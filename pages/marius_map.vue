@@ -29,7 +29,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('marius/fetchItineraries')
+    this.$store.dispatch('marius/fetchitineraries')
   }
 }
 </script>
