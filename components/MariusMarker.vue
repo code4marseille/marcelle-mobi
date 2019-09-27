@@ -1,20 +1,26 @@
 <template>
-  <l-marker
-    :lat-lng="[mariusResult[sections.geojson.coordinates[0][1]],mariusResult[sections.geojson.coordinates[0][0]]]"
-  ></l-marker>
+  <l-marker :lat-lng="[lngLat[1], lngLat[0]]"></l-marker>
+  <!--<l-polyline :lat-lngs="polyline.latlngs" :color="polyline.color"></l-polyline>-->
 </template>
 
 <script>
-import { LMarker } from 'vue2-leaflet'
+import { LMarker, LPolyline } from 'vue2-leaflet'
 
 export default {
-  components: { LMarker },
+  components: { LMarker, LPolyline },
 
   props: {
-    mariusResult: { type: Object, required: true },
-    sections: { type: Array, required: true }
+    lngLat: { type: Array, required: true }
+  },
+
+  data() {
+    return {
+      polyline: {
+        latlngs: [],
+        color: 'green'
+      }
+    }
   }
 }
-
-// <l-marker  v-for="(mariusResult, i) in $store.state.marius.mariusResult" :lat-lng="[43.295336, 5.373907]"></l-marker>
 </script>
+
