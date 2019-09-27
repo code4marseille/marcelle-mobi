@@ -1,7 +1,7 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="15" :center="initialLocation" ref="parkingMap">
+      <l-map id="map" :zoom="10" :center="initialLocation" ref="map">
         <MapboxTile />
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -21,14 +21,28 @@
         <Locatecontrol />
       </l-map>
     </div>
-    <!-- Block de bouttons -->
-    <div style="z-index:470; ">
-      <b-button
-        block
-        style="z-index:470; padding:20px; opacity:.8; text-shadow:1px 0 black;"
-        class="fixed-bottom"
-        @click="this.toggleParkingButton"
-      >{{toggleButton}}</b-button>
+
+    <div class="fixed-bottom">
+      <!-- Search Button -->
+      <b-form inline v-show="!toggleView" @submit="onSubmit">
+        <b-input
+          id="inline-form-input-name"
+          placeholder="Rechercher un parking"
+          class="w-75"
+          v-model="searchAddress"
+        ></b-input>
+        <b-button
+          class="w-25"
+          variant="dark"
+          style="font-size:.9rem; padding:7px 0;"
+          @click="onSubmit"
+        >Chercher</b-button>
+      </b-form>
+
+      <!-- Fin Search button -->
+
+      <!-- Block de bouttons -->
+      <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button>
     </div>
     <!-- Fin Block -->
   </div>
@@ -36,7 +50,7 @@
 
 <script>
 import { LMap } from 'vue2-leaflet'
-import Locatecontrol from 'vue2-leaflet-locatecontrol'
+import Locatecontrol from '~/components/LocateControl'
 import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
@@ -52,7 +66,8 @@ export default {
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-      toggleView: true
+      toggleView: true,
+      searchAddress: ''
     }
   },
   computed: {
@@ -64,7 +79,7 @@ export default {
   },
   methods: {
     flyTo(latLng, zoom) {
-      this.$refs.parkingMap.mapObject.flyTo(latLng, zoom)
+      this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
     updateParking(center) {
       const coord = { latitude: center.lat, longitude: center.lng }
@@ -77,6 +92,20 @@ export default {
     },
     toggleParkingButton() {
       this.toggleView = !this.toggleView
+    },
+    async onSubmit(evt) {
+      evt.preventDefault()
+      if (this.searchAddress != '') {
+        let coord = await this.$axios.get(
+          'https://api-adresse.data.gouv.fr/search/',
+          { params: { q: this.searchAddress, limit: 1 } }
+        )
+
+        coord = coord.data.features[0].geometry.coordinates
+        var marker = L.marker([coord[1], coord[0]])
+        marker.addTo(this.$refs.map.mapObject)
+        this.flyTo([coord[1], coord[0]], 18)
+      }
     }
   },
   created() {
@@ -129,6 +158,12 @@ export default {
   .h_iframe {
     height: 100%;
     width: 100%;
+  }
+  .fixed-bottom {
+    z-index: 450;
+    padding: 20px;
+    opacity: 0.8;
+    text-shadow: 1px 0 black;
   }
 }
 </style>
