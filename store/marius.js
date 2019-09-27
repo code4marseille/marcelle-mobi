@@ -2,11 +2,14 @@ import Vue from 'vue'
 
 export const state = () => ({
 
-  mariusResult: { sections: [{ geojson: { coordinates: [] } }] },
+  itineraries: { sections: [{ geojson: { coordinates: [] } }] },
+
 
 })
 
 export const getters = ({
+
+  latLngs: state => state.itineraries.sections[0].geojson.coordinates
 
 })
 
@@ -16,8 +19,9 @@ export const mutations = {
 
 
   },
-  SET_MARIUS(state, mariusResult) {
-    state.mariusResult = mariusResult;
+  SET_ITINERARIES(state, payload) {
+    payload.sections[0].geojson.coordinates.map(x => x.reverse())
+    state.itineraries = payload;
   }
 
 
@@ -25,14 +29,14 @@ export const mutations = {
 
 export const actions = {
 
-  async fetchMarius({ commit }) {
-    const mariusResult = await this.$axios.$get(
+  async fetchItineraries({ commit }) {
+    const itineraries = await this.$axios.$get(
       "http://marcelle-mobi-api.herokuapp.com/itineraries/calculate?departure_address=metro%20dromel&arrival_address=12%20impasse%20abeille&mode=bike"
 
 
     )
 
-    commit("SET_MARIUS", mariusResult);
+    commit("SET_ITINERARIES", itineraries);
   },
 }
 

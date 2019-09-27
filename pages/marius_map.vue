@@ -5,26 +5,19 @@
         <l-tile-layer
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
-        <MariusMarker
-          v-for="(lngLat, id) in $store.state.marius.mariusResult.sections[0].geojson.coordinates"
-          :key="id"
-          :lng-lat="lngLat"
-        />
+        <l-polyline :lat-lngs="$store.getters['marius/latLngs']" color="green"></l-polyline>
       </l-map>
     </div>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LPolyline } from 'vue2-leaflet'
-import MariusMarker from '~/components/MariusMarker.vue'
+import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
 
 export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker,
-    MariusMarker,
     LPolyline
   },
 
@@ -36,7 +29,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('marius/fetchMarius')
+    this.$store.dispatch('marius/fetchItineraries')
   }
 }
 </script>
