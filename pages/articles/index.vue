@@ -25,7 +25,7 @@
         </b-collapse>
       </div>
       <b-row>
-        <b-col cols="12" md="6" v-for="(article, id) in filteredArticles" :key="id">
+        <b-col cols="12" md="6" lg="4" v-for="(article, id) in filteredArticles" :key="id">
           <b-card class="mb-1 rounded" :img-src="article.imgUrl">
             <a :href="article.url" target="_blank" append="true" class="stretched-link">
               <b-card-title class="title">{{article.title}}</b-card-title>
@@ -38,9 +38,10 @@
             </a>
           </b-card>
         </b-col>
-        <p v-if="noArticles" class="white py-5 text-center text-white">
+        <p v-if="noArticles" class="white py-5 text-center text-white mx-auto">
           Aucun article à afficher dans
           <span class="font-weight-bold">{{selectedCategory}}</span>
+          <br />
 
           <nuxt-link to="/articles/create">
             <b-button variant="primary" class="btn btn-dark-blue my-3">Proposer un article</b-button>
@@ -130,7 +131,7 @@ export default {
 
   .card-img {
     width: 100%;
-    max-height: 30vh;
+    height: 30vh;
     border-top-left-radius: calc(1rem - 1px);
     border-top-right-radius: calc(1rem - 1px);
   }

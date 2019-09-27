@@ -11,7 +11,6 @@
         </v-list-item>
 
         <v-list-item v-for="item in items" :key="item.title" link class="items-container">
-
           <v-list-item-icon>
             <!-- <v-icon class="text-white px-3">{{ item.icon }}</v-icon> -->
             <img svg-inline :src="item.icon" class="icon-sidebar" />
@@ -19,7 +18,6 @@
 
           <v-list-item-content>
             <nuxt-link :to="item.link" class="stretched-link">
-
               <v-list-item-title
                 class="text-uppercase text-white items-sidebar display-1"
               >{{ item.title }}</v-list-item-title>
@@ -63,8 +61,9 @@ export default {
           link: '/articles/create',
           icon: require('~/assets/images/navbarCreateArticle.svg')
         },
-        { title: 'À propos',
-          link: '/apropos', 
+        {
+          title: 'À propos',
+          link: '/apropos',
           icon: require('~/assets/images/help.svg')
         }
       ]
@@ -101,12 +100,18 @@ export default {
     min-height: 40px;
     width: 6vw;
     height: 5vw;
+    max-width: 50px;
+    max-height: 50px;
     margin: 0 20px 0 1vh;
   }
   .close-svg {
     font-size: 30%;
     width: 10%;
     margin: 1vh 1vw 1vh auto;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 }
 </style>
