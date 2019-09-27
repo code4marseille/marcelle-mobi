@@ -24,7 +24,7 @@
 
     <div class="fixed-bottom">
       <!-- Search Button -->
-      <b-form inline v-show="!toggleView" @submit="onSubmit">
+      <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
         <b-input
           id="inline-form-input-name"
           placeholder="Rechercher un parking"
@@ -35,7 +35,7 @@
           class="w-25"
           variant="dark"
           style="font-size:.9rem; padding:7px 0;"
-          @click="onSubmit"
+          type="submit"
         >Chercher</b-button>
       </b-form>
 
@@ -94,18 +94,16 @@ export default {
       this.toggleView = !this.toggleView
     },
     async onSubmit(evt) {
-      evt.preventDefault()
-      if (this.searchAddress != '') {
-        let coord = await this.$axios.get(
-          'https://api-adresse.data.gouv.fr/search/',
-          { params: { q: this.searchAddress, limit: 1 } }
-        )
+      if (this.searchAddress == '') return
+      let coord = await this.$axios.get(
+        'https://api-adresse.data.gouv.fr/search/',
+        { params: { q: this.searchAddress, limit: 1 } }
+      )
 
-        coord = coord.data.features[0].geometry.coordinates
-        var marker = L.marker([coord[1], coord[0]])
-        marker.addTo(this.$refs.map.mapObject)
-        this.flyTo([coord[1], coord[0]], 18)
-      }
+      coord = coord.data.features[0].geometry.coordinates
+      const marker = L.marker([coord[1], coord[0]])
+      marker.addTo(this.$refs.map.mapObject)
+      this.flyTo([coord[1], coord[0]], 18)
     }
   },
   created() {
