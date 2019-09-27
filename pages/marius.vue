@@ -2,13 +2,15 @@
   <div id="marius" class="bg-secondary">
     <div v-if="query">
       <div
-        class="d-flex flex-column justify-content-center align-content-center vh-100"
+        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
         v-if="loading"
         @click="loading=false"
       >
         <div>bonjour, je suis marius</div>
         <p></p>
-        <div>ENSEMBLE ON VA TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LES POISSONS</div>
+        <div
+          class="mb-4"
+        >ENSEMBLE ON VA TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LES POISSONS</div>
         <img src="~/assets/images/assistant.svg" alt />
       </div>
 
@@ -17,7 +19,14 @@
           <img src="~/assets/images/miniGrandfather.svg" alt />
           <div class="askBlock">
             <div class="ask">d'où pars tu ?</div>
-            <input type="text" name="from" id class="inputAsk" v-model="from" @blur="formTo=true" />
+            <input
+              type="text"
+              name="from"
+              id
+              class="inputAsk border-bottom mt-3"
+              v-model="from"
+              @blur="formTo=true"
+            />
           </div>
         </div>
 
@@ -29,7 +38,7 @@
               type="text"
               name="from"
               id
-              class="inputAsk"
+              class="inputAsk border-bottom mt-3"
               v-model="to"
               @blur="meansBoolean=true"
             />
