@@ -26,7 +26,7 @@
               class="col-4"
               :class="{active: $store.state.map.seeBikes}"
             >
-              <img src="~/assets/images/velo.svg" />
+              <img src="~/assets/images/velo.svg" style="width:45px" />
               <p class="textFilter">Vélo</p>
             </div>
             <div

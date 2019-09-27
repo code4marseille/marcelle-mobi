@@ -45,9 +45,9 @@
           </div>
         </div>
 
-        <div class="rounded" v-if="meansBoolean">
+        <div class="rounded mt-5" v-if="meansBoolean">
           <h4>Choisissez votre moyen de transport</h4>
-          <b-button-group class="d-flex justify-content-center align-content-center">
+          <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
             <b-button
               type="button"
               v-for="(mean, idx) in means"
@@ -55,12 +55,17 @@
               :pressed.sync="mean.state"
               @click="deactive(idx)"
             >
-              <img :src="require('~/assets/images/' + mean.logo)" :alt="mean.text" />
+              <img
+                :src="require('~/assets/images/' + mean.logo)"
+                class="icons_search"
+                :alt="mean.text"
+              />
             </b-button>
           </b-button-group>
           <b-button
             class="block"
             pill
+            style="margin-top:70px"
             variant="primary"
             id="submit"
             :disabled="meanSelected===-1"
@@ -89,7 +94,7 @@ export default {
       means: [
         { logo: 'trot.svg', text: 'Trotinette', state: false },
         { logo: 'walk.svg', text: 'Marche', state: false },
-        { logo: 'rtm.svg.png', text: 'Transport en commun', state: false },
+        { logo: 'rtm.svg', text: 'Transport en commun', state: false },
         { logo: 'bike.svg', text: 'Vélo', state: false },
         { logo: 'car.svg', text: 'Voiture', state: false }
       ],
@@ -152,10 +157,17 @@ export default {
   }
   button.active {
     background-color: white !important;
+    border-radius: 5px;
+    border: none;
   }
 
   .block {
     margin: 5% 0 5% 0;
+  }
+
+  .icons_search {
+    min-height: 25px;
+    min-width: 25px;
   }
 }
 </style>
