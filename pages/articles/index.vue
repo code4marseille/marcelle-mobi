@@ -9,8 +9,8 @@
         <b-button
           v-b-toggle="'collapse-2'"
           class="btn-categorie text-uppercase btn-block p-3"
-        >{{selectedCategory}}</b-button>
-        <b-button v-on:click="returnAllArticles()" v-if="selectedCategoryTrue" class="btn-block">
+        >{{selectedCategory || 'Catégories'}}</b-button>
+        <b-button @click="resetCategory" v-if="selectedCategory" class="btn-block">
           <span class="small">Revenir sur tous les articles</span>
         </b-button>
 
@@ -38,7 +38,7 @@
             </a>
           </b-card>
         </b-col>
-        <p v-if="filteredArticles == null" class="white py-5 text-center mx-auto text-white">
+        <p v-if="noArticles" class="white py-5 text-center text-white mx-auto">
           Aucun article à afficher dans
           <span class="font-weight-bold">{{selectedCategory}}</span>
           <br />
@@ -58,15 +58,15 @@ export default {
     return {
       articles: [],
       categories: ['mobilité', 'écologie', 'politique', 'bons plans'],
-      selectedCategory: 'Catégories'
+      selectedCategory: null
     }
   },
   methods: {
     selectCategory(category) {
       this.selectedCategory = category
     },
-    returnAllArticles() {
-      this.selectedCategory = 'catégories'
+    resetCategory() {
+      this.selectedCategory = null
     }
   },
   computed: {
@@ -74,36 +74,23 @@ export default {
       const filteredArticles = this.articles.filter(
         article => article.category == this.selectedCategory
       )
-
-      if (
-        this.selectedCategory == null ||
-        this.selectedCategory.toLowerCase() == 'catégories'
-      )
-        return this.articles
-      else if (Object.keys(filteredArticles).length == 0) {
-        return null
-      } else {
-        return filteredArticles
-      }
+      return this.selectedCategory ? filteredArticles : this.articles
     },
-
-    selectedCategoryTrue() {
-      if (this.selectedCategory.toLocaleLowerCase() != 'catégories') return true
-      else return false
+    noArticles() {
+      return this.filteredArticles.length === 0
     }
   },
 
-  mounted() {
-    this.$axios.$get('/articles').then(response => (this.articles = response))
+  async created() {
+    const data = await this.$axios.$get('/articles')
+    this.articles = data.articles
   }
 }
 </script>
 
 <style lang="scss">
 .contener-blog {
-  body {
-    font-size: 1.1em;
-  }
+  font-size: 1.1em;
 
   main {
     padding: 70px 7vw 0;
