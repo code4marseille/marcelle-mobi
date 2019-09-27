@@ -86,6 +86,12 @@ export default {
     left: 1vw;
   }
 
+  .fa-bars {
+    background-color: rgba(39, 167, 232, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
   .items-container {
     border-bottom: 0.5px solid white;
     padding: 10px;
