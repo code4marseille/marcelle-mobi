@@ -39,7 +39,7 @@
     <!-- what to do today -->
     <div>
       <p>à faire aujourd'hui :</p>
-      <div class="activitiesProposees">
+      <div class="activitiesProposees d-flex justify-content-around">
         <span v-for="(act, id)
      in $store.state.dashboard.activitesProposees" :key="id">
           <b-button v-b-tooltip.hover v-bind:title="act.name">

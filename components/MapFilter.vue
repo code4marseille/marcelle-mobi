@@ -65,7 +65,7 @@ export default {
 <style lang="scss">
 .filterGo {
   width: 100%;
-  z-index: 999;
+  z-index: 450;
   position: fixed;
   left: 0;
   bottom: 0;
