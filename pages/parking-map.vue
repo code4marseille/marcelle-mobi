@@ -8,7 +8,7 @@
           :key="'c'+i"
           :charging="charging"
           :googleMap="googleRoute"
-          :visible="toggleView"
+          :visible="buttons[0].state"
         />
 
         <ParkingMarker
@@ -16,15 +16,24 @@
           :key="'p'+i"
           :parking="parking"
           :googleMap="googleRoute"
-          :visible="!toggleView"
+          :visible="buttons[1].state"
+        />
+
+        <CarPoolMarker
+          v-for="(carPool,i) in $store.state.parkingMap.carPoolStations"
+          :key="'p'+i"
+          :carPool="carPool"
+          :googleMap="googleRoute"
+          :visible="buttons[2].state"
         />
         <Locatecontrol />
       </l-map>
     </div>
 
-    <div class="fixed-bottom">
-      <!-- Search Button -->
-      <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
+    <div class="fixed-bottom container">
+      <div class="d-flex justify-content-center">
+        <!-- Search Button -->
+        <!-- <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
         <b-input
           id="inline-form-input-name"
           placeholder="Rechercher un parking"
@@ -39,12 +48,30 @@
         >Chercher</b-button>
       </b-form>
 
-      <!-- Fin Search button -->
+        <!-- Fin Search button-->
 
-      <!-- Block de bouttons -->
-      <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button>
+        <!-- Block de bouttons -->
+        <!-- <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button> -->
+        <b-button-group>
+          <b-button
+            v-for="(btn, idx) in buttons"
+            :key="idx"
+            :pressed.sync="btn.state"
+            variant="primary"
+            size="sm"
+          >{{ btn.caption }}</b-button>
+        </b-button-group>
+        <b-form inline @submit.prevent="onSubmit">
+          <b-input
+            id="inline-form-input-name"
+            placeholder="Rechercher une adresse"
+            v-model="searchAddress"
+          ></b-input>
+          <b-button variant="dark" type="submit">Chercher</b-button>
+        </b-form>
+      </div>
+      <!-- Fin Block -->
     </div>
-    <!-- Fin Block -->
   </div>
 </template>
 
@@ -53,6 +80,7 @@ import { LMap } from 'vue2-leaflet'
 import Locatecontrol from '~/components/LocateControl'
 import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
+import CarPoolMarker from '~/components/CarPoolMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
 
 export default {
@@ -61,13 +89,19 @@ export default {
     Locatecontrol,
     ChargingMarker,
     ParkingMarker,
-    MapboxTile
+    MapboxTile,
+    CarPoolMarker
   },
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-      toggleView: true,
-      searchAddress: ''
+
+      searchAddress: '',
+      buttons: [
+        { caption: 'Borne de Recharge', state: true },
+        { caption: 'Parkings', state: false },
+        { caption: 'Zone de covoiturage', state: false }
+      ]
     }
   },
   computed: {
@@ -115,6 +149,7 @@ export default {
       lat: this.initialLocation[0],
       long: this.initialLocation[1]
     })
+    this.$store.dispatch('parkingMap/fetchCarPoolStations')
   }
 }
 </script>
