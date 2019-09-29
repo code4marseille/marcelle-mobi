@@ -47,6 +47,11 @@ export default {
           icon: require('~/assets/images/navbarMap.svg')
         },
         {
+          title: 'Se garer / Se Recharger',
+          link: '/parking-map',
+          icon: require('~/assets/images/navbarParking.png')
+        },
+        {
           title: 'Marius',
           link: '/marius',
           icon: require('~/assets/images/navbarMarius.svg')
@@ -65,11 +70,6 @@ export default {
           title: 'À propos',
           link: '/apropos',
           icon: require('~/assets/images/help.svg')
-        },
-        {
-          title: 'Se garer / Se Recharger',
-          link: '/parking-map',
-          icon: require('~/assets/images/navbarParking.png')
         }
       ]
     }
@@ -84,6 +84,12 @@ export default {
     z-index: 450; /* z-index max = 4xx */
     margin: 15px 0 0 0;
     left: 1vw;
+  }
+
+  .fa-bars {
+    background-color: rgba(39, 167, 232, 0.7);
+    border-radius: 10px;
+    padding: 10px;
   }
 
   .items-container {

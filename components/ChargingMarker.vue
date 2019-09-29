@@ -9,7 +9,7 @@
       <p>
         <i class="fas fa-map-marker-alt"></i>
         <a
-          :href="this.googleMap(charging.addressInfo.latitude,charging.addressInfo.longitude)"
+          :href="googleMap(charging.addressInfo.latitude,charging.addressInfo.longitude)"
           target="_blank"
         >{{charging.addressInfo.addressLine1}}, {{charging.addressInfo.postcode}} {{charging.addressInfo.town}}</a>
       </p>

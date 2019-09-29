@@ -8,7 +8,7 @@
       >{{carPool.name.replace("Aire de covoiturage ","")}}</p>
       <p>
         <i class="fas fa-map-marker-alt"></i>
-        <a :href="this.googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
+        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
       </p>
     </l-popup>
 
