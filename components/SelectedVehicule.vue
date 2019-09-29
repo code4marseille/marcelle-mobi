@@ -10,7 +10,7 @@
         <p class="font-weight-bold text-capitalize mb-O">{{vehiculeInfo.line1}}</p>
 
         <p class="mb-0">{{vehiculeInfo.line2}}</p>
-        <p class="mb-0" v-if="vehiculeInfo.line3  !== ''">
+        <p class="mb-0" v-if="vehiculeInfo.line3 !== ''">
           <img svg-inline src="~/assets/images/iconBattery.svg" class="svgDescription" />
           {{vehiculeInfo.line3}}
         </p>
@@ -62,7 +62,7 @@ export default {
           return {
             line1: v.name,
             line2: `Immat.: ${v.licencePlate}`,
-            line3: `Réservoir: ${v.fuelLevel} %`,
+            line3: v.fuelLevel ? `Réservoir: ${v.fuelLevel} %` : '',
             icon: require(`~/assets/images/citiz_marker.svg`),
             linkApp: `coop.lestilleuls.citiz://`,
             linkStore: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
@@ -92,7 +92,7 @@ export default {
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/lime.svg`),
             linkApp: `limebike://`,
-            linkStore: `href="https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"`,
+            linkStore: `https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1`,
             linkIos: `https://itunes.apple.com/us/app/limebike-your-ride-anytime/id1199780189?ls=1&mt=8`,
             linkBrowser: `https://www.li.me/fr/page-daccueil`
           }

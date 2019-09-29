@@ -4,7 +4,7 @@
       <p style="font-weight:bold; font-size:1rem;">{{carPool.name}}</p>
       <p>
         <i class="fas fa-map-marker-alt"></i>
-        <a :href="this.googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
+        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
       </p>
     </l-popup>
     <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carPool.png')"></l-icon>

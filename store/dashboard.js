@@ -41,7 +41,6 @@ export const mutations = {
     } else {
       state.airQualityText = "Faible risque pour la santé. La qualité de l'air est idéale pour les activités de plein air."
       state.activeBackground = require('~/assets/images/lavande.svg')
-
     }
   },
   'SET_TEMPERATURE'(state, temperature) {
@@ -64,9 +63,6 @@ export const mutations = {
     state.alertsRtm = alertsRtm
 
   }
-
-
-
 }
 
 export const actions = {
@@ -92,15 +88,10 @@ export const actions = {
   },
   async fetchAlertsRtm({ commit }) {
     let tabInfos = []
-    const alertsRtm = await this.$axios
-      .$get('/alerts/rtm')
+    const alertsRtm = await this.$axios.$get('/alerts/rtm')
     alertsRtm.forEach(e => {
-
       tabInfos.push(e.title.replace('-', '').split(':'))
     });
-
-    // tabInfos = alertsRtm.flat()
-    // console.log(tabInfos)
     commit("SET_ALERTSRTM", tabInfos)
   }
 
