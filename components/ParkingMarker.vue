@@ -1,6 +1,8 @@
 <template>
   <l-marker :lat-lng="[parking.lat,parking.lng]" :visible="visible">
     <l-popup style="text-align:center">
+      <h6>Parking</h6>
+
       <p style="font-weight:bold; font-size:1rem;">{{parking.name}}</p>
       <p>
         <i class="fas fa-map-marker-alt"></i>
@@ -23,7 +25,10 @@
       </p>
       <p></p>
     </l-popup>
-    <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/parking.png')"></l-icon>
+    <l-icon
+      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png"
+    ></l-icon>
+    <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/parking.png')"></l-icon> -->
   </l-marker>
 </template>
 
@@ -40,3 +45,4 @@ export default {
   }
 }
 </script>
+

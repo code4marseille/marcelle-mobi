@@ -21,7 +21,7 @@
 
         <CarPoolMarker
           v-for="(carPool,i) in $store.state.parkingMap.carPoolStations"
-          :key="'p'+i"
+          :key="'cP'+i"
           :carPool="carPool"
           :googleMap="googleRoute"
           :visible="buttons[2].state"
@@ -32,26 +32,6 @@
 
     <div class="fixed-bottom container">
       <div class="d-flex justify-content-center">
-        <!-- Search Button -->
-        <!-- <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
-        <b-input
-          id="inline-form-input-name"
-          placeholder="Rechercher un parking"
-          class="w-75"
-          v-model="searchAddress"
-        ></b-input>
-        <b-button
-          class="w-25"
-          variant="dark"
-          style="font-size:.9rem; padding:7px 0;"
-          type="submit"
-        >Chercher</b-button>
-      </b-form>
-
-        <!-- Fin Search button-->
-
-        <!-- Block de bouttons -->
-        <!-- <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button> -->
         <b-button-group>
           <b-button
             v-for="(btn, idx) in buttons"
@@ -69,6 +49,12 @@
           ></b-input>
           <b-button variant="dark" type="submit">Chercher</b-button>
         </b-form>
+        <div>
+          <b-modal title="BootstrapVue" id="notFound">
+            <p class="my-4">Adresse non trouvée dans Marseille Provence Métropole</p>
+            <img style="width:80%; text-align:center" src="~/assets/images/mpm.png" alt />
+          </b-modal>
+        </div>
       </div>
       <!-- Fin Block -->
     </div>
@@ -131,13 +117,30 @@ export default {
       if (this.searchAddress == '') return
       let coord = await this.$axios.get(
         'https://api-adresse.data.gouv.fr/search/',
-        { params: { q: this.searchAddress, limit: 1 } }
+        { params: { q: this.searchAddress, limit: 1000 } }
       )
+      // 43.43 ~ Marignane - 43.15 ~ La Ciotat
+      // Longitudes 5.09 ~ Sausset les pins -  5.7 ~ Ceyreste
+      // debugger
+      let found = coord.data.features.find(
+        city =>
+          city.geometry.coordinates[1] <= 43.43 &&
+          city.geometry.coordinates[1] >= 43.15 &&
+          city.geometry.coordinates[0] <= 5.7 &&
+          city.geometry.coordinates[0] >= 5.09
+      )
+      if (found != undefined) {
+        const lat = found.geometry.coordinates[1]
+        const lng = found.geometry.coordinates[0]
 
-      coord = coord.data.features[0].geometry.coordinates
-      const marker = L.marker([coord[1], coord[0]])
-      marker.addTo(this.$refs.map.mapObject)
-      this.flyTo([coord[1], coord[0]], 18)
+        //      coord = coord.data.features[0].geometry.coordinates
+        // const marker = L.marker([coord[1], coord[0]])
+
+        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
+        this.flyTo([lat, lng], 18)
+      } else {
+        this.$bvModal.show('notFound')
+      }
     }
   },
   created() {
