@@ -1,8 +1,5 @@
 <template>
-  <l-marker
-    :lat-lng="[charging.addressInfo.latitude,charging.addressInfo.longitude]"
-    :visible="visible"
-  >
+  <l-marker :lat-lng="checkCoord" :visible="visible">
     <l-popup style="text-align:center">
       <h6>Borne de recharge</h6>
       <p style="font-weight:bold; font-size:1rem;">{{charging.addressInfo.title}}</p>
@@ -72,6 +69,26 @@ export default {
       return this.charging.usageType.title.search('Unknown') < 0
         ? this.charging.usageType.title
         : ''
+    },
+    checkCoord() {
+      const coordMpm = this.$store.state.bbox.split(',')
+      //coordMpm[0] = minLat
+      //coordMpm[1] = minlng
+      //coordMpm[2] = maxLat
+      //coordMpm[3] = maxLng
+      if (
+        this.charging.addressInfo.latitude <= coordMpm[2] &&
+        this.charging.addressInfo.latitude >= coordMpm[0] &&
+        this.charging.addressInfo.longitude <= coordMpm[3] &&
+        this.charging.addressInfo.longitude >= coordMpm[1]
+      ) {
+        return [
+          this.charging.addressInfo.latitude,
+          this.charging.addressInfo.longitude
+        ]
+      } else {
+        return [3600, 3600]
+      }
     }
   }
 }

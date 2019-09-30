@@ -63,6 +63,7 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
+      // if
       this.$store.dispatch('map/fetchTrots', center)
     }
   }

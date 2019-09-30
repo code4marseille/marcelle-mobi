@@ -49,22 +49,13 @@
             v-model="searchAddress"
             style="width:55%"
           ></b-input>
-          <b-button variant="dark" type="submit" style="width:45%">Chercher</b-button>
+          <b-button
+            variant="dark"
+            type="submit"
+            style="width:45%"
+            @click.prevent="onSubmit"
+          >Chercher</b-button>
         </b-form>
-        <div>
-          <b-modal
-            title="BootstrapVue"
-            id="notFound"
-            style="display:flex; flex-direction:row; justify-content:center"
-            ok-only
-          >
-            <p
-              class="my-4"
-              style="text-align:center"
-            >Adresse non trouvée dans Marseille Provence Métropole</p>
-            <img src="~/assets/images/mpm.png" style="width:100%" alt />
-          </b-modal>
-        </div>
       </div>
       <!-- Fin Block -->
     </div>
@@ -123,43 +114,37 @@ export default {
     toggleParkingButton() {
       this.toggleView = !this.toggleView
     },
+    checkAddress(addresses) {
+      addresses = addresses.data.features
 
-    GetMpmAddress(addresses) {
-      const coordMpm = this.$store.state.parkingMap.bbox.split(',')
-      //coordMpm[0] = minLat
-      //coordMpm[1] = minlng
-      //coordMpm[2] = maxLat
-      //coordMpm[3] = maxLng
-      let found = addresses.data.features.find(
-        city =>
-          city.geometry.coordinates[1] <= coordMpm[2] &&
-          city.geometry.coordinates[1] >= coordMpm[0] &&
-          city.geometry.coordinates[0] <= coordMpm[3] &&
-          city.geometry.coordinates[0] >= coordMpm[1]
+      const coordinates = addresses.find(latlng =>
+        this.$store.getters.isInsidePerimeter(
+          latlng.geometry.coordinates[1],
+          latlng.geometry.coordinates[0]
+        )
       )
-      if (found != undefined) {
-        return found
-      } else return false
-    },
 
+      if (coordinates != undefined) {
+        return coordinates.geometry.coordinates.reverse()
+      } else {
+        return false
+      }
+    },
     async onSubmit(evt) {
       if (this.searchAddress == '') return
       let coord = await this.$axios.get(
         'https://api-adresse.data.gouv.fr/search/',
         { params: { q: this.searchAddress, limit: 1000 } }
       )
-      const found = this.GetMpmAddress(coord)
-      if (found) {
-        const lat = found.geometry.coordinates[1]
-        const lng = found.geometry.coordinates[0]
+      // console.log('toto')
 
-        //      coord = coord.data.features[0].geometry.coordinates
-        // const marker = L.marker([coord[1], coord[0]])
+      const found = this.checkAddress(coord)
 
-        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
-        this.flyTo([lat, lng], 18)
+      if (found != false) {
+        L.marker(found).addTo(this.$refs.map.mapObject)
+        this.flyTo(found, 18)
       } else {
-        this.$bvModal.show('notFound')
+        this.$store.dispatch('changeStateModal', true)
       }
     }
   },
@@ -168,11 +153,11 @@ export default {
       latitude: this.initialLocation[0],
       longitude: this.initialLocation[1]
     })
-    this.$store.dispatch('parkingMap/fetchParkingStations', {
-      lat: this.initialLocation[0],
-      long: this.initialLocation[1]
-    })
-    this.$store.dispatch('parkingMap/fetchCarPoolStations')
+    //   this.$store.dispatch('parkingMap/fetchParkingStations', {
+    //     lat: this.initialLocation[0],
+    //     long: this.initialLocation[1]
+    //   })
+    //   this.$store.dispatch('parkingMap/fetchCarPoolStations')
   }
 }
 </script>
