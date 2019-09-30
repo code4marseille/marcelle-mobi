@@ -6,24 +6,34 @@
     <div class="form-contener">
       <!-- title -->
       <b-form>
-        <b-form-group id="input-group-1" label="Lien url" label-for="input-3" class="label">
+        <b-input-group id="input-group-1" label="Lien url" label-for="input-3" class="label mt-3">
           <b-form-input
             id="input-3"
             v-model="form.url"
             type="text"
             required
-            placeholder="Lien votre article"
-            class="mb-4 inputFormCreateArticle"
+            label="Photo"
+            placeholder="URL de votre article"
+            class="mb-2 inputFormCreateArticle"
             @blur="fetchPreview"
           ></b-form-input>
-          <b-input-group-append>
-            <b-button @click="fetchPreview">OK</b-button>
+          <b-input-group-append append="OK">
+            <b-button
+              class="d-flex"
+              variant="primary"
+              style="height:38px;border-radius:0px 5px 5px 0px;"
+              @click="fetchPreview"
+            >OK</b-button>
           </b-input-group-append>
-        </b-form-group>
+        </b-input-group>
+        <p class="text_message_error">{{errorMessage}}</p>
 
         <!-- SECOND PART -->
         <template v-if="previewLoaded">
-          <img v-if="form.imgUrl" :src="form.imgUrl" class="img-fluid" />
+          <b-form-group id="input-group-1" label="Photo" label-for="input-1" class="label">
+            <img v-if="form.imgUrl" :src="form.imgUrl" class="img-fluid" />
+          </b-form-group>
+
           <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
             <b-form-input
               id="input-1"
@@ -109,6 +119,7 @@ export default {
         publisherEmail: '',
         selectedCategory: ''
       },
+      errorMessage: '',
       categories: ['écologie', 'mobilité', 'politique', 'bons plans'],
       previewLoaded: false
     }
@@ -128,11 +139,17 @@ export default {
       this.form.selectedCategory = category
     },
     async fetchPreview() {
-      const preview = await this.$axios.$get('/articles/preview', {
-        params: { url: this.form.url }
-      })
-      Object.assign(this.form, preview)
-      this.previewLoaded = true
+      this.errors = []
+      if (!this.validEmail(this.form.url)) {
+        console.log(this.errorMessage)
+        this.errorMessage = 'Désolé, cet URL est incorrect'
+      } else {
+        const preview = await this.$axios.$get('/articles/preview', {
+          params: { url: this.form.url }
+        })
+        Object.assign(this.form, preview)
+        this.previewLoaded = true
+      }
     },
     async sendArticle() {
       await this.$axios.$post('/articles', {
@@ -144,6 +161,10 @@ export default {
         category: this.form.selectedCategory
       })
       this.$router.push('/articles/validate')
+    },
+    validEmail(url) {
+      var regex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/
+      return regex.test(url)
     }
   }
 }
@@ -174,6 +195,13 @@ export default {
 
   .form-contener {
     padding: 70px 7vw 0;
+  }
+
+  .text_message_error {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
   }
 
   label {
