@@ -27,9 +27,6 @@ export default {
       mapBoxToken:
         'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
-  },
-  created() {
-    this.$store.dispatch('marius/fetchitineraries')
   }
 }
 </script>

@@ -29,14 +29,9 @@ export const mutations = {
 }
 
 export const actions = {
-
-
-
-  async fetchitineraries({ commit }, { departure_address, arrival_address, mode }) {
+  async fetchitineraries({ commit }, { from, to, mode }) {
     const itineraries = await this.$axios.$get(
-      "/itineraries/calculate", { params: { departure_address, arrival_address, mode } }
-
-
+      "/itineraries/calculate", { params: { departure_address: from, arrival_address: to, mode } }
     )
 
     commit("SET_ITINERARIES", itineraries);

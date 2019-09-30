@@ -1,6 +1,6 @@
 <template>
   <div id="marius" class="bg-secondary">
-    <div v-if="query">
+    <div v-if="true">
       <div
         class="d-flex flex-column justify-content-center align-content-center vh-100"
         v-if="loading"
@@ -17,37 +17,37 @@
           <img src="~/assets/images/miniGrandfather.svg" alt />
           <div class="askBlock">
             <div class="ask">d'où pars tu ?</div>
-            <input type="text" name="from" id class="inputAsk" v-model="from" @blur="formTo=true" />
+            <input
+              type="text"
+              name="from"
+              class="inputAsk"
+              autocomplete="address"
+              v-model="from"
+              @blur="showInputTo=true"
+            />
           </div>
         </div>
 
-        <div v-if="formTo" class="block">
+        <div v-if="showInputTo" class="block">
           <img src="~/assets/images/miniGrandfather.svg" alt />
           <div class="askBlock">
             <div class="ask">où vas-tu ?</div>
             <input
               type="text"
+              autocomplete="address"
               name="from"
-              id
               class="inputAsk"
               v-model="to"
-              @blur="meansBoolean=true"
+              @blur="showModes=true"
             />
           </div>
         </div>
 
-        <div class="rounded" v-if="meansBoolean">
+        <div class="rounded" v-if="showModes">
           <h4>Choisissez votre moyen de transport</h4>
           <b-button-group class="d-flex justify-content-center align-content-center">
-            <b-button
-              v-model="value"
-              type="button"
-              v-for="(mean, idx) in means"
-              :key="idx"
-              :pressed.sync="mean.state"
-              @click="deactive(idx)"
-            >
-              <img :src="require('~/assets/images/' + mean.logo)" :alt="mean.text" />
+            <b-button v-for="(mode, idx) in modes" :key="idx" @click="setMode(mode.value)">
+              <img :src="require('~/assets/images/' + mode.logo)" :alt="mode.text" />
             </b-button>
           </b-button-group>
           <b-button
@@ -55,8 +55,8 @@
             pill
             variant="primary"
             id="submit"
-            :disabled="meanSelected===-1"
-            @click="submitMarius"
+            :disabled="!selectedMode"
+            @click="submit"
           >Analyser mon parcours</b-button>
         </div>
       </div>
@@ -73,54 +73,36 @@ export default {
   data() {
     return {
       loading: true,
-      formTo: false,
+      showInputTo: false,
+      showModes: false,
       from: '',
       to: '',
-      meansBoolean: false,
-
-      means: [
-        { logo: 'trot.svg', value: 'bikes', state: false },
-        { logo: 'walk.svg', value: 'walking', state: false },
-        { logo: 'rtm.svg.png', value: 'walking', state: false },
-        { logo: 'bike.svg', value: 'bike', state: false },
-        { logo: 'car.svg', value: 'car', state: false }
+      modes: [
+        { logo: 'trot.svg', value: 'bikes' },
+        { logo: 'walk.svg', value: 'walking' },
+        { logo: 'rtm.svg.png', value: 'walking' },
+        { logo: 'bike.svg', value: 'bike' },
+        { logo: 'car.svg', value: 'car' }
       ],
-      meanSelected: -1,
-      query: true
+      selectedMode: null
     }
   },
 
   computed: {},
   methods: {
-    submitMarius: function() {
-      const value = this.means.find(e => e.state).value
-
+    submit() {
       this.$store.dispatch('marius/fetchitineraries', {
         from: this.from,
         to: this.to,
-        mode: this.value
-      }),
-        this.$router.push({
-          path: '/marius_map'
-        })
-    },
-
-    deactive: function(id) {
-      for (let i = 0; i < this.means.length; i++) {
-        if (id != i) {
-          this.means[i].state = false
-          // console.log("toto");
-        }
-        this.isSelected()
-        // console.log(this.means.map(mean => mean.state));
-      }
-    },
-
-    isSelected: function() {
-      const activated = this.means.findIndex(function(e) {
-        return e.state === true
+        mode: this.selectedMode
       })
-      this.meanSelected = activated
+      this.$router.push({
+        path: '/marius_map'
+      })
+    },
+
+    setMode(mode) {
+      this.selectedMode = mode
     }
   },
   mounted() {
