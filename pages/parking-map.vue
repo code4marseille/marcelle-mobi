@@ -52,8 +52,16 @@
           <b-button variant="dark" type="submit" style="width:45%">Chercher</b-button>
         </b-form>
         <div>
-          <b-modal title="BootstrapVue" id="notFound" style="padding:auto">
-            <p class="my-4">Adresse non trouvée dans Marseille Provence Métropole</p><imgsrc="~/assets/images/mpm.png" alt />
+          <b-modal
+            title="BootstrapVue"
+            id="notFound"
+            style="display:flex; flex-direction:row; justify-content:center"
+          >
+            <p
+              class="my-4"
+              style="text-align:center"
+            >Adresse non trouvée dans Marseille Provence Métropole</p>
+            <img src="~/assets/images/mpm.png" style="width:100%" alt />
           </b-modal>
         </div>
       </div>
