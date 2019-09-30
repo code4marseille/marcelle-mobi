@@ -56,6 +56,7 @@
             title="BootstrapVue"
             id="notFound"
             style="display:flex; flex-direction:row; justify-content:center"
+            ok-only
           >
             <p
               class="my-4"
