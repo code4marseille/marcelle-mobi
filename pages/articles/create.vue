@@ -6,28 +6,6 @@
     <div class="form-contener">
       <!-- title -->
       <b-form>
-        <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
-          <b-form-input
-            id="input-1"
-            v-model="form.title"
-            type="text"
-            required
-            placeholder="Titre de votre article"
-            class="mb-4 inputFormCreateArticle"
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-1" label="Description" label-for="input-2" class="label">
-          <b-form-input
-            id="input-2"
-            v-model="form.description"
-            type="text"
-            required
-            placeholder="Courte description"
-            class="mb-4 inputFormCreateArticle"
-          ></b-form-input>
-        </b-form-group>
-
         <b-form-group id="input-group-1" label="Lien url" label-for="input-3" class="label">
           <b-form-input
             id="input-3"
@@ -36,53 +14,83 @@
             required
             placeholder="Lien votre article"
             class="mb-4 inputFormCreateArticle"
+            @blur="fetchPreview"
           ></b-form-input>
+          <b-input-group-append>
+            <b-button @click="fetchPreview">OK</b-button>
+          </b-input-group-append>
         </b-form-group>
 
-        <b-form-group id="input-group-1" label="Nom" label-for="input-3" class="label">
-          <b-form-input
-            id="input-4"
-            v-model="form.publisherName"
-            type="text"
-            required
-            placeholder="Votre nom"
-            class="mb-4 inputFormCreateArticle"
-          ></b-form-input>
-        </b-form-group>
+        <!-- SECOND PART -->
+        <template v-if="previewLoaded">
+          <img v-if="form.imgUrl" :src="form.imgUrl" class="img-fluid" />
+          <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
+            <b-form-input
+              id="input-1"
+              v-model="form.title"
+              type="text"
+              required
+              placeholder="Titre de votre article"
+              class="mb-4 inputFormCreateArticle"
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group id="input-group-1" label="Mail" label-for="input-3" class="label">
-          <b-form-input
-            id="input-5"
-            v-model="form.publisherEmail"
-            type="email"
-            required
-            placeholder="Votre mail"
-            class="mb-4 inputFormCreateArticle"
-          ></b-form-input>
-        </b-form-group>
+          <b-form-group id="input-group-1" label="Description" label-for="input-2" class="label">
+            <b-form-input
+              id="input-2"
+              v-model="form.description"
+              type="text"
+              required
+              placeholder="Courte description"
+              class="mb-4 inputFormCreateArticle"
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          id="input-group-1"
-          label="Catégorie"
-          label-for="input-4"
-          class="label contener-categories"
-        >
+          <b-form-group id="input-group-1" label="Nom" label-for="input-3" class="label">
+            <b-form-input
+              id="input-4"
+              v-model="form.publisherName"
+              type="text"
+              required
+              placeholder="Votre nom"
+              class="mb-4 inputFormCreateArticle"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group id="input-group-1" label="Mail" label-for="input-3" class="label">
+            <b-form-input
+              id="input-5"
+              v-model="form.publisherEmail"
+              type="email"
+              required
+              placeholder="Votre mail"
+              class="mb-4 inputFormCreateArticle"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="input-group-1"
+            label="Catégorie"
+            label-for="input-4"
+            class="label contener-categories"
+          >
+            <b-button
+              v-for="(category, idx) in categories"
+              :key="idx"
+              :pressed="form.selectedCategory === category"
+              @click="selectCategory(category)"
+              class="p-4 text-uppercase btn-caption border-0"
+            >{{category }}</b-button>
+          </b-form-group>
+
           <b-button
-            v-for="(category, idx) in categories"
-            :key="idx"
-            :pressed="form.selectedCategory === category"
-            @click="selectCategory(category)"
-            class="p-4 text-uppercase btn-caption border-0"
-          >{{category }}</b-button>
-        </b-form-group>
-
-        <b-button
-          @click.prevent="sendArticle"
-          type="submit"
-          variant="primary"
-          class="btn btn-dark-blue"
-          :disabled="emptyFields"
-        >Valider votre article</b-button>
+            @click.prevent="sendArticle"
+            type="submit"
+            variant="primary"
+            class="btn btn-dark-blue"
+            :disabled="emptyFields"
+          >Valider votre article</b-button>
+        </template>
       </b-form>
     </div>
   </div>
@@ -94,14 +102,15 @@ export default {
   data() {
     return {
       form: {
+        url: '',
         title: '',
         description: '',
-        url: '',
         publisherName: '',
         publisherEmail: '',
         selectedCategory: ''
       },
-      categories: ['écologie', 'mobilité', 'politique', 'bons plans']
+      categories: ['écologie', 'mobilité', 'politique', 'bons plans'],
+      previewLoaded: false
     }
   },
 
@@ -117,6 +126,13 @@ export default {
   methods: {
     selectCategory(category) {
       this.form.selectedCategory = category
+    },
+    async fetchPreview() {
+      const preview = await this.$axios.$get('/articles/preview', {
+        params: { url: this.form.url }
+      })
+      Object.assign(this.form, preview)
+      this.previewLoaded = true
     },
     async sendArticle() {
       await this.$axios.$post('/articles', {
