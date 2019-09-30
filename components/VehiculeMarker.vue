@@ -39,6 +39,22 @@ export default {
             visible: this.$store.state.map.seeCars
           }
         },
+        bus: vehicule => {
+          return {
+            iconUrl: require('~/assets/images/bus.svg'),
+            iconSize: [40, 40],
+            visible: this.$store.state.map.seeBus,
+            latLng: [vehicule.latitude, vehicule.longitude]
+          }
+        },
+        tram: vehicule => {
+          return {
+            iconUrl: require('~/assets/images/tram.svg'),
+            iconSize: [40, 40],
+            visible: this.$store.state.map.seeTrams,
+            latLng: [vehicule.latitude, vehicule.longitude]
+          }
+        },
         lime: vehicule => {
           return {
             size: [30, 40],

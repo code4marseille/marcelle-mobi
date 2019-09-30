@@ -8,11 +8,19 @@
       <transition name="slide">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
           <div class="row justify-content-between mx-0">
-            <div class="col-4 borderBottom">
+            <div
+              class="col-4 borderBottom"
+              @click="$store.commit('map/TOGGLE_BUS')"
+              :class="{active: $store.state.map.seeBus}"
+            >
               <h2 class="lettreTransport text-primary">B</h2>
               <p class="textFilter">Bus</p>
             </div>
-            <div class="col-4 borderCentral borderBottom">
+            <div
+              class="col-4 borderCentral borderBottom"
+              @click="$store.commit('map/TOGGLE_TRAMS')"
+              :class="{active: $store.state.map.seeTrams}"
+            >
               <h2 class="lettreTransport text-primary">T</h2>
               <p class="textFilter">Tram</p>
             </div>
