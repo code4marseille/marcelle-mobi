@@ -41,7 +41,9 @@
         {{usageTypeUnknownFilter}}
       </p>
     </l-popup>
-
+    <l-icon
+      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png"
+    ></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon> -->
   </l-marker>
 </template>
