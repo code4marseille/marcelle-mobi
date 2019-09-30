@@ -49,7 +49,7 @@ export default {
         {
           title: 'Se garer / Se Recharger',
           link: '/parking-map',
-          icon: require('~/assets/images/navbarParking.png')
+          icon: require('~/assets/images/elec_car.svg')
         },
         {
           title: 'Marius',
