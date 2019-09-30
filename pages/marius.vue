@@ -35,7 +35,7 @@
 
       <div v-else class="d-flex flex-column justify-content-center vh-100">
         <div class="justify-content-around">
-          <img :src="avatar.icon" alt />
+          <img :src="avatar.icon" alt style="width:200px" />
           <div class="askBlock">
             <div class="ask">d'où pars tu ?</div>
             <input
