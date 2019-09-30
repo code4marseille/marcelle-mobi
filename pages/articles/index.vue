@@ -57,6 +57,16 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
+import Vue from 'vue'
+
+Vue.use(InfiniteLoading, {
+  slots: {
+    noMore: ''
+  },
+  props: {
+    spinner: 'spiral'
+  }
+})
 
 export default {
   components: {
