@@ -1,68 +1,90 @@
 <template>
   <div id="marius" class="bg-secondary">
-    <div v-if="query">
+    <div v-if="true">
       <div
-        class="d-flex flex-column justify-content-center align-content-center vh-100"
+        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
         v-if="loading"
-        @click="loading=false"
       >
-        <div>bonjour, je suis marius</div>
+        <div>bonjour a toi !</div>
         <p></p>
-        <div>ENSEMBLE ON VA TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LES POISSONS</div>
-        <img src="~/assets/images/assistant.svg" alt />
+        <div
+          class="mb-4"
+        >ENSEMBLE NOUS ALLONS TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
+
+        <div>
+          <p>Choisis ton avatar !</p>
+        </div>
+        <div class="d-flex justify-content-between w-100">
+          <div
+            class="marcelle_marius_avatar"
+            v-for="(avatar, i) in avatars"
+            :key="i"
+            @click="selectAvatar(i)"
+            :class="{active: i == selectedAvatarIdx}"
+          >
+            <img class="photo_avatar" :src="avatar.icon" />
+            <div class="nom_avatar">{{avatar.name}}</div>
+          </div>
+        </div>
+        <b-button
+          class="btn-avatar mt-5"
+          @click="validate"
+          :disabled="selectedAvatarIdx == null"
+        >Valider</b-button>
       </div>
 
       <div v-else class="d-flex flex-column justify-content-center vh-100">
         <div class="justify-content-around">
-          <img src="~/assets/images/miniGrandfather.svg" alt />
+          <img :src="avatar.icon" alt />
           <div class="askBlock">
             <div class="ask">d'où pars tu ?</div>
-            <input type="text" name="from" id class="inputAsk" v-model="from" @blur="formTo=true" />
-          </div>
-        </div>
-
-        <div v-if="formTo" class="block">
-          <img src="~/assets/images/miniGrandfather.svg" alt />
-          <div class="askBlock">
-            <div class="ask">où vas-tu ?</div>
             <input
               type="text"
-              name="from"
-              id
-              class="inputAsk"
-              v-model="to"
-              @blur="meansBoolean=true"
+              autocomplete="address"
+              v-model="from"
+              @blur="showInputTo=true"
+              class="inputAsk border-bottom mt-3"
             />
           </div>
         </div>
 
-        <div class="rounded" v-if="meansBoolean">
+        <div v-if="showInputTo" class="block">
+          <img :src="avatar" alt />
+          <div class="askBlock">
+            <div class="ask">où vas-tu ?</div>
+            <input
+              type="text"
+              autocomplete="address"
+              name="from"
+              class="inputAsk border-bottom mt-3"
+              v-model="to"
+              @blur="showModes=true"
+            />
+          </div>
+        </div>
+
+        <div class="rounded mt-5" v-if="showModes">
           <h4>Choisissez votre moyen de transport</h4>
-          <b-button-group class="d-flex justify-content-center align-content-center">
-            <b-button
-              type="button"
-              v-for="(mean, idx) in means"
-              :key="idx"
-              :pressed.sync="mean.state"
-              @click="deactive(idx)"
-            >
-              <img :src="require('~/assets/images/' + mean.logo)" :alt="mean.text" />
+          <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
+            <b-button v-for="(mode, idx) in modes" :key="idx" @click="setMode(mode.value)">
+              <img :src="require('~/assets/images/' + mode.logo)" :alt="mode.text" />
             </b-button>
           </b-button-group>
           <b-button
             class="block"
             pill
+            style="margin-top:70px"
             variant="primary"
             id="submit"
-            :disabled="meanSelected===-1"
-            @click="query=false"
+            :disabled="!selectedMode"
+            @click="submit"
           >Analyser mon parcours</b-button>
         </div>
       </div>
     </div>
     <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
       <div>laisse moi réflechir</div>
-      <img src="~/assets/images/assistant.svg" alt />
+      <img :src="avatar" alt />
     </div>
   </div>
 </template>
@@ -72,46 +94,59 @@ export default {
   data() {
     return {
       loading: true,
-      formTo: false,
+      showInputTo: false,
+      showModes: false,
       from: '',
       to: '',
-      meansBoolean: false,
-
-      means: [
-        { logo: 'trot.svg', text: 'Trotinette', state: false },
-        { logo: 'walk.svg', text: 'Marche', state: false },
-        { logo: 'rtm.svg.png', text: 'Transport en commun', state: false },
-        { logo: 'bike.svg', text: 'Vélo', state: false },
-        { logo: 'car.svg', text: 'Voiture', state: false }
+      modes: [
+        { logo: 'trot.svg', value: 'bikes' },
+        { logo: 'walk.svg', value: 'walking' },
+        { logo: 'rtm.svg.png', value: 'walking' },
+        { logo: 'bike.svg', value: 'bike' },
+        { logo: 'car.svg', value: 'car' }
       ],
-      meanSelected: -1,
-      query: true
+      selectedMode: null,
+      selectedAvatarIdx: null,
+      avatars: [
+        {
+          icon: require('~/assets/images/grandmother.svg'),
+          name: 'MARCELLE'
+        },
+        {
+          icon: require('~/assets/images/grandfather.svg'),
+          name: 'MARIUS'
+        }
+      ]
     }
   },
-  computed: {},
+
+  computed: {
+    avatar() {
+      return this.avatars[this.selectedAvatarIdx]
+    }
+  },
   methods: {
-    deactive: function(id) {
-      for (let i = 0; i < this.means.length; i++) {
-        if (id != i) {
-          this.means[i].state = false
-          // console.log("toto");
-        }
-        this.isSelected()
-        // console.log(this.means.map(mean => mean.state));
-      }
+    submit() {
+      this.$store.dispatch('marius/fetchitineraries', {
+        from: this.from,
+        to: this.to,
+        mode: this.selectedMode
+      })
+      this.$router.push({
+        path: '/marius_map'
+      })
     },
 
-    isSelected: function() {
-      const activated = this.means.findIndex(function(e) {
-        return e.state === true
-      })
-      this.meanSelected = activated
-    }
-  },
-  mounted() {
-    setTimeout(() => {
+    setMode(mode) {
+      this.selectedMode = mode
+    },
+
+    validate() {
       this.loading = false
-    }, 5000)
+    },
+    selectAvatar(i) {
+      this.selectedAvatarIdx = i
+    }
   }
 }
 </script>
@@ -143,10 +178,64 @@ export default {
   }
   button.active {
     background-color: white !important;
+    border-radius: 5px;
+    border: none;
   }
 
   .block {
     margin: 5% 0 5% 0;
+  }
+
+  .icons_search {
+    min-height: 25px;
+    min-width: 25px;
+  }
+
+  .btn-avatar {
+    padding: 5px 10px;
+    width: 150px;
+    background: #0e5da4;
+    color: white;
+    border-radius: 30px;
+    margin: 0 auto;
+  }
+
+  .marcelle_marius_avatar.active {
+    background-color: white;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 15px;
+    box-shadow: 3px 3px 10px rgba($color: #000, $alpha: 0.5);
+    margin-top: 5px !important;
+    font-size: 16px !important;
+
+    .nom_avatar {
+      color: #0e5da4 !important;
+    }
+    .photo_avatar {
+      width: 120px;
+      margin-top: 5px;
+    }
+  }
+
+  .marcelle_marius_avatar {
+    background-color: rgba($color: #fff, $alpha: 0.2);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 15px;
+
+    .nom_avatar {
+      color: white !important;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    .photo_avatar {
+      width: 80px;
+      margin-top: 5px;
+    }
   }
 }
 </style>
