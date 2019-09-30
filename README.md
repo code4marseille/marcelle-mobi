@@ -1,5 +1,5 @@
 # marcelle-mobi
-
+![marcelle-mobi](static/icon.png)
 > Déplacez-vous autrement dans Marseille
 
 ## SETUP
