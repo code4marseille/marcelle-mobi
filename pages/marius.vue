@@ -15,17 +15,23 @@
           <p>Choisis ton avatar !</p>
         </div>
         <div class="d-flex justify-content-between w-100">
-          <div class="marcelle_marius_avatar" v-for="(avatar, i) in avatars" :key="i">
+          <div
+            class="marcelle_marius_avatar"
+            v-for="(avatar, i) in avatars"
+            :key="i"
+            @click="selectAvatar(i)"
+            :class="{active: i == selectedAvatarIdx}"
+          >
             <img class="photo_avatar" :src="avatar.icon" />
             <div class="nom_avatar">{{avatar.name}}</div>
           </div>
         </div>
-        <button class="btn-avatar mt-5" @click="loading=false">Valider</button>
+        <b-button class="btn-avatar mt-5" @click="validate" :disabled="!selectedAvatarIdx">Valider</b-button>
       </div>
 
       <div v-else class="d-flex flex-column justify-content-center vh-100">
         <div class="justify-content-around">
-          <img src="~/assets/images/miniGrandfather.svg" alt />
+          <img :src="avatar.icon" alt />
           <div class="askBlock">
             <div class="ask">d'où pars tu ?</div>
             <input
@@ -40,7 +46,7 @@
         </div>
 
         <div v-if="formTo" class="block">
-          <img src="~/assets/images/miniGrandfather.svg" alt />
+          <img :src="avatar" alt />
           <div class="askBlock">
             <div class="ask">où vas-tu ?</div>
             <input
@@ -85,7 +91,7 @@
     </div>
     <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
       <div>laisse moi réflechir</div>
-      <img src="~/assets/images/assistant.svg" alt />
+      <img :src="avatar" alt />
     </div>
   </div>
 </template>
@@ -99,6 +105,7 @@ export default {
       from: '',
       to: '',
       meansBoolean: false,
+      meanSelected: -1,
 
       means: [
         { logo: 'trot.svg', text: 'Trotinette', state: false },
@@ -107,7 +114,7 @@ export default {
         { logo: 'bike.svg', text: 'Vélo', state: false },
         { logo: 'car.svg', text: 'Voiture', state: false }
       ],
-
+      selectedAvatarIdx: null,
       avatars: [
         {
           icon: require('~/assets/images/grandmother.svg'),
@@ -121,11 +128,14 @@ export default {
         }
       ],
 
-      meanSelected: -1,
       query: true
     }
   },
-  computed: {},
+  computed: {
+    avatar() {
+      this.avatars[this.selectedAvatarIdx].icon
+    }
+  },
   methods: {
     deactive: function(id) {
       for (let i = 0; i < this.means.length; i++) {
@@ -138,11 +148,18 @@ export default {
       }
     },
 
-    isSelected: function() {
+    isSelected() {
       const activated = this.means.findIndex(function(e) {
         return e.state === true
       })
       this.meanSelected = activated
+    },
+
+    validate() {
+      this.loading = false
+    },
+    selectAvatar(i) {
+      this.selectedAvatarIdx = i
     }
   }
   // mounted() {
@@ -202,7 +219,7 @@ export default {
     margin: 0 auto;
   }
 
-  .marcelle_marius_avatar:hover {
+  .marcelle_marius_avatar.active {
     background-color: white;
     width: 160px;
     height: 160px;
