@@ -1,37 +1,44 @@
 <template>
   <div id="bandeau_details" v-if="$store.state.map.selectedVehicule">
-    <div class="flexContainer">
-      <div class="flex1">
-        <div class="bgLogo">
-          <img class="logoVehicule" :src="vehiculeInfo.icon" />
-        </div>
+    <div class="row align-items-center px-3">
+      <!--  -->
+      <div class="flex1 col-2 bgLogo">
+        <img class="logoVehicule" :src="vehiculeInfo.icon" />
       </div>
-      <div class="flex2 descriptionVehicule">
-        <p>
-          <strong>{{vehiculeInfo.line1}}</strong>
-        </p>
+      <!--  -->
+      <div class="flex2 descriptionVehicule col-6 text-left">
+        <p class="font-weight-bold text-capitalize mb-O">{{vehiculeInfo.line1}}</p>
 
         <p class="mb-0">{{vehiculeInfo.line2}}</p>
-        <p class="mb-0" v-if="vehiculeInfo.line3  !== ''">{{vehiculeInfo.line3}}</p>
+        <p class="mb-0" v-if="vehiculeInfo.line3 !== ''">
+          <img svg-inline src="~/assets/images/iconBattery.svg" class="svgDescription" />
+          {{vehiculeInfo.line3}}
+        </p>
       </div>
-      <div class="flex3">
-        <div>
-          <a v-if="$device.isIos" :href="vehiculeInfo.linkIos">
-            <button type="button" class="btn buttonGoApp">Vers l'appli Ios</button>
-          </a>
+      <!--  -->
+      <div class="flex3 col-4">
+        <a v-if="$device.isIos" :href="vehiculeInfo.linkIos">
+          <button type="button" class="btn buttonGoApp">
+            Vers l'appli
+            <img svg-inline src="~/assets/images/openApp.svg" />
+          </button>
+        </a>
 
-          <a
-            v-else-if="$device.isMobileOrTablet"
-            @click="openApp(vehiculeInfo.linkApp,vehiculeInfo.linkStore )"
-          >
-            <button type="button" class="btn buttonGoApp">Vers l'appli android</button>
-          </a>
+        <a
+          v-else-if="$device.isMobileOrTablet"
+          @click="openApp(vehiculeInfo.linkApp,vehiculeInfo.linkStore )"
+        >
+          <button type="button" class="btn buttonGoApp">
+            Vers l'appli
+            <img svg-inline src="~/assets/images/openApp.svg" />
+          </button>
+        </a>
 
-          <a v-else :href="vehiculeInfo.linkBrowser">
-            <button type="button" class="btn buttonGoApp">Vers le site web</button>
-          </a>
-        </div>
+        <a v-else :href="vehiculeInfo.linkBrowser">
+          <button type="button" class="btn buttonGoApp">Vers le site web</button>
+        </a>
       </div>
+      <!--  -->
     </div>
   </div>
 </template>
@@ -55,7 +62,7 @@ export default {
           return {
             line1: v.name,
             line2: `Immat.: ${v.licencePlate}`,
-            line3: `Réservoir: ${v.fuelLevel} %`,
+            line3: v.fuelLevel ? `Réservoir: ${v.fuelLevel} %` : '',
             icon: require(`~/assets/images/citiz_marker.svg`),
             linkApp: `coop.lestilleuls.citiz://`,
             linkStore: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
@@ -68,7 +75,7 @@ export default {
         leVelo: v => {
           return {
             line1: v.address,
-            line2: `Velo dispo.: ${v.availableBikes}  - Place dispo.: ${v.availableBikeStands}`,
+            line2: `Velo dispo.: ${v.availableBikes} - Place dispo.: ${v.availableBikeStands}`,
             line3: '',
             icon: require(`~/assets/images/velo.svg`),
             linkStore: `http://www.levelo-mpm.fr/`,
@@ -81,11 +88,11 @@ export default {
         lime: v => {
           return {
             line1: v.name,
-            line2: `Batterie: ${v.battery} %,`,
-            line3: '',
+            line2: '',
+            line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/lime.svg`),
             linkApp: `limebike://`,
-            linkStore: `href="https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"`,
+            linkStore: `https://play.google.com/store/apps/details?id=com.limebike&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1`,
             linkIos: `https://itunes.apple.com/us/app/limebike-your-ride-anytime/id1199780189?ls=1&mt=8`,
             linkBrowser: `https://www.li.me/fr/page-daccueil`
           }
@@ -94,8 +101,8 @@ export default {
         circ: v => {
           return {
             line1: v.provider,
-            line2: `Batterie: ${v.battery} %`,
-            line3: '',
+            line2: '',
+            line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/circ.svg`),
             linkApp: `goflash://`,
             linkStore: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
@@ -107,8 +114,8 @@ export default {
         bird: v => {
           return {
             line1: v.provider,
-            line2: `Batterie: ${v.battery} %`,
-            line3: '',
+            line2: '',
+            line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/bird.svg`),
             linkApp: 'bird.android://',
             linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
@@ -120,8 +127,8 @@ export default {
         tier: v => {
           return {
             line1: v.provider,
-            line2: `Batterie: ${v.battery} %`,
-            line3: '',
+            line2: '',
+            line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/tier.svg`),
             linkApp: `tier://`,
             linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
@@ -133,7 +140,7 @@ export default {
           return {
             line1: v.provider,
             line2: `Immat.: ${v.imat}`,
-            line3: `Batterie: ${v.batteryLevel} %`,
+            line3: `Batterie: ${v.batteryLevel}%`,
             icon: require(`~/assets/images/totem.svg`),
             linkApp: 'com.atrioom.totem_mobi://',
             linkStore: `https://play.google.com/store/apps/details?id=com.atrioom.totem_mobi&hl=fr`,
@@ -152,7 +159,7 @@ export default {
 
 <style lang="scss">
 #bandeau_details {
-  z-index: 998;
+  z-index: 428;
   text-align: center;
   background-color: rgb(207, 206, 206);
   opacity: 0.9;
@@ -166,6 +173,9 @@ export default {
     width: 50px;
     height: 60px;
   }
+  .svgDescription {
+    width: 20px;
+  }
 
   .buttonGoApp {
     background: #25a9e8;
@@ -174,47 +184,15 @@ export default {
     text-align: center;
     opacity: 1 !important;
     font-size: 1.3em;
-    margin: 10px;
+    float: right;
+    width: 130px;
+  }
+  p {
+    margin-bottom: 0;
   }
 
   .descriptionVehicule {
     font-size: 0.9rem;
-  }
-
-  .flexContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem 0.5rem;
-  }
-
-  .flex1 {
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    max-width: 30%;
-    align-self: center;
-  }
-
-  .flex2 {
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    text-align: left;
-    max-width: 45%;
-    font-size: 0.7rem;
-  }
-
-  .flex3 {
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    align-content: center;
-    font-size: 0.6rem;
-    max-width: 45%;
-    align-self: center;
   }
 }
 </style>
