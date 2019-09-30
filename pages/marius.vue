@@ -12,7 +12,7 @@
         >ENSEMBLE NOUS ALLONS TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
 
         <div>
-          <p>Choisis ton avatar !</p>
+          <p class="mt-5">Choisis ton avatar !</p>
         </div>
         <div class="d-flex justify-content-between w-100">
           <div
@@ -34,10 +34,10 @@
       </div>
 
       <div v-else class="d-flex flex-column justify-content-center vh-100">
-        <div class="justify-content-around">
-          <img :src="avatar.icon" alt />
+        <div class="justify-content-around d-flex">
+          <img :src="avatar.icon" alt style="width:200px" />
           <div class="askBlock">
-            <div class="ask">d'où pars tu ?</div>
+            <div class="ask text-center">d'où pars tu ?</div>
             <input
               type="text"
               autocomplete="address"
@@ -48,10 +48,10 @@
           </div>
         </div>
 
-        <div v-if="showInputTo" class="block">
+        <div v-if="showInputTo" class="block text-right pr-1">
           <img :src="avatar" alt />
           <div class="askBlock">
-            <div class="ask">où vas-tu ?</div>
+            <div class="ask text-center">où vas-tu ?</div>
             <input
               type="text"
               autocomplete="address"
@@ -66,7 +66,12 @@
         <div class="rounded mt-5" v-if="showModes">
           <h4>Choisissez votre moyen de transport</h4>
           <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
-            <b-button v-for="(mode, idx) in modes" :key="idx" @click="setMode(mode.value)">
+            <b-button
+              v-for="(mode, idx) in modes"
+              :key="idx"
+              @click="setMode(mode.value)"
+              class="btn_mode"
+            >
               <img :src="require('~/assets/images/' + mode.logo)" :alt="mode.text" />
             </b-button>
           </b-button-group>
@@ -161,7 +166,9 @@ export default {
     background-color: white;
     color: var(--secondary);
     padding: 0.5rem;
+    width: 170px;
     border-radius: 15px;
+    margin: 0 auto;
   }
   .askBlock {
     width: 50%;
@@ -174,16 +181,23 @@ export default {
     color: white;
     border-width: 0 0 1px 0;
     border-color: white;
-    width: 100%;
+    width: 170px;
   }
-  button.active {
-    background-color: white !important;
-    border-radius: 5px;
-    border: none;
-  }
+  // .button.active {
+  //   background-color: white !important;
+  //   border-radius: 5px;
+  //   border: none;
+  // }
 
   .block {
     margin: 5% 0 5% 0;
+    border-radius: 10px;
+  }
+
+  .btn_mode:hover {
+    background-color: white !important;
+    border-radius: 10px !important ;
+    border: none !important;
   }
 
   .icons_search {
