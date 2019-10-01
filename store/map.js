@@ -105,6 +105,6 @@ export const actions = {
   // async fetchSelectedVehicles({ commit, dispatch }) {
 
   // },
- }
+
 
 };
