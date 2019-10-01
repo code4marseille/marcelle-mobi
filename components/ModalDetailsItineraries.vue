@@ -3,9 +3,11 @@
     <div class="filterGo">
       <transition name="slide">
         <div v-if="$store.state.marius.seeModal" id="filter" class="container">
-          <div class="row justify-content-between mx-0">Ce que tu fais actuellement:</div>
-          <div>{{$store.getters['marius/co2current']}}</div>
-          <div>{{$store.getters['marius/durationcurrent']}}</div>
+          <div class="row justify-content-between mx-0"></div>
+          <p class="text-left mb-1">Ce que tu fais actuellement:</p>
+          <p class="text-left mb-1">{{$store.getters['marius/getMode']}}</p>
+          <p class="text-left mb-1">{{$store.getters['marius/co2current']}}</p>
+          <p class="text-left mb-1">{{$store.getters['marius/durationcurrent']}}</p>
           <div></div>
         </div>
       </transition>

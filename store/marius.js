@@ -11,8 +11,7 @@ export const state = () => ({
 export const getters = ({
 
   co2current: state => state.itineraries.current.co2Emission["value"],
-
-
+  getMode: state => state.itineraries.current.tags[0],
   durationcurrent: state => state.itineraries.current.duration / 60,
 
 
@@ -22,7 +21,6 @@ export const getters = ({
     state.itineraries.current.sections.forEach(section => {
       if (section.geojson) latLngs.push(...section.geojson.coordinates)
     });
-    console.log(latLngs)
     return latLngs
   }
 
