@@ -17,6 +17,9 @@
           :select="selectVehicule"
           :provider="vehicule.provider"
         />
+        <v-btn class="mx-2 btn-refresh" fab light small color="green" @click="refreshMap">
+          <v-icon dark>mdi-cached</v-icon>
+        </v-btn>
 
         <LocateControl />
         <MapFilter />
@@ -64,6 +67,13 @@ export default {
     },
     updateVehicules(center) {
       this.$store.dispatch('map/fetchTrots', center)
+    },
+    refreshMap() {
+      this.$store.dispatch('map/fetchAllVehicles', {
+        lat: this.initialLocation[0],
+        lng: this.initialLocation[1]
+      })
+      console.log('updated')
     }
   }
 }
@@ -71,6 +81,12 @@ export default {
 
 <style lang="scss">
 #mapPage {
+  .btn-refresh {
+    position: fixed;
+    left: 0.8vw;
+    bottom: 30vh;
+    z-index: 999;
+  }
   .leaflet-left {
     right: 0 !important;
     padding-right: 10px;
