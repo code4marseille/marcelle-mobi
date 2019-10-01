@@ -70,6 +70,16 @@ export default {
             linkBrowser: `https://citiz.coop/`
           }
         },
+        bus: v => {
+          return {
+            icon: require(`~/assets/images/bus.svg`)
+          }
+        },
+        tram: v => {
+          return {
+            icon: require(`~/assets/images/tram.svg`)
+          }
+        },
 
         //Borne vélo
         leVelo: v => {

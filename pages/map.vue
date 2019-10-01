@@ -56,6 +56,7 @@ export default {
       lng: this.initialLocation[1]
     })
     this.$store.dispatch('map/fetchBikes')
+    this.$store.dispatch('map/fetchRtms')
   },
   methods: {
     flyTo(latLng, zoom) {
