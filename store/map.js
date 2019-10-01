@@ -65,6 +65,16 @@ export const actions = {
   async fetchTrots({ commit }, { lat, lng }) {
     const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
     commit('SET_TROTS', trots)
-  }
+  },
+  fetchAllVehicles({ dispatch }, { lat, lng }) {
+    dispatch('fetchCitiz')
+    dispatch('fetchTotems')
+    dispatch('fetchTrots', { params: { lat, lng } })
+    dispatch('fetchBikes')
+  },
+
+  // async fetchSelectedVehicles({ commit, dispatch }) {
+
+  // },
 
 };
