@@ -4,7 +4,7 @@
 
 ## SETUP
 
-Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/ 
+1. Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/ 
 
 **Mac OS (avec homebrew)**
 ```
@@ -20,7 +20,7 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
-Installer Yarn (gestionnaire de packages) https://yarnpkg.com/en/docs/install
+2. Installer Yarn (gestionnaire de packages) https://yarnpkg.com/en/docs/install
 
 **Mac OS**
 ```
@@ -34,7 +34,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update && sudo apt-get install yarn
 ```
 
-### OPTION 1 : Travailler dans l'application existante (En VueJS ou Vue+JSX ou React ou VanillaJS+Webpack)
+### OPTION 1 : Travailler dans l'application existante (En NuxtJS+VueJS ou Vue+JSX ou React ou VanillaJS+Webpack)
 
 1. Forker le repo
 2. Cloner votre repo 
@@ -56,16 +56,17 @@ yarn dev
 
 1. Creer un projet avec le langage de votre choix
 2. Faire un repo Github
-3. Me transmettre l'url de votre repo
+3. Mettre le projet en ligne
+3. Me transmettre l'url de votre repo et de l'app
 
 
 ## ACCÈS API
 
 Endpoint : https://marcelle-mobi-api.herokuapp.com
-DOCUENTATION : 
+DOCUMENTATION : 
 
 ## Librairies utilisées
-
+https://github.com/KevinBerthier/marcelle-mobi/network/dependencies
 
 
 **Bon Hackathon !**
