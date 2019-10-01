@@ -42,35 +42,33 @@
     </div>
 
     <div class="fixed-bottom" style="border-radius:20px">
-      <div>
-        <b-button-group style="display:flex; justify-content:center border-radius:50%">
-          <b-button
-            v-for="(btn, idx) in buttons"
-            :key="idx"
-            :pressed.sync="btn.state"
-            variant="primary"
-            size="sm"
-            class="select_btn borderCentral"
-          >
-            <img :src="btn.icon" alt class="icon_filterbar" />
-            <p class="text_filterbar">{{ btn.caption }}</p>
-          </b-button>
-        </b-button-group>
+      <b-button-group style="display:flex; justify-content:center">
+        <b-button
+          v-for="(btn, idx) in buttons"
+          :key="idx"
+          :pressed.sync="btn.state"
+          variant="primary"
+          size="sm"
+          class="select_btn borderCentral"
+        >
+          <img :src="btn.icon" alt class="icon_filterbar" />
+          <p class="text_filterbar">{{ btn.caption }}</p>
+        </b-button>
+      </b-button-group>
 
-        <div>
-          <b-modal
-            title="BootstrapVue"
-            id="notFound"
-            style="display:flex; flex-direction:row; justify-content:center"
-            ok-only
-          >
-            <p
-              class="my-4"
-              style="text-align:center"
-            >Adresse non trouvée dans Marseille Provence Métropole</p>
-            <img src="~/assets/images/mpm.png" style="width:100%" alt />
-          </b-modal>
-        </div>
+      <div>
+        <b-modal
+          title="BootstrapVue"
+          id="notFound"
+          style="display:flex; flex-direction:row; justify-content:center"
+          ok-only
+        >
+          <p
+            class="my-4"
+            style="text-align:center"
+          >Adresse non trouvée dans Marseille Provence Métropole</p>
+          <img src="~/assets/images/mpm.png" style="width:100%" alt />
+        </b-modal>
       </div>
       <!-- Fin Block -->
     </div>
@@ -255,7 +253,7 @@ export default {
 
   .select_btn.active {
     background-color: #bde5f3 !important;
-    outline: 1.4px solid #0e5da4 !important;
+    outline: 1.6px solid #0e5da4 !important;
     box-shadow: none;
     z-index: 3;
   }
@@ -270,6 +268,14 @@ export default {
     color: rgba(0, 0, 0, 0.7);
     margin-top: 5px;
     margin-bottom: 2px;
+  }
+
+  .form-control {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .btn-dark {
+    border-radius: 0px 10px 10px 0;
   }
 }
 </style>
