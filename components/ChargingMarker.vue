@@ -4,6 +4,7 @@
     :visible="visible"
   >
     <l-popup style="text-align:center">
+      <h6>Borne de recharge</h6>
       <p style="font-weight:bold; font-size:1rem;">{{charging.addressInfo.title}}</p>
       <p>
         <i class="fas fa-map-marker-alt"></i>
@@ -40,8 +41,10 @@
         {{usageTypeUnknownFilter}}
       </p>
     </l-popup>
-
-    <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon>
+    <l-icon
+      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png"
+    ></l-icon>
+    <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon> -->
   </l-marker>
 </template>
 

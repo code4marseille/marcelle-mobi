@@ -42,7 +42,7 @@
       <div class="activitiesProposees d-flex justify-content-around">
         <span v-for="(act, id)
      in $store.state.dashboard.activitesProposees" :key="id">
-          <b-button v-b-tooltip.hover v-bind:title="act.name">
+          <b-button v-b-tooltip.hover v-bind:title="act.name" style="padding:0px">
             <i class="fa" :class="act.icon"></i>
           </b-button>
         </span>

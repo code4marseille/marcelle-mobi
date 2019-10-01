@@ -94,5 +94,17 @@ export const actions = {
     const rtms = await this.$axios.$get("/vehicules/rtm");
     commit("SET_RTMS", rtms)
     console.log(rtms)
-  }
-}
+  },
+  fetchAllVehicles({ dispatch }, { lat, lng }) {
+    dispatch('fetchCitiz')
+    dispatch('fetchTotems')
+    dispatch('fetchTrots', { params: { lat, lng } })
+    dispatch('fetchBikes')
+  },
+
+  // async fetchSelectedVehicles({ commit, dispatch }) {
+
+  // },
+ }
+
+};

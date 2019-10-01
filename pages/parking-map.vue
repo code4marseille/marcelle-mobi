@@ -1,7 +1,7 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="10" :center="initialLocation" ref="map">
+      <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -21,7 +21,7 @@
 
         <CarPoolMarker
           v-for="(carPool,i) in $store.state.parkingMap.carPoolStations"
-          :key="'p'+i"
+          :key="'cP'+i"
           :carPool="carPool"
           :googleMap="googleRoute"
           :visible="buttons[2].state"
@@ -31,44 +31,40 @@
     </div>
 
     <div class="fixed-bottom container">
-      <div class="d-flex justify-content-center">
-        <!-- Search Button -->
-        <!-- <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
-        <b-input
-          id="inline-form-input-name"
-          placeholder="Rechercher un parking"
-          class="w-75"
-          v-model="searchAddress"
-        ></b-input>
-        <b-button
-          class="w-25"
-          variant="dark"
-          style="font-size:.9rem; padding:7px 0;"
-          type="submit"
-        >Chercher</b-button>
-      </b-form>
-
-        <!-- Fin Search button-->
-
-        <!-- Block de bouttons -->
-        <!-- <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button> -->
-        <b-button-group>
+      <div>
+        <b-button-group style="display:flex; justify-content:center">
           <b-button
             v-for="(btn, idx) in buttons"
             :key="idx"
             :pressed.sync="btn.state"
             variant="primary"
             size="sm"
+            style="padding:.5rem; margin:.1rem"
           >{{ btn.caption }}</b-button>
         </b-button-group>
-        <b-form inline @submit.prevent="onSubmit">
+        <b-form @submit.prevent="onSubmit" inline style="justify-content:center">
           <b-input
-            id="inline-form-input-name"
+            id="inline-form-input-name "
             placeholder="Rechercher une adresse"
             v-model="searchAddress"
+            style="width:55%"
           ></b-input>
-          <b-button variant="dark" type="submit">Chercher</b-button>
+          <b-button variant="dark" type="submit" style="width:45%">Chercher</b-button>
         </b-form>
+        <div>
+          <b-modal
+            title="BootstrapVue"
+            id="notFound"
+            style="display:flex; flex-direction:row; justify-content:center"
+            ok-only
+          >
+            <p
+              class="my-4"
+              style="text-align:center"
+            >Adresse non trouvée dans Marseille Provence Métropole</p>
+            <img src="~/assets/images/mpm.png" style="width:100%" alt />
+          </b-modal>
+        </div>
       </div>
       <!-- Fin Block -->
     </div>
@@ -98,9 +94,9 @@ export default {
 
       searchAddress: '',
       buttons: [
-        { caption: 'Borne de Recharge', state: true },
+        { caption: 'Borne de Recharge', state: false },
         { caption: 'Parkings', state: false },
-        { caption: 'Zone de covoiturage', state: false }
+        { caption: 'Zone de covoiturage', state: true }
       ]
     }
   },
@@ -127,17 +123,44 @@ export default {
     toggleParkingButton() {
       this.toggleView = !this.toggleView
     },
+
+    GetMpmAddress(addresses) {
+      const coordMpm = this.$store.state.parkingMap.bbox.split(',')
+      //coordMpm[0] = minLat
+      //coordMpm[1] = minlng
+      //coordMpm[2] = maxLat
+      //coordMpm[3] = maxLng
+      let found = addresses.data.features.find(
+        city =>
+          city.geometry.coordinates[1] <= coordMpm[2] &&
+          city.geometry.coordinates[1] >= coordMpm[0] &&
+          city.geometry.coordinates[0] <= coordMpm[3] &&
+          city.geometry.coordinates[0] >= coordMpm[1]
+      )
+      if (found != undefined) {
+        return found
+      } else return false
+    },
+
     async onSubmit(evt) {
       if (this.searchAddress == '') return
       let coord = await this.$axios.get(
         'https://api-adresse.data.gouv.fr/search/',
-        { params: { q: this.searchAddress, limit: 1 } }
+        { params: { q: this.searchAddress, limit: 1000 } }
       )
+      const found = this.GetMpmAddress(coord)
+      if (found) {
+        const lat = found.geometry.coordinates[1]
+        const lng = found.geometry.coordinates[0]
 
-      coord = coord.data.features[0].geometry.coordinates
-      const marker = L.marker([coord[1], coord[0]])
-      marker.addTo(this.$refs.map.mapObject)
-      this.flyTo([coord[1], coord[0]], 18)
+        //      coord = coord.data.features[0].geometry.coordinates
+        // const marker = L.marker([coord[1], coord[0]])
+
+        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
+        this.flyTo([lat, lng], 18)
+      } else {
+        this.$bvModal.show('notFound')
+      }
     }
   },
   created() {

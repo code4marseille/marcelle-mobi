@@ -22,6 +22,7 @@
     "leaflet": "^1.5.1",
     "nuxt": "^2.0.0",
     "nuxt-leaflet": "^0.0.19",
+    "vue-infinite-loading": "^2.4.4",
     "vue2-leaflet": "^2.2.1",
     "vue2-leaflet-locatecontrol": "^1.0.1",
     "vuetify": "^2.0.18"
