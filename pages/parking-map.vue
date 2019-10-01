@@ -3,6 +3,22 @@
     <div id="position">
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
+
+        <b-form @submit.prevent="onSubmit" inline style="justify-content:center" class="mt-3">
+          <b-input
+            id="inline-form-input-name "
+            placeholder="Rechercher une adresse"
+            v-model="searchAddress"
+            style="width:60%; z-index:1000; border-radius: 5px 0px 0px 5px"
+            class="ml-3"
+          ></b-input>
+          <b-button
+            variant="dark"
+            type="submit"
+            style="width:10%; z-index:1000; border-radius: 0px 5px 5px 0px"
+            class="px-1"
+          >Go</b-button>
+        </b-form>
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'c'+i"
@@ -42,15 +58,7 @@
             style="padding:.5rem; margin:.1rem"
           >{{ btn.caption }}</b-button>
         </b-button-group>
-        <b-form @submit.prevent="onSubmit" inline style="justify-content:center">
-          <b-input
-            id="inline-form-input-name "
-            placeholder="Rechercher une adresse"
-            v-model="searchAddress"
-            style="width:55%"
-          ></b-input>
-          <b-button variant="dark" type="submit" style="width:45%">Chercher</b-button>
-        </b-form>
+
         <div>
           <b-modal
             title="BootstrapVue"
@@ -96,7 +104,7 @@ export default {
       buttons: [
         { caption: 'Borne de Recharge', state: false },
         { caption: 'Parkings', state: false },
-        { caption: 'Zone de covoiturage', state: true }
+        { caption: 'Covoiturage', state: true }
       ]
     }
   },
