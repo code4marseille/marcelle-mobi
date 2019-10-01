@@ -1,8 +1,6 @@
 <template>
   <l-marker :lat-lng="[carPool.lat,carPool.lng]" :visible="visible">
-    <l-popup style="text-align:center">
-      <h6>Aire de co-voiturage</h6>
-
+    <l-popup style="text-align:center" id="popupCovoit">
       <p
         style="font-weight:bold; font-size:1rem;"
       >{{carPool.name.replace("Aire de covoiturage ","")}}</p>
@@ -42,8 +40,16 @@ export default {
 }
 </script>
 <style lang="scss">
-.leaflet-marker-icon {
-  width: 40px !important;
-  height: 40px !important;
+#popupCovoit {
+  .leaflet-marker-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .title {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 24px !important;
+    margin-bottom: 0px;
+  }
 }
 </style>

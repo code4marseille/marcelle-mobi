@@ -9,15 +9,10 @@
             id="inline-form-input-name "
             placeholder="Rechercher une adresse"
             v-model="searchAddress"
-            style="width:60%; z-index:1000; border-radius: 5px 0px 0px 5px"
+            style="width:60%; z-index:1000"
             class="ml-3"
           ></b-input>
-          <b-button
-            variant="dark"
-            type="submit"
-            style="width:10%; z-index:1000; border-radius: 0px 5px 5px 0px"
-            class="px-1"
-          >Go</b-button>
+          <b-button variant="dark" type="submit" style="width:10%; z-index:1000" class="px-1">Go</b-button>
         </b-form>
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -48,7 +43,7 @@
 
     <div class="fixed-bottom" style="border-radius:20px">
       <div>
-        <b-button-group style="display:flex; justify-content:center" class="filter">
+        <b-button-group style="display:flex; justify-content:center border-radius:50%">
           <b-button
             v-for="(btn, idx) in buttons"
             :key="idx"
@@ -240,9 +235,10 @@ export default {
   }
 
   // DESIGN FILTER CARD
-  .fixed-bottom {
-    z-index: 450;
-    padding: 20px;
+  .btn-group {
+    margin: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50% !important;
   }
 
   .borderCentral {
