@@ -34,7 +34,11 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update && sudo apt-get install yarn
 ```
 
-### OPTION 1 : Travailler dans l'application existante (En NuxtJS+VueJS ou Vue+JSX ou React ou VanillaJS+Webpack)
+### OPTION 1 : Travailler dans l'application existante 
+
+#### En NuxtJS+VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
+#### Vue+JSX [exemple en JSX](exemples/jsx.vue)
+
 
 1. Forker le repo
 2. Cloner votre repo 
