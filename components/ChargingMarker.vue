@@ -41,9 +41,7 @@
         {{usageTypeUnknownFilter}}
       </p>
     </l-popup>
-    <l-icon
-      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png"
-    ></l-icon>
+    <l-icon :icon-url="marker.image"></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon> -->
   </l-marker>
 </template>
@@ -58,6 +56,14 @@ export default {
     charging: { type: Object, required: true },
     googleMap: { type: Function, require: true },
     visible: { type: Boolean, required: true }
+  },
+  data() {
+    return {
+      iconColor: {},
+      marker: {
+        image: require('~/assets/images/elec_car_logo.png')
+      }
+    }
   },
   computed: {
     connectionUnknownFilter() {

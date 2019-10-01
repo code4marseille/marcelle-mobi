@@ -46,17 +46,20 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom container">
+    <div class="fixed-bottom">
       <div>
-        <b-button-group style="display:flex; justify-content:center">
+        <b-button-group style="display:flex; justify-content:center" class="filter">
           <b-button
             v-for="(btn, idx) in buttons"
             :key="idx"
             :pressed.sync="btn.state"
             variant="primary"
             size="sm"
-            style="padding:.5rem; margin:.1rem"
-          >{{ btn.caption }}</b-button>
+            class="select_btn borderCentral"
+          >
+            <img :src="btn.icon" alt class="icon_filterbar" />
+            <p class="text_filterbar">{{ btn.caption }}</p>
+          </b-button>
         </b-button-group>
 
         <div>
@@ -102,9 +105,21 @@ export default {
 
       searchAddress: '',
       buttons: [
-        { caption: 'Borne de Recharge', state: false },
-        { caption: 'Parkings', state: false },
-        { caption: 'Covoiturage', state: true }
+        {
+          caption: 'Recharge',
+          state: false,
+          icon: require('~/assets/images/electric.svg')
+        },
+        {
+          caption: 'Parkings',
+          state: false,
+          icon: require('~/assets/images/Parking_icon.svg')
+        },
+        {
+          caption: 'Covoiturage',
+          state: true,
+          icon: require('~/assets/images/covoiturage.svg')
+        }
       ]
     }
   },
@@ -223,11 +238,42 @@ export default {
     height: 100%;
     width: 100%;
   }
+
+  // DESIGN FILTER CARD
   .fixed-bottom {
     z-index: 450;
     padding: 20px;
-    opacity: 0.8;
-    text-shadow: 1px 0 black;
+  }
+
+  .borderCentral {
+    border-right: 1px solid rgba(182, 181, 181, 0.7) !important;
+    border-left: 1px solid rgba(182, 181, 181, 0.7) !important;
+  }
+
+  .select_btn {
+    background-color: rgb(250, 250, 250) !important;
+    opacity: 1 !important;
+    border: none;
+    box-shadow: none;
+  }
+
+  .select_btn.active {
+    background-color: #bde5f3 !important;
+    outline: 1.4px solid #0e5da4 !important;
+    box-shadow: none;
+    z-index: 3;
+  }
+
+  .icon_filterbar {
+    min-width: 40px;
+    min-height: 40px;
+    margin-top: 5px;
+  }
+
+  .text_filterbar {
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+    margin-bottom: 2px;
   }
 }
 </style>

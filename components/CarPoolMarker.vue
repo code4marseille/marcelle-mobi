@@ -12,9 +12,7 @@
       </p>
     </l-popup>
 
-    <l-icon
-      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
-    ></l-icon>
+    <l-icon :icon-url="marker.image" style="width:40px, height:40px"></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carPool.png')"></l-icon> -->
   </l-marker>
 </template>
@@ -32,7 +30,10 @@ export default {
   },
   data() {
     return {
-      iconColor: {}
+      iconColor: {},
+      marker: {
+        image: require('~/assets/images/covoit.png')
+      }
     }
   },
   created() {
@@ -40,3 +41,9 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.leaflet-marker-icon {
+  width: 40px !important;
+  height: 40px !important;
+}
+</style>

@@ -25,9 +25,7 @@
       </p>
       <p></p>
     </l-popup>
-    <l-icon
-      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png"
-    ></l-icon>
+    <l-icon :icon-url="marker.image" class="icon_parking"></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/parking.png')"></l-icon> -->
   </l-marker>
 </template>
@@ -42,7 +40,13 @@ export default {
     parking: { type: Object, required: true },
     googleMap: { type: Function, required: true },
     visible: { type: Boolean, required: true }
+  },
+  data() {
+    return {
+      marker: {
+        image: require('~/assets/images/parking_marker.png')
+      }
+    }
   }
 }
 </script>
-
