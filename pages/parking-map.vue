@@ -46,7 +46,7 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom">
+    <div class="fixed-bottom" style="border-radius:20px">
       <div>
         <b-button-group style="display:flex; justify-content:center" class="filter">
           <b-button
