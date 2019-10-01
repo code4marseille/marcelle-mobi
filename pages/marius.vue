@@ -99,7 +99,7 @@ export default {
       from: '',
       to: '',
       modes: [
-        { logo: 'trot.svg', value: 'bikes' },
+        { logo: 'trot.svg', value: 'bike' },
         { logo: 'walk.svg', value: 'walking' },
         { logo: 'rtm.svg.png', value: 'walking' },
         { logo: 'bike.svg', value: 'bike' },

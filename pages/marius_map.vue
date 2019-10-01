@@ -8,17 +8,20 @@
         <l-polyline :lat-lngs="$store.getters['marius/latLngs']" color="green"></l-polyline>
       </l-map>
     </div>
+    <ModalDetailsItineraries />
   </div>
 </template>
 
 <script>
 import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
+import ModalDetailsItineraries from '~/components/ModalDetailsItineraries.vue'
 
 export default {
   components: {
     LMap,
     LTileLayer,
-    LPolyline
+    LPolyline,
+    ModalDetailsItineraries
   },
 
   data() {
@@ -27,11 +30,35 @@ export default {
       mapBoxToken:
         'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
+  },
+  created() {
+    this.$store.dispatch('marius/fetchitineraries', {
+      from: this.from,
+      to: this.to,
+      mode: this.mode
+    })
   }
 }
 </script>
 
 <style>
+.animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -00px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
 .leaflet-left {
   right: 0 !important;
   padding-right: 10px;
