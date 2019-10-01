@@ -2,11 +2,14 @@
   <l-marker :lat-lng="[carPool.lat,carPool.lng]" :visible="visible">
     <l-popup style="text-align:center" id="popupCovoit">
       <p
-        style="font-weight:bold; font-size:1rem;"
+        style="font-weight:bold;"
+        class="title text-left border-bottom pb-2"
       >{{carPool.name.replace("Aire de covoiturage ","")}}</p>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
+      <p class="text-left pt-2">
+        <i class="fas fa-walking"></i>
+        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">
+          <strong>Itinéraire</strong>
+        </a>
       </p>
     </l-popup>
 
@@ -40,16 +43,25 @@ export default {
 }
 </script>
 <style lang="scss">
+.leaflet-marker-icon {
+  width: 40px !important;
+  height: 40px !important;
+}
 #popupCovoit {
-  .leaflet-marker-icon {
-    width: 40px !important;
-    height: 40px !important;
-  }
-
+  width: 200px;
   .title {
     color: rgba(0, 0, 0, 0.8) !important;
     font-size: 24px !important;
     margin-bottom: 0px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .fas {
+    color: #0e5da4;
+    width: 17px;
   }
 }
 </style>
