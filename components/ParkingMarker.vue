@@ -1,5 +1,8 @@
 <template>
-  <l-marker :lat-lng="[parking.lat,parking.lng]" :visible="visible">
+  <l-marker
+    :lat-lng="[parking.lat,parking.lng]"
+    :visible="visible&&this.$store.getters.isInsidePerimeter(parking.lat,parking.lng)"
+  >
     <l-popup style="text-align:center">
       <h6>Parking</h6>
 

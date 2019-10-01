@@ -16,8 +16,9 @@
           :vehicule="vehicule"
           :select="selectVehicule"
           :provider="vehicule.provider"
+          :v-if="!$store.state.alertModalShown"
         />
-
+        <!-- <div :v-else="this.$store.dispatch('changeStateModal', true)"></div> -->
         <LocateControl />
         <MapFilter />
       </l-map>
@@ -63,8 +64,9 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
-      // if
-      this.$store.dispatch('map/fetchTrots', center)
+      this.$store.getters.isInsidePerimeter(center.lat, center.lng)
+        ? this.$store.dispatch('map/fetchTrots', center)
+        : ''
     }
   }
 }

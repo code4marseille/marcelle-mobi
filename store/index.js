@@ -25,7 +25,7 @@ export const mutations = {
     for (const key in payload) Vue.set(state, key, payload[key])
   },
   SET_MODAL(state, alertModalShown) {
-
+    // debugger
     state.alertModalShown = alertModalShown;
   },
 

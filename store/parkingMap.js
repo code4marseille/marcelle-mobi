@@ -47,8 +47,8 @@ export const actions = {
   },
 
   async fetchCarPoolStations({ commit }) {
-    // debugger
-    const carPoolStations = await this.$axios.get("https://search.mappy.net/search/1.1/find?", { params: { bbox: this.state.bbox, extend_bbox: 1, q: "Aire de covoiturage marseille", favorite_country: 250, language: 'FRE', loc_format: 'geojson', mid: 3482934797, tagid: 'SPD_RESPONSE_SEARCH', abtest: 'NA', max_results: 500 } })
+
+    const carPoolStations = await this.$axios.get("https://search.mappy.net/search/1.1/find?", { params: { bbox: this.state.bbox, extend_bbox: 1, q: "Aire de covoiturage", favorite_country: 250, language: 'FRE', loc_format: 'geojson', mid: 3482934797, tagid: 'SPD_RESPONSE_SEARCH', abtest: 'NA', max_results: 500 } })
 
 
 

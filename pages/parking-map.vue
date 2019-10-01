@@ -153,11 +153,11 @@ export default {
       latitude: this.initialLocation[0],
       longitude: this.initialLocation[1]
     })
-    //   this.$store.dispatch('parkingMap/fetchParkingStations', {
-    //     lat: this.initialLocation[0],
-    //     long: this.initialLocation[1]
-    //   })
-    //   this.$store.dispatch('parkingMap/fetchCarPoolStations')
+    this.$store.dispatch('parkingMap/fetchParkingStations', {
+      lat: this.initialLocation[0],
+      long: this.initialLocation[1]
+    })
+    this.$store.dispatch('parkingMap/fetchCarPoolStations')
   }
 }
 </script>

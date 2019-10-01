@@ -63,8 +63,10 @@ export const actions = {
     commit("SET_BIKES", bikes);
   },
   async fetchTrots({ commit }, { lat, lng }) {
-    const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
-    commit('SET_TROTS', trots)
+    let noError = true
+    const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } }).catch(noError = false)
+
+    noError ? commit('SET_TROTS', trots) : ""
   }
 
 };

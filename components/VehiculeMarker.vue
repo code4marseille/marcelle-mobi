@@ -2,7 +2,8 @@
   <l-marker
     @click="select(vehiculeInfos.latLng, vehicule, provider)"
     :lat-lng="vehiculeInfos.latLng"
-    :visible="vehiculeInfos.visible"
+    :v-if=" this.$store.getters.isInsidePerimeter(vehiculeInfos.latLng[0], vehiculeInfos.latLng[1])"
+    :visible="vehiculeInfos.visible && this.$store.getters.isInsidePerimeter(vehiculeInfos.latLng[0], vehiculeInfos.latLng[1])"
   >
     <l-icon :icon-size="vehiculeInfos.iconSize" :icon-url="vehiculeInfos.iconUrl"></l-icon>
   </l-marker>
