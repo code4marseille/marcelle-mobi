@@ -10,14 +10,14 @@
         <p class="font-weight-bold text-capitalize mb-O">{{vehiculeInfo.line1}}</p>
 
         <p class="mb-0">{{vehiculeInfo.line2}}</p>
-        <p class="mb-0" v-if="vehiculeInfo.line3 !== ''">
+        <p class="mb-0" v-if="vehiculeInfo.line3">
           <img svg-inline src="~/assets/images/iconBattery.svg" class="svgDescription" />
           {{vehiculeInfo.line3}}
         </p>
       </div>
       <!--  -->
       <div class="flex3 col-4">
-        <a v-if="$device.isIos" :href="vehiculeInfo.linkIos">
+        <a v-if="$device.isIos && vehiculeInfo.linkIos" :href="vehiculeInfo.linkIos">
           <button type="button" class="btn buttonGoApp">
             Vers l'appli
             <img svg-inline src="~/assets/images/openApp.svg" />
@@ -25,7 +25,7 @@
         </a>
 
         <a
-          v-else-if="$device.isMobileOrTablet"
+          v-else-if="$device.isMobileOrTablet && vehiculeInfo.linkApp"
           @click="openApp(vehiculeInfo.linkApp,vehiculeInfo.linkStore )"
         >
           <button type="button" class="btn buttonGoApp">
@@ -34,7 +34,7 @@
           </button>
         </a>
 
-        <a v-else :href="vehiculeInfo.linkBrowser">
+        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser">
           <button type="button" class="btn buttonGoApp">Vers le site web</button>
         </a>
       </div>
@@ -62,7 +62,7 @@ export default {
           return {
             line1: v.name,
             line2: `Immat.: ${v.licencePlate}`,
-            line3: v.fuelLevel ? `Réservoir: ${v.fuelLevel} %` : '',
+            line3: v.fuelLevel ? `Réservoir: ${v.fuelLevel} %` : null,
             icon: require(`~/assets/images/citiz_marker.svg`),
             linkApp: `coop.lestilleuls.citiz://`,
             linkStore: `https://play.google.com/store/apps/details?id=coop.lestilleuls.citiz&hl=fr`,
@@ -72,12 +72,14 @@ export default {
         },
         bus: v => {
           return {
-            icon: require(`~/assets/images/bus.svg`)
+            icon: require(`~/assets/images/bus.svg`),
+            line1: v.nomLigneCial
           }
         },
         tram: v => {
           return {
-            icon: require(`~/assets/images/tram.svg`)
+            icon: require(`~/assets/images/tram.svg`),
+            line1: v.nomLigneCial
           }
         },
 
@@ -86,7 +88,7 @@ export default {
           return {
             line1: v.address,
             line2: `Velo dispo.: ${v.availableBikes} - Place dispo.: ${v.availableBikeStands}`,
-            line3: '',
+            line3: null,
             icon: require(`~/assets/images/velo.svg`),
             linkStore: `http://www.levelo-mpm.fr/`,
             linkIos: `http://www.levelo-mpm.fr/`,
@@ -98,7 +100,7 @@ export default {
         lime: v => {
           return {
             line1: v.name,
-            line2: '',
+            line2: null,
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/lime.svg`),
             linkApp: `limebike://`,
@@ -111,7 +113,7 @@ export default {
         circ: v => {
           return {
             line1: v.provider,
-            line2: '',
+            line2: null,
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/circ.svg`),
             linkApp: `goflash://`,
@@ -124,7 +126,7 @@ export default {
         bird: v => {
           return {
             line1: v.provider,
-            line2: '',
+            line2: null,
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/bird.svg`),
             linkApp: 'bird.android://',
@@ -137,7 +139,7 @@ export default {
         tier: v => {
           return {
             line1: v.provider,
-            line2: '',
+            line2: null,
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/tier.svg`),
             linkApp: `tier://`,
