@@ -12,7 +12,12 @@
             style="width:60%; z-index:1000"
             class="ml-3"
           ></b-input>
-          <b-button variant="dark" type="submit" style="width:10%; z-index:1000" class="px-1">Go</b-button>
+          <b-button
+            variant="secondary"
+            type="submit"
+            style="width:10%; z-index:1000"
+            class="px-1"
+          >Go</b-button>
         </b-form>
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -42,7 +47,7 @@
     </div>
 
     <div class="fixed-bottom" style="border-radius:20px">
-      <b-button-group style="display:flex; justify-content:center">
+      <b-button-group style="display:flex; justify-content:centerg">
         <b-button
           v-for="(btn, idx) in buttons"
           :key="idx"
@@ -274,7 +279,7 @@ export default {
     border-radius: 10px 0 0 10px;
   }
 
-  .btn-dark {
+  .btn-secondary {
     border-radius: 0px 10px 10px 0;
   }
 }
