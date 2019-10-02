@@ -18,13 +18,6 @@
           :provider="vehicule.provider"
         />
 
-        <b-spinner
-          v-if="$store.state.map.isLoading"
-          label="Loading"
-          variant="primary"
-          class="spinnerLoading"
-        ></b-spinner>
-
         <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
           <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
         </v-btn>
