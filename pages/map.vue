@@ -9,14 +9,15 @@
         @update:center="updateVehicules"
       >
         <MapboxTile />
-
-        <VehiculeMarker
-          v-for="(vehicule, i) in $store.getters['map/allVehicules']"
-          :key="i"
-          :vehicule="vehicule"
-          :select="selectVehicule"
-          :provider="vehicule.provider"
-        />
+        <v-marker-cluster class="mycluster">
+          <VehiculeMarker
+            v-for="(vehicule, i) in $store.getters['map/allVehicules']"
+            :key="i"
+            :vehicule="vehicule"
+            :select="selectVehicule"
+            :provider="vehicule.provider"
+          />
+        </v-marker-cluster>
         <v-btn class="mx-2 btn-refresh" fab light small color="green" @click="refreshMap">
           <v-icon dark>mdi-cached</v-icon>
         </v-btn>
@@ -34,14 +35,15 @@ import LocateControl from '~/components/LocateControl'
 import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
-
+import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
 export default {
   components: {
     LMap,
     LocateControl,
     MapFilter,
     VehiculeMarker,
-    MapboxTile
+    MapboxTile,
+    'v-marker-cluster': Vue2LeafletMarkerCluster
   },
   data() {
     return {
@@ -74,7 +76,6 @@ export default {
         lat: this.initialLocation[0],
         lng: this.initialLocation[1]
       })
-      console.log('updated')
     }
   }
 }
