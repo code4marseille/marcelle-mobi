@@ -4,16 +4,16 @@
     :lat-lng="vehiculeInfos.latLng"
     :visible="vehiculeInfos.visible"
   >
-    <l-icon :icon-size="vehiculeInfos.iconSize" :icon-url="vehiculeInfos.iconUrl"></l-icon>
+    <l-icon :icon="vehiculeInfos.icon"></l-icon>
   </l-marker>
 </template>
 
 <script>
 import { LMarker, LIcon } from 'vue2-leaflet'
-import { icon } from 'leaflet'
+import { icon, LDivIcon } from 'leaflet'
 
 export default {
-  components: { LMarker, LIcon },
+  components: { LMarker, LIcon, LDivIcon },
 
   props: {
     vehicule: { type: Object, required: true },
@@ -26,114 +26,132 @@ export default {
         totem: vehicule => {
           return {
             latLng: [vehicule.position.lat, vehicule.position.lng],
-            iconUrl: require('~/assets/images/totem.svg'),
-            iconSize: [40, 50],
-            visible: this.$store.state.map.seeCars
+            visible: this.$store.state.map.seeCars,
+            icon: {
+              iconUrl: require('~/assets/images/totem.svg'),
+              iconSize: [40, 50]
+            }
           }
         },
         citiz: vehicule => {
           return {
             latLng: [vehicule.gpsLatitude, vehicule.gpsLongitude],
-            iconUrl: require('~/assets/images/citiz_marker.svg'),
-            iconSize: [40, 40],
-            visible: this.$store.state.map.seeCars
+            visible: this.$store.state.map.seeCars,
+            icon: {
+              iconUrl: require('~/assets/images/citiz_marker.svg'),
+              iconSize: [40, 40]
+            }
           }
         },
         bus: vehicule => {
           return {
-            iconUrl: require('~/assets/images/bus.svg'),
-            iconSize: [40, 40],
             visible: this.$store.state.map.seeBus,
-            latLng: [vehicule.latitude, vehicule.longitude]
+            latLng: [vehicule.latitude, vehicule.longitude],
+            icon: L.divIcon({
+              iconSize: null,
+              html: 'test'
+            })
           }
         },
         tram: vehicule => {
           return {
-            iconUrl: require('~/assets/images/tram.svg'),
-            iconSize: [40, 40],
             visible: this.$store.state.map.seeTrams,
-            latLng: [vehicule.latitude, vehicule.longitude]
+            latLng: [vehicule.latitude, vehicule.longitude],
+            icon: L.divIcon({
+              iconSize: null,
+              iconUrl: html =>
+                '<div class="rounded-circle" color="red">{{vehicule.nomLigneCial}}</div>'
+            })
           }
         },
         lime: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/lime.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/lime.svg')
+            }
           }
         },
         circ: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/circ.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/circ.svg')
+            }
           }
         },
         hive: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/hive.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/hive.svg')
+            }
           }
         },
         jump: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/jump.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/jump.svg')
+            }
           }
         },
         tier: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/tier.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/tier.svg')
+            }
           }
         },
         voi: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/voi.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/voi.svg')
+            }
           }
         },
         wind: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/wind.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/wind.svg')
+            }
           }
         },
         bird: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/bird.svg'),
-
             latLng: [vehicule.lat, vehicule.lng],
-            visible: this.$store.state.map.seeTrots
+            visible: this.$store.state.map.seeTrots,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/bird.svg')
+            }
           }
         },
         leVelo: vehicule => {
           return {
-            size: [30, 40],
-            iconUrl: require('~/assets/images/iBike.svg'),
-
             latLng: [vehicule.position.lat, vehicule.position.lng],
-            visible: this.$store.state.map.seeBikes
+            visible: this.$store.state.map.seeBikes,
+            icon: {
+              iconSize: [30, 40],
+              iconUrl: require('~/assets/images/iBike.svg')
+            }
           }
         }
       }
@@ -143,3 +161,8 @@ export default {
   }
 }
 </script>
+<style >
+.my-div-icon {
+  border-radius: 50%;
+}
+</style>

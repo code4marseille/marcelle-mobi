@@ -72,12 +72,21 @@ export default {
         },
         bus: v => {
           return {
-            icon: require(`~/assets/images/bus.svg`)
+            icon: require(`~/assets/images/bus.svg`),
+
+            linkBrowser:
+              'https://www.rtm.fr/sites/default/files/' +
+              v.nomLigneCial +
+              'hiver_horaires.pdf'
           }
         },
         tram: v => {
           return {
-            icon: require(`~/assets/images/tram.svg`)
+            icon: require(`~/assets/images/tram.svg`),
+            linkBrowser:
+              'https://www.rtm.fr/sites/default/files/' +
+              v.nomLigneCial +
+              'hiver_horaires.pdf'
           }
         },
 

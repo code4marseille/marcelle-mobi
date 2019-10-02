@@ -40,5 +40,3 @@ export const actions = {
   },
 }
 
-//http://marcelle-mobi-api.herokuapp.com/itineraries/calculate?departure_address=metro%20dromel&arrival_address=12%20impasse%20abeille&mode=bike
-

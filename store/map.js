@@ -42,9 +42,7 @@ export const mutations = {
     state.trams.map(tram => tram.provider = 'tram');
     state.bus = rtms.filter(bus => bus.type == 2);
     state.bus.map(bus => bus.provider = 'bus');
-    console.log(state.trams)
-    console.log('bus:')
-    console.log(state.bus)
+
 
   },
   TOGGLE_CARS(state) {
@@ -93,6 +91,5 @@ export const actions = {
   async fetchRtms({ commit }) {
     const rtms = await this.$axios.$get("/vehicules/rtm");
     commit("SET_RTMS", rtms)
-    console.log(rtms)
   }
 }
