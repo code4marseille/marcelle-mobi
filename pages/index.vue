@@ -69,7 +69,6 @@
           dialog-class="fixed-bottom"
           hide-footer
           v-model="show"
-          no-fade
         >
           <template v-slot:modal-title>
             <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
