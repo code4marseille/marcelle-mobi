@@ -3,6 +3,17 @@
     <div id="position">
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
+
+        <b-form @submit.prevent="onSubmit" inline style="justify-content:center" class="mt-3">
+          <b-input
+            id="inline-form-input-name "
+            placeholder="Rechercher une adresse"
+            v-model="searchAddress"
+            style="width:60%; z-index:1000"
+            class="ml-3"
+          ></b-input>
+          <b-button variant="dark" type="submit" style="width:10%; z-index:1000" class="px-1">Go</b-button>
+        </b-form>
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'c'+i"
@@ -30,41 +41,34 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom container">
+    <div class="fixed-bottom" style="border-radius:20px">
+      <b-button-group style="display:flex; justify-content:center">
+        <b-button
+          v-for="(btn, idx) in buttons"
+          :key="idx"
+          :pressed.sync="btn.state"
+          variant="primary"
+          size="sm"
+          class="select_btn borderCentral"
+        >
+          <img :src="btn.icon" alt class="icon_filterbar" />
+          <p class="text_filterbar">{{ btn.caption }}</p>
+        </b-button>
+      </b-button-group>
+
       <div>
-        <b-button-group style="display:flex; justify-content:center">
-          <b-button
-            v-for="(btn, idx) in buttons"
-            :key="idx"
-            :pressed.sync="btn.state"
-            variant="primary"
-            size="sm"
-            style="padding:.5rem; margin:.1rem"
-          >{{ btn.caption }}</b-button>
-        </b-button-group>
-        <b-form @submit.prevent="onSubmit" inline style="justify-content:center">
-          <b-input
-            id="inline-form-input-name "
-            placeholder="Rechercher une adresse"
-            v-model="searchAddress"
-            style="width:55%"
-          ></b-input>
-          <b-button variant="dark" type="submit" style="width:45%">Chercher</b-button>
-        </b-form>
-        <div>
-          <b-modal
-            title="BootstrapVue"
-            id="notFound"
-            style="display:flex; flex-direction:row; justify-content:center"
-            ok-only
-          >
-            <p
-              class="my-4"
-              style="text-align:center"
-            >Adresse non trouvée dans Marseille Provence Métropole</p>
-            <img src="~/assets/images/mpm.png" style="width:100%" alt />
-          </b-modal>
-        </div>
+        <b-modal
+          title="BootstrapVue"
+          id="notFound"
+          style="display:flex; flex-direction:row; justify-content:center"
+          ok-only
+        >
+          <p
+            class="my-4"
+            style="text-align:center"
+          >Adresse non trouvée dans Marseille Provence Métropole</p>
+          <img src="~/assets/images/mpm.png" style="width:100%" alt />
+        </b-modal>
       </div>
       <!-- Fin Block -->
     </div>
@@ -94,9 +98,21 @@ export default {
 
       searchAddress: '',
       buttons: [
-        { caption: 'Borne de Recharge', state: false },
-        { caption: 'Parkings', state: false },
-        { caption: 'Zone de covoiturage', state: true }
+        {
+          caption: 'Recharge',
+          state: false,
+          icon: require('~/assets/images/electric.svg')
+        },
+        {
+          caption: 'Parkings',
+          state: false,
+          icon: require('~/assets/images/Parking_icon.svg')
+        },
+        {
+          caption: 'Covoiturage',
+          state: true,
+          icon: require('~/assets/images/covoiturage.svg')
+        }
       ]
     }
   },
@@ -215,11 +231,51 @@ export default {
     height: 100%;
     width: 100%;
   }
-  .fixed-bottom {
-    z-index: 450;
-    padding: 20px;
-    opacity: 0.8;
-    text-shadow: 1px 0 black;
+
+  // DESIGN FILTER CARD
+  .btn-group {
+    margin: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50% !important;
+  }
+
+  .borderCentral {
+    border-right: 1px solid rgba(182, 181, 181, 0.7) !important;
+    border-left: 1px solid rgba(182, 181, 181, 0.7) !important;
+  }
+
+  .select_btn {
+    background-color: rgb(250, 250, 250) !important;
+    opacity: 1 !important;
+    border: none;
+    box-shadow: none;
+  }
+
+  .select_btn.active {
+    background-color: #bde5f3 !important;
+    outline: 1.6px solid #0e5da4 !important;
+    box-shadow: none;
+    z-index: 3;
+  }
+
+  .icon_filterbar {
+    min-width: 40px;
+    min-height: 40px;
+    margin-top: 5px;
+  }
+
+  .text_filterbar {
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+
+  .form-control {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .btn-dark {
+    border-radius: 0px 10px 10px 0;
   }
 }
 </style>
