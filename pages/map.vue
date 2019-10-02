@@ -9,7 +9,7 @@
         @update:center="updateVehicules"
       >
         <MapboxTile />
-        <v-marker-cluster class="mycluster">
+        <v-marker-cluster class="cluster">
           <VehiculeMarker
             v-for="(vehicule, i) in $store.getters['map/allVehicules']"
             :key="i"
@@ -36,6 +36,8 @@ import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
 import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
+import iconUrl from 'leaflet/dist/images/marker-icon.png'
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 export default {
   components: {
     LMap,
@@ -115,6 +117,10 @@ export default {
   .leaflet-control-attribution {
     display: none;
   }
+}
+.cluster {
+  background: blue;
+  color: white;
 }
 </style>
 
