@@ -127,13 +127,15 @@ export default {
   },
   methods: {
     submit() {
+      setTimeout(() => {
+        this.$router.push({
+          path: '/marius_map'
+        })
+      }, 2000)
       this.$store.dispatch('marius/fetchitineraries', {
         from: this.from,
         to: this.to,
         mode: this.selectedMode
-      })
-      this.$router.push({
-        path: '/marius_map'
       })
     },
 

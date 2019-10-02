@@ -6,6 +6,12 @@
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
         <l-polyline :lat-lngs="$store.getters['marius/latLngs']" color="green"></l-polyline>
+        <l-polyline
+          v-for="(latLngs, i ) in $store.getters['marius/latLngsAlternatives']"
+          :key="i"
+          :lat-lngs="latLngs"
+          color="red"
+        ></l-polyline>
       </l-map>
     </div>
     <ModalDetailsItineraries />
@@ -30,7 +36,9 @@ export default {
       mapBoxToken:
         'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
-  }
+  },
+
+  methods: {}
 }
 </script>
 
