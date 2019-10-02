@@ -1,13 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map
-        id="map"
-        :zoom="16"
-        :center="initialLocation"
-        ref="map"
-        @update:center="updateVehicules"
-      >
+      <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
         <MapboxTile />
 
         <VehiculeMarker
@@ -46,15 +40,12 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
+      location: { lat: 43.295336, lng: 5.373907 },
       isLoading: false
     }
   },
   created() {
-    this.$store.dispatch('map/fetchAllVehicles', {
-      lat: this.initialLocation[0],
-      lng: this.initialLocation[1]
-    })
+    this.$store.dispatch('map/fetchAllVehicles', this.location)
   },
   methods: {
     flyTo(latLng, zoom) {
@@ -65,15 +56,12 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
-      this.initialLocation = center
+      this.location = center
       this.$store.dispatch('map/fetchTrots', center)
     },
     async refreshMap() {
       this.isLoading = true
-      await this.$store.dispatch('map/fetchAllVehicles', {
-        lat: this.initialLocation[0],
-        lng: this.initialLocation[1]
-      })
+      await this.$store.dispatch('map/fetchAllVehicles', this.location)
       this.isLoading = false
     }
   }
