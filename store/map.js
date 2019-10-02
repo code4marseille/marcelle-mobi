@@ -9,6 +9,7 @@ export const state = () => ({
   seeBikes: true,
   seeTrots: true,
   selectedVehicule: null,
+  isLoading: false
 });
 
 export const getters = {
@@ -46,6 +47,9 @@ export const mutations = {
   SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
     if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
+  },
+  ISREFRESHED(state, value) {
+    state.isLoading = value
   }
 };
 
@@ -66,11 +70,15 @@ export const actions = {
     const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
     commit('SET_TROTS', trots)
   },
-  fetchAllVehicles({ dispatch }, { lat, lng }) {
-    dispatch('fetchCitiz')
-    dispatch('fetchTotems')
+  async fetchAllVehicles({ commit, dispatch }, { lat, lng }) {
+
+    await dispatch('fetchCitiz')
+    await dispatch('fetchTotems')
     dispatch('fetchTrots', { params: { lat, lng } })
-    dispatch('fetchBikes')
+    await dispatch('fetchBikes')
+
+    commit("ISREFRESHED", false)
+
   },
 
   // async fetchSelectedVehicles({ commit, dispatch }) {
