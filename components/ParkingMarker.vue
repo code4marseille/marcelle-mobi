@@ -94,9 +94,4 @@ export default {
 .leaflet-container a {
   color: rgba(0, 0, 0, 0.8) !important;
 }
-
-.icon_parking {
-  min-width: 10px;
-  min-height: 10px;
-}
 </style>

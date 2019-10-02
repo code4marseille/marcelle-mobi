@@ -33,7 +33,7 @@ export default {
     return {
       iconColor: {},
       marker: {
-        image: require('~/assets/images/covoit.png')
+        image: require('~/assets/images/covoit.svg')
       }
     }
   },
@@ -44,8 +44,8 @@ export default {
 </script>
 <style lang="scss">
 .leaflet-marker-icon {
-  width: 40px !important;
-  height: 40px !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 #popupCovoit {
   width: 200px;

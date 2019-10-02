@@ -264,8 +264,8 @@ export default {
   }
 
   .icon_filterbar {
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 39px;
+    min-height: 39px;
     margin-top: 5px;
   }
 
@@ -282,6 +282,11 @@ export default {
   .btn-secondary {
     border-radius: 0px 10px 10px 0;
   }
+}
+
+.leaflet-marker-icon {
+  min-width: 10px !important;
+  min-height: 10px !important;
 }
 </style>
 
