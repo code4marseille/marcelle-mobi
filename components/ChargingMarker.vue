@@ -67,7 +67,7 @@ export default {
     return {
       iconColor: {},
       marker: {
-        image: require('~/assets/images/elec_car_logo.png')
+        image: require('~/assets/images/elec_car_logo.svg')
       }
     }
   },
