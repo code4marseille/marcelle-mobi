@@ -113,6 +113,7 @@ export default {
         url: '',
         title: '',
         description: '',
+        imgUrl: '',
         publisherName: '',
         publisherEmail: '',
         selectedCategory: ''
@@ -158,6 +159,7 @@ export default {
       await this.$axios.$post('/articles', {
         title: this.form.title,
         description: this.form.description,
+        img_url: this.form.imgUrl,
         url: this.form.url,
         publisher_name: this.form.publisherName,
         publisher_email: this.form.publisherEmail,
