@@ -1,33 +1,32 @@
 <template>
   <l-marker :lat-lng="[parking.lat,parking.lng]" :visible="visible">
-    <l-popup style="text-align:center">
-      <h6>Parking</h6>
-
-      <p style="font-weight:bold; font-size:1rem;">{{parking.name}}</p>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
+    <l-popup style="text-align:center" id="ParkingMarkerVue">
+      <p style="font-weight:bold;" class="title text-left">{{parking.name}}</p>
+      <p class="text-left pb-2">
         <a
           :href="this.googleMap(parking.lat,parking.lng)"
           target="_blank"
+          style="text-decoration:none"
+          class="address"
         >{{parking.way}}, {{parking.pCodeSeo}} {{parking.townSeo}}</a>
       </p>
-      <p v-if="parking.openingHours">
-        <i class="fas fa-comment"></i>
+      <p v-if="parking.openingHours" class="text-left pt-2 pb-2 border-top">
+        <i class="far fa-clock"></i>
+        <strong>Horaires :</strong>
         {{parking.openingHours}}
       </p>
-      <p v-if="parking.additionalInfo.teasing">
-        <i class="fas fa-comment-dots"></i>
+      <p v-if="parking.additionalInfo.teasing" class="text-left border-top pt-2">
+        <i class="far fa-calendar-check"></i>
         {{parking.additionalInfo.teasing.replace(/<[^>]*>?/gm, '')}}
       </p>
-      <p v-if="parking.additionalInfo.reservationTemplatizedUrl">
-        <i class="fas fa-link"></i>
-        <a :href="parking.additionalInfo.reservationTemplatizedUrl" target="_blank">Visitez le site</a>
+      <p v-if="parking.additionalInfo.reservationTemplatizedUrl" class="text-left">
+        <i class="fas fa-globe-americas"></i>
+        <a :href="parking.additionalInfo.reservationTemplatizedUrl" target="_blank">
+          <strong>Site web</strong>
+        </a>
       </p>
-      <p></p>
     </l-popup>
-    <l-icon
-      icon-url="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png"
-    ></l-icon>
+    <l-icon :icon-url="marker.image" class="icon_parking"></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/parking.png')"></l-icon> -->
   </l-marker>
 </template>
@@ -42,7 +41,57 @@ export default {
     parking: { type: Object, required: true },
     googleMap: { type: Function, required: true },
     visible: { type: Boolean, required: true }
+  },
+  data() {
+    return {
+      marker: {
+        image: require('~/assets/images/parking_marker.png')
+      }
+    }
   }
 }
 </script>
+<style lang="scss">
+#ParkingMarkerVue {
+  .title {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 24px !important;
+    margin-bottom: 0px;
+  }
 
+  .address {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 16px;
+    margin-top: 0px;
+    font-style: italic;
+    text-align: left !important;
+  }
+
+  .leaflet-container a {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 16px;
+    margin-top: 0px;
+    font-style: italic;
+    text-align: left !important;
+    text-decoration: none;
+  }
+
+  .far,
+  .fas {
+    color: #0e5da4;
+    width: 17px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .leaflet-container a {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
+.leaflet-container a {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+</style>
