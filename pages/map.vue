@@ -17,8 +17,9 @@
           :select="selectVehicule"
           :provider="vehicule.provider"
         />
-        <v-btn class="mx-2 btn-refresh" fab light small color="green" @click="refreshMap">
-          <v-icon dark>mdi-cached</v-icon>
+
+        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
+          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
         </v-btn>
 
         <LocateControl />
@@ -45,18 +46,15 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      initialLocation: [43.295336, 5.373907],
+      isLoading: false
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCitiz')
-    this.$store.dispatch('map/fetchTotems')
-    this.$store.dispatch('map/fetchTrots', {
+    this.$store.dispatch('map/fetchAllVehicles', {
       lat: this.initialLocation[0],
       lng: this.initialLocation[1]
     })
-    this.$store.dispatch('map/fetchBikes')
-    this.$store.dispatch('map/fetchRtms')
   },
   methods: {
     flyTo(latLng, zoom) {
@@ -67,14 +65,16 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
+      this.initialLocation = center
       this.$store.dispatch('map/fetchTrots', center)
     },
-    refreshMap() {
-      this.$store.dispatch('map/fetchAllVehicles', {
+    async refreshMap() {
+      this.isLoading = true
+      await this.$store.dispatch('map/fetchAllVehicles', {
         lat: this.initialLocation[0],
         lng: this.initialLocation[1]
       })
-      console.log('updated')
+      this.isLoading = false
     }
   }
 }
@@ -84,9 +84,16 @@ export default {
 #mapPage {
   .btn-refresh {
     position: fixed;
-    left: 0.8vw;
+    right: 0.8vw;
     bottom: 30vh;
     z-index: 999;
+  }
+
+  .spinnerLoading {
+    z-index: 1000;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
   }
   .leaflet-left {
     right: 0 !important;
