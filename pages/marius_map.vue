@@ -1,7 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+      <l-map id="map" :zoom="16" :center="initialLocation" ref="map" :bounds="bounds">
         <l-tile-layer
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
@@ -19,10 +19,12 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
+import { latLngBounds, latLng } from 'leaflet'
+import { LMap, LTileLayer, LPolyline, LMarker } from 'vue2-leaflet'
 import ModalDetailsItineraries from '~/components/ModalDetailsItineraries.vue'
 
 export default {
+  name: 'SetBounds',
   components: {
     LMap,
     LTileLayer,
@@ -34,7 +36,8 @@ export default {
     return {
       initialLocation: [43.295336, 5.373907],
       mapBoxToken:
-        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
+        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ',
+      bounds: latLngBounds(this.$store.getters['marius/latLngs'])
     }
   },
 
