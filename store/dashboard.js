@@ -85,7 +85,7 @@ export const mutations = {
 export const actions = {
   async fetchWeather({ commit, state }) {
 
-    const weatherObject = await this.$axios.$get('/weathers/today')
+    const weatherObject = await this.$axios.$get('/weathers/today', { params: { q: 'Marseille' } })
     const weatherStatus = weatherObject.weather[0].main
     const wind = weatherObject.wind
     commit('SET_TEMPERATURE', weatherObject.main.temp)
