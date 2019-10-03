@@ -1,7 +1,7 @@
 import Vue from "vue";
 
 export const state = () => ({
-  filterVisible: true,
+  filterVisible: false,
   cars: [],
   bikes: [],
   trots: [],
