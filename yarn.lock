@@ -4685,6 +4685,11 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+leaflet-polylineoffset@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/leaflet-polylineoffset/-/leaflet-polylineoffset-1.1.1.tgz#021b717d4f7d462f742c1ac1ac0e83e8eef74615"
+  integrity sha512-WcEjAROx9IhIVwSMoFy9p2QBCG9YeuGtJl4ZdunIgj4xbCdTrUkBj8JdonUeCyLPnD2/Vrem/raOPHm5LvebSw==
+
 leaflet.locatecontrol@^0.66.2:
   version "0.66.2"
   resolved "https://registry.yarnpkg.com/leaflet.locatecontrol/-/leaflet.locatecontrol-0.66.2.tgz#a99023b53a7b71d694b02efe4e8aeab7b1789202"

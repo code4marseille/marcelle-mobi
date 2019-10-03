@@ -4,16 +4,16 @@
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
 
-        <b-form @submit.prevent="onSubmit" inline style=" z-index:1000" class="mt-3">
+        <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
           <div class="search_content">
             <b-input
               id="inline-form-input-name "
               placeholder="Rechercher une adresse"
               v-model="searchAddress"
-              style="width:90%; z-index:469; border-radius: 10px 0 0 10px"
+              style="width:90%; z-index:468; border-radius: 10px 0 0 10px"
               class="ml-3 searchbox"
             ></b-input>
-            <b-button type="submit" style="width:20%; z-index:469" class="pr-3 text-right loupe">
+            <b-button type="submit" style="width:20%; z-index:468" class="pr-3 text-right loupe">
               <i class="fas fa-search"></i>
             </b-button>
           </div>
@@ -57,7 +57,7 @@
           class="select_btn col-4 borderCentral pt-1"
         >
           <img :src="btn.icon" alt class="icon_filterbar" />
-          <p class="text_filterbar">{{ btn.caption }}</p>
+          <p class="text_filterbar mb-3">{{ btn.caption }}</p>
         </b-button>
       </b-button-group>
 
@@ -111,7 +111,7 @@ export default {
         {
           caption: 'Parkings',
           state: false,
-          icon: require('~/assets/images/Parking_icon.svg')
+          icon: require('~/assets/images/parking_marker.svg')
         },
         {
           caption: 'Covoiturage',
@@ -240,8 +240,8 @@ export default {
   // DESIGN FILTER CARD
 
   .icon_filterbar {
-    min-width: 35px;
-    min-height: 35px;
+    width: 35px !important;
+    height: 35px !important;
     margin-top: 5px;
   }
 
@@ -261,10 +261,14 @@ export default {
     box-shadow: 5px 5px 5px gray;
   }
 
-  .borderCentral {
+  .borderCentral:first-child {
     border-right: 1px solid rgba(182, 181, 181, 0.8) !important;
+    border-radius: 10px 0 0 10px;
+  }
 
+  .borderCentral:last-child {
     border-left: 1px solid rgba(182, 181, 181, 0.8) !important;
+    border-radius: 0 10px 10px 0;
   }
 
   .select_btn {
@@ -301,7 +305,7 @@ export default {
     border-radius: 10px;
     border: 0.9px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    z-index: 1900;
+    z-index: 468;
     display: flex;
     width: 100%;
     margin-left: 70px;

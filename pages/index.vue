@@ -31,10 +31,17 @@
     </div>
     <!-- air quality -->
     <div>
-      <i class="fas fa-wind"></i>
-      <span class="indice-quality">{{ $store.state.dashboard.airQuality}}</span>
-      <span>/10</span>
-      <div>{{$store.state.dashboard.airQualityText}}</div>
+      <div
+        style="margin:0; padding:0"
+        v-b-tooltip.hover
+        title="Les stations de contrôle de la qualité de l’air de GAIA utilisent des capteurs de particules laser de haute technologie pour mesurer en temps réel la pollution par les P2,5, l’un des polluants les plus nocifs."
+      >
+        <i class="fas fa-wind"></i>
+        <span class="indice-quality">{{ $store.state.dashboard.airQuality}}</span> /10
+        <span class="indice-quality">{{ $store.state.dashboard.airQualitySummary}}</span>
+
+        <div>{{$store.state.dashboard.airQualityText}}</div>
+      </div>
     </div>
     <!-- what to do today -->
     <div>
@@ -97,8 +104,8 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('dashboard/fetchWeather')
     this.$store.dispatch('dashboard/fetchAirQuality')
+    this.$store.dispatch('dashboard/fetchWeather')
     this.$store.dispatch('dashboard/fetchAlertsRtm')
   }
 }
