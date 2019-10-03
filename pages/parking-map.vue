@@ -176,8 +176,8 @@ export default {
 
         //      coord = coord.data.features[0].geometry.coordinates
         // const marker = L.marker([coord[1], coord[0]])
-
         L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
+
         this.flyTo([lat, lng], 18)
       } else {
         this.$bvModal.show('notFound')
@@ -308,5 +308,12 @@ export default {
     margin-right: 50px;
   }
 }
+
+// .leaflet-popup {
+//   position: absolute;
+//   text-align: center;
+//   bottom: 30px !important;
+//   left: -120px !important;
+// }
 </style>
 
