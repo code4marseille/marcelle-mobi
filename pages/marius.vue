@@ -14,7 +14,7 @@
         <div>
           <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
-        <div class="d-flex justify-content-between w-100">
+        <div class="d-flex justify-content-around w-100">
           <div
             class="marcelle_marius_avatar"
             v-for="(avatar, i) in avatars"
