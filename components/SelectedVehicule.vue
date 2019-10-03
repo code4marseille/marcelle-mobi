@@ -47,7 +47,6 @@
 export default {
   methods: {
     openApp(linkApp, linkStore) {
-      console.log(linkApp, linkStore)
       //Deep link URL for existing users with app already installed on their device
       window.open(linkApp)
       //Download URL (TUNE link) for new users to download the app -->

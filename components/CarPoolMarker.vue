@@ -35,9 +35,7 @@ export default {
       }
     }
   },
-  created() {
-    console.log(this.carPool)
-  }
+  created() {}
 }
 </script>
 <style lang="scss">

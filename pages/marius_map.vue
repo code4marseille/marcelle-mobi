@@ -1,16 +1,28 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="initialLocation" ref="map">
+      <l-map id="map" :zoom="zoom" :center="center" ref="map">
         <l-tile-layer
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
-        <l-polyline :lat-lngs="$store.getters['marius/latLngs']" color="green"></l-polyline>
+        <l-polyline
+          :lStyle="{
+            offset:  3,
+          }"
+          :lat-lngs="$store.getters['marius/latLngs']"
+          color="green"
+          :weight="3"
+        ></l-polyline>
         <l-polyline
           v-for="(latLngs, i ) in $store.getters['marius/latLngsAlternatives']"
           :key="i"
+          :weight="4"
           :lat-lngs="latLngs"
-          color="red"
+          :lStyle="{
+            offset: offsets[i],
+          }"
+          :color="colors[i]"
+          linejoin="bevel"
         ></l-polyline>
       </l-map>
     </div>
@@ -19,6 +31,8 @@
 </template>
 
 <script>
+import { latLngBounds, latLng } from 'leaflet'
+import 'leaflet-polylineoffset'
 import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
 import ModalDetailsItineraries from '~/components/ModalDetailsItineraries.vue'
 
@@ -32,9 +46,13 @@ export default {
 
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
       mapBoxToken:
-        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
+        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ',
+      zoom: 16,
+      center: [43.29494, 5.374508],
+      // bounds: latLngBounds($store.getters['marius/fitBounds'])
+      offsets: [-1, -4, -2],
+      colors: ['red', 'blue', 'orange']
     }
   },
 
@@ -43,6 +61,10 @@ export default {
 </script>
 
 <style>
+.test {
+  transform: translateX(100px);
+}
+
 .animate-bottom {
   position: relative;
   animation: animatebottom 0.4s;
