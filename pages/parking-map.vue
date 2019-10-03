@@ -7,11 +7,11 @@
         <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
           <div class="search_content">
             <b-input
+              class="searchbox"
               id="inline-form-input-name "
               placeholder="Rechercher une adresse"
               v-model="searchAddress"
               style="width:90%; z-index:468; border-radius: 10px 0 0 10px"
-              class="ml-3 searchbox"
             ></b-input>
             <b-button type="submit" style="width:20%; z-index:468" class="pr-3 text-right loupe">
               <i class="fas fa-search"></i>
@@ -215,7 +215,6 @@ export default {
   }
 
   #map {
-    width: 100wh;
     height: 100vh;
   }
 
@@ -251,8 +250,6 @@ export default {
     margin-bottom: 2px;
   }
 
-  .btn-secondary {
-  }
   #filter {
     background-color: aliceblue;
     height: 80px;

@@ -78,7 +78,7 @@
           v-model="show"
         >
           <template v-slot:modal-title>
-            <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
+            <h3 class="modal_header mx-2 mb-0 text-uppercase">perturbations en cours</h3>
           </template>
           <div
             v-for="(alert, id) in $store.state.dashboard.alertsRtm"
