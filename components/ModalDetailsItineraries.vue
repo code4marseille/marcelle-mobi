@@ -1,46 +1,57 @@
 <template>
-  <div>
-    <div class="filterGo">
-      <transition name="slide">
-        <div v-if="$store.state.marius.seeModal" id="filter" class="container">
-          <div class="row justify-content-between mx-0">
-            <p class="text-left text-white ml-5 mb-1">CE QUE TU FAIS ACTUELLEMENT:</p>
-          </div>
-          <div class="bg-light Itineraries">
-            <p class="text-left mb-1">Mode: {{$store.getters['marius/getMode']}}</p>
+  <div class="filterGo">
+    <b-collapse :visible="$store.state.marius.seeModal">
+      <div id="filter_itineraire" class="container">
+        <div class="row justify-content-between mx-0">
+          <p class="text-white moyen_transport">CE QUE TU FAIS ACTUELLEMENT:</p>
+        </div>
+        <div class="bg-light itineraries px-3 py-3 d-flex justify-content-between">
+          <div>
+            <p class="text-left mb-1">Moyen de transport : {{$store.getters['marius/getMode']}}</p>
             <p
               class="text-left mb-1"
-            >Emission de Co2: {{$store.getters['marius/co2current']}} g/km Co2</p>
-            <p class="text-left mb-1">Durée: {{$store.getters['marius/durationcurrent']}} min</p>
+            >Emission de Co2 : {{$store.getters['marius/co2current']}} g/km Co2</p>
+            <p class="text-left mb-1">Durée : {{$store.getters['marius/durationcurrent']}} min</p>
+          </div>
+
+          <img
+            class="iconVehicule transport_now"
+            :src="require('assets/images/' + $store.getters['marius/getMode'] +`.svg`)"
+          />
+        </div>
+        <div class="row justify-content-between mx-0">
+          <p class="moyen_transport mt-2 text-white">CE QUE MARIUS TE PROPOSE :</p>
+        </div>
+
+        <div
+          class="bg-light itineraries px-3 py-3 d-flex justify-content-between"
+          v-for="(AlternativesDetails, j) in $store.getters  ['marius/AlternativesDetails']"
+          :key="j"
+        >
+          <div>
+            <p class="text-left mb-0 pb-1">Moyen de transport : {{AlternativesDetails.mode}}</p>
+            <p class="text-left mb-0 pb-1">Emission de Co2 : {{AlternativesDetails.co2}} g/km Co2</p>
+            <p class="text-left mb-0 pb-1">Durée : {{AlternativesDetails.duration}} min</p>
+          </div>
+
+          <div>
             <img
-              class="iconVehicule"
-              :src="require('assets/images/' + $store.getters['marius/getMode'] +`.svg`)"
+              class="iconVehicule proposition_marius"
+              :src="require('assets/images/' + AlternativesDetails.mode +`.svg`)"
             />
           </div>
-          <div class="row justify-content-between mx-0">
-            <p class="text-left mb-1 ml-5 text-white">CE QUE MARIUS TE PROPOSE:</p>
-          </div>
-          <div
-            class="bg-light Itineraries"
-            v-for="(AlternativesDetails, j) in $store.getters  ['marius/AlternativesDetails']"
-            :key="j"
-          >
-            <p class="text-left mb-0 pb-1">Mode: {{AlternativesDetails.mode}}</p>
-            <p class="text-left mb-0 pb-1">Emission de Co2: {{AlternativesDetails.co2}} g/km Co2</p>
-            <p class="text-left mb-0 pb-1">Durée: {{AlternativesDetails.duration}} min</p>
-            <div>
-              <img
-                class="iconVehicule"
-                :src="require('assets/images/' + AlternativesDetails.mode +`.svg`)"
-              />
-            </div>
-          </div>
         </div>
-      </transition>
-      <b-button id="modalTop" @click="$store.commit('marius/TOGGLE_MODAL')" block>
-        <i class="fas fa-chevron-up"></i>
-      </b-button>
-    </div>
+      </div>
+    </b-collapse>
+    <b-button
+      id="modalTop"
+      @click="$store.commit('marius/TOGGLE_MODAL')"
+      block
+      class="modal_details_transport"
+    >
+      <i class="fas fa-chevron-up" v-if="!$store.state.marius.seeModal"></i>
+      <i class="fas fa-chevron-down" v-else="$store.state.marius.seeModal"></i>
+    </b-button>
   </div>
 </template>
 <script>
@@ -55,48 +66,44 @@ export default {
   height: 50px;
 }
 
-.Itineraries {
-  border-radius: 5px;
-  padding: 3px;
-  margin: 3px;
-}
-
 #modalTop {
-  z-index: 9999;
+  z-index: 469;
   background-color: #25a9e8;
   border-radius: 0px;
 }
 
 .filterGo {
-  width: 100%;
-  z-index: 999;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-
-  .active {
-    background-color: rgba(187, 231, 255, 0.38);
-  }
-
-  #filter {
-    z-index: 800;
+  #filter_itineraire {
     text-align: center;
-    background-color: aliceblue;
-    width: 100%;
-    transition: transform 0.2s linear;
-    max-width: 100%;
-    padding: 5px;
+    width: 100% !important;
     background-color: #25a9e8;
-    margin-bottom: 0;
-    border-radius: 0px;
+    margin-bottom: 0 !important;
+    border-radius: 20px 20px 0 0;
   }
 
-  .slide-enter-active,
-  .slide-leave-active {
-    transform: translateY(600px);
+  .itineraries {
+    height: 103px;
+    margin: 10px 7px;
+    border-radius: 10px;
+    position: relative;
   }
-  .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    transform: translateY(600px);
+
+  .moyen_transport {
+    margin: 0 auto;
+  }
+
+  .iconVehicule {
+    position: absolute;
+    top: 40px;
+    right: 15px;
+  }
+
+  .proposition_marius {
+    border-bottom: 3px solid red !important;
+  }
+
+  .transport_now {
+    border-bottom: 3px solid green !important;
   }
 }
 </style>

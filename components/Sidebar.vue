@@ -98,7 +98,7 @@ export default {
   }
   .sidebar {
     background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
-    z-index: 470;
+    z-index: 470 !important;
     position: fixed;
   }
 
