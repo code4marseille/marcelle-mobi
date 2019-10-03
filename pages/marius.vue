@@ -1,16 +1,15 @@
 <template>
   <div id="marius" class="bg-secondary">
-    <div v-if="true">
+    <div v-if="!isThinking">
       <div
-        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
         v-if="loading"
+        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
       >
-        <div>bonjour a toi !</div>
+        <div>Bonjour a toi !</div>
         <p></p>
         <div
           class="mb-4"
-        >ENSEMBLE NOUS ALLONS TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
-
+        >ENSEMBLE NOUS ALLONS TROUVER LE MOYEN DE TRANSPORT QUI CONVIENT À TON TRAJET POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
         <div>
           <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
@@ -33,33 +32,32 @@
         >Valider</b-button>
       </div>
 
-      <div v-else class="d-flex flex-column justify-content-center vh-100">
-        <div class="justify-content-around d-flex">
-          <img :src="avatar.icon" alt style="width:200px" />
-          <div class="askBlock">
-            <div class="ask text-center">d'où pars tu ?</div>
-            <input
-              type="text"
-              autocomplete="address"
-              v-model="from"
-              @blur="showInputTo=true"
-              class="inputAsk border-bottom mt-3"
-            />
-          </div>
-        </div>
+      <div v-else class="container pt-5">
+        <div class="row align-items-end">
+          <img :src="avatar.icon" class="img-fluid col-4" />
+          <div class="col-8">
+            <div class="text-center my-5">
+              <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
 
-        <div v-if="showInputTo" class="block text-right pr-1">
-          <img :src="avatar" alt />
-          <div class="askBlock">
-            <div class="ask text-center">où vas-tu ?</div>
-            <input
-              type="text"
-              autocomplete="address"
-              name="from"
-              class="inputAsk border-bottom mt-3"
-              v-model="to"
-              @blur="showModes=true"
-            />
+              <input
+                type="text"
+                autocomplete="address"
+                v-model="from"
+                @change="showInputTo=true"
+                class="mt-3 border-bottom border-primary"
+              />
+            </div>
+            <div v-if="showInputTo" class="text-center my-5">
+              <div class="text-secondary bg-white rounded-pill p-3">où vas-tu ?</div>
+
+              <input
+                type="text"
+                autocomplete="address"
+                class="mt-3 border-bottom border-primary"
+                v-model="to"
+                @change="showModes=true"
+              />
+            </div>
           </div>
         </div>
 
@@ -69,8 +67,9 @@
             <b-button
               v-for="(mode, idx) in modes"
               :key="idx"
-              @click="setMode(mode.value)"
+              @click="setMode(mode)"
               class="btn_mode"
+              :class="{active: selectedMode === mode}"
             >
               <img :src="require('~/assets/images/' + mode.logo)" :alt="mode.text" />
             </b-button>
@@ -89,7 +88,7 @@
     </div>
     <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
       <div>laisse moi réflechir</div>
-      <img :src="avatar" alt />
+      <img :src="avatar.icon" alt />
     </div>
   </div>
 </template>
@@ -98,11 +97,14 @@
 export default {
   data() {
     return {
+      isThinking: false,
       loading: true,
       showInputTo: false,
       showModes: false,
       from: '',
       to: '',
+      selectedMode: null,
+      selectedAvatarIdx: null,
       modes: [
         { logo: 'trot.svg', value: 'bike' },
         { logo: 'walk.svg', value: 'walking' },
@@ -110,8 +112,6 @@ export default {
         { logo: 'bike.svg', value: 'bike' },
         { logo: 'car.svg', value: 'car' }
       ],
-      selectedMode: null,
-      selectedAvatarIdx: null,
       avatars: [
         {
           icon: require('~/assets/images/grandmother.svg'),
@@ -131,16 +131,15 @@ export default {
     }
   },
   methods: {
-    submit() {
-      setTimeout(() => {
-        this.$router.push({
-          path: '/marius_map'
-        })
-      }, 2000)
-      this.$store.dispatch('marius/fetchitineraries', {
+    async submit() {
+      this.isThinking = true
+      await this.$store.dispatch('marius/fetchitineraries', {
         from: this.from,
         to: this.to,
-        mode: this.selectedMode
+        mode: this.selectedMode.value
+      })
+      this.$router.push({
+        path: '/marius_map'
       })
     },
 

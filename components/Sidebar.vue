@@ -52,7 +52,7 @@ export default {
           icon: require('~/assets/images/elec_car.svg')
         },
         {
-          title: 'Marius',
+          title: 'Analyser mon trajet',
           link: '/marius',
           icon: require('~/assets/images/navbarMarius.svg')
         },

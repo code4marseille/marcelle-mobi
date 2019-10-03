@@ -25,8 +25,8 @@
 
         <div
           class="bg-light itineraries px-3 py-3 d-flex justify-content-between"
-          v-for="(AlternativesDetails, j) in $store.getters  ['marius/AlternativesDetails']"
-          :key="j"
+          v-for="(AlternativesDetails, i) in $store.getters  ['marius/AlternativesDetails']"
+          :key="i"
         >
           <div>
             <p class="text-left mb-0 pb-1">Moyen de transport : {{AlternativesDetails.mode}}</p>
@@ -36,7 +36,8 @@
 
           <div>
             <img
-              class="iconVehicule proposition_marius"
+              class="iconVehicule"
+              :style="{borderBottom: `3px solid ${colors[i]} !important`}"
               :src="require('assets/images/' + AlternativesDetails.mode +`.svg`)"
             />
           </div>
@@ -50,13 +51,15 @@
       class="modal_details_transport"
     >
       <i class="fas fa-chevron-up" v-if="!$store.state.marius.seeModal"></i>
-      <i class="fas fa-chevron-down" v-else="$store.state.marius.seeModal"></i>
+      <i class="fas fa-chevron-down" v-else></i>
     </b-button>
   </div>
 </template>
 <script>
 export default {
-  components: {}
+  props: {
+    colors: { type: Array, required: true }
+  }
 }
 </script>
 
@@ -96,10 +99,6 @@ export default {
     position: absolute;
     top: 40px;
     right: 15px;
-  }
-
-  .proposition_marius {
-    border-bottom: 3px solid red !important;
   }
 
   .transport_now {
