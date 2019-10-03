@@ -30,7 +30,8 @@ export default {
 
   data() {
     return {
-      ready: false
+      ready: false,
+      zoomControl: true
     }
   },
 
