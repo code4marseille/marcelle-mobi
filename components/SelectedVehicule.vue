@@ -34,7 +34,7 @@
           </button>
         </a>
 
-        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser">
+        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser" target="blank">
           <button type="button" class="btn buttonGoApp">Vers le site web</button>
         </a>
       </div>
@@ -73,13 +73,21 @@ export default {
         bus: v => {
           return {
             icon: require(`~/assets/images/bus.svg`),
-            line1: v.nomLigneCial
+            line1: 'Ligne de bus N°' + v.nomLigneCial,
+            linkBrowser:
+              'https://www.rtm.fr/sites/default/files/' +
+              v.nomLigneCial.toLowerCase() +
+              'hiver_horaires.pdf'
           }
         },
         tram: v => {
           return {
             icon: require(`~/assets/images/tram.svg`),
-            line1: v.nomLigneCial
+            line1: 'ligne de tramway N°' + v.nomLigneCial,
+            linkBrowser:
+              'https://www.rtm.fr/sites/default/files/' +
+              v.nomLigneCial.toLowerCase() +
+              'hiver_horaires.pdf'
           }
         },
 
