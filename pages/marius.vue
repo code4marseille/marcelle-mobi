@@ -12,7 +12,7 @@
         >ENSEMBLE NOUS ALLONS TROUVER LE MEILLEUR MOYEN DE TRANSPORT POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
 
         <div>
-          <p class="mt-5">Choisis ton avatar !</p>
+          <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
         <div class="d-flex justify-content-between w-100">
           <div
@@ -104,7 +104,7 @@ export default {
       from: '',
       to: '',
       modes: [
-        { logo: 'trot.svg', value: 'bikes' },
+        { logo: 'trot.svg', value: 'bike' },
         { logo: 'walk.svg', value: 'walking' },
         { logo: 'rtm.svg.png', value: 'walking' },
         { logo: 'bike.svg', value: 'bike' },
@@ -132,13 +132,15 @@ export default {
   },
   methods: {
     submit() {
+      setTimeout(() => {
+        this.$router.push({
+          path: '/marius_map'
+        })
+      }, 2000)
       this.$store.dispatch('marius/fetchitineraries', {
         from: this.from,
         to: this.to,
         mode: this.selectedMode
-      })
-      this.$router.push({
-        path: '/marius_map'
       })
     },
 

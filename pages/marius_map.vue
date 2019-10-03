@@ -6,19 +6,28 @@
           :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
         ></l-tile-layer>
         <l-polyline :lat-lngs="$store.getters['marius/latLngs']" color="green"></l-polyline>
+        <l-polyline
+          v-for="(latLngs, i ) in $store.getters['marius/latLngsAlternatives']"
+          :key="i"
+          :lat-lngs="latLngs"
+          color="red"
+        ></l-polyline>
       </l-map>
     </div>
+    <ModalDetailsItineraries />
   </div>
 </template>
 
 <script>
 import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
+import ModalDetailsItineraries from '~/components/ModalDetailsItineraries.vue'
 
 export default {
   components: {
     LMap,
     LTileLayer,
-    LPolyline
+    LPolyline,
+    ModalDetailsItineraries
   },
 
   data() {
@@ -27,11 +36,30 @@ export default {
       mapBoxToken:
         'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ'
     }
-  }
+  },
+
+  methods: {}
 }
 </script>
 
 <style>
+.animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -00px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
 .leaflet-left {
   right: 0 !important;
   padding-right: 10px;

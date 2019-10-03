@@ -4,16 +4,21 @@
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
 
-        <b-form @submit.prevent="onSubmit" inline style="justify-content:center" class="mt-3">
-          <b-input
-            id="inline-form-input-name "
-            placeholder="Rechercher une adresse"
-            v-model="searchAddress"
-            style="width:60%; z-index:1000"
-            class="ml-3"
-          ></b-input>
-          <b-button variant="dark" type="submit" style="width:10%; z-index:1000" class="px-1">Go</b-button>
+        <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
+          <div class="search_content">
+            <b-input
+              id="inline-form-input-name "
+              placeholder="Rechercher une adresse"
+              v-model="searchAddress"
+              style="width:90%; z-index:468; border-radius: 10px 0 0 10px"
+              class="ml-3 searchbox"
+            ></b-input>
+            <b-button type="submit" style="width:20%; z-index:468" class="pr-3 text-right loupe">
+              <i class="fas fa-search"></i>
+            </b-button>
+          </div>
         </b-form>
+
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'c'+i"
@@ -41,18 +46,18 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom" style="border-radius:20px">
+    <div class="fixed-bottom mx-3 mb-3" id="filter">
       <b-button-group style="display:flex; justify-content:center">
         <b-button
           v-for="(btn, idx) in buttons"
           :key="idx"
           :pressed.sync="btn.state"
-          variant="primary"
+          variant="light"
           size="sm"
-          class="select_btn borderCentral"
+          class="select_btn col-4 borderCentral pt-1"
         >
           <img :src="btn.icon" alt class="icon_filterbar" />
-          <p class="text_filterbar">{{ btn.caption }}</p>
+          <p class="text_filterbar mb-3">{{ btn.caption }}</p>
         </b-button>
       </b-button-group>
 
@@ -106,7 +111,7 @@ export default {
         {
           caption: 'Parkings',
           state: false,
-          icon: require('~/assets/images/Parking_icon.svg')
+          icon: require('~/assets/images/parking_marker.svg')
         },
         {
           caption: 'Covoiturage',
@@ -219,9 +224,9 @@ export default {
     margin-bottom: 0;
   }
 
-  .leaflet-control-attribution {
-    display: none;
-  }
+  // .leaflet-control-attribution {
+  //   display: none;
+  // }
 
   .h_iframe iframe {
     width: 100%;
@@ -233,34 +238,10 @@ export default {
   }
 
   // DESIGN FILTER CARD
-  .btn-group {
-    margin: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 50% !important;
-  }
-
-  .borderCentral {
-    border-right: 1px solid rgba(182, 181, 181, 0.7) !important;
-    border-left: 1px solid rgba(182, 181, 181, 0.7) !important;
-  }
-
-  .select_btn {
-    background-color: rgb(250, 250, 250) !important;
-    opacity: 1 !important;
-    border: none;
-    box-shadow: none;
-  }
-
-  .select_btn.active {
-    background-color: #bde5f3 !important;
-    outline: 1.6px solid #0e5da4 !important;
-    box-shadow: none;
-    z-index: 3;
-  }
 
   .icon_filterbar {
-    min-width: 40px;
-    min-height: 40px;
+    width: 35px !important;
+    height: 35px !important;
     margin-top: 5px;
   }
 
@@ -270,12 +251,65 @@ export default {
     margin-bottom: 2px;
   }
 
-  .form-control {
+  .btn-secondary {
+  }
+  #filter {
+    background-color: aliceblue;
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+  }
+
+  .borderCentral:first-child {
+    border-right: 1px solid rgba(182, 181, 181, 0.8) !important;
     border-radius: 10px 0 0 10px;
   }
 
-  .btn-dark {
+  .borderCentral:last-child {
+    border-left: 1px solid rgba(182, 181, 181, 0.8) !important;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .select_btn {
+    background-color: transparent;
+    height: 80px;
+    border: transparent;
+    outline: none !important;
+  }
+
+  .active {
+    background-color: rgba(187, 231, 255, 0.38) !important;
+    outline: none !important;
+    border: 0;
+  }
+
+  .fa-search {
+    color: #0e5da4;
+  }
+
+  .loupe {
+    background-color: white;
+    border: none;
     border-radius: 0px 10px 10px 0;
+    height: 38px;
+  }
+
+  .searchbox {
+    border: none;
+    border-radius: 10px 0 0 10px;
+    margin-left: 0px !important;
+  }
+
+  .search_content {
+    border-radius: 10px;
+    border: 0.9px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 468;
+    display: flex;
+    width: 100%;
+    margin-left: 70px;
+    margin-right: 50px;
   }
 }
 </style>
