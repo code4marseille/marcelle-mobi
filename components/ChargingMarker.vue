@@ -33,13 +33,6 @@
         <strong>Prise(s) :</strong>
         {{charging.numberOfPoints}}
       </p>
-      <!-- Ci dessous n'affiche rien  -->
-      <!-- <ul v-if="charging.connections.length > 0" style="list-style-type: none;">
-        <li
-          v-for="(connection, id) in connectionUnknownFilter"
-          :key="id"
-        >{{connection.connectionType.title}}</li>
-      </ul>-->
 
       <p v-if="charging.generalComments" class="text-left mt-2">
         <i class="fas fa-comment-dots"></i>
@@ -48,7 +41,6 @@
       </p>
     </l-popup>
     <l-icon :icon-url="marker.image"></l-icon>
-    <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon> -->
   </l-marker>
 </template>
 

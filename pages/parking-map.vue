@@ -3,24 +3,9 @@
     <div id="position">
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
-
-        <b-form @submit.prevent="onSubmit" inline style=" z-index:1000" class="mt-3">
-          <div class="search_content">
-            <b-form-input
-              id="inline-form-input-name input-list"
-              list="input-list"
-              placeholder="Rechercher une adresse"
-              v-model="searchAddress"
-              style="width:90%; z-index:469; border-radius: 10px 0 0 10px"
-              class="ml-3 searchbox"
-              @keyup="autocomplete"
-            ></b-form-input>
-            <b-form-datalist id="input-list" :options="addresses"></b-form-datalist>
-            <b-button type="submit" style="width:20%; z-index:469" class="pr-3 text-right loupe">
-              <i class="fas fa-search"></i>
-            </b-button>
-          </div>
-        </b-form>
+        <div style="display:flex; wrap:no-wrap; justify-content:center;margin-top:1%">
+          <AutocompleteInput style="z-index:449; width:60%" />
+        </div>
 
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -63,22 +48,6 @@
           <p class="text_filterbar">{{ btn.caption }}</p>
         </b-button>
       </b-button-group>
-
-      <div>
-        <b-modal
-          title="BootstrapVue"
-          id="notFound"
-          style="display:flex; flex-direction:row; justify-content:center"
-          ok-only
-        >
-          <p
-            class="my-4"
-            style="text-align:center"
-          >Adresse non trouvée dans Marseille Provence Métropole</p>
-          <img src="~/assets/images/mpm.png" style="width:100%" alt />
-        </b-modal>
-      </div>
-      <!-- Fin Block -->
     </div>
   </div>
 </template>
@@ -90,7 +59,7 @@ import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
 import CarPoolMarker from '~/components/CarPoolMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
-import inseeCode from '~/static/inseeCode'
+import AutocompleteInput from '~/components/AutocompleteInput.vue'
 export default {
   components: {
     LMap,
@@ -98,14 +67,13 @@ export default {
     ChargingMarker,
     ParkingMarker,
     MapboxTile,
-    CarPoolMarker
+    CarPoolMarker,
+    AutocompleteInput
   },
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
 
-      searchAddress: '',
-      addresses: [],
       buttons: [
         {
           caption: 'Recharge',
@@ -125,13 +93,6 @@ export default {
       ]
     }
   },
-  computed: {
-    toggleButton() {
-      return this.toggleView
-        ? 'Afficher les parkings'
-        : 'Afficher les bornes de recharge'
-    }
-  },
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
@@ -144,60 +105,9 @@ export default {
       return (
         'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
       )
-    },
-    toggleParkingButton() {
-      this.toggleView = !this.toggleView
-    },
-    autocomplete(searchAddress) {
-      debounce(
-        () =>
-          Object.keys(inseeCode).forEach(async insee =>
-            this.addresses.push(
-              await this.$axios.get(
-                'https://api-adresse.data.gouv.fr/search/',
-                { params: { q: this.searchAddress, limit: 5, citycode: insee } }
-              )
-            )
-          ),
-        500
-      )
-    },
-
-    GetMpmAddress(addresses) {
-      // const coordMpm = this.$store.state.parkingMap.bbox.split(',')
-      // //coordMpm[0] = minLat
-      // //coordMpm[1] = minlng
-      // //coordMpm[2] = maxLatslack
-      // //coordMpm[3] = maxLng
-      // let found = addresses.data.features.find(
-      //   city =>
-      //     city.geometry.coordinates[1] <= coordMpm[2] &&
-      //     city.geometry.coordinates[1] >= coordMpm[0] &&
-      //     city.geometry.coordinates[0] <= coordMpm[3] &&
-      //     city.geometry.coordinates[0] >= coordMpm[1]
-      // )
-      // if (found != undefined) {
-      //   return found
-      // } else return false
-    },
-
-    async onSubmit(evt) {
-      // if (this.searchAddress == '') return
-      // let coord = await this.$axios.get(
-      //   'https://api-adresse.data.gouv.fr/search/',
-      //   { params: { q: this.searchAddress, limit: 1000 } }
-      // )
-      // const found = this.GetMpmAddress(coord)
-      // if (found) {
-      //   const lat = found.geometry.coordinates[1]
-      //   const lng = found.geometry.coordinates[0]
-      //   L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
-      //   this.flyTo([lat, lng], 18)
-      // } else {
-      //   this.$bvModal.show('notFound')
-      // }
     }
   },
+
   created() {
     this.$store.dispatch('parkingMap/fetchChargingStations', {
       latitude: this.initialLocation[0],
@@ -265,8 +175,6 @@ export default {
     margin-bottom: 2px;
   }
 
-  .btn-secondary {
-  }
   #filter {
     background-color: aliceblue;
     height: 80px;

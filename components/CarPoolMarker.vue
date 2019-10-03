@@ -38,7 +38,7 @@ export default {
     }
   },
   created() {
-    console.log(this.carPool)
+    // console.log(this.carPool)
   }
 }
 </script>

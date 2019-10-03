@@ -38,13 +38,15 @@
           <img :src="avatar.icon" alt style="width:200px" />
           <div class="askBlock">
             <div class="ask text-center">d'où pars tu ?</div>
-            <input
+            <!-- <input
               type="text"
               autocomplete="address"
               v-model="from"
               @blur="showInputTo=true"
               class="inputAsk border-bottom mt-3"
-            />
+            />-->
+
+            <AutocompleteInput />
           </div>
         </div>
 
@@ -95,7 +97,11 @@
 </template>
 
 <script>
+import AutocompleteInput from '~/components/AutocompleteInput.vue'
+
 export default {
+  components: { AutocompleteInput },
+
   data() {
     return {
       loading: true,
