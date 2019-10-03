@@ -3,6 +3,7 @@
     <l-popup style="text-align:center" id="ParkingMarkerVue">
       <p style="font-weight:bold;" class="title text-left">{{parking.name}}</p>
       <p class="text-left pb-2">
+        <i class="fas fa-directions"></i>
         <a
           :href="this.googleMap(parking.lat,parking.lng)"
           target="_blank"
@@ -60,7 +61,7 @@ export default {
   }
 
   .address {
-    color: rgba(0, 0, 0, 0.8) !important;
+    color: #0e5da4 !important;
     font-size: 16px;
     margin-top: 0px;
     font-style: italic;
