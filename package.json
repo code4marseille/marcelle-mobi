@@ -20,6 +20,7 @@
     "bootstrap-vue": "^2.0.2",
     "camelcase-keys": "^6.0.1",
     "leaflet": "^1.5.1",
+    "leaflet-polylineoffset": "^1.1.1",
     "nuxt": "2.9.2",
     "nuxt-leaflet": "^0.0.19",
     "vue-infinite-loading": "^2.4.4",
