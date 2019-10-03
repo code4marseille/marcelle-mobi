@@ -26,7 +26,7 @@ export const getters = ({
     state.itineraries.alternatives.forEach(section => {
       if (section) {
         detailsAlters.push({
-          co2: section.co2Emission["value"],
+          co2: Math.round(section.co2Emission["value"]),
           duration: Math.round(section.duration / 60),
           mode: section.tags[0],
 

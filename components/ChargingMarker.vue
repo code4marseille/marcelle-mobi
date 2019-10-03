@@ -9,10 +9,12 @@
         <span style="font-weight:bold">{{charging.addressInfo.contactTelephone1}}</span>
       </p>
       <p class="text-left border-bottom pb-3">
+        <i class="fas fa-directions"></i>
         <a
           :href="googleMap(charging.addressInfo.latitude,charging.addressInfo.longitude)"
           target="_blank"
           class="address"
+          style="color: #0e5da4 !important;"
         >{{charging.addressInfo.addressLine1}}, {{charging.addressInfo.postcode}} {{charging.addressInfo.town}}</a>
       </p>
 
