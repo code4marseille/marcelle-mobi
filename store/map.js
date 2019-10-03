@@ -42,7 +42,6 @@ export const mutations = {
     state.trams.map(tram => tram.provider = 'tram');
     state.bus = rtms.filter(bus => bus.type == 2);
     state.bus.map(bus => bus.provider = 'bus');
-
   },
   TOGGLE_CARS(state) {
     state.seeCars = !state.seeCars;
