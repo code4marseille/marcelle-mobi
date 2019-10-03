@@ -5,14 +5,14 @@
         <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
           <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
         </v-btn>
-        <b-button v-b-toggle.collapse-1 class="reinitialise">
+        <b-button v-b-toggle.collapse-1 class="reinitialiseStyle">
           <div
             @click="$store.commit('map/TOGGLE_FILTER')"
             class="buttonGo"
           >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
         </b-button>
       </div>
-      <b-collapse id="collapse-1" visible class="mt-2">
+      <b-collapse id="collapse-1" v-bind:visible="!$store.state.map.filterVisible" class="mt-2">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
           <div class="row justify-content-between mx-0">
             <div
@@ -160,7 +160,9 @@ export default {
     font-size: 1.3rem;
   }
 
-  .reinitialise {
+  .reinitialiseStyle,
+  .reinitialiseStyle:active,
+  .reinitialiseStyle.active {
     animation: none;
     animation-delay: 0;
     animation-direction: normal;
