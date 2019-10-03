@@ -61,7 +61,8 @@ import Vue from 'vue'
 
 Vue.use(InfiniteLoading, {
   slots: {
-    noMore: ''
+    noMore: '',
+    noArticles: ''
   },
   props: {
     spinner: 'spiral'

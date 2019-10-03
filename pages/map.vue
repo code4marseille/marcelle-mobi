@@ -12,10 +12,6 @@
           :provider="vehicule.provider"
         />
 
-        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
-          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
-        </v-btn>
-
         <LocateControl />
         <MapFilter />
       </l-map>
@@ -40,8 +36,7 @@ export default {
   },
   data() {
     return {
-      location: { lat: 43.295336, lng: 5.373907 },
-      isLoading: false
+      location: { lat: 43.295336, lng: 5.373907 }
     }
   },
   created() {
@@ -58,11 +53,6 @@ export default {
     updateVehicules(center) {
       this.location = center
       this.$store.dispatch('map/fetchTrots', center)
-    },
-    async refreshMap() {
-      this.isLoading = true
-      await this.$store.dispatch('map/fetchAllVehicles', this.location)
-      this.isLoading = false
     }
   }
 }
@@ -70,13 +60,6 @@ export default {
 
 <style lang="scss">
 #mapPage {
-  .btn-refresh {
-    position: fixed;
-    right: 0.8vw;
-    bottom: 30vh;
-    z-index: 999;
-  }
-
   .spinnerLoading {
     z-index: 1000;
     position: fixed;
