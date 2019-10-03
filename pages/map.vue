@@ -1,13 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map
-        id="map"
-        :zoom="16"
-        :center="initialLocation"
-        ref="map"
-        @update:center="updateVehicules"
-      >
+      <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
         <MapboxTile />
 
         <VehiculeMarker
@@ -17,6 +11,10 @@
           :select="selectVehicule"
           :provider="vehicule.provider"
         />
+
+        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
+          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
+        </v-btn>
 
         <LocateControl />
         <MapFilter />
@@ -42,17 +40,12 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      location: { lat: 43.295336, lng: 5.373907 },
+      isLoading: false
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCitiz')
-    this.$store.dispatch('map/fetchTotems')
-    this.$store.dispatch('map/fetchTrots', {
-      lat: this.initialLocation[0],
-      lng: this.initialLocation[1]
-    })
-    this.$store.dispatch('map/fetchBikes')
+    this.$store.dispatch('map/fetchAllVehicles', this.location)
   },
   methods: {
     flyTo(latLng, zoom) {
@@ -63,7 +56,13 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
+      this.location = center
       this.$store.dispatch('map/fetchTrots', center)
+    },
+    async refreshMap() {
+      this.isLoading = true
+      await this.$store.dispatch('map/fetchAllVehicles', this.location)
+      this.isLoading = false
     }
   }
 }
@@ -71,6 +70,19 @@ export default {
 
 <style lang="scss">
 #mapPage {
+  .btn-refresh {
+    position: fixed;
+    right: 0.8vw;
+    bottom: 30vh;
+    z-index: 999;
+  }
+
+  .spinnerLoading {
+    z-index: 1000;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+  }
   .leaflet-left {
     right: 0 !important;
     padding-right: 10px;

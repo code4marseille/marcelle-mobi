@@ -5,6 +5,12 @@ export const state = () => ({
   cars: [],
   bikes: [],
   trots: [],
+  trams: [],
+  bus: [],
+  metro: [],
+  seeMetros: true,
+  seeBus: true,
+  seeTrams: true,
   seeCars: true,
   seeBikes: true,
   seeTrots: true,
@@ -13,8 +19,10 @@ export const state = () => ({
 
 export const getters = {
   carByIdx: state => idx => state.cars[idx],
-  allVehicules: state => [...state.cars, ...state.bikes, ...state.trots]
-};
+  allVehicules: state => [
+    ...state.cars, ...state.bikes, ...state.trots, ...state.bus, ...state.trams
+  ]
+}
 
 export const mutations = {
   SET(state, payload) {
@@ -29,8 +37,21 @@ export const mutations = {
   SET_BIKES(state, bikes) {
     state.bikes = bikes;
   },
+  SET_RTMS(state, rtms) {
+    state.trams = rtms.filter(trams => trams.type == 1);
+    state.trams.map(tram => tram.provider = 'tram');
+    state.bus = rtms.filter(bus => bus.type == 2);
+    state.bus.map(bus => bus.provider = 'bus');
+
+  },
   TOGGLE_CARS(state) {
     state.seeCars = !state.seeCars;
+  },
+  TOGGLE_BUS(state) {
+    state.seeBus = !state.seeBus;
+  },
+  TOGGLE_TRAMS(state) {
+    state.seeTrams = !state.seeTrams;
   },
   TOGGLE_TROTS(state) {
     state.seeTrots = !state.seeTrots;
@@ -40,8 +61,7 @@ export const mutations = {
   },
   TOGGLE_FILTER(state) {
     state.filterVisible = !state.filterVisible;
-    if (state.selectedVehicule && state.filterVisible)
-      state.selectedVehicule = null;
+    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
   },
   SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
@@ -60,11 +80,23 @@ export const actions = {
   },
   async fetchBikes({ commit }) {
     const bikes = await this.$axios.$get("/vehicules/bike");
-    commit("SET_BIKES", bikes);
+    commit("SET_BIKES", bikes)
   },
   async fetchTrots({ commit }, { lat, lng }) {
     const trots = await this.$axios.$get('/vehicules/scooter', { params: { lat, lng } })
     commit('SET_TROTS', trots)
+  },
+  async fetchRtms({ commit }) {
+    const rtms = await this.$axios.$get("/vehicules/rtm");
+    commit("SET_RTMS", rtms)
+  },
+  fetchAllVehicles({ dispatch }, { lat, lng }) {
+    return Promise.all([
+      dispatch('fetchTrots', { lat, lng }),
+      dispatch('fetchCitiz'),
+      dispatch('fetchTotems'),
+      dispatch('fetchBikes'),
+      dispatch('fetchRtms')
+    ])
   }
-
 };

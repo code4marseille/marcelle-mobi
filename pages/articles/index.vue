@@ -38,6 +38,9 @@
             </a>
           </b-card>
         </b-col>
+        <!--  -->
+        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+        <!--  -->
         <p v-if="noArticles" class="white py-5 text-center text-white mx-auto">
           Aucun article à afficher dans
           <span class="font-weight-bold">{{selectedCategory}}</span>
@@ -53,12 +56,29 @@
 </template>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading'
+import Vue from 'vue'
+
+Vue.use(InfiniteLoading, {
+  slots: {
+    noMore: ''
+  },
+  props: {
+    spinner: 'spiral'
+  }
+})
+
 export default {
+  components: {
+    InfiniteLoading
+  },
+
   data() {
     return {
       articles: [],
       categories: ['mobilité', 'écologie', 'politique', 'bons plans'],
-      selectedCategory: null
+      selectedCategory: null,
+      page: 1
     }
   },
   methods: {
@@ -67,8 +87,22 @@ export default {
     },
     resetCategory() {
       this.selectedCategory = null
+    },
+    async infiniteHandler($state) {
+      const data = await this.$axios.$get('/articles', {
+        params: { page: this.page }
+      })
+
+      this.articles.push(...data.articles)
+      if (data.metadata.next) {
+        this.page += 1
+        $state.loaded()
+      } else {
+        $state.complete()
+      }
     }
   },
+
   computed: {
     filteredArticles() {
       const filteredArticles = this.articles.filter(
@@ -79,11 +113,6 @@ export default {
     noArticles() {
       return this.filteredArticles.length === 0
     }
-  },
-
-  async created() {
-    const data = await this.$axios.$get('/articles')
-    this.articles = data.articles
   }
 }
 </script>

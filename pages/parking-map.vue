@@ -1,8 +1,24 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="10" :center="initialLocation" ref="map">
+      <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
+
+        <b-form @submit.prevent="onSubmit" inline style=" z-index:1000" class="mt-3">
+          <div class="search_content">
+            <b-input
+              id="inline-form-input-name "
+              placeholder="Rechercher une adresse"
+              v-model="searchAddress"
+              style="width:90%; z-index:469; border-radius: 10px 0 0 10px"
+              class="ml-3 searchbox"
+            ></b-input>
+            <b-button type="submit" style="width:20%; z-index:469" class="pr-3 text-right loupe">
+              <i class="fas fa-search"></i>
+            </b-button>
+          </div>
+        </b-form>
+
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
           :key="'c'+i"
@@ -21,7 +37,7 @@
 
         <CarPoolMarker
           v-for="(carPool,i) in $store.state.parkingMap.carPoolStations"
-          :key="'p'+i"
+          :key="'cP'+i"
           :carPool="carPool"
           :googleMap="googleRoute"
           :visible="buttons[2].state"
@@ -30,45 +46,34 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom container">
-      <div class="d-flex justify-content-center">
-        <!-- Search Button -->
-        <!-- <b-form inline v-show="!toggleView" @submit.prevent="onSubmit">
-        <b-input
-          id="inline-form-input-name"
-          placeholder="Rechercher un parking"
-          class="w-75"
-          v-model="searchAddress"
-        ></b-input>
+    <div class="fixed-bottom mx-3 mb-3" id="filter">
+      <b-button-group style="display:flex; justify-content:center">
         <b-button
-          class="w-25"
-          variant="dark"
-          style="font-size:.9rem; padding:7px 0;"
-          type="submit"
-        >Chercher</b-button>
-      </b-form>
+          v-for="(btn, idx) in buttons"
+          :key="idx"
+          :pressed.sync="btn.state"
+          variant="light"
+          size="sm"
+          class="select_btn col-4 borderCentral pt-1"
+        >
+          <img :src="btn.icon" alt class="icon_filterbar" />
+          <p class="text_filterbar">{{ btn.caption }}</p>
+        </b-button>
+      </b-button-group>
 
-        <!-- Fin Search button-->
-
-        <!-- Block de bouttons -->
-        <!-- <b-button block @click="this.toggleParkingButton">{{toggleButton}}</b-button> -->
-        <b-button-group>
-          <b-button
-            v-for="(btn, idx) in buttons"
-            :key="idx"
-            :pressed.sync="btn.state"
-            variant="primary"
-            size="sm"
-          >{{ btn.caption }}</b-button>
-        </b-button-group>
-        <b-form inline @submit.prevent="onSubmit">
-          <b-input
-            id="inline-form-input-name"
-            placeholder="Rechercher une adresse"
-            v-model="searchAddress"
-          ></b-input>
-          <b-button variant="dark" type="submit">Chercher</b-button>
-        </b-form>
+      <div>
+        <b-modal
+          title="BootstrapVue"
+          id="notFound"
+          style="display:flex; flex-direction:row; justify-content:center"
+          ok-only
+        >
+          <p
+            class="my-4"
+            style="text-align:center"
+          >Adresse non trouvée dans Marseille Provence Métropole</p>
+          <img src="~/assets/images/mpm.png" style="width:100%" alt />
+        </b-modal>
       </div>
       <!-- Fin Block -->
     </div>
@@ -98,9 +103,21 @@ export default {
 
       searchAddress: '',
       buttons: [
-        { caption: 'Borne de Recharge', state: true },
-        { caption: 'Parkings', state: false },
-        { caption: 'Zone de covoiturage', state: false }
+        {
+          caption: 'Recharge',
+          state: false,
+          icon: require('~/assets/images/electric.svg')
+        },
+        {
+          caption: 'Parkings',
+          state: false,
+          icon: require('~/assets/images/Parking_icon.svg')
+        },
+        {
+          caption: 'Covoiturage',
+          state: true,
+          icon: require('~/assets/images/covoiturage.svg')
+        }
       ]
     }
   },
@@ -127,17 +144,44 @@ export default {
     toggleParkingButton() {
       this.toggleView = !this.toggleView
     },
+
+    GetMpmAddress(addresses) {
+      const coordMpm = this.$store.state.parkingMap.bbox.split(',')
+      //coordMpm[0] = minLat
+      //coordMpm[1] = minlng
+      //coordMpm[2] = maxLat
+      //coordMpm[3] = maxLng
+      let found = addresses.data.features.find(
+        city =>
+          city.geometry.coordinates[1] <= coordMpm[2] &&
+          city.geometry.coordinates[1] >= coordMpm[0] &&
+          city.geometry.coordinates[0] <= coordMpm[3] &&
+          city.geometry.coordinates[0] >= coordMpm[1]
+      )
+      if (found != undefined) {
+        return found
+      } else return false
+    },
+
     async onSubmit(evt) {
       if (this.searchAddress == '') return
       let coord = await this.$axios.get(
         'https://api-adresse.data.gouv.fr/search/',
-        { params: { q: this.searchAddress, limit: 1 } }
+        { params: { q: this.searchAddress, limit: 1000 } }
       )
+      const found = this.GetMpmAddress(coord)
+      if (found) {
+        const lat = found.geometry.coordinates[1]
+        const lng = found.geometry.coordinates[0]
 
-      coord = coord.data.features[0].geometry.coordinates
-      const marker = L.marker([coord[1], coord[0]])
-      marker.addTo(this.$refs.map.mapObject)
-      this.flyTo([coord[1], coord[0]], 18)
+        //      coord = coord.data.features[0].geometry.coordinates
+        // const marker = L.marker([coord[1], coord[0]])
+
+        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
+        this.flyTo([lat, lng], 18)
+      } else {
+        this.$bvModal.show('notFound')
+      }
     }
   },
   created() {
@@ -180,9 +224,9 @@ export default {
     margin-bottom: 0;
   }
 
-  .leaflet-control-attribution {
-    display: none;
-  }
+  // .leaflet-control-attribution {
+  //   display: none;
+  // }
 
   .h_iframe iframe {
     width: 100%;
@@ -192,11 +236,76 @@ export default {
     height: 100%;
     width: 100%;
   }
-  .fixed-bottom {
-    z-index: 450;
-    padding: 20px;
-    opacity: 0.8;
-    text-shadow: 1px 0 black;
+
+  // DESIGN FILTER CARD
+
+  .icon_filterbar {
+    min-width: 35px;
+    min-height: 35px;
+    margin-top: 5px;
+  }
+
+  .text_filterbar {
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+
+  .btn-secondary {
+  }
+  #filter {
+    background-color: aliceblue;
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+  }
+
+  .borderCentral {
+    border-right: 1px solid rgba(182, 181, 181, 0.8) !important;
+
+    border-left: 1px solid rgba(182, 181, 181, 0.8) !important;
+  }
+
+  .select_btn {
+    background-color: transparent;
+    height: 80px;
+    border: transparent;
+    outline: none !important;
+  }
+
+  .active {
+    background-color: rgba(187, 231, 255, 0.38) !important;
+    outline: none !important;
+    border: 0;
+  }
+
+  .fa-search {
+    color: #0e5da4;
+  }
+
+  .loupe {
+    background-color: white;
+    border: none;
+    border-radius: 0px 10px 10px 0;
+    height: 38px;
+  }
+
+  .searchbox {
+    border: none;
+    border-radius: 10px 0 0 10px;
+    margin-left: 0px !important;
+  }
+
+  .search_content {
+    border-radius: 10px;
+    border: 0.9px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1900;
+    display: flex;
+    width: 100%;
+    margin-left: 70px;
+    margin-right: 50px;
   }
 }
 </style>

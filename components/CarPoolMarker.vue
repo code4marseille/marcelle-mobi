@@ -1,13 +1,20 @@
-<template>
+<template id="covoit">
   <l-marker :lat-lng="[carPool.lat,carPool.lng]" :visible="visible">
-    <l-popup style="text-align:center">
-      <p style="font-weight:bold; font-size:1rem;">{{carPool.name}}</p>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">S'y rendre</a>
+    <l-popup style="text-align:center" class="popup_covoit">
+      <p
+        style="font-weight:bold;"
+        class="title text-left border-bottom pb-2"
+      >{{carPool.name.replace("Aire de covoiturage ","")}}</p>
+      <p class="text-left pt-2">
+        <i class="fas fa-walking"></i>
+        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">
+          <strong>Itinéraire</strong>
+        </a>
       </p>
     </l-popup>
-    <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carPool.png')"></l-icon>
+
+    <l-icon :icon-url="marker.image" class="covoit_marker"></l-icon>
+    <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carPool.png')"></l-icon> -->
   </l-marker>
 </template>
 
@@ -21,6 +28,41 @@ export default {
     carPool: { type: Object, required: true },
     googleMap: { type: Function, required: true },
     visible: { type: Boolean, required: true }
+  },
+  data() {
+    return {
+      iconColor: {},
+      marker: {
+        image: require('~/assets/images/covoit.svg')
+      }
+    }
+  },
+  created() {
+    console.log(this.carPool)
   }
 }
 </script>
+<style lang="scss">
+.popup_covoit {
+  width: 200px !important;
+
+  p {
+    font-size: 14px;
+  }
+  .title {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  .fas {
+    color: #0e5da4;
+    width: 17px;
+  }
+}
+
+.leaflet-marker-icon {
+  min-width: 30px !important;
+  min-height: 30px !important;
+}
+</style>

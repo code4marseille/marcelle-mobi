@@ -1,11 +1,38 @@
 <template>
   <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-2 text-center flex-grow-1 w-75">Proposer votre article</h2>
+      <h2 class="text-uppercase pt-2 ml-3 text-center flex-grow-1 w-75">Ajouter un article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->
-      <b-form>
+
+      <b-input-group id="input-group-1" label="Lien url" label-for="input-3" class="label mt-3">
+        <b-form-input
+          id="input-3"
+          v-model="form.url"
+          type="text"
+          required
+          label="Photo"
+          placeholder="URL de votre article"
+          class="mb-2 inputFormCreateArticle"
+        ></b-form-input>
+        <b-input-group-append append="OK">
+          <b-button
+            class="d-flex"
+            variant="primary"
+            style="height:38px;border-radius:0px 5px 5px 0px;"
+            @click="fetchPreview"
+          >OK</b-button>
+        </b-input-group-append>
+      </b-input-group>
+      <p class="text_message_error">{{errorMessage}}</p>
+
+      <!-- SECOND PART -->
+      <template v-if="previewLoaded">
+        <b-form-group id="input-group-1" label="Photo" label-for="input-1" class="label">
+          <img v-if="form.imgUrl" :src="form.imgUrl" class="img-fluid" />
+        </b-form-group>
+
         <b-form-group id="input-group-1" label="Titre" label-for="input-1" class="label">
           <b-form-input
             id="input-1"
@@ -24,17 +51,6 @@
             type="text"
             required
             placeholder="Courte description"
-            class="mb-4 inputFormCreateArticle"
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-1" label="Lien url" label-for="input-3" class="label">
-          <b-form-input
-            id="input-3"
-            v-model="form.url"
-            type="text"
-            required
-            placeholder="Lien votre article"
             class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
@@ -83,7 +99,7 @@
           class="btn btn-dark-blue"
           :disabled="emptyFields"
         >Valider votre article</b-button>
-      </b-form>
+      </template>
     </div>
   </div>
 </template>
@@ -94,14 +110,17 @@ export default {
   data() {
     return {
       form: {
+        url: '',
         title: '',
         description: '',
-        url: '',
+        imgUrl: '',
         publisherName: '',
         publisherEmail: '',
         selectedCategory: ''
       },
-      categories: ['écologie', 'mobilité', 'politique', 'bons plans']
+      errorMessage: '',
+      categories: ['écologie', 'mobilité', 'politique', 'bons plans'],
+      previewLoaded: false
     }
   },
 
@@ -111,6 +130,10 @@ export default {
         if (this.form[field] == '') return true
       }
       return false
+    },
+    validEmail() {
+      var regex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/
+      return regex.test(this.form.url)
     }
   },
 
@@ -118,10 +141,25 @@ export default {
     selectCategory(category) {
       this.form.selectedCategory = category
     },
+    async fetchPreview() {
+      this.previewLoaded = false
+      this.errorMessage = ''
+      if (!this.validEmail) {
+        this.errorMessage = 'Désolé, cet URL est incorrect'
+      } else {
+        const preview = await this.$axios.$get('/articles/preview', {
+          params: { url: this.form.url }
+        })
+        Object.assign(this.form, preview)
+        this.previewLoaded = true
+        this.errorMessage = ''
+      }
+    },
     async sendArticle() {
       await this.$axios.$post('/articles', {
         title: this.form.title,
         description: this.form.description,
+        img_url: this.form.imgUrl,
         url: this.form.url,
         publisher_name: this.form.publisherName,
         publisher_email: this.form.publisherEmail,
@@ -158,6 +196,13 @@ export default {
 
   .form-contener {
     padding: 70px 7vw 0;
+  }
+
+  .text_message_error {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
   }
 
   label {

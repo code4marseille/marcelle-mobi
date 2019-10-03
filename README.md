@@ -1,36 +1,49 @@
 # marcelle-mobi
-
+![marcelle-mobi](static/icon.png)
 > Déplacez-vous autrement dans Marseille
 
 ## SETUP
 
-Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/ 
+1. Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/ 
+
+**Mac OS (avec homebrew)**
 ```
-# OSX
 brew install node
 **OR**
 brew update 
 brew upgrade node
 ```
 
+**Linux (avec apt)**
 ```
-# Ubuntu
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
-Installer Yarn (gestionnaire de packages) https://yarnpkg.com/en/docs/install
+2. Installer Yarn (gestionnaire de packages) https://yarnpkg.com/en/docs/install
 
+**Mac OS**
 ```
-# OSX
 brew install yarn 
 ```
+
+**Linux**
 ```
-# Ubuntu
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
 ```
+
+### OPTION 1 : Travailler dans l'application existante 
+
+#### En NuxtJS+VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
+#### Vue+JSX [exemple en JSX](exemples/jsx.vue)
+
+
+1. Forker le repo
+2. Cloner votre repo 
+3. Créer une branche
+4. A la fin du Hackathon : pousser votre branche sur Github et faire une Pull Request
 
 **Cloner le repo**
 ```
@@ -42,5 +55,23 @@ Lancer le serveur en local sur http://localhost:3000
 ```
 yarn dev
 ```
+
+### OPTION 2 : Créer votre propre projet
+
+1. Creer un projet avec le langage de votre choix
+2. Faire un repo Github
+3. Mettre le projet en ligne
+3. Me transmettre l'url de votre repo et de l'app
+
+
+## ACCÈS API
+
+DOCUMENTATION : https://documenter.getpostman.com/view/8993685/SVtN5YCA?version=latest
+
+## Librairies utilisées
+https://github.com/KevinBerthier/marcelle-mobi/network/dependencies
+
+
+**Bon Hackathon !**
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
