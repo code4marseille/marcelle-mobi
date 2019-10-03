@@ -1,12 +1,12 @@
 <template>
-  <div style="display: none;" @click="options">
+  <div style="display: none;">
     <slot v-if="ready"></slot>
   </div>
 </template>
 
 <script>
 import L, { DomEvent } from 'leaflet'
-import { findRealParent, propsBinder, LControlZoom } from 'vue2-leaflet'
+import { findRealParent, propsBinder } from 'vue2-leaflet'
 import 'leaflet.locatecontrol'
 
 const props = {
