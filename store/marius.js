@@ -22,13 +22,14 @@ export const getters = ({
 
   AlternativesDetails: state => {
     let detailsAlters = []
-    console.log(detailsAlters, 'TEST 51')
     state.itineraries.alternatives.forEach(section => {
       if (section) {
         detailsAlters.push({
           co2: section.co2Emission["value"],
           duration: Math.round(section.duration / 60),
-          mode: section.tags[0],
+          mode: section.tags[0]
+
+
 
         })
       }
@@ -51,6 +52,10 @@ export const getters = ({
   },
 
 
+  // FitBound Details
+
+
+
   // Alternative itineraries Vehicule
 
 
@@ -63,7 +68,6 @@ export const getters = ({
       });
       latLngsAlters.push(latLngs)
     });
-    console.log(latLngsAlters, ' TEST 43')
     return latLngsAlters
 
   }
