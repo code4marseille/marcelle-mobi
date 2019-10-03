@@ -3,21 +3,17 @@
     <div id="position">
       <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
         <MapboxTile />
-
-        <VehiculeMarker
-          v-for="(vehicule, i) in $store.getters['map/allVehicules']"
-          :key="i"
-          :vehicule="vehicule"
-          :select="selectVehicule"
-          :provider="vehicule.provider"
-        />
-
-        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
-          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
-        </v-btn>
-
+        <v-marker-cluster :options="clusterOptions">
+          <VehiculeMarker
+            v-for="(vehicule, i) in $store.getters['map/allVehicules']"
+            :key="i"
+            :vehicule="vehicule"
+            :select="selectVehicule"
+            :provider="vehicule.provider"
+          />
+        </v-marker-cluster>
         <LocateControl />
-        <MapFilter />
+        <MapFilter :location="location"/>
       </l-map>
     </div>
   </div>
@@ -25,28 +21,44 @@
 
 <script>
 import { LMap } from 'vue2-leaflet'
+import * as L from 'leaflet'
 import LocateControl from '~/components/LocateControl'
 import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
-
+import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
 export default {
   components: {
     LMap,
     LocateControl,
     MapFilter,
     VehiculeMarker,
-    MapboxTile
+    MapboxTile,
+    'v-marker-cluster': Vue2LeafletMarkerCluster
   },
   data() {
     return {
       location: { lat: 43.295336, lng: 5.373907 },
-      isLoading: false
+      clusterOptions: {
+        spiderfyOnMaxZoom: false,
+        maxClusterRadius: 40,
+        disableClusteringAtZoom: 17,
+        iconCreateFunction: cluster => {
+          var markers = cluster.getAllChildMarkers()
+          var html = `<div>${markers.length}</div>`
+          return L.divIcon({
+            html: html,
+            className: 'clusterMarker',
+            iconSize: L.point(32, 32)
+          })
+        }
+      }
     }
   },
   created() {
     this.$store.dispatch('map/fetchAllVehicles', this.location)
   },
+
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
@@ -58,11 +70,6 @@ export default {
     updateVehicules(center) {
       this.location = center
       this.$store.dispatch('map/fetchTrots', center)
-    },
-    async refreshMap() {
-      this.isLoading = true
-      await this.$store.dispatch('map/fetchAllVehicles', this.location)
-      this.isLoading = false
     }
   }
 }
@@ -70,13 +77,6 @@ export default {
 
 <style lang="scss">
 #mapPage {
-  .btn-refresh {
-    position: fixed;
-    right: 0.8vw;
-    bottom: 30vh;
-    z-index: 999;
-  }
-
   .spinnerLoading {
     z-index: 1000;
     position: fixed;
@@ -108,6 +108,23 @@ export default {
 
   .leaflet-control-attribution {
     display: none;
+  }
+  .clusterMarker {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border: white 3px solid;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
