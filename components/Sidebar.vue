@@ -1,6 +1,6 @@
 <template>
   <v-sheet id="sidebarComponent" class="overflow-hidden" style="position: fixe;">
-    <v-btn @click.stop="drawer = !drawer" text white class="btn-fa-bars text-white">
+    <v-btn @click.stop="drawer = !drawer" text white class="btn-fa-bars text-white pt-3">
       <i class="fas fa-bars"></i>
     </v-btn>
 
@@ -82,7 +82,6 @@ export default {
   .btn-fa-bars {
     position: fixed;
     z-index: 450; /* z-index max = 4xx */
-    margin: 15px 0 0 0;
     left: 1vw;
   }
 

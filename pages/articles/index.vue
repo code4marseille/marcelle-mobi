@@ -1,7 +1,7 @@
 <template>
   <div class="contener-blog">
     <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Bon à savoir</h2>
+      <h2 class="text-uppercase pt-3 text-center flex-grow-1">Bon à savoir</h2>
     </header>
     <main>
       <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
