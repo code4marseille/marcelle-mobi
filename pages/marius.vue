@@ -14,7 +14,7 @@
         <div>
           <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
-        <div class="d-flex justify-content-between w-100">
+        <div class="d-flex justify-content-around w-100">
           <div
             class="marcelle_marius_avatar"
             v-for="(avatar, i) in avatars"
@@ -185,21 +185,23 @@ export default {
     border-color: white;
     width: 170px;
   }
-  // .button.active {
-  //   background-color: white !important;
-  //   border-radius: 5px;
-  //   border: none;
-  // }
 
   .block {
     margin: 5% 0 5% 0;
     border-radius: 10px;
   }
 
-  .btn_mode:hover {
+  .btn_mode:hover,
+  .btn_mode.active {
     background-color: white !important;
     border-radius: 10px !important ;
     border: none !important;
+  }
+
+  .btn_mode img {
+    width: 10vw;
+    height: 10vh;
+    max-width: 80px;
   }
 
   .icons_search {

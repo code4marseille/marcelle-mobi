@@ -1,7 +1,7 @@
 <template>
   <div id="createArticlePage">
     <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-2 ml-3 text-center flex-grow-1 w-75">Ajouter un article</h2>
+      <h2 class="text-uppercase pt-3 ml-3 text-center flex-grow-1 w-75">Ajouter un article</h2>
     </header>
     <div class="form-contener">
       <!-- title -->
