@@ -6,13 +6,16 @@
 
         <b-form @submit.prevent="onSubmit" inline style=" z-index:1000" class="mt-3">
           <div class="search_content">
-            <b-input
-              id="inline-form-input-name "
+            <b-form-input
+              id="inline-form-input-name input-list"
+              list="input-list"
               placeholder="Rechercher une adresse"
               v-model="searchAddress"
               style="width:90%; z-index:469; border-radius: 10px 0 0 10px"
               class="ml-3 searchbox"
-            ></b-input>
+              @keyup="autocomplete"
+            ></b-form-input>
+            <b-form-datalist id="input-list" :options="addresses"></b-form-datalist>
             <b-button type="submit" style="width:20%; z-index:469" class="pr-3 text-right loupe">
               <i class="fas fa-search"></i>
             </b-button>
@@ -87,7 +90,7 @@ import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
 import CarPoolMarker from '~/components/CarPoolMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
-
+import inseeCode from '~/static/inseeCode'
 export default {
   components: {
     LMap,
@@ -102,6 +105,7 @@ export default {
       initialLocation: [43.295336, 5.373907],
 
       searchAddress: '',
+      addresses: [],
       buttons: [
         {
           caption: 'Recharge',
@@ -144,44 +148,54 @@ export default {
     toggleParkingButton() {
       this.toggleView = !this.toggleView
     },
+    autocomplete(searchAddress) {
+      debounce(
+        () =>
+          Object.keys(inseeCode).forEach(async insee =>
+            this.addresses.push(
+              await this.$axios.get(
+                'https://api-adresse.data.gouv.fr/search/',
+                { params: { q: this.searchAddress, limit: 5, citycode: insee } }
+              )
+            )
+          ),
+        500
+      )
+    },
 
     GetMpmAddress(addresses) {
-      const coordMpm = this.$store.state.parkingMap.bbox.split(',')
-      //coordMpm[0] = minLat
-      //coordMpm[1] = minlng
-      //coordMpm[2] = maxLat
-      //coordMpm[3] = maxLng
-      let found = addresses.data.features.find(
-        city =>
-          city.geometry.coordinates[1] <= coordMpm[2] &&
-          city.geometry.coordinates[1] >= coordMpm[0] &&
-          city.geometry.coordinates[0] <= coordMpm[3] &&
-          city.geometry.coordinates[0] >= coordMpm[1]
-      )
-      if (found != undefined) {
-        return found
-      } else return false
+      // const coordMpm = this.$store.state.parkingMap.bbox.split(',')
+      // //coordMpm[0] = minLat
+      // //coordMpm[1] = minlng
+      // //coordMpm[2] = maxLatslack
+      // //coordMpm[3] = maxLng
+      // let found = addresses.data.features.find(
+      //   city =>
+      //     city.geometry.coordinates[1] <= coordMpm[2] &&
+      //     city.geometry.coordinates[1] >= coordMpm[0] &&
+      //     city.geometry.coordinates[0] <= coordMpm[3] &&
+      //     city.geometry.coordinates[0] >= coordMpm[1]
+      // )
+      // if (found != undefined) {
+      //   return found
+      // } else return false
     },
 
     async onSubmit(evt) {
-      if (this.searchAddress == '') return
-      let coord = await this.$axios.get(
-        'https://api-adresse.data.gouv.fr/search/',
-        { params: { q: this.searchAddress, limit: 1000 } }
-      )
-      const found = this.GetMpmAddress(coord)
-      if (found) {
-        const lat = found.geometry.coordinates[1]
-        const lng = found.geometry.coordinates[0]
-
-        //      coord = coord.data.features[0].geometry.coordinates
-        // const marker = L.marker([coord[1], coord[0]])
-
-        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
-        this.flyTo([lat, lng], 18)
-      } else {
-        this.$bvModal.show('notFound')
-      }
+      // if (this.searchAddress == '') return
+      // let coord = await this.$axios.get(
+      //   'https://api-adresse.data.gouv.fr/search/',
+      //   { params: { q: this.searchAddress, limit: 1000 } }
+      // )
+      // const found = this.GetMpmAddress(coord)
+      // if (found) {
+      //   const lat = found.geometry.coordinates[1]
+      //   const lng = found.geometry.coordinates[0]
+      //   L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
+      //   this.flyTo([lat, lng], 18)
+      // } else {
+      //   this.$bvModal.show('notFound')
+      // }
     }
   },
   created() {
