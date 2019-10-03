@@ -185,21 +185,23 @@ export default {
     border-color: white;
     width: 170px;
   }
-  // .button.active {
-  //   background-color: white !important;
-  //   border-radius: 5px;
-  //   border: none;
-  // }
 
   .block {
     margin: 5% 0 5% 0;
     border-radius: 10px;
   }
 
-  .btn_mode:hover {
+  .btn_mode:hover,
+  .btn_mode.active {
     background-color: white !important;
     border-radius: 10px !important ;
     border: none !important;
+  }
+
+  .btn_mode img {
+    width: 10vw;
+    height: 10vh;
+    max-width: 80px;
   }
 
   .icons_search {
