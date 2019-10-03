@@ -66,7 +66,7 @@ yarn dev
 
 ## ACCÈS API
 
-DOCUMENTATION : https://marcelle-mobi.postman.co/collections/8993685-8f7dd327-4258-4cba-9420-befa394c88b9?version=latest&workspace=f9f06b1f-3a4f-4494-8676-3998fd0b9fa7#772bb9de-4faa-4c12-81e9-16f49e2e06e9
+DOCUMENTATION : https://documenter.getpostman.com/view/8993685/SVtN5YCA?version=latest
 
 ## Librairies utilisées
 https://github.com/KevinBerthier/marcelle-mobi/network/dependencies

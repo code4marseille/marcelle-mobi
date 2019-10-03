@@ -60,8 +60,7 @@ export const mutations = {
   },
   TOGGLE_FILTER(state) {
     state.filterVisible = !state.filterVisible;
-    if (state.selectedVehicule && state.filterVisible)
-      state.selectedVehicule = null;
+    if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
   },
   SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
@@ -89,18 +88,14 @@ export const actions = {
   async fetchRtms({ commit }) {
     const rtms = await this.$axios.$get("/vehicules/rtm");
     commit("SET_RTMS", rtms)
-
   },
   fetchAllVehicles({ dispatch }, { lat, lng }) {
-    dispatch('fetchCitiz')
-    dispatch('fetchTotems')
-    dispatch('fetchTrots', { params: { lat, lng } })
-    dispatch('fetchBikes')
-  },
-
-  // async fetchSelectedVehicles({ commit, dispatch }) {
-
-  // },
-
-
+    return Promise.all([
+      dispatch('fetchTrots', { lat, lng }),
+      dispatch('fetchCitiz'),
+      dispatch('fetchTotems'),
+      dispatch('fetchBikes'),
+      dispatch('fetchRtms')
+    ])
+  }
 };

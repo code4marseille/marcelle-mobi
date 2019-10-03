@@ -1,13 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map
-        id="map"
-        :zoom="16"
-        :center="initialLocation"
-        ref="map"
-        @update:center="updateVehicules"
-      >
+      <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
         <MapboxTile />
         <v-marker-cluster :options="clusterOptions">
           <VehiculeMarker
@@ -18,8 +12,9 @@
             :provider="vehicule.provider"
           />
         </v-marker-cluster>
-        <v-btn class="mx-2 btn-refresh" fab light small color="green" @click="refreshMap">
-          <v-icon dark>mdi-cached</v-icon>
+
+        <v-btn class="mx-2 btn-refresh" fab light small @click="refreshMap">
+          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
         </v-btn>
 
         <LocateControl />
@@ -48,7 +43,8 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907],
+      location: { lat: 43.295336, lng: 5.373907 },
+      isLoading: false,
       clusterOptions: {
         spiderfyOnMaxZoom: false,
         maxClusterRadius: 40,
@@ -66,14 +62,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('map/fetchCitiz')
-    this.$store.dispatch('map/fetchTotems')
-    this.$store.dispatch('map/fetchTrots', {
-      lat: this.initialLocation[0],
-      lng: this.initialLocation[1]
-    })
-    this.$store.dispatch('map/fetchBikes')
-    this.$store.dispatch('map/fetchRtms')
+    this.$store.dispatch('map/fetchAllVehicles', this.location)
   },
 
   methods: {
@@ -85,13 +74,13 @@ export default {
       this.$store.commit('map/SELECT_VEHICULE', { vehicule })
     },
     updateVehicules(center) {
+      this.location = center
       this.$store.dispatch('map/fetchTrots', center)
     },
-    refreshMap() {
-      this.$store.dispatch('map/fetchAllVehicles', {
-        lat: this.initialLocation[0],
-        lng: this.initialLocation[1]
-      })
+    async refreshMap() {
+      this.isLoading = true
+      await this.$store.dispatch('map/fetchAllVehicles', this.location)
+      this.isLoading = false
     }
   }
 }
@@ -101,9 +90,16 @@ export default {
 #mapPage {
   .btn-refresh {
     position: fixed;
-    left: 0.8vw;
+    right: 0.8vw;
     bottom: 30vh;
     z-index: 999;
+  }
+
+  .spinnerLoading {
+    z-index: 1000;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
   }
   .leaflet-left {
     right: 0 !important;
