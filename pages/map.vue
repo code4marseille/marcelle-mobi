@@ -9,7 +9,7 @@
         @update:center="updateVehicules"
       >
         <MapboxTile />
-        <v-marker-cluster class="cluster">
+        <v-marker-cluster :options="clusterOptions">
           <VehiculeMarker
             v-for="(vehicule, i) in $store.getters['map/allVehicules']"
             :key="i"
@@ -31,13 +31,12 @@
 
 <script>
 import { LMap } from 'vue2-leaflet'
+import * as L from 'leaflet'
 import LocateControl from '~/components/LocateControl'
 import MapFilter from '~/components/MapFilter.vue'
 import VehiculeMarker from '~/components/VehiculeMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
 import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
-import iconUrl from 'leaflet/dist/images/marker-icon.png'
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 export default {
   components: {
     LMap,
@@ -49,7 +48,21 @@ export default {
   },
   data() {
     return {
-      initialLocation: [43.295336, 5.373907]
+      initialLocation: [43.295336, 5.373907],
+      clusterOptions: {
+        spiderfyOnMaxZoom: false,
+        maxClusterRadius: 40,
+        disableClusteringAtZoom: 18,
+        iconCreateFunction: cluster => {
+          var markers = cluster.getAllChildMarkers()
+          var html = `<div>${markers.length}</div>`
+          return L.divIcon({
+            html: html,
+            className: 'clusterMarker',
+            iconSize: L.point(32, 32)
+          })
+        }
+      }
     }
   },
   created() {
@@ -62,6 +75,7 @@ export default {
     this.$store.dispatch('map/fetchBikes')
     this.$store.dispatch('map/fetchRtms')
   },
+
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
@@ -117,10 +131,23 @@ export default {
   .leaflet-control-attribution {
     display: none;
   }
-}
-.cluster {
-  background: blue;
-  color: white;
+  .clusterMarker {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border: white 3px solid;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
 
