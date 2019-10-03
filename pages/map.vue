@@ -52,7 +52,7 @@ export default {
       clusterOptions: {
         spiderfyOnMaxZoom: false,
         maxClusterRadius: 40,
-        disableClusteringAtZoom: 18,
+        disableClusteringAtZoom: 17,
         iconCreateFunction: cluster => {
           var markers = cluster.getAllChildMarkers()
           var html = `<div>${markers.length}</div>`
