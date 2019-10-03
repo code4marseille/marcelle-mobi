@@ -6,10 +6,8 @@
         class="title text-left border-bottom pb-2"
       >{{carPool.name.replace("Aire de covoiturage ","")}}</p>
       <p class="text-left pt-2">
-        <i class="fas fa-walking"></i>
-        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank">
-          <strong>Itinéraire</strong>
-        </a>
+        <i class="fas fa-directions"></i>
+        <a :href="googleMap(carPool.lat,carPool.lng)" target="_blank" class="adress">Itinéraire</a>
       </p>
     </l-popup>
 
@@ -53,6 +51,10 @@ export default {
     color: rgba(0, 0, 0, 0.8) !important;
     font-size: 24px;
     margin-bottom: 0px;
+  }
+
+  .adress {
+    color: #0e5da4 !important;
   }
 
   .fas {
