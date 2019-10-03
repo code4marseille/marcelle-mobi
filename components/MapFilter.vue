@@ -1,11 +1,16 @@
 <template>
   <div>
     <div class="filterGo">
-      <div
-        @click="$store.commit('map/TOGGLE_FILTER')"
-        class="buttonGo"
-      >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
-      <transition name="slide">
+      <div class="containerButtonsMap">
+        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
+          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
+        </v-btn>
+        <div
+            @click="$store.commit('map/TOGGLE_FILTER')"
+            class="buttonGo"
+          >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
+      </div>
+      <b-collapse id="collapse-1" :visible="$store.state.map.filterVisible" class="mt-2">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
           <div class="row justify-content-between mx-0">
             <div
@@ -56,7 +61,7 @@
             </div>
           </div>
         </div>
-      </transition>
+      </b-collapse>
       <SelectedVehicule />
     </div>
   </div>
@@ -68,6 +73,23 @@ import SelectedVehicule from '~/components/SelectedVehicule.vue'
 export default {
   components: {
     SelectedVehicule
+  },
+  props: {
+    location: {type: Object, required: true}
+  },
+
+  data() {
+    return {
+      isLoading: false
+    }
+  },
+
+  methods: {
+    async refreshMap() {
+      this.isLoading = true
+      await this.$store.dispatch('map/fetchAllVehicles', this.location)
+      this.isLoading = false
+    }
   }
 }
 </script>
@@ -92,7 +114,6 @@ export default {
     width: 96%;
     box-shadow: 5px 5px 5px gray;
     margin-bottom: 5px;
-    transition: transform 0.2s linear;
     padding: 0;
   }
 
@@ -108,24 +129,24 @@ export default {
 
   .buttonGo {
     width: 50px;
-    height: 50px;
     background: #0e5da4;
     box-shadow: 2px 2px 8px #aaa;
     font: bold 1rem Arial;
     border-radius: 50%;
     border: 2px solid White;
     color: white;
-    bottom: 100%;
-    right: 2%;
+    right: 2vw;
     text-align: center;
     padding: 15px 0px;
-    align-self: self-end;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    right: 0;
-    z-index: 999;
-    align-self: flex-end;
+    margin-top: 20px;
+  }
+
+  .containerButtonsMap {
     position: absolute;
+    right: 1vw;
+    bottom: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .lettreTransport {
@@ -139,12 +160,5 @@ export default {
     font-size: 1.3rem;
   }
 
-  .slide-enter-active,
-  .slide-leave-active {
-    transform: translateY(200px);
-  }
-  .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    transform: translateY(200px);
-  }
 }
 </style>

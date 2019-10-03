@@ -64,7 +64,7 @@ export const mutations = {
   },
   SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule
-    if (state.selectedVehicule && state.filterVisible) { state.filterVisible = false }
+    if (state.selectedVehicule && state.filterVisible) state.filterVisible = false
   }
 };
 
