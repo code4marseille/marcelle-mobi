@@ -68,7 +68,7 @@ yarn dev
 ### OPTION 2 : Créer votre propre projet
 
 1. Créer un projet avec le langage de votre choix
-2. Faire un repo Github https://www.christopheducamp.com/2013/12/16/creer-un-repo-github/
+2. Créer un repo Github [Aide](https://www.christopheducamp.com/2013/12/16/creer-un-repo-github/)
 3. Mettre le projet en ligne (par exemple sur https://heroku.com/)
 3. Me transmettre l'url de votre repo et de l'app
 
