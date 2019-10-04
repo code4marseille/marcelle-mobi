@@ -118,12 +118,6 @@ export default {
       long: this.initialLocation[1]
     })
     this.$store.dispatch('parkingMap/fetchCarPoolStations')
-  },
-
-  watch: {
-    latLng: function() {
-      console.log(flyTo(this.latLng))
-    }
   }
 }
 </script>

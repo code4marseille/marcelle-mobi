@@ -6,7 +6,7 @@
       :data="addresses"
       :serializer="item => item.properties.label"
       placeholder="Veuillez entrer une adresse"
-      @hit="latLng = flyTo($event.geometry.coordinates.reverse(), 15)"
+      @hit="latLng = $event.geometry.coordinates.reverse()"
       required
       style="width:100%"
     />
@@ -47,12 +47,6 @@ export default {
   components: {
     VueBootstrapTypeahead,
     inseeCodes
-  },
-
-  computed: {
-    flyTo(latLng, zoom) {
-      this.$refs.map.flyTo(latLng, zoom)
-    }
   },
 
   data() {
