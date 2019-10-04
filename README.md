@@ -36,25 +36,32 @@ sudo apt-get update && sudo apt-get install yarn
 
 ### OPTION 1 : Travailler dans l'application existante 
 
-#### En NuxtJS+VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
-#### Vue+JSX [exemple en JSX](exemples/jsx.vue)
+#### En VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
+#### VueJS+JSX [exemple en JSX](exemples/jsx.vue)
+#### HTML+CSS+JS [exemple Vanilla](exemples/vanilla.vue)
 
 
-1. Forker le repo
+1. Forker le repo [Aide](https://help.github.com/en/articles/fork-a-repo)
 2. Cloner votre repo 
-3. Créer une branche
-4. A la fin du Hackathon : pousser votre branche sur Github et faire une Pull Request
 
-**Cloner le repo**
+**Cloner votre repo**
 ```
-git clone git@github.com:KevinBerthier/marcelle-mobi.git 
+git clone git@github.com:VOTRE_USERNAME_GITHUB/marcelle-mobi.git 
 cd marcelle-mobi
 yarn install
 ```
+Ajouter un fichier nommé `.env` à la racine du dossier de votre application, qui contient :
+``` 
+CODE4MARSEILLE_API_KEY=LE_TOKEN_QUI_VOUS EST_DONNÉ_LE_JOUR_DU_HACKATHON
+```
+
 Lancer le serveur en local sur http://localhost:3000
 ```
 yarn dev
 ```
+
+3. Créer une branche
+4. A la fin du Hackathon : pousser votre branche sur Github et faire une Pull Request
 
 ### OPTION 2 : Créer votre propre projet
 
