@@ -6,7 +6,7 @@
       :data="addresses"
       :serializer="item => item.properties.label"
       placeholder="Veuillez entrer une adresse"
-      @hit="latLng = $event.geometry.coordinates.reverse()"
+      @hit="select($event.geometry.coordinates.reverse(),18)"
       required
       style="width:100%"
     />
@@ -48,6 +48,9 @@ export default {
     VueBootstrapTypeahead,
     inseeCodes
   },
+  props: {
+    select: { type: Function, required: true }
+  },
 
   data() {
     return {
@@ -56,7 +59,7 @@ export default {
       selectedAddress: null,
       inseeCodes,
       insee: '',
-      latLng: []
+      latLngAuto: []
     }
   },
 
@@ -81,6 +84,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style>
+.list-group-item-action.active {
+}
 </style>
-

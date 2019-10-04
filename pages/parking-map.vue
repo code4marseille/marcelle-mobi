@@ -1,7 +1,7 @@
 <template>
   <div id="parkingMapPage">
     <div style="z-index:976; display:flex; wrap:no-wrap; justify-content:center;">
-      <AutocompleteInput style="z-index:999; width:60%; margin-top: 2%;" />
+      <AutocompleteInput style="z-index:999; width:60%; margin-top: 2%;" :select="flyTo" />
     </div>
     <div id="position">
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-      gps,
+      gps: [],
 
       buttons: [
         {
@@ -105,6 +105,9 @@ export default {
       return (
         'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
       )
+    },
+    flyTo(latLng, zoom) {
+      this.$refs.map.mapObject.flyTo(latLng, zoom)
     }
   },
 
