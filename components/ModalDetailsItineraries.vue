@@ -1,5 +1,5 @@
 <template>
-  <div class="filterGo">
+  <div class="filterGo fixed-bottom">
     <b-collapse :visible="$store.state.marius.seeModal">
       <div id="filter_itineraire" class="container">
         <div class="row justify-content-between mx-0">
@@ -25,20 +25,20 @@
 
         <div
           class="bg-light itineraries px-3 py-3 d-flex justify-content-between"
-          v-for="(AlternativesDetails, i) in $store.getters  ['marius/AlternativesDetails']"
+          v-for="(alternativesDetails, i) in $store.getters  ['marius/alternativesDetails']"
           :key="i"
         >
           <div>
-            <p class="text-left mb-0 pb-1">Moyen de transport : {{AlternativesDetails.mode}}</p>
-            <p class="text-left mb-0 pb-1">Emission de Co2 : {{AlternativesDetails.co2}} g/km Co2</p>
-            <p class="text-left mb-0 pb-1">Durée : {{AlternativesDetails.duration}} min</p>
+            <p class="text-left mb-0 pb-1">Moyen de transport : {{alternativesDetails.mode}}</p>
+            <p class="text-left mb-0 pb-1">Emission de Co2 : {{alternativesDetails.co2}} g/km Co2</p>
+            <p class="text-left mb-0 pb-1">Durée : {{alternativesDetails.duration}} min</p>
           </div>
 
           <div>
             <img
               class="iconVehicule"
               :style="{borderBottom: `3px solid ${colors[i]} !important`}"
-              :src="require('assets/images/' + AlternativesDetails.mode +`.svg`)"
+              :src="require('assets/images/' + alternativesDetails.mode +`.svg`)"
             />
           </div>
         </div>
