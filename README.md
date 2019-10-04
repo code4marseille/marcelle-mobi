@@ -34,6 +34,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update && sudo apt-get install yarn
 ```
 
+Un éditeur de code : https://code.visualstudio.com/
+
 ### OPTION 1 : Travailler dans l'application existante 
 
 #### En VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
@@ -60,25 +62,35 @@ Lancer le serveur en local sur http://localhost:3000
 yarn dev
 ```
 
-3. Créer une branche
-4. A la fin du Hackathon : pousser votre branche sur Github et faire une Pull Request
+3. Créer une branche `git checkout -b ma-super-feature`
+4. A la fin du Hackathon : pousser votre branche sur Github et faire une Pull Request vers ce repo `KevinBerthier/marcelle-mobi`
 
 ### OPTION 2 : Créer votre propre projet
 
-1. Creer un projet avec le langage de votre choix
-2. Faire un repo Github
-3. Mettre le projet en ligne
+1. Créer un projet avec le langage de votre choix
+2. Faire un repo Github https://www.christopheducamp.com/2013/12/16/creer-un-repo-github/
+3. Mettre le projet en ligne (par exemple sur https://heroku.com/)
 3. Me transmettre l'url de votre repo et de l'app
 
 
 ## ACCÈS API
 
 DOCUMENTATION : https://documenter.getpostman.com/view/8993685/SVtN5YCA?version=latest
+Pour chaque requête il est nécessaire de passer le Token fourni en params 
 
 ## Librairies utilisées
-https://github.com/KevinBerthier/marcelle-mobi/network/dependencies
+Voir [Package.json](package.json)
 
+Les Docs :
+https://fr.vuejs.org/index.html
+https://fr.nuxtjs.org/
+https://github.com/axios/axios (utilisation possible via Nuxt https://axios.nuxtjs.org/)
+https://leafletjs.com/ (utilisation possible via VueJS https://github.com/KoRiGaN/Vue2Leaflet)
+
+Docs UI :
+https://getbootstrap.com/docs/4.3/getting-started/introduction/ (Pour le CSS)
+https://bootstrap-vue.js.org/ (Pour le JS)
+https://fontawesome.com/icons?d=gallery
+https://vuetifyjs.com/en/
 
 **Bon Hackathon !**
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
