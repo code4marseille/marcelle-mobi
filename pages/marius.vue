@@ -13,7 +13,7 @@
         <div>
           <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
-        <div class="d-flex justify-content-around w-100">
+        <div class="d-flex justify-content-between w-100">
           <div
             class="marcelle_marius_avatar"
             v-for="(avatar, i) in avatars"
@@ -32,31 +32,31 @@
         >Valider</b-button>
       </div>
 
-      <div v-else class="container pt-5">
+      <div v-else class="container pt-5 px-2">
         <div class="row align-items-end">
           <img :src="avatar.icon" class="img-fluid col-4" />
           <div class="col-8">
-            <div class="text-center my-5">
+            <div class="text-center mt-5 pt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
-
-              <input
-                type="text"
+              <b-form-input
+                id="address1"
+                placeholder="Boulevard Madeleine Rémusat"
                 autocomplete="address"
                 v-model="from"
                 @change="showInputTo=true"
-                class="mt-3 border-bottom border-primary"
-              />
+                class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
+              ></b-form-input>
             </div>
-            <div v-if="showInputTo" class="text-center my-5">
+            <div v-if="showInputTo" class="text-center mt-5 pt-5">
               <div class="text-secondary bg-white rounded-pill p-3">où vas-tu ?</div>
-
-              <input
-                type="text"
-                autocomplete="address"
-                class="mt-3 border-bottom border-primary"
+              <b-form-input
+                id="address2"
+                placeholder="Rue Paradis, Marseille"
+                autocomplete="work address"
+                class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
                 v-model="to"
                 @change="showModes=true"
-              />
+              ></b-form-input>
             </div>
           </div>
         </div>
@@ -222,7 +222,6 @@ export default {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    margin: 15px;
     box-shadow: 3px 3px 10px rgba($color: #000, $alpha: 0.5);
     margin-top: 5px !important;
     font-size: 16px !important;
@@ -232,6 +231,7 @@ export default {
     }
     .photo_avatar {
       width: 120px;
+      height: 120px;
       margin-top: 5px;
     }
   }

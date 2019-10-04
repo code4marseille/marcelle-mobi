@@ -2,25 +2,24 @@ import Vue from 'vue'
 
 export const state = () => ({
   itineraries: {
-    current: { sections: [{ geojson: { coordinates: [] } }] },
+    current: {
+      sections: [{ geojson: { coordinates: [] } }],
+      co2Emission: {},
+      tags: []
+    },
     alternatives: [{ sections: [{ geojson: { coordinates: [] } }] }]
   },
   seeModal: false,
-
-
-
 })
 
 export const getters = ({
   // Current Details
-
-  co2current: state => state.itineraries.current.co2Emission["value"],
+  co2current: state => state.itineraries.current.co2Emission.value,
   getMode: state => state.itineraries.current.tags[0],
   durationcurrent: state => Math.round(state.itineraries.current.duration / 60),
 
   // Alternative Details
-
-  AlternativesDetails: state => {
+  alternativesDetails: state => {
     let detailsAlters = []
     state.itineraries.alternatives.forEach(section => {
       if (section) {
@@ -28,37 +27,20 @@ export const getters = ({
           co2: Math.round(section.co2Emission["value"]),
           duration: Math.round(section.duration / 60),
           mode: section.tags[0]
-
-
-
         })
       }
     });
-
     return detailsAlters
-
   },
-
-
 
   // Current Itineraries Vehicule
   latLngs: state => {
     let latLngs = []
-
     state.itineraries.current.sections.forEach(section => {
       if (section.geojson) latLngs.push(...section.geojson.coordinates)
     });
     return latLngs
   },
-
-
-  // FitBound Details
-
-
-
-  // Alternative itineraries Vehicule
-
-
   latLngsAlternatives: state => {
     let latLngsAlters = []
     state.itineraries.alternatives.forEach(itinerary => {
@@ -71,9 +53,6 @@ export const getters = ({
     return latLngsAlters
 
   }
-
-
-
 })
 
 export const mutations = {
@@ -91,15 +70,10 @@ export const mutations = {
     })
     state.itineraries = payload;
   },
-
-
-  // MODAL DETAILS
-
   TOGGLE_MODAL(state) {
     state.seeModal = !state.seeModal;
   },
 }
-
 
 
 export const actions = {
@@ -107,10 +81,7 @@ export const actions = {
     const itineraries = await this.$axios.$get(
       "/itineraries/calculate", { params: { departure_address: from, arrival_address: to, mode } }
     )
-
     commit("SET_ITINERARIES", itineraries);
   },
 }
-
-//http://marcelle-mobi-api.herokuapp.com/itineraries/calculate?departure_address=metro%20dromel&arrival_address=12%20impasse%20abeille&mode=bike
 
