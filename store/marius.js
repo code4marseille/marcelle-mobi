@@ -7,7 +7,13 @@ export const state = () => ({
       co2Emission: {},
       tags: []
     },
-    alternatives: [{ sections: [{ geojson: { coordinates: [] } }] }]
+    alternatives: [
+      {
+        sections: [{ geojson: { coordinates: [] } }],
+        co2Emission: {},
+        tags: []
+      }
+    ]
   },
   seeModal: false,
 })
@@ -24,7 +30,7 @@ export const getters = ({
     state.itineraries.alternatives.forEach(section => {
       if (section) {
         detailsAlters.push({
-          co2: Math.round(section.co2Emission["value"]),
+          co2: Math.round(section.co2Emission.value),
           duration: Math.round(section.duration / 60),
           mode: section.tags[0]
         })
