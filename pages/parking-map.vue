@@ -46,7 +46,7 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom mx-3 mb-3 py-3" id="filter">
+    <div class="fixed-bottom mx-3 mb-3" id="filter">
       <b-button-group style="display:flex; justify-content:center">
         <b-button
           v-for="(btn, idx) in buttons"
