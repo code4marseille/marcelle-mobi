@@ -4,7 +4,7 @@
     :lat-lng="vehiculeInfos.latLng"
     :visible="vehiculeInfos.visible"
   >
-    <l-icon :icon-iconSize="vehiculeInfos.iconSize" :icon-url="vehiculeInfos.iconUrl">
+    <l-icon :icon-size="vehiculeInfos.iconSize" :icon-url="vehiculeInfos.iconUrl">
       <div
         v-if="isRtm"
         class="rounded-circle rtmMarker d-flex justify-content-center align-items-center"
