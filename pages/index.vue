@@ -68,35 +68,38 @@
           <p class="mb-0">Infos Traffic RTM</p>
         </div>
       </b-button>
-      <transition name="slide-fade" :duration="5000">
-        <b-modal
-          id="bv-modal-example"
-          scrollable
-          size="xl"
-          dialog-class="fixed-bottom"
-          hide-footer
-          v-model="show"
-        >
-          <template v-slot:modal-title>
-            <h3 class="modal_header mx-3 mb-0 text-uppercase">perturbations en cours</h3>
-          </template>
+      <b-collapse id="collapse-1-inner" class="fixed-bottom" :visible="show">
+        <div class="" tabindex="-1" role="dialog" aria-hidden="true" >
+          <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document" style="height: 80vh;">
+            <div class="modal-content">
+              <div class="modal-header">
+            <h3 class="modal_header mx-3 mb-0 text-uppercase text-center">perturbations en cours</h3>
+                <button type="button" class="close" @click="show = !show" >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
           <div
             v-for="(alert, id) in $store.state.dashboard.alertsRtm"
             :key="id"
             class="content-alert-rtm mt-3 text-center border-bottom"
           >
-            <h4 class="modal_title text-uppercase text-uppercase font-weight-bold">{{ alert[1] }}</h4>
+                    <h4 class="modal_title text-uppercase font-weight-bold">{{ alert[1] }}</h4>
             <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
             <p class="modal_description">{{ alert[2] }}</p>
           </div>
-        </b-modal>
-      </transition>
+              </div>
+            </div>
+  </div>
+</div>
+      </b-collapse>
+
     </div>
   </div>
 </template>
 
 <script>
-import Vuetify from 'vuetify/lib'
 export default {
   data() {
     return {

@@ -1,14 +1,10 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="zoom" :center="center" ref="map">
-        <l-tile-layer
-          :url="`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`"
-        ></l-tile-layer>
+      <l-map id="map" ref="map">
+        <MapboxTile />
         <l-polyline
-          :lStyle="{
-            offset:  3,
-          }"
+          :lStyle="{offset:  3}"
           :lat-lngs="$store.getters['marius/latLngs']"
           color="green"
           :weight="3"
@@ -22,11 +18,11 @@
             offset: offsets[i],
           }"
           :color="colors[i]"
-          linejoin="bevel"
+          line-join="bevel"
         ></l-polyline>
       </l-map>
     </div>
-    <ModalDetailsItineraries />
+    <ModalDetailsItineraries :colors="colors" />
   </div>
 </template>
 
@@ -35,36 +31,37 @@ import { latLngBounds, latLng } from 'leaflet'
 import 'leaflet-polylineoffset'
 import { LMap, LTileLayer, LPolyline } from 'vue2-leaflet'
 import ModalDetailsItineraries from '~/components/ModalDetailsItineraries.vue'
+import MapboxTile from '~/components/MapboxTile'
 
 export default {
   components: {
     LMap,
     LTileLayer,
     LPolyline,
+    MapboxTile,
     ModalDetailsItineraries
   },
 
   data() {
     return {
-      mapBoxToken:
-        'pk.eyJ1Ijoia2V2aW5iZXJ0aGllciIsImEiOiJjazB3NzVheWYwa282M2NvY3pxb2UxejBnIn0.mb5T4YX7EH2NZGxa4c9RxQ',
-      zoom: 16,
-      center: [43.29494, 5.374508],
-      // bounds: latLngBounds($store.getters['marius/fitBounds'])
       offsets: [-1, -4, -2],
       colors: ['red', 'blue', 'orange']
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      let allBounds = latLngBounds(this.$store.getters['marius/latLngs'])
+      this.$store.getters['marius/latLngsAlternatives'].forEach(latLngs => {
+        allBounds = allBounds.extend(latLngBounds(latLngs))
+      })
 
-  methods: {}
+      this.$refs.map.mapObject.fitBounds(allBounds)
+    })
+  }
 }
 </script>
 
 <style>
-.test {
-  transform: translateX(100px);
-}
-
 .animate-bottom {
   position: relative;
   animation: animatebottom 0.4s;

@@ -55,7 +55,8 @@ export default {
     "@nuxtjs/pwa",
     // leaflet map
     "nuxt-leaflet",
-    "@nuxtjs/device"
+    "@nuxtjs/device",
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
@@ -64,9 +65,14 @@ export default {
   axios: {
     baseURL: "https://marcelle-mobi-api.herokuapp.com"
   },
+
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
     bootstrapVueCSS: false // Or `bvCSS: false`
+  },
+
+  env: {
+    CODE4MARSEILLE_API_KEY: process.env.CODE4MARSEILLE_API_KEY,
   },
   /*
    ** Build configuration
