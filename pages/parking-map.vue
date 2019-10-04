@@ -1,11 +1,11 @@
 <template>
   <div id="parkingMapPage">
+    <div style="z-index:976; display:flex; wrap:no-wrap; justify-content:center;">
+      <AutocompleteInput style="z-index:999; width:60%; margin-top: 2%;" />
+    </div>
     <div id="position">
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
-        <div style="display:flex; wrap:no-wrap; justify-content:center;margin-top:1%">
-          <AutocompleteInput style="z-index:449; width:60%" />
-        </div>
 
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -124,7 +124,7 @@ export default {
 
 <style lang="scss">
 #parkingMapPage {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
 
@@ -223,7 +223,7 @@ export default {
     border-radius: 10px;
     border: 0.9px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    z-index: 1900;
+    z-index: 998;
     display: flex;
     width: 100%;
     margin-left: 70px;

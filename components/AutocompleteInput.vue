@@ -1,5 +1,5 @@
  <template>
-  <div style="display:flex;">
+  <div style="display:flex; position:absolute">
     <vue-bootstrap-typeahead
       class="mb-4"
       v-model="addressSearch"
@@ -8,10 +8,10 @@
       placeholder="Veuillez entrer une adresse"
       @hit="selectedAddress = $event"
       required
-      style="width:60%"
+      style="width:100%"
     />
 
-    <b-form-select
+    <!-- <b-form-select
       ref="cityTypeahead"
       v-model="insee"
       :options="inseeCodes.inseeCodes"
@@ -21,7 +21,7 @@
       style="width:20%"
       required
       @click="addressSearch"
-    ></b-form-select>
+    ></b-form-select>-->
   </div>
   <!-- <b-modal
        title="BootstrapVue"
