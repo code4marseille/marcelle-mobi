@@ -46,7 +46,7 @@
       </l-map>
     </div>
 
-    <div class="fixed-bottom mx-3 mb-3" id="filter">
+    <div class="fixed-bottom mx-3 mb-3 py-3" id="filter">
       <b-button-group style="display:flex; justify-content:center">
         <b-button
           v-for="(btn, idx) in buttons"
@@ -263,6 +263,7 @@ export default {
     border: none;
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
+    z-index: 469 !important;
   }
 
   .borderCentral:first-child {
