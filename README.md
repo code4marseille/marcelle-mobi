@@ -84,16 +84,16 @@ Voir [Package.json](package.json)
 
 Les Docs :
 
-https://fr.vuejs.org/index.html
-https://fr.nuxtjs.org/
-https://github.com/axios/axios (utilisation possible via Nuxt https://axios.nuxtjs.org/)
-https://leafletjs.com/ (utilisation possible via VueJS https://github.com/KoRiGaN/Vue2Leaflet)
+- https://fr.vuejs.org/index.html
+- https://fr.nuxtjs.org/
+- https://github.com/axios/axios (utilisation possible via Nuxt https://axios.nuxtjs.org/)
+- https://leafletjs.com/ (utilisation possible via VueJS https://github.com/KoRiGaN/Vue2Leaflet)
 
 Docs UI :
 
-https://getbootstrap.com/docs/4.3/getting-started/introduction/ (Pour le CSS)
-https://bootstrap-vue.js.org/ (Pour le JS)
-https://fontawesome.com/icons?d=gallery
-https://vuetifyjs.com/en/
+- https://getbootstrap.com/docs/4.3/getting-started/introduction/ (Pour le CSS)   
+- https://bootstrap-vue.js.org/ (Pour le JS)    
+- https://fontawesome.com/icons?d=gallery
+- https://vuetifyjs.com/en/
 
 **Bon Hackathon !**
