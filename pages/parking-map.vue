@@ -255,8 +255,6 @@ export default {
     margin-bottom: 2px;
   }
 
-  .btn-secondary {
-  }
   #filter {
     background-color: aliceblue;
     height: 80px;
@@ -313,6 +311,7 @@ export default {
     display: flex;
     margin-left: 70px;
     margin-right: 50px;
+    width: 100%;
   }
 }
 
