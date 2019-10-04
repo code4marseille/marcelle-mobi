@@ -6,7 +6,7 @@
       :data="addresses"
       :serializer="item => item.properties.label"
       placeholder="Veuillez entrer une adresse"
-      @hit="selectedAddress = $event"
+      @hit="latLng = flyTo($event.geometry.coordinates.reverse(), 15)"
       required
       style="width:100%"
     />
@@ -48,15 +48,24 @@ export default {
     VueBootstrapTypeahead,
     inseeCodes
   },
+
+  computed: {
+    flyTo(latLng, zoom) {
+      this.$refs.map.flyTo(latLng, zoom)
+    }
+  },
+
   data() {
     return {
       addresses: [],
       addressSearch: '',
       selectedAddress: null,
       inseeCodes,
-      insee: ''
+      insee: '',
+      latLng: []
     }
   },
+
   watch: {
     addressSearch(query) {
       return this.$axios
@@ -68,12 +77,9 @@ export default {
           }
         })
         .then(result => (this.addresses = result.features))
-    },
-
-    insee: function checkInsee(value) {
-      value === '' ? (this.inseeBoolean = false) : (this.inseeBoolean = true)
     }
   },
+
   filters: {
     stringify(value) {
       return JSON.stringify(value, null, 2)
@@ -81,3 +87,6 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+</style>
+

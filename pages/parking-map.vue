@@ -60,6 +60,7 @@ import ParkingMarker from '~/components/ParkingMarker.vue'
 import CarPoolMarker from '~/components/CarPoolMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
 import AutocompleteInput from '~/components/AutocompleteInput.vue'
+import { latLng } from 'leaflet'
 export default {
   components: {
     LMap,
@@ -70,9 +71,11 @@ export default {
     CarPoolMarker,
     AutocompleteInput
   },
+
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
+      gps,
 
       buttons: [
         {
@@ -94,9 +97,6 @@ export default {
     }
   },
   methods: {
-    flyTo(latLng, zoom) {
-      this.$refs.map.mapObject.flyTo(latLng, zoom)
-    },
     updateParking(center) {
       const coord = { latitude: center.lat, longitude: center.lng }
       this.$store.dispatch('parkingMap/fetchChargingStations', coord)
@@ -118,6 +118,12 @@ export default {
       long: this.initialLocation[1]
     })
     this.$store.dispatch('parkingMap/fetchCarPoolStations')
+  },
+
+  watch: {
+    latLng: function() {
+      console.log(flyTo(this.latLng))
+    }
   }
 }
 </script>
