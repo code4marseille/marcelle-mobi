@@ -4,7 +4,7 @@
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
         <div style="display:flex; wrap:no-wrap; justify-content:center;margin-top:1%">
-          <AutocompleteInput style="z-index:449; width:60%" />
+          <AutocompleteInput style="z-index:449; " />
         </div>
 
         <ChargingMarker

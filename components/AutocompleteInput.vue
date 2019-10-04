@@ -1,17 +1,17 @@
  <template>
   <div style="display:flex;">
     <vue-bootstrap-typeahead
+      @hit="selectedAddress = $event"
       class="mb-4"
       v-model="addressSearch"
       :data="addresses"
       :serializer="item => item.properties.label"
       placeholder="Veuillez entrer une adresse"
-      @hit="selectedAddress = $event"
-      required
-      style="width:60%"
+      backgroundVariant=".bg-light"
+      size="sm"
+      :maxMatches="10"
     />
-
-    <b-form-select
+    <!-- <b-form-select
       ref="cityTypeahead"
       v-model="insee"
       :options="inseeCodes.inseeCodes"
@@ -21,7 +21,8 @@
       style="width:20%"
       required
       @click="addressSearch"
-    ></b-form-select>
+      minMatchingChars="5"
+    ></b-form-select>-->
   </div>
   <!-- <b-modal
        title="BootstrapVue"
