@@ -1,7 +1,7 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
+      <l-map id="mamap" :zoom="13" :center="initialLocation" ref="mamap">
         <MapboxTile />
 
         <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
@@ -20,7 +20,7 @@
         </b-form>
 
         <ChargingMarker
-          v-for="(charging,i) in $store.state.parkingMap.chargingStations"
+          v-for="(charging,i) in chargingList"
           :key="'c'+i"
           :charging="charging"
           :googleMap="googleRoute"
@@ -28,7 +28,7 @@
         />
 
         <ParkingMarker
-          v-for="(parking,i) in $store.state.parkingMap.parkingStations"
+          v-for="(parking,i) in parkingsList"
           :key="'p'+i"
           :parking="parking"
           :googleMap="googleRoute"
@@ -36,7 +36,7 @@
         />
 
         <CarPoolMarker
-          v-for="(carPool,i) in $store.state.parkingMap.carPoolStations"
+          v-for="(carPool,i) in carPoolList"
           :key="'cP'+i"
           :carPool="carPool"
           :googleMap="googleRoute"
@@ -87,6 +87,9 @@ import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
 import CarPoolMarker from '~/components/CarPoolMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
+import carPoolJson from '~/static/carPoolJson.json'
+import parkingJson from '~/static/parkingJson.json'
+import chargingJson from '~/static/chargingJson.json'
 
 export default {
   components: {
@@ -95,12 +98,17 @@ export default {
     ChargingMarker,
     ParkingMarker,
     MapboxTile,
-    CarPoolMarker
+    CarPoolMarker,
+    carPoolJson,
+    parkingJson,
+    chargingJson
   },
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-
+      parkingsList: [],
+      carPoolList: [],
+      chargingList: [],
       searchAddress: '',
       buttons: [
         {
@@ -132,10 +140,7 @@ export default {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    updateParking(center) {
-      const coord = { latitude: center.lat, longitude: center.lng }
-      this.$store.dispatch('parkingMap/fetchChargingStations', coord)
-    },
+
     googleRoute(lat, long) {
       return (
         'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
@@ -184,16 +189,11 @@ export default {
       }
     }
   },
-  created() {
-    this.$store.dispatch('parkingMap/fetchChargingStations', {
-      latitude: this.initialLocation[0],
-      longitude: this.initialLocation[1]
-    })
-    this.$store.dispatch('parkingMap/fetchParkingStations', {
-      lat: this.initialLocation[0],
-      long: this.initialLocation[1]
-    })
-    this.$store.dispatch('parkingMap/fetchCarPoolStations')
+
+  mounted() {
+    this.parkingsList = parkingJson
+    this.carPoolList = carPoolJson
+    this.chargingList = chargingJson
   }
 }
 </script>
@@ -218,7 +218,7 @@ export default {
     position: relative;
   }
 
-  #map {
+  #mamap {
     width: 100wh;
     height: 100vh;
   }

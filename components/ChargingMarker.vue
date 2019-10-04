@@ -1,30 +1,27 @@
 <template  >
-  <l-marker
-    :lat-lng="[charging.addressInfo.latitude,charging.addressInfo.longitude]"
-    :visible="visible"
-  >
+  <l-marker :lat-lng="[charging.lat,charging.lng]" :visible="visible">
     <l-popup style="text-align:center" id="ChargingMarkerVue">
-      <p style="font-weight:bold;" class="title text-left">{{charging.addressInfo.title}}</p>
-      <p class="text-left" v-if="charging.addressInfo.contactTelephone1">
-        <span style="font-weight:bold">{{charging.addressInfo.contactTelephone1}}</span>
+      <p style="font-weight:bold;" class="title text-left">{{charging.name}}</p>
+      <!-- <p class="text-left" v-if="charging.addressInfo.contactTelephone1"> -->
+        <!-- <span style="font-weight:bold">{{charging.addressInfo.contactTelephone1}}</span> -->
       </p>
       <p class="text-left border-bottom pb-3">
         <i class="fas fa-directions"></i>
         <a
-          :href="googleMap(charging.addressInfo.latitude,charging.addressInfo.longitude)"
+          :href="googleMap(charging.lat,charging.lng)"
           target="_blank"
           class="address"
           style="color: #0e5da4 !important;"
-        >{{charging.addressInfo.addressLine1}}, {{charging.addressInfo.postcode}} {{charging.addressInfo.town}}</a>
+        >{{charging.way?charging.way:""}}  {{charging.pCode}} {{charging.town}}</a>
       </p>
 
-      <p v-if="charging.addressInfo.accessComments" class="mt-2 text-left">
+      <p v-if="charging.openingHours" class="mt-2 text-left">
         <i class="fas fa-users"></i>
         <strong>Public :</strong>
-        {{charging.addressInfo.accessComments}}
+        {{charging.openingHours}}
       </p>
 
-      <p v-if="usageTypeUnknownFilter" class="mt-2 text-left">
+      <!-- <p v-if="usageTypeUnknownFilter" class="mt-2 text-left">
         <i class="fas fa-users"></i>
         <strong>Public :</strong>
         {{usageTypeUnknownFilter}}
@@ -34,7 +31,7 @@
         <i class="fas fa-plug"></i>
         <strong>Prise(s) :</strong>
         {{charging.numberOfPoints}}
-      </p>
+      </p> -->
       <!-- Ci dessous n'affiche rien  -->
       <!-- <ul v-if="charging.connections.length > 0" style="list-style-type: none;">
         <li
@@ -43,11 +40,11 @@
         >{{connection.connectionType.title}}</li>
       </ul>-->
 
-      <p v-if="charging.generalComments" class="text-left mt-2">
-        <i class="fas fa-comment-dots"></i>
-        <strong>Détails :</strong>
-        {{charging.generalComments}}
-      </p>
+        <!-- <p v-if="charging.generalComments" class="text-left mt-2">
+          <i class="fas fa-comment-dots"></i>
+          <strong>Détails :</strong>
+          {{charging.generalComments}}
+        </p> -->
     </l-popup>
     <l-icon :icon-url="marker.image"></l-icon>
     <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carCharging.png')"></l-icon> -->

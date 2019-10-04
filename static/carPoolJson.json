@@ -1,0 +1,614 @@
+[
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13012",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210008866/tiles/geodetic/43.2971185,5.4275887?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Rue Gaston de Flotte",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210008866/tiles/geodetic/43.2971185,5.4275887?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.297115,
+    "name": "Aire de covoiturage intermarché",
+    "id": "5d14deee0351d108c24a62c1",
+    "lng": 5.427593,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210008866",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Rue Gaston de Flotte",
+    "pCode": "13012",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14deee0351d108c24a62c1.json",
+    "countryCode": 250
+  },
+  {
+    "lat": 43.295611,
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage Jean Jaures",
+    "offer": "FREE",
+    "lng": 5.387366,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "offerType": "NONE",
+    "closestPanoramicId": "1000032011117",
+    "town": "Marseille",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032011117/tiles/geodetic/43.29561,5.38738?redirect=true&fallbackradius=10&preview=false"
+    },
+    "id": "5d14deef0351d108c24a62e7",
+    "pCodeSeo": "13005",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032011117/tiles/geodetic/43.29561,5.38738?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "townSeo": "Marseille",
+    "countryCode": 250,
+    "pCode": "13005",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14deef0351d108c24a62e7.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "lat": 43.366909,
+    "townCode": "13088",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage le rove",
+    "offer": "FREE",
+    "lng": 5.240694,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "town": "Le Rove",
+    "offerType": "NONE",
+    "id": "5d14def50351d108c24a63b4",
+    "pCodeSeo": "13740",
+    "additionalInfo": {},
+    "townSeo": "Le Rove",
+    "countryCode": 250,
+    "pCode": "13740",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14def50351d108c24a63b4.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13008",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230004303/tiles/geodetic/43.2655,5.37279?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Promenade Georges Pompidou",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230004303/tiles/geodetic/43.2655,5.37279?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.265554,
+    "name": "Aire de covoiturage Plages",
+    "id": "5d14df1a0351d108c24a689f",
+    "lng": 5.372934,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000230004303",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Promenade Georges Pompidou",
+    "pCode": "13008",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df1a0351d108c24a689f.json",
+    "countryCode": 250
+  },
+  {
+    "lat": 43.290435,
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage Prefecture",
+    "offer": "FREE",
+    "lng": 5.379515,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "offerType": "NONE",
+    "closestPanoramicId": "2000220024383",
+    "town": "Marseille",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220024383/tiles/geodetic/43.29045,5.37951?redirect=true&fallbackradius=10&preview=false"
+    },
+    "id": "5d14df1d0351d108c24a690e",
+    "pCodeSeo": "13006",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220024383/tiles/geodetic/43.29045,5.37951?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "townSeo": "Marseille",
+    "countryCode": 250,
+    "pCode": "13006",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df1d0351d108c24a690e.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13001",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015356/tiles/geodetic/43.29865,5.37841?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "5 Rue de la Providence",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015356/tiles/geodetic/43.29865,5.37841?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.298639,
+    "name": "Aire de covoiturage Providence",
+    "id": "5d14df1e0351d108c24a6917",
+    "lng": 5.378356,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210015356",
+    "countryCode": 250,
+    "street": "Rue de la Providence",
+    "wayNumber": "5",
+    "pCode": "13001",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df1e0351d108c24a6917.json",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13001",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220031558/tiles/geodetic/43.29866,5.37235?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "34 Rue de la République",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220031558/tiles/geodetic/43.29866,5.37235?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.298641,
+    "name": "Aire de covoiturage Republique",
+    "id": "5d14df1f0351d108c24a694f",
+    "lng": 5.372274,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000220031558",
+    "countryCode": 250,
+    "street": "Rue de la République",
+    "wayNumber": "34",
+    "pCode": "13001",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df1f0351d108c24a694f.json",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13002",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015563/tiles/geodetic/43.30055,5.37436?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Rue Sainte-Barbe",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015563/tiles/geodetic/43.30055,5.37436?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.300545,
+    "name": "Aire de covoiturage Sainte Barb",
+    "id": "5d14df240351d108c24a69f4",
+    "lng": 5.374361,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210015563",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Rue Sainte-Barbe",
+    "pCode": "13002",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df240351d108c24a69f4.json",
+    "countryCode": 250
+  },
+  {
+    "lat": 43.17368,
+    "townCode": "13028",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage Vieux Port",
+    "offer": "FREE",
+    "lng": 5.60302,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "town": "La Ciotat",
+    "offerType": "NONE",
+    "id": "5d14df2f0351d108c24a6b73",
+    "pCodeSeo": "13600",
+    "additionalInfo": {},
+    "townSeo": "La Ciotat",
+    "countryCode": 250,
+    "pCode": "13600",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14df2f0351d108c24a6b73.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "lat": 43.31323,
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage Beauregard",
+    "offer": "FREE",
+    "lng": 5.40978,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "town": "Marseille",
+    "offerType": "NONE",
+    "id": "5d14debb0351d108c24a5d14",
+    "pCodeSeo": "13012",
+    "additionalInfo": {},
+    "townSeo": "Marseille",
+    "countryCode": 250,
+    "street": "Rue des Linots",
+    "way": "Rue des Linots",
+    "pCode": "13012",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14debb0351d108c24a5d14.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13004",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210013259/tiles/geodetic/43.29572,5.40635?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Place de la Gare de la Blancarde",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210013259/tiles/geodetic/43.29572,5.40635?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.295753,
+    "name": "Aire de covoiturage Blancarde",
+    "id": "5d14debc0351d108c24a5d3a",
+    "lng": 5.406409,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210013259",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Place de la Gare de la Blancarde",
+    "pCode": "13004",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14debc0351d108c24a5d3a.json",
+    "countryCode": 250
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13006",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220027007/tiles/geodetic/43.28285,5.37973?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "62 Rue du Docteur Escat",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220027007/tiles/geodetic/43.28285,5.37973?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.28288,
+    "name": "Aire de covoiturage Bouchard",
+    "id": "5d14debd0351d108c24a5d4f",
+    "lng": 5.379711,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000220027007",
+    "countryCode": 250,
+    "street": "Rue du Docteur Escat",
+    "wayNumber": "62",
+    "pCode": "13006",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14debd0351d108c24a5d4f.json",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13001",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015771/tiles/geodetic/43.29715,5.37425?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Rue de la Reine Élisabeth",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015771/tiles/geodetic/43.29715,5.37425?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.297128,
+    "name": "Aire de covoiturage Bourse",
+    "id": "5d14debe0351d108c24a5d68",
+    "lng": 5.37418,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210015771",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Rue de la Reine Élisabeth",
+    "pCode": "13001",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14debe0351d108c24a5d68.json",
+    "countryCode": 250
+  },
+  {
+    "lat": 43.284582,
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "name": "Aire de covoiturage Castellane",
+    "offer": "FREE",
+    "lng": 5.386198,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "offerType": "NONE",
+    "closestPanoramicId": "2000210034962",
+    "town": "Marseille",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210034962/tiles/geodetic/43.2846,5.38624?redirect=true&fallbackradius=10&preview=false"
+    },
+    "id": "5d14dec30351d108c24a5de8",
+    "pCodeSeo": "13006",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210034962/tiles/geodetic/43.2846,5.38624?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "townSeo": "Marseille",
+    "countryCode": 250,
+    "pCode": "13006",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14dec30351d108c24a5de8.json",
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT"
+  },
+  {
+    "townCode": "13028",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13600",
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "La Ciotat",
+    "way": "14 Boulevard Lamartine",
+    "additionalInfo": {},
+    "town": "La Ciotat",
+    "lat": 43.17893,
+    "name": "Aire de covoiturage Centre",
+    "id": "5d14dec40351d108c24a5df5",
+    "lng": 5.60818,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Boulevard Lamartine",
+    "wayNumber": "14",
+    "pCode": "13600",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14dec40351d108c24a5df5.json",
+    "countryCode": 250
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13001",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210020671/tiles/geodetic/43.29454,5.37599?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "Place du Général de Gaulle",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210020671/tiles/geodetic/43.29454,5.37599?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.29454,
+    "name": "Aire de covoiturage Charles de Gaulle",
+    "id": "5d14dec70351d108c24a5e50",
+    "lng": 5.376001,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "2000210020671",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Place du Général de Gaulle",
+    "pCode": "13001",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14dec70351d108c24a5e50.json",
+    "countryCode": 250
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13004",
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "1 Place Edmond Audran",
+    "additionalInfo": {},
+    "town": "Marseille",
+    "lat": 43.3093333,
+    "name": "Aire de covoiturage Chartreux",
+    "id": "5d14dec80351d108c24a5e5a",
+    "lng": 5.4010435,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "thematicId": "TH_TRANSPORT",
+    "street": "Place Edmond Audran",
+    "wayNumber": "1",
+    "pCode": "13004",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14dec80351d108c24a5e5a.json",
+    "countryCode": 250
+  },
+  {
+    "townCode": "13055",
+    "prov": "generic_z_covoiturage",
+    "pCodeSeo": "13009",
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003217963/tiles/geodetic/43.2569564,5.4083174?redirect=true&fallbackradius=10&preview=false"
+    },
+    "offer": "FREE",
+    "offerType": "NONE",
+    "townSeo": "Marseille",
+    "way": "73 Traverse de la Gaye",
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003217963/tiles/geodetic/43.2569564,5.4083174?redirect=true&fallbackradius=10&preview=false"
+      }
+    },
+    "town": "Marseille",
+    "lat": 43.256952,
+    "name": "Aire de covoiturage DIPDE",
+    "id": "5d14ded10351d108c24a5f5a",
+    "lng": 5.408317,
+    "rubric": {
+      "id": "zone-covoiturage",
+      "label": "Aire de covoiturage",
+      "parent": "transport"
+    },
+    "rubricId": "zone-covoiturage",
+    "closestPanoramicId": "1000003217963",
+    "countryCode": 250,
+    "street": "Traverse de la Gaye",
+    "wayNumber": "73",
+    "pCode": "13009",
+    "tabs": [],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d14ded10351d108c24a5f5a.json",
+    "thematicId": "TH_TRANSPORT"
+  }
+]
