@@ -199,6 +199,10 @@ export default {
 </script>
 
 <style lang="scss">
+.mt-3 > .form-inline {
+  display: inline-block;
+}
+
 #parkingMapPage {
   height: 100%;
   width: 100%;
@@ -307,7 +311,6 @@ export default {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     z-index: 468;
     display: flex;
-    width: 100%;
     margin-left: 70px;
     margin-right: 50px;
   }
