@@ -259,6 +259,7 @@ export default {
     border: none;
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
+    z-index: 469 !important;
   }
 
   .borderCentral:first-child {
