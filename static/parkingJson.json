@@ -1,0 +1,5059 @@
+[
+  {
+    "illustration": {
+      "url": "//opedcpstatic.mappy.net/vdr/opngo/OPnGO_Visuel.png"
+    },
+    "prov": "generic_parking",
+    "id": "5c4982090351d141f42344a1",
+    "name": "Parking Hôtel Ibis La Ciotat couvert",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4982090351d141f42344a1/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13028",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4982090351d141f42344a1/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "La Ciotat",
+    "rubricId": "parkings-exploitation",
+    "town": "La Ciotat",
+    "way": "Avenue de la Tramontane",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4982090351d141f42344a1.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "pCode": "13600",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//opedcpstatic.mappy.net/vdr/opngo/OPnGO_Visuel.png"
+      },
+      "teasing": "<em>Location au mois</em>",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Avenue de la Tramontane",
+    "lng": 5.60403688499361,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13600",
+    "lat": 43.204564883583
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002863293/tiles/geodetic/43.247459,5.390081?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "accor",
+    "id": "51d1a3af84ae042cffb8409d",
+    "name": "ibis Marseille Bonneveine Calanques Plages",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/51d1a3af84ae042cffb8409d/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/51d1a3af84ae042cffb8409d/opngo",
+        "appId": "opngo"
+      },
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/51d1a3af84ae042cffb8409d/accor",
+        "appId": "accor"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "00936942",
+    "rubricId": "parkings-exploitation",
+    "town": "MARSEILLE",
+    "way": "8 AVENUE ELSA TRIOLET",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/51d1a3af84ae042cffb8409d.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002863293",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_ibh.png",
+    "pCode": "13008",
+    "brand": "IBH",
+    "brandIconUrl": "//poiassets.mappy.net/assets/2/branding/V6/ibh.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002863293/tiles/geodetic/43.247459,5.390081?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/2602/Parking_Ibis_Marseille_Bonneveine_Calanques?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "8 AVENUE ELSA TRIOLET",
+    "reviews": {
+      "maxNote": 10,
+      "numberOfReviews": 1103,
+      "averageNote": 7.5
+    },
+    "lng": 5.389932,
+    "pjBlocId": "00936942700001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.247481,
+    "communication": {}
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031996391/tiles/geodetic/43.3107599589374,5.37196130629957?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "59d3583f0351d112a2209f83",
+    "name": "Parking Ruffi - Hôpital Européen",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/59d3583f0351d112a2209f83/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/59d3583f0351d112a2209f83/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "34 Rue de Ruffi",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/59d3583f0351d112a2209f83.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031996391",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "34",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031996391/tiles/geodetic/43.3107599589374,5.37196130629957?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "<em>Location au mois</em>",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue de Ruffi",
+    "lng": 5.371976,
+    "thematicId": "TH_PARKING",
+    "pCode": "13003",
+    "pCodeSeo": "13003",
+    "lat": 43.310752
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014095989/tiles/geodetic/43.280730010169,5.38832636134838?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5b8e4da50351d136738c2c9f",
+    "name": "Parking Prado Perier",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e4da50351d136738c2c9f/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e4da50351d136738c2c9f/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07046983",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Allée Turcat-Méry",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e4da50351d136738c2c9f.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014095989",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014095989/tiles/geodetic/43.280730010169,5.38832636134838?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/731/Prado_Perier?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Allée Turcat-Méry",
+    "lng": 5.388304,
+    "pjBlocId": "049178668300000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.28076
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014095812/tiles/geodetic/43.284675656401,5.38587023641726?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "573b3d599191b072cfe3fc5d",
+    "name": "Parking Castellane",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d599191b072cfe3fc5d/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d599191b072cfe3fc5d/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07045744",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "14 Avenue Jules Cantini",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d599191b072cfe3fc5d.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014095812",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "14",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014095812/tiles/geodetic/43.284675656401,5.38587023641726?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/737/Castellane?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Avenue Jules Cantini",
+    "lng": 5.385884,
+    "pjBlocId": "",
+    "thematicId": "TH_PARKING",
+    "pCode": "13006",
+    "pCodeSeo": "13006",
+    "lat": 43.284704
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031994902/tiles/geodetic/43.3129669412366,5.37156665423605?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5b8e40790351d122f0b59614",
+    "name": "Parking Nouvel Hôpital Européen",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40790351d122f0b59614/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40790351d122f0b59614/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "55788003",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Roger Salengro",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40790351d122f0b59614.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031994902",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13003",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031994902/tiles/geodetic/43.3129669412366,5.37156665423605?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "<em>Location au mois</em>",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Avenue Roger Salengro",
+    "lng": 5.371563,
+    "pjBlocId": "",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13003",
+    "lat": 43.312959
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032005070/tiles/geodetic/43.2925225467205,5.36740226918579?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "573b3c679191b072cfe3f961",
+    "name": "Parking Vieux Port la Criée",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c679191b072cfe3f961/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c679191b072cfe3f961/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "52189202",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "38 Quai de Rive Neuve",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c679191b072cfe3f961.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032005070",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "38",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032005070/tiles/geodetic/43.2925225467205,5.36740226918579?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/738/Vieux_Port_la_Cri%C3%A9e?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Quai de Rive Neuve",
+    "lng": 5.367418,
+    "pjBlocId": "049133952300000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCode": "13007",
+    "pCodeSeo": "13007",
+    "lat": 43.292547
+  },
+  {
+    "illustration": {
+      "url": "https://static4.pagesjaunes.fr/media/cviv/00369583_N_0001_photo.jpeg"
+    },
+    "prov": "pj",
+    "id": "4d6c8e19fc69250719c810d7",
+    "name": "Garage S.M.A.R.T",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6c8e19fc69250719c810d7/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "00369583",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "51 rue du Rouet",
+    "offer": "PREMIUM",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6c8e19fc69250719c810d7.json?contextRubricId=parking",
+    "closestPanoramicId": "1000032009848",
+    "offerType": "OVM",
+    "phone": "04 91 79 23 14",
+    "pCode": "13008",
+    "wayNumber": "51",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://static4.pagesjaunes.fr/media/cviv/00369583_N_0001_photo.jpeg"
+      },
+      "prestations": "Services : parking gardé, parking courte durée, parking longue durée, parking pour voiture, 3,90 m de hauteur, Parking au mois, à l'heure, à la semaine, nuit et jour, Tarif préférentiel pour séjour, 24h/24, 7j/7",
+      "description": "Situé à proximité de Castellane et de l'église Sacré Cœur, notre parking gardé et couvert est disponible à l'année, au mois, à la journée et à l'heure.",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue du Rouet",
+    "lng": 5.387732,
+    "pjBlocId": "0491792314003695830001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.282756,
+    "communication": {
+      "phone": {
+        "number": "04 91 79 23 14",
+        "againstDirectMarketing": true
+      }
+    }
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2016/05/19/09/51/04/444/OnePark_Parking_20Marseille_20Centre_20Prado_20V_C3_A9lodrome_20_20Ibis_20Budget_20Marseille.jpg.jpg"
+    },
+    "prov": "accor",
+    "id": "5086aac584ae0a9b3db0f8f3",
+    "name": "ibis budget Marseille Prado Parc des Expositions",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5086aac584ae0a9b3db0f8f3/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5086aac584ae0a9b3db0f8f3/onepark",
+        "appId": "onepark"
+      },
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5086aac584ae0a9b3db0f8f3/accor",
+        "appId": "accor"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "09380968",
+    "rubricId": "parkings-exploitation",
+    "town": "MARSEILLE",
+    "way": "35 Boulevard Rabatau",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5086aac584ae0a9b3db0f8f3.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031997120",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_ibb.png",
+    "pCode": "13008",
+    "brand": "IBB",
+    "brandIconUrl": "//poiassets.mappy.net/assets/2/branding/V6/ibb.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/05/19/09/51/04/444/OnePark_Parking_20Marseille_20Centre_20Prado_20V_C3_A9lodrome_20_20Ibis_20Budget_20Marseille.jpg.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3172?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "35 Boulevard Rabatau",
+    "reviews": {
+      "maxNote": 10,
+      "numberOfReviews": 1739,
+      "averageNote": 6.9
+    },
+    "lng": 5.393781,
+    "pjBlocId": "09380968700001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.274404,
+    "communication": {}
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2016/02/08/09/31/24/829/OnePark_Parking_20Marseille_20Centre_20Prado_20V_C3_A9lodrome_20_20Ibis.jpg.jpg"
+    },
+    "prov": "accor",
+    "id": "5285fee2e4b08a49238335ec",
+    "name": "ibis Marseille Centre Prado Vélodrome",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5285fee2e4b08a49238335ec/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5285fee2e4b08a49238335ec/onepark",
+        "appId": "onepark"
+      },
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5285fee2e4b08a49238335ec/accor",
+        "appId": "accor"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "05588709",
+    "rubricId": "parkings-exploitation",
+    "town": "MARSEILLE",
+    "way": "6 rue de Cassis",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5285fee2e4b08a49238335ec.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014094985",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_ibh.png",
+    "pCode": "13008",
+    "brand": "IBH",
+    "brandIconUrl": "//poiassets.mappy.net/assets/2/branding/V6/ibh.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/02/08/09/31/24/829/OnePark_Parking_20Marseille_20Centre_20Prado_20V_C3_A9lodrome_20_20Ibis.jpg.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3057?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "6 rue de Cassis",
+    "reviews": {
+      "maxNote": 10,
+      "numberOfReviews": 713,
+      "averageNote": 7.8
+    },
+    "lng": 5.388887,
+    "pjBlocId": "05588709700001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.279463,
+    "communication": {}
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097047/tiles/geodetic/43.3022677156085,5.38247523733692?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5b8e40910351d122f0b59621",
+    "name": "Voiturier Blue Valet gare de Marseille Saint-Charles (couvert)",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40910351d122f0b59621/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40910351d122f0b59621/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "57644246",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Pierre Semard",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b8e40910351d122f0b59621.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097047",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert jusqu'à 22h45",
+    "pCode": "13001",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097047/tiles/geodetic/43.3022677156085,5.38247523733692?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "<em>Location au mois</em>",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Avenue Pierre Semard",
+    "lng": 5.38241,
+    "pjBlocId": "017972422400050000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302256
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015092976/tiles/geodetic/43.3011601080193,5.37010077318685?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "54e81adbe4b0b65234747305",
+    "name": "Parking République",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81adbe4b0b65234747305/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81adbe4b0b65234747305/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "55787916",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Rue de la République",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81adbe4b0b65234747305.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015092976",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13002",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015092976/tiles/geodetic/43.3011601080193,5.37010077318685?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/740/R%C3%A9publique?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue de la République",
+    "lng": 5.370101,
+    "pjBlocId": "049131393500000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.30116
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2017/12/15/15/50/00/270/4644902_XL.jpg"
+    },
+    "prov": "booking",
+    "id": "4d6dd88fb9eb25071429d0c3",
+    "name": "Kyriad Marseille Palais Des Congrès – Vélodrome",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dd88fb9eb25071429d0c3/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dd88fb9eb25071429d0c3/onepark",
+        "appId": "onepark"
+      },
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dd88fb9eb25071429d0c3/booking",
+        "appId": "booking"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "162 Boulevard Rabatau Daniel Matalon",
+    "offer": "PREMIUM",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dd88fb9eb25071429d0c3.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015085953",
+    "offerType": "SUPER_TRANSACTIONAL",
+    "pjId": "06167072",
+    "pCode": "13010",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2017/12/15/15/50/00/270/4644902_XL.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3867?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "162 Boulevard Rabatau Daniel Matalon",
+    "reviews": {
+      "maxNote": 10,
+      "numberOfReviews": 1185,
+      "averageNote": 8.1
+    },
+    "lng": 5.399496,
+    "pjBlocId": "06167072700001C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.booking.com/hotel/fr/hotelkyriadrabatau.html?aid=380385&code_hotel=51951",
+    "pCodeSeo": "13010",
+    "lat": 43.280649,
+    "communication": {
+      "website": "https://www.booking.com/hotel/fr/hotelkyriadrabatau.html?aid=380385&code_hotel=51951"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031990392/tiles/geodetic/43.2994500046409,5.3742104024743?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5322c325e4b04129c76a96c6",
+    "name": "Parking Sainte-Barbe",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5322c325e4b04129c76a96c6/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5322c325e4b04129c76a96c6/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07047295",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Rue Sainte-Barbe",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5322c325e4b04129c76a96c6.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031990392",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031990392/tiles/geodetic/43.2994500046409,5.3742104024743?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/732/Sainte-Barbe?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue Sainte-Barbe",
+    "lng": 5.374221,
+    "pjBlocId": "049191132000000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.299452
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032011104/tiles/geodetic/43.294910276984,5.38713369859836?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "573b3c7a9191b072cfe3f977",
+    "name": "Parking Jean Jaurès",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c7a9191b072cfe3f977/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c7a9191b072cfe3f977/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "06888260",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Place Jean Jaurès",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3c7a9191b072cfe3f977.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032011104",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13005",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032011104/tiles/geodetic/43.294910276984,5.38713369859836?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/407/Jean_Jaur%C3%A8s?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Place Jean Jaurès",
+    "lng": 5.387134,
+    "pjBlocId": "",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13005",
+    "lat": 43.29491
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002590290/tiles/geodetic/43.3356804261356,5.41483530686423?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "592499d80351d168734f58c3",
+    "name": "Parking Préfecture",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d80351d168734f58c3/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d80351d168734f58c3/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56104650",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Le Parc du Château",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d80351d168734f58c3.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002590290",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13013",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002590290/tiles/geodetic/43.3356804261356,5.41483530686423?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/736/Pr%C3%A9fecture?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Le Parc du Château",
+    "lng": 5.414835,
+    "pjBlocId": "049155593800000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13013",
+    "lat": 43.33568
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032004665/tiles/geodetic/43.2951176468395,5.3760794456389?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "53211cede4b07c1cacaf88fd",
+    "name": "Parking Charles de Gaulle",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/53211cede4b07c1cacaf88fd/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/53211cede4b07c1cacaf88fd/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07233296",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Place du Général de Gaulle",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/53211cede4b07c1cacaf88fd.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032004665",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032004665/tiles/geodetic/43.2951176468395,5.3760794456389?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/735/Charles_de_Gaulle?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Place du Général de Gaulle",
+    "lng": 5.376062,
+    "pjBlocId": "8LK63YBC0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.295117
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015099811/tiles/geodetic/43.2891680320599,5.39567497382948?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "54e81dede4b0b65234747af1",
+    "name": "Parking Hôpital de la Conception",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81dede4b0b65234747af1/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81dede4b0b65234747af1/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "52075150",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "145 Boulevard Baille",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81dede4b0b65234747af1.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015099811",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "145",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015099811/tiles/geodetic/43.2891680320599,5.39567497382948?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/739/H%C3%B4pital_de_la_Conception?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Boulevard Baille",
+    "reviews": {
+      "maxNote": 5,
+      "numberOfReviews": 1,
+      "averageNote": 5
+    },
+    "lng": 5.395657,
+    "pjBlocId": "049148928800000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCode": "13005",
+    "pCodeSeo": "13005",
+    "lat": 43.289137
+  },
+  {
+    "illustration": {
+      "url": "//opedcpstatic.mappy.net/vdr/opngo/OPnGO_Visuel.png"
+    },
+    "prov": "generic_parking",
+    "id": "5c4f007a0351d152c7c511ad",
+    "name": "Parking Vieux-Port Fort Saint-Jean",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4f007a0351d152c7c511ad/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4f007a0351d152c7c511ad/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Quai de la Tourette",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c4f007a0351d152c7c511ad.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000220042321",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "pCode": "13002",
+    "brand": "opngo",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//opedcpstatic.mappy.net/vdr/opngo/OPnGO_Visuel.png"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/741/Vieux-Port_Fort_Saint-Jean?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Quai de la Tourette",
+    "lng": 5.363541,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.299032
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015093220/tiles/geodetic/43.3031984311829,5.37001385516809?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "573b3d269191b072cfe3fbb1",
+    "name": "Parking Malaval - Bd des Dames",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d269191b072cfe3fbb1/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d269191b072cfe3fbb1/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "1 Rue Malaval",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3d269191b072cfe3fbb1.json?contextRubricId=parking",
+    "closestPanoramicId": "1000015093220",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "1",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015093220/tiles/geodetic/43.3031984311829,5.37001385516809?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "<em>Location au mois</em>",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue Malaval",
+    "lng": 5.370063,
+    "thematicId": "TH_PARKING",
+    "pCode": "13002",
+    "pCodeSeo": "13002",
+    "lat": 43.303199
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032002430/tiles/geodetic/43.2838602156521,5.38074889183777?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "54e81da8e4b0b65234747a3a",
+    "name": "Parking Paradis Mélizan",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81da8e4b0b65234747a3a/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81da8e4b0b65234747a3a/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "55790554",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "202 Rue Paradis",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81da8e4b0b65234747a3a.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032002430",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "202",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032002430/tiles/geodetic/43.2838602156521,5.38074889183777?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/742/Paradis_M%C3%A9lizan?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue Paradis",
+    "lng": 5.38083,
+    "pjBlocId": "049167471000000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCode": "13006",
+    "pCodeSeo": "13006",
+    "lat": 43.283847
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032004123/tiles/geodetic/43.2957175326082,5.37508966402792?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "592499d20351d168734f58c2",
+    "name": "Parking Bourse - Musée d'Histoire",
+    "cornerShops": [
+      {
+        "id": "opngo",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d20351d168734f58c2/opngo",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/opngo/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d20351d168734f58c2/opngo",
+        "appId": "opngo"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "06168825",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "1 Rue de la Reine Élisabeth",
+    "offer": "BRANDED",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/592499d20351d168734f58c2.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032004123",
+    "offerType": "VDR",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_opngo.png",
+    "openingHours": "Ouvert 24h/24",
+    "brand": "opngo",
+    "wayNumber": "1",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/opngo.png",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032004123/tiles/geodetic/43.2957175326082,5.37508966402792?redirect=true&fallbackradius=10&preview=false"
+      },
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.opngo.com/reservation/733/Bourse_-_Mus%C3%A9e_d'Histoire?utm_source=mappy&utm_medium=textlink&utm_campaign=ppartner",
+      "appId": "opngo"
+    },
+    "countryCode": 250,
+    "street": "Rue de la Reine Élisabeth",
+    "lng": 5.375116,
+    "pjBlocId": "06168825700001C0001",
+    "thematicId": "TH_PARKING",
+    "pCode": "13001",
+    "pCodeSeo": "13001",
+    "lat": 43.29574
+  },
+  {
+    "illustration": {
+      "url": "https://opedcpstatic.mappy.net/vdr/parclick/image_80x100_New.jpg"
+    },
+    "prov": "generic_parclick",
+    "id": "597736e10351d11f21bb2170",
+    "name": "Euromed Center",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/597736e10351d11f21bb2170/parclick",
+        "appId": "parclick"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "Quai du Lazaret",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/597736e10351d11f21bb2170.json?contextRubricId=parking",
+    "closestPanoramicId": "1000031994612",
+    "offerType": "TRANSACTIONAL",
+    "openingHours": "Ouvert jusqu'à 23h",
+    "pCode": "13002",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//opedcpstatic.mappy.net/vdr/parclick/image_80x100_New.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "parclick",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://parclick.fr/parking-marseille/euromed_center?affiliate=f208"
+    },
+    "countryCode": 250,
+    "street": "Quai du Lazaret",
+    "lng": 5.367393,
+    "communication": {
+      "website": "https://parclick.fr/parking-marseille/euromed_center?affiliate=f208"
+    },
+    "thematicId": "TH_PARKING",
+    "url": "https://parclick.fr/parking-marseille/euromed_center?affiliate=f208",
+    "pCodeSeo": "13002",
+    "lat": 43.311413
+  },
+  {
+    "illustration": {
+      "url": "https://opedcpstatic.mappy.net/vdr/parclick/image_80x100_New.jpg"
+    },
+    "prov": "generic_parclick",
+    "id": "5977370b0351d11f21bb21c5",
+    "name": "Rome",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5977370b0351d11f21bb21c5/parclick",
+        "appId": "parclick"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "11 Rue Sylvabelle",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5977370b0351d11f21bb21c5.json?contextRubricId=parking",
+    "openingHours": "Ouvert jusqu'à 20h30",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13006",
+    "wayNumber": "11",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//opedcpstatic.mappy.net/vdr/parclick/image_80x100_New.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "parclick",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://parclick.fr/parking-marseille/rome?affiliate=f208"
+    },
+    "countryCode": 250,
+    "street": "Rue Sylvabelle",
+    "lng": 5.3810734,
+    "communication": {
+      "website": "https://parclick.fr/parking-marseille/rome?affiliate=f208"
+    },
+    "thematicId": "TH_PARKING",
+    "url": "https://parclick.fr/parking-marseille/rome?affiliate=f208",
+    "pCodeSeo": "13006",
+    "lat": 43.2896067
+  },
+  {
+    "illustration": {
+      "url": "https://static4.pagesjaunes.fr/media/cviv/03679077_N_0002_photo.jpeg"
+    },
+    "prov": "pj",
+    "id": "53d3b3c4e4b0cd9615259456",
+    "name": "Pharmacie Les Terrasses du Port",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/53d3b3c4e4b0cd9615259456/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "03679077",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "9 quai du Port",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/53d3b3c4e4b0cd9615259456.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert jusqu'à 20h",
+    "offerType": "CVIV",
+    "phone": "04 91 90 64 65",
+    "pCode": "13002",
+    "wayNumber": "9",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://static4.pagesjaunes.fr/media/cviv/03679077_N_0002_photo.jpeg"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "quai du Port",
+    "lng": 5.364186,
+    "pjBlocId": "0491906465036790770001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.306734,
+    "communication": {
+      "phone": {
+        "number": "04 91 90 64 65",
+        "againstDirectMarketing": true
+      }
+    }
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2015/08/13/15/32/38/996/parking_cassis_mimosas.jpg"
+    },
+    "prov": "pj",
+    "id": "5aeb23df0351d15db0b34f92",
+    "name": "Parking Cassis Les Mimosas - EFFIA",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f92/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13022",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f92/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Cassis",
+    "pjId": "55733280",
+    "rubricId": "parkings-exploitation",
+    "town": "Cassis",
+    "way": "10 avenue Augustin Isnard",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f92.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "TRANSACTIONAL",
+    "phone": "0 806 000 115",
+    "pCode": "13260",
+    "wayNumber": "10",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2015/08/13/15/32/38/996/parking_cassis_mimosas.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/2811?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "avenue Augustin Isnard",
+    "lng": 5.54123,
+    "pjBlocId": "080600011556036531A013C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-cassis-les-mimosas-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.21626,
+    "pCodeSeo": "13260",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-cassis-les-mimosas-effia"
+    }
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2016/11/09/15/05/35/926/OnePark_Parking_20Gare_20de_20Marseille_20Voltaire_20P2_20_20EFFIA_20Marseille.jpg"
+    },
+    "prov": "pj",
+    "id": "5aeb24160351d15db0b34fd5",
+    "name": "Parking gare de Marseille Saint-Charles P1 - EFFIA",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24160351d15db0b34fd5/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24160351d15db0b34fd5/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "09649329",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "31 Bis boulevard Voltaire",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24160351d15db0b34fd5.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210015146",
+    "offerType": "TRANSACTIONAL",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "wayNumber": "31 Bis",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/11/09/15/05/35/926/OnePark_Parking_20Gare_20de_20Marseille_20Voltaire_20P2_20_20EFFIA_20Marseille.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3297?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "boulevard Voltaire",
+    "lng": 5.384216,
+    "pjBlocId": "080600011556036531A005C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-gare-de-marseille-saint-charles-p1-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.302625,
+    "pCodeSeo": "13001",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-gare-de-marseille-saint-charles-p1-effia"
+    }
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2017/11/02/13/37/42/911/parking_cassis_viguerie_20EFFIA.jpg"
+    },
+    "prov": "pj",
+    "id": "5aeb23df0351d15db0b34f93",
+    "name": "Parking Cassis La Viguerie - EFFIA",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f93/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13022",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f93/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Cassis",
+    "pjId": "55733279",
+    "rubricId": "parkings-exploitation",
+    "town": "Cassis",
+    "way": "14 avenue de la Viguerie",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23df0351d15db0b34f93.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "TRANSACTIONAL",
+    "phone": "0 806 000 115",
+    "pCode": "13260",
+    "wayNumber": "14",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2017/11/02/13/37/42/911/parking_cassis_viguerie_20EFFIA.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/2812?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "avenue de la Viguerie",
+    "lng": 5.53681,
+    "pjBlocId": "080600011556036531A012C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-cassis-la-viguerie-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.21652,
+    "pCodeSeo": "13260",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-cassis-la-viguerie-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002397731/tiles/geodetic/43.264873,5.373705?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "588d19d90351d117d7ea8063",
+    "name": "Parking Marseille David P2 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19d90351d117d7ea8063/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56840161",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "101 promenade Georges Pompidou",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19d90351d117d7ea8063.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002397731",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "wayNumber": "101",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002397731/tiles/geodetic/43.264873,5.373705?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking DAVID P2 se trouve à moins de 5 min à pied de la plage du Prado, du Parc de la Valbelle et de la Statue du David de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "promenade Georges Pompidou",
+    "lng": 5.373676,
+    "pjBlocId": "080600011556036531A007C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-david-p2-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.264862,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-david-p2-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "588d19db0351d117d7ea8077",
+    "name": "Parking Marseille La Mer Restaurant P5 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19db0351d117d7ea8077/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "55787242",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Pierre Mendès France",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19db0351d117d7ea8077.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014096897",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking LA MER RESTAURANT P5 se trouve à moins de 5 min à pied de la plage, du Skatepark Le Bowl et de l'hippodrome Borély de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Mendès France",
+    "lng": 5.376188,
+    "pjBlocId": "080600011556036531A006C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-la-mer-restaurant-p5-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.254787,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-la-mer-restaurant-p5-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031993677/tiles/geodetic/43.298926,5.378447?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5beb5a760351d130e656d4b1",
+    "name": "Parking Marseille Providence - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5beb5a760351d130e656d4b1/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56727598",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "rue Petit Saint Jean",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5beb5a760351d130e656d4b1.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031993677",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031993677/tiles/geodetic/43.298926,5.378447?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking PROVIDENCE se trouve à moins de 5 min à pied du Mémorial de la Marseillaise, du Théatre de l'Oeuvre et du Cinéma l'Étoile de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue Petit Saint Jean",
+    "lng": 5.378447,
+    "pjBlocId": "080600011556036531A004C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-providence-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.298926,
+    "pCodeSeo": "13001",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-providence-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003923/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5b38755b0351d15ffb746d46",
+    "name": "Parking Marseille Vieille Chapelle P7 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755b0351d15ffb746d46/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58391006",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Pierre Mendès France",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755b0351d15ffb746d46.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000230003923",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003923/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+      },
+      "description": "Le parking Vieille Chapelle P7 est situé à proximité immédiate de la plage de Marseille.",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Mendès France",
+    "lng": 5.376162,
+    "pjBlocId": "080600011556036531A350C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-vieille-chapelle-p7-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.254741,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-vieille-chapelle-p7-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003923/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5b38755b0351d15ffb746d47",
+    "name": "Parking Marseille Escale P6 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755b0351d15ffb746d47/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58391785",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Pierre Mendès France",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755b0351d15ffb746d47.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000230003923",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003923/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+      },
+      "description": "Le parking P6 Escale est situé à proximité immédiate de la plage de Marseille.",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Mendès France",
+    "lng": 5.376162,
+    "pjBlocId": "080600011556036531A348C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-escale-p6-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.254741,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-escale-p6-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002555991/tiles/geodetic/43.271063,5.395073?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5bcbe3650351d145c6cfc87d",
+    "name": "Parking Marseille Prado - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5bcbe3650351d145c6cfc87d/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58632029",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "1 allée Ray Grassi",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5bcbe3650351d145c6cfc87d.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002555991",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "wayNumber": "1",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002555991/tiles/geodetic/43.271063,5.395073?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking PRADO vous permet d'accéder directement au Centre Commercial Prado et se trouve à moins de 5 min à pied du Stade Orange Vélodrome et du Palais des Congrès Chanot de MARSEILLE.",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "allée Ray Grassi",
+    "lng": 5.395081,
+    "pjBlocId": "080600011556036531A238C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-prado-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.271079,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-prado-effia"
+    }
+  },
+  {
+    "prov": "pj",
+    "id": "5c6a875c0351d129630553d1",
+    "name": "Parking Cassis Daudet - EFFIA",
+    "townCode": "13022",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c6a875c0351d129630553d1/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Cassis",
+    "pjId": "58781543",
+    "rubricId": "parkings-exploitation",
+    "town": "Cassis",
+    "way": "avenue Alphonse Daudet",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c6a875c0351d129630553d1.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "pCode": "13260",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "prestations": "Services : Parking",
+      "description": "Le parking DAUDET se trouve à moins de 5 min à pied du Gymnase micipal (Espace Sébastien d'Orsoo) et du Cimetière de CASSIS .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Alphonse Daudet",
+    "lng": 5.53623,
+    "pjBlocId": "080600011556036531A248C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-cassis-daudet-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.218258,
+    "pCodeSeo": "13260",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-cassis-daudet-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002416829/tiles/geodetic/43.269849,5.414155?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5c6a88250351d12963055e51",
+    "name": "Parking Clinique du Parc de Marseille - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c6a88250351d12963055e51/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58789402",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "16 rue Gaston Berger",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c6a88250351d12963055e51.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002416829",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13010",
+    "wayNumber": "16",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002416829/tiles/geodetic/43.269849,5.414155?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Réservez votre place de parking à MARSEILLE. Fini le stress du parking complet, soyez sûr de trouver une place de stationnement | RESAPLACE Réservation parking en ligne",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue Gaston Berger",
+    "lng": 5.414091,
+    "pjBlocId": "080600011556036531A266C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-clinique-du-parc-de-marseille-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.269836,
+    "pCodeSeo": "13010",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-clinique-du-parc-de-marseille-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014105489/tiles/geodetic/43.318888,5.408275?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "588d19dc0351d117d7ea8080",
+    "name": "Parking Marseille Les Tilleuls - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dc0351d117d7ea8080/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56840363",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "6 boulevard des Tilleuls",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dc0351d117d7ea8080.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014105489",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13013",
+    "wayNumber": "6",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014105489/tiles/geodetic/43.318888,5.408275?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking LES TILLEULS se trouve à moins de 5 min à pied de la salle de concert Le Moulin, de la crèche collective Saint Just Perrin et de l'Église Saint-Just de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "boulevard des Tilleuls",
+    "lng": 5.408313,
+    "pjBlocId": "080600011556036531A268C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-les-tilleuls-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.318901,
+    "pCodeSeo": "13013",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-les-tilleuls-effia"
+    }
+  },
+  {
+    "prov": "pj",
+    "id": "588d19dc0351d117d7ea8083",
+    "name": "Parking Cassis La Madie - EFFIA",
+    "townCode": "13022",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dc0351d117d7ea8083/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Cassis",
+    "pjId": "56841674",
+    "rubricId": "parkings-exploitation",
+    "town": "Cassis",
+    "way": "avenue du Revestel",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dc0351d117d7ea8083.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "pCode": "13260",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "prestations": "Services : Parking",
+      "description": "Le parking LA MADIE se trouve à moins de 5 min à pied de la Plage du Corton, du restaurant La Villa Madie et du Stade du Pignier de CASSIS .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue du Revestel",
+    "lng": 5.549374,
+    "pjBlocId": "080600011556036531A250C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-cassis-la-madie-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.210449,
+    "pCodeSeo": "13260",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-cassis-la-madie-effia"
+    }
+  },
+  {
+    "prov": "pj",
+    "id": "588d19dd0351d117d7ea808e",
+    "name": "Parking Cassis Bestouan - EFFIA",
+    "townCode": "13022",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dd0351d117d7ea808e/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Cassis",
+    "pjId": "56841968",
+    "rubricId": "parkings-exploitation",
+    "town": "Cassis",
+    "way": "avenue Amiral Ganteaume",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/588d19dd0351d117d7ea808e.json?contextRubricId=parkings-exploitation",
+    "openingHours": "Ouvert 24h/24",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "pCode": "13260",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "prestations": "Services : Parking",
+      "description": "Le parking  BESTOUAN se trouve à moins de 5 min à pied de l'Hôtel de la plage, de l'Hôtel Le Jardin d'Emile, et la Plage du Bestouan de CASSIS .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Amiral Ganteaume",
+    "lng": 5.53104,
+    "pjBlocId": "080600011556036531A249C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-cassis-bestouan-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.21327,
+    "pCodeSeo": "13260",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-cassis-bestouan-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210033009/tiles/geodetic/43.31646,5.404176?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "580be0a90351d14f2634a208",
+    "name": "Parking Marseille Beaugeard - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/580be0a90351d14f2634a208/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56727600",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Saint Just",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/580be0a90351d14f2634a208.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210033009",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13013",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210033009/tiles/geodetic/43.31646,5.404176?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking BEAUGEARD se trouve à moins de 5 min à pied de la salle de spectacle Le Dôme de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Saint Just",
+    "lng": 5.404188,
+    "pjBlocId": "080600011556036531A267C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-beaugeard-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.316464,
+    "pCodeSeo": "13013",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-beaugeard-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5b38755a0351d15ffb746d3a",
+    "name": "Parking Marseille Huveaune P3 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755a0351d15ffb746d3a/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58386370",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Pierre Mendès France",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755a0351d15ffb746d3a.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014096897",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking HUVEAUNE P3 se trouve à moins de 5 min à pied de la Plage de l'Huveaune, de la Plage du Prado et du Parc Borély de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Mendès France",
+    "lng": 5.376188,
+    "pjBlocId": "080600011556036531A255C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-huveaune-p3-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.254787,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-huveaune-p3-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5b38755a0351d15ffb746d3e",
+    "name": "Parking Marseille Véliplanchistes P4 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755a0351d15ffb746d3e/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "58387627",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "avenue Pierre Mendès France",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5b38755a0351d15ffb746d3e.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014096897",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014096897/tiles/geodetic/43.254741,5.376162?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking VÉLIPLANCHISTES P4 se trouve à moins de 5 min à pied du Restaurant SportBeach, de la plage privée Le Patabeach et de l'Hippodrome Borély de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Mendès France",
+    "lng": 5.376188,
+    "pjBlocId": "080600011556036531A256C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-veliplanchistes-p4-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.254787,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-veliplanchistes-p4-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003790/tiles/geodetic/43.265601,5.373419?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "580be00f0351d14f26349f76",
+    "name": "Parking Marseille Palm Beach P1 - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/580be00f0351d14f26349f76/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07479159",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "43 promenade Georges Pompidou",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/580be00f0351d14f26349f76.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000230003790",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "wayNumber": "43",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230003790/tiles/geodetic/43.265601,5.373419?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Le parking PALM BEACH P1 se trouve à moins de 5 min à pied de la Plage du Prado, du Stade Nautique du Roucas Blanc et de la Statue du David de MARSEILLE .",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "promenade Georges Pompidou",
+    "lng": 5.373388,
+    "pjBlocId": "080600011556036531A254C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-marseille-palm-beach-p1-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.26558,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-marseille-palm-beach-p1-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097025/tiles/geodetic/43.302655,5.381573?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5d42af3454c4c0500c0ee4ea",
+    "name": "Parking gare de Marseille Saint-Charles P2 Voltaire - EFFIA",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d42af3454c4c0500c0ee4ea/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "59473293",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "1 avenue Pierre Sémard",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d42af3454c4c0500c0ee4ea.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097025",
+    "offerType": "CVIV",
+    "phone": "0 806 000 115",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "wayNumber": "1",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097025/tiles/geodetic/43.302655,5.381573?redirect=true&fallbackradius=10&preview=false"
+      },
+      "prestations": "Services : Parking",
+      "description": "Réservez votre place de parking à MARSEILLE. Fini le stress du parking complet, soyez sûr de trouver une place de stationnement | RESAPLACE Réservation parking en ligne",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "avenue Pierre Sémard",
+    "lng": 5.381608,
+    "pjBlocId": "080600011556036531A339C0001",
+    "thematicId": "TH_PARKING",
+    "url": "https://www.effia.com/parking/parking-gare-de-marseille-saint-charles-p2-voltaire-effia",
+    "mail": "service.clients@effia.fr",
+    "lat": 43.302645,
+    "pCodeSeo": "13001",
+    "communication": {
+      "email": "service.clients@effia.fr",
+      "phone": {
+        "number": "0 806 000 115",
+        "text": "Service gratuit + prix appel",
+        "category": "gris",
+        "againstDirectMarketing": false
+      },
+      "website": "https://www.effia.com/parking/parking-gare-de-marseille-saint-charles-p2-voltaire-effia"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097031/tiles/geodetic/43.3023972770501,5.38167988885895?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5c9d00780351d1768d640b13",
+    "name": "Parking Services Gare St Charles - Service voiturier",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b13/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b13/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Square de Narvik",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b13.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097031",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097031/tiles/geodetic/43.3023972770501,5.38167988885895?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Square de Narvik",
+    "lng": 5.381656,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302395
+  },
+  {
+    "prov": "generic_parking",
+    "id": "5c9cff760351d1768d64088f",
+    "name": "Alyse Parc Auto Marseille",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d64088f/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13117",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d64088f/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Vitrolles",
+    "rubricId": "parkings-exploitation",
+    "town": "Vitrolles",
+    "way": "Rue de Lisbonne",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d64088f.json?contextRubricId=parkings-exploitation",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13127",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Rue de Lisbonne",
+    "lng": 5.2459064882833,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13127",
+    "lat": 43.428189283164
+  },
+  {
+    "prov": "generic_parking",
+    "id": "5c9cff760351d1768d640890",
+    "name": "Alyse Parc Auto Marseille - Service Voiturier",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640890/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13117",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640890/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Vitrolles",
+    "rubricId": "parkings-exploitation",
+    "town": "Vitrolles",
+    "way": "Rue de Lisbonne",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640890.json?contextRubricId=parkings-exploitation",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13127",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Rue de Lisbonne",
+    "lng": 5.2459064882833,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13127",
+    "lat": 43.428189283164
+  },
+  {
+    "prov": "generic_parking",
+    "id": "5c9cff760351d1768d640891",
+    "name": "Alyse Parc Auto Aix-en-Provence - Service Voiturier",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640891/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13117",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640891/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Vitrolles",
+    "rubricId": "parkings-exploitation",
+    "town": "Vitrolles",
+    "way": "Rue de Lisbonne",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff760351d1768d640891.json?contextRubricId=parkings-exploitation",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13127",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Rue de Lisbonne",
+    "lng": 5.2459064882833,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13127",
+    "lat": 43.428189283164
+  },
+  {
+    "prov": "generic_parking",
+    "id": "5c9cff790351d1768d64089e",
+    "name": "Alyse Parc Auto Port de Marseille",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff790351d1768d64089e/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13117",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff790351d1768d64089e/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Vitrolles",
+    "rubricId": "parkings-exploitation",
+    "town": "Vitrolles",
+    "way": "Rue de Lisbonne",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9cff790351d1768d64089e.json?contextRubricId=parkings-exploitation",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13127",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Rue de Lisbonne",
+    "lng": 5.2459064882833,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13127",
+    "lat": 43.428189283164
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015264/tiles/geodetic/43.3017862863588,5.38052396687721?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5c9d005a0351d1768d640ae7",
+    "name": "Blue Valet Marseille-St Charles - Service voiturier (couvert)",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d005a0351d1768d640ae7/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d005a0351d1768d640ae7/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Escalier Gare Saint-Charles",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d005a0351d1768d640ae7.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210015264",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210015264/tiles/geodetic/43.3017862863588,5.38052396687721?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Escalier Gare Saint-Charles",
+    "lng": 5.380527,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.301857
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003867812/tiles/geodetic/43.2866778661444,5.36817665489903?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5c9d00780351d1768d640b12",
+    "name": "Parking Services - Service voiturier",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b12/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b12/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Impasse de Marignan",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d00780351d1768d640b12.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000003867812",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13007",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003867812/tiles/geodetic/43.2866778661444,5.36817665489903?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Impasse de Marignan",
+    "lng": 5.368021,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13007",
+    "lat": 43.286665
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097047/tiles/geodetic/43.3022676903104,5.3824752315774?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "5c9d007a0351d1768d640b19",
+    "name": "Ector Marseille Saint-Charles - Service voiturier",
+    "cornerShops": [
+      {
+        "id": "travelcar",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d007a0351d1768d640b19/travelcar",
+        "iconUrl": "//poiassets.mappy.net/assets/3/apps/travelcar/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d007a0351d1768d640b19/travelcar",
+        "appId": "travelcar"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Pierre Semard",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c9d007a0351d1768d640b19.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097047",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097047/tiles/geodetic/43.3022676903104,5.3824752315774?redirect=true&fallbackradius=10&preview=false"
+      },
+      "teasing": "Réservation en ligne",
+      "promo": false,
+      "appId": "travelcar"
+    },
+    "countryCode": 250,
+    "street": "Avenue Pierre Semard",
+    "lng": 5.38241,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302256
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2018/06/26/13/52/12/659/20180625_210744.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5cb6d82b0351d129e56be1d0",
+    "name": "Parking Service Voiturier PARKING SERVICES (Extérieur)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5cb6d82b0351d129e56be1d0/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5cb6d82b0351d129e56be1d0/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Escalier Gare Saint-Charles",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5cb6d82b0351d129e56be1d0.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210015264",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/4119?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Escalier Gare Saint-Charles",
+    "lng": 5.380527,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.301857
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2015/08/09/22/27/50/864/parking_marseille_saint_charles_plan.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5aeb23c80351d15db0b34f6c",
+    "name": "Parking Officiel EFFIA GARE DE MARSEILLE SAINT-CHARLES P1 (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23c80351d15db0b34f6c/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23c80351d15db0b34f6c/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Pierre Semard",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23c80351d15db0b34f6c.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097047",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2015/08/09/22/27/50/864/parking_marseille_saint_charles_plan.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/2718?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Avenue Pierre Semard",
+    "lng": 5.38241,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302256
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2015/10/16/10/27/07/815/ParkingMarseilleVP.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5aeb23ea0351d15db0b34f9c",
+    "name": "Parking Hôtel MERCURE MARSEILLE CENTRE VIEUX-PORT (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23ea0351d15db0b34f9c/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23ea0351d15db0b34f9c/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "1 Rue de la Reine Élisabeth",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb23ea0351d15db0b34f9c.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032004123",
+    "offerType": "TRANSACTIONAL",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "wayNumber": "1",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2015/10/16/10/27/07/815/ParkingMarseilleVP.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/2933?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Rue de la Reine Élisabeth",
+    "lng": 5.375116,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.29574
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2016/03/16/15/49/49/11/OnePark_Parking_20Euromed_20Center_20_20Urbis_20Park_Marseille.jpg.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5ac4a4b50351d133d4f19325",
+    "name": "Parking Public URBIS PARK EUROMED CENTER (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4b50351d133d4f19325/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4b50351d133d4f19325/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Quai du Lazaret",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4b50351d133d4f19325.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031994582",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13002",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/03/16/15/49/49/11/OnePark_Parking_20Euromed_20Center_20_20Urbis_20Park_Marseille.jpg.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3032?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Quai du Lazaret",
+    "lng": 5.366527,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.308574
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2016/02/01/15/08/32/420/OnePark_Marseille_20Bonneveine_20Calanques_Ibis_20Couvert_Marseille.jpg.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5aeb24020351d15db0b34fa9",
+    "name": "Parking Marseille Bonneveine Calanques - Ibis Couvert",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24020351d15db0b34fa9/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24020351d15db0b34fa9/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Elsa Triolet",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24020351d15db0b34fa9.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002413113",
+    "offerType": "TRANSACTIONAL",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/02/01/15/08/32/420/OnePark_Marseille_20Bonneveine_20Calanques_Ibis_20Couvert_Marseille.jpg.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3051?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Avenue Elsa Triolet",
+    "lng": 5.38892,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.248305
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2016/02/01/15/54/04/103/OnePark_Marseille_20Bonneveine_20Calanques_Ibis_20Couvert_Marseille.jpg.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5ac4a4bc0351d133d4f1932d",
+    "name": "Parking Marseille Bonneveine Calanques - Ibis Extérieur",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4bc0351d133d4f1932d/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4bc0351d133d4f1932d/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Avenue Elsa Triolet",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4bc0351d133d4f1932d.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002413113",
+    "offerType": "TRANSACTIONAL",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/02/01/15/54/04/103/OnePark_Marseille_20Bonneveine_20Calanques_Ibis_20Couvert_Marseille.jpg.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3053?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Avenue Elsa Triolet",
+    "lng": 5.38892,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13008",
+    "lat": 43.248305
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2018/03/29/16/36/54/962/valet.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5ac4a4db0351d133d4f19352",
+    "name": "Parking Service Voiturier INTERCONTINENTAL MARSEILLE HÔTEL DIEU (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4db0351d133d4f19352/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4db0351d133d4f19352/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Place Daviel",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a4db0351d133d4f19352.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032001082",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13002",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2018/03/29/16/36/54/962/valet.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3250?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Place Daviel",
+    "lng": 5.369392,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.297584
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2016/10/06/15/22/46/487/OnePark_Parking_20Gare_20Saint_Charles_20_20BePark.jpeg"
+    },
+    "prov": "generic_parking",
+    "id": "5aba47c30351d152abdccfb1",
+    "name": "Parking Public BEPARK GARE SAINT-CHARLES (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47c30351d152abdccfb1/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47c30351d152abdccfb1/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "15 Boulevard Maurice Bourdet",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47c30351d152abdccfb1.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031990460",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "wayNumber": "15",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2016/10/06/15/22/46/487/OnePark_Parking_20Gare_20Saint_Charles_20_20BePark.jpeg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3283?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Boulevard Maurice Bourdet",
+    "lng": 5.379401,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302769
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2017/03/27/15/03/32/333/One_20park_20Parking_20Op_C3_A9ra_20Marseille_20_20Parking_20Rome_20Marseille.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5aba47ce0351d152abdcd021",
+    "name": "Parking Public ROME GARAGE (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47ce0351d152abdcd021/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47ce0351d152abdcd021/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "7 Rue Sylvabelle",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47ce0351d152abdcd021.json?contextRubricId=parking",
+    "closestPanoramicId": "2000080006807",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13006",
+    "wayNumber": "7",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2017/03/27/15/03/32/333/One_20park_20Parking_20Op_C3_A9ra_20Marseille_20_20Parking_20Rome_20Marseille.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3500?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Rue Sylvabelle",
+    "lng": 5.380942,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13006",
+    "lat": 43.289838
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2018/04/04/15/58/00/480/Ector.png"
+    },
+    "prov": "generic_parking",
+    "id": "5aeb24460351d15db0b3500b",
+    "name": "Parking Service Voiturier ECTOR GARE MARSEILLE (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24460351d15db0b3500b/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24460351d15db0b3500b/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Escalier Gare Saint-Charles",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb24460351d15db0b3500b.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031990924",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2018/04/04/15/58/00/480/Ector.png"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3620?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Escalier Gare Saint-Charles",
+    "lng": 5.380511,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.301865
+  },
+  {
+    "illustration": {
+      "url": "https://onepark.s3.amazonaws.com/2017/10/27/10/38/02/460/parking_20Massabo.jpeg"
+    },
+    "prov": "generic_parking",
+    "id": "5aba47df0351d152abdcd109",
+    "name": "Parking Public MASSABO (Extérieur)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47df0351d152abdcd109/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47df0351d152abdcd109/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "2 Rue François Massabo",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aba47df0351d152abdcd109.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015093329",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13002",
+    "wayNumber": "2",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2017/10/27/10/38/02/460/parking_20Massabo.jpeg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3785?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Rue François Massabo",
+    "lng": 5.370903,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.305123
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2018/04/05/11/30/57/258/blue_valet_1140x640.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5ac4a55c0351d133d4f19418",
+    "name": "Parking Service Voiturier BLUE VALET GARE MARSEILLE (Couvert)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a55c0351d133d4f19418/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a55c0351d133d4f19418/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Escalier Gare Saint-Charles",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5ac4a55c0351d133d4f19418.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000031990924",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2018/04/05/11/30/57/258/blue_valet_1140x640.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/3858?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Escalier Gare Saint-Charles",
+    "lng": 5.380511,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.301865
+  },
+  {
+    "illustration": {
+      "url": "//onepark.s3.amazonaws.com/2018/07/11/10/35/12/647/alyseparcauto_20_1_.jpg"
+    },
+    "prov": "generic_parking",
+    "id": "5aeb248a0351d15db0b35076",
+    "name": "Parking Discount ALYSE PARC AUTO MARSEILLE (Extérieur)",
+    "cornerShops": [
+      {
+        "id": "onepark",
+        "tabUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb248a0351d15db0b35076/onepark",
+        "iconUrl": "//poiassets.mappy.net/assets/1/apps/onepark/images/cornershop.png"
+      }
+    ],
+    "townCode": "13117",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb248a0351d15db0b35076/onepark",
+        "appId": "onepark"
+      }
+    ],
+    "townSeo": "Vitrolles",
+    "rubricId": "parkings-exploitation",
+    "town": "Vitrolles",
+    "way": "Rue de Lisbonne",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5aeb248a0351d15db0b35076.json?contextRubricId=parkings-exploitation",
+    "offerType": "TRANSACTIONAL",
+    "pCode": "13127",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "//onepark.s3.amazonaws.com/2018/07/11/10/35/12/647/alyseparcauto_20_1_.jpg"
+      },
+      "teasing": "<em>Réservation en ligne</em>",
+      "appId": "onepark",
+      "buttonLabel": "Réservation",
+      "reservationTemplatizedUrl": "https://www.onepark.fr/parks/4017?utm_source=mappy"
+    },
+    "countryCode": 250,
+    "street": "Rue de Lisbonne",
+    "lng": 5.24590650094123,
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13127",
+    "lat": 43.4281893141181
+  },
+  {
+    "illustration": {
+      "url": "https://static4.pagesjaunes.fr/media/cviv/07693148-78802e34e027b20128795dbb1cc394ee"
+    },
+    "prov": "pj",
+    "id": "4d6dac7ab9eb250787e3cec3",
+    "name": "PARKING NEGRESKO",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dac7ab9eb250787e3cec3/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07693148",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "20 r Négresko",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/4d6dac7ab9eb250787e3cec3.json?contextRubricId=parking",
+    "closestPanoramicId": "2000240041298",
+    "offerType": "PP",
+    "phone": "06 09 53 68 88",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13008",
+    "wayNumber": "20",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://static4.pagesjaunes.fr/media/cviv/07693148-78802e34e027b20128795dbb1cc394ee"
+      },
+      "teasing": "",
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Négresko",
+    "lng": 5.390756,
+    "pjBlocId": "07693148700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "elmsgi@free.fr",
+    "lat": 43.269846,
+    "pCodeSeo": "13008",
+    "communication": {
+      "email": "elmsgi@free.fr",
+      "phone": {
+        "number": "06 09 53 68 88",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097031/tiles/geodetic/43.3023973052394,5.38167995101293?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "generic_parking",
+    "id": "59a95fdd0351d11e133fec4e",
+    "name": "Ector - Gare de Marseille Saint-Charles",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/59a95fdd0351d11e133fec4e/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "Square de Narvik",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/59a95fdd0351d11e133fec4e.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015097031",
+    "offerType": "NONE",
+    "pjId": "00439659",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015097031/tiles/geodetic/43.3023973052394,5.38167995101293?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "Square de Narvik",
+    "lng": 5.381656,
+    "pjBlocId": "00439659700001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.302395
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002540676/tiles/geodetic/43.291866,5.359652?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247e84ae5f1c50c634b2",
+    "name": "Parking Q-park Pharo",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b2/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54257165",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "1 imp Clerville",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b2.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002540676",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13007",
+    "wayNumber": "1",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002540676/tiles/geodetic/43.291866,5.359652?redirect=true&fallbackradius=10&preview=false"
+      },
+      "reviews": {
+        "maxNote": 5,
+        "numberOfReviews": 2,
+        "averageNote": 1
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "imp Clerville",
+    "reviews": {
+      "maxNote": 5,
+      "numberOfReviews": 2,
+      "averageNote": 1
+    },
+    "lng": 5.359601,
+    "pjBlocId": "54257165700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.29188,
+    "pCodeSeo": "13007",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "prov": "pj",
+    "id": "54e81c21e4b0b652347475f3",
+    "name": "Parking Indigo Vieux Port",
+    "townCode": "13028",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81c21e4b0b652347475f3/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "La Ciotat",
+    "phone": "04 42 83 39 05",
+    "rubricId": "parking",
+    "town": "La Ciotat",
+    "way": "av Pré",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/54e81c21e4b0b652347475f3.json?contextRubricId=parking",
+    "openingHours": "Ouvert jusqu'à 20h",
+    "offerType": "NONE",
+    "pjId": "55788079",
+    "pCode": "13600",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "reviews": {
+        "maxNote": 5,
+        "numberOfReviews": 1,
+        "averageNote": 5
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "av Pré",
+    "reviews": {
+      "maxNote": 5,
+      "numberOfReviews": 1,
+      "averageNote": 5
+    },
+    "lng": 5.602622,
+    "pjBlocId": "044283390555788079H001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13600",
+    "lat": 43.173622,
+    "communication": {
+      "phone": {
+        "number": "04 42 83 39 05",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220024720/tiles/geodetic/43.291729,5.371864?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5494a436e4b0685e0146eff0",
+    "name": "Générale De Parking",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5494a436e4b0685e0146eff0/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07508059",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "22 rue du Fort Notre Dame",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5494a436e4b0685e0146eff0.json?contextRubricId=parking",
+    "closestPanoramicId": "2000220024720",
+    "offerType": "NONE",
+    "phone": "04 91 33 18 70",
+    "openingHours": "Ouvert jusqu'à minuit",
+    "pCode": "13007",
+    "wayNumber": "22",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220024720/tiles/geodetic/43.291729,5.371864?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue du Fort Notre Dame",
+    "lng": 5.371879,
+    "pjBlocId": "049133187000000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13007",
+    "lat": 43.291729,
+    "communication": {
+      "phone": {
+        "number": "04 91 33 18 70",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230001571/tiles/geodetic/43.301916,5.372348?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "50acc3bb84aedc8b8a09e30f",
+    "name": "Garage Du Grand Domaine",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/50acc3bb84aedc8b8a09e30f/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "00685581",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "24 boulevard Dames",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/50acc3bb84aedc8b8a09e30f.json?contextRubricId=parking",
+    "closestPanoramicId": "2000230001571",
+    "offerType": "NONE",
+    "phone": "04 91 90 41 51",
+    "openingHours": "Ouvre à 14h",
+    "pCode": "13002",
+    "wayNumber": "24",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230001571/tiles/geodetic/43.301916,5.372348?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "boulevard Dames",
+    "lng": 5.372374,
+    "pjBlocId": "01OOOFBC0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13002",
+    "lat": 43.301886,
+    "communication": {
+      "phone": {
+        "number": "04 91 90 41 51",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032002371/tiles/geodetic/43.286788,5.379523?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "53210072e4b07c1cacaf8000",
+    "name": "Indigo Park",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/53210072e4b07c1cacaf8000/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "07597316",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "146 rue Paradis",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/53210072e4b07c1cacaf8000.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032002371",
+    "offerType": "NONE",
+    "phone": "04 91 37 34 34",
+    "openingHours": "Ouvre à 14h",
+    "pCode": "13006",
+    "wayNumber": "146",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032002371/tiles/geodetic/43.286788,5.379523?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue Paradis",
+    "lng": 5.379592,
+    "pjBlocId": "8LNR08BC0001",
+    "thematicId": "TH_PARKING",
+    "url": "http://fr.parkindigo.com",
+    "pCodeSeo": "13006",
+    "lat": 43.286799,
+    "communication": {
+      "phone": {
+        "number": "04 91 37 34 34",
+        "againstDirectMarketing": false
+      },
+      "website": "http://fr.parkindigo.com"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015087269/tiles/geodetic/43.295888,5.403298?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "577a7a720351d1307eaae45f",
+    "name": "Garage Chave",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/577a7a720351d1307eaae45f/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "05584263",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "292 boulevard Chave",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/577a7a720351d1307eaae45f.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015087269",
+    "offerType": "NONE",
+    "phone": "04 91 34 76 84",
+    "openingHours": "Ouvre à 14h",
+    "pCode": "13005",
+    "wayNumber": "292",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015087269/tiles/geodetic/43.295888,5.403298?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "boulevard Chave",
+    "lng": 5.403274,
+    "pjBlocId": "049134768400000000C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13005",
+    "lat": 43.295917,
+    "communication": {
+      "phone": {
+        "number": "04 91 34 76 84",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "prov": "centrescommerciaux",
+    "id": "570509c99191b03e1b04fb37",
+    "name": "Centre Commercial Bonneveine",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/570509c99191b03e1b04fb37/centrescommerciaux",
+        "appId": "centrescommerciaux"
+      },
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/570509c99191b03e1b04fb37/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "phone": "04 91 16 35 20",
+    "rubricId": "parking",
+    "town": "marseille",
+    "way": "112 avenue de hambourg",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/570509c99191b03e1b04fb37.json?contextRubricId=parking",
+    "openingHours": "Ouvert jusqu'à 20h",
+    "offerType": "NONE",
+    "pjId": "56864781",
+    "pCode": "13008",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "112 avenue de hambourg",
+    "lng": 5.390070300997812,
+    "pjBlocId": "049116352000000000C0001",
+    "thematicId": "TH_PARKING",
+    "url": "http://www.bonneveine.com",
+    "pCodeSeo": "13008",
+    "lat": 43.248474565648664,
+    "communication": {
+      "phone": {
+        "number": "04 91 16 35 20",
+        "againstDirectMarketing": false
+      },
+      "website": "http://www.bonneveine.com"
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031992771/tiles/geodetic/43.29251,5.375478?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "533d3593e4b095142b45165b",
+    "name": "TOM",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/533d3593e4b095142b45165b/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "52346289",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "29 rue Sainte",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/533d3593e4b095142b45165b.json?contextRubricId=parking",
+    "closestPanoramicId": "1000031992771",
+    "offerType": "NONE",
+    "phone": "04 91 54 88 79",
+    "openingHours": "Ouvert jusqu'à 19h30",
+    "pCode": "13001",
+    "wayNumber": "29",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000031992771/tiles/geodetic/43.29251,5.375478?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "rue Sainte",
+    "lng": 5.375487,
+    "pjBlocId": "049154887900000000C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "emmanuelleatlan@sfr.fr",
+    "lat": 43.292521,
+    "pCodeSeo": "13001",
+    "communication": {
+      "email": "emmanuelleatlan@sfr.fr",
+      "phone": {
+        "number": "04 91 54 88 79",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220017450/tiles/geodetic/43.29925,5.401881?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "573b3ca49191b072cfe3fa12",
+    "name": "Parking Q-Park Vallier",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3ca49191b072cfe3fa12/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56634392",
+    "rubricId": "parking",
+    "town": "Marseille",
+    "way": "48 av Mar Foch",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/573b3ca49191b072cfe3fa12.json?contextRubricId=parking",
+    "closestPanoramicId": "2000220017450",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 21h",
+    "pCode": "13004",
+    "wayNumber": "48",
+    "rubric": {
+      "parent": "parking",
+      "id": "parking",
+      "label": "Parking"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220017450/tiles/geodetic/43.29925,5.401881?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "av Mar Foch",
+    "lng": 5.40187,
+    "pjBlocId": "081007727556634392H001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13004",
+    "lat": 43.299234,
+    "communication": {
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032005138/tiles/geodetic/43.293205,5.371614?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "57b4e4ee0351d144be4553af",
+    "name": "Parking Q-Park Estienne d'Orves",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/57b4e4ee0351d144be4553af/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "56634386",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "pl Huiles",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/57b4e4ee0351d144be4553af.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000032005138",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13001",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032005138/tiles/geodetic/43.293205,5.371614?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "pl Huiles",
+    "lng": 5.371587,
+    "pjBlocId": "081007727556634386H001C0001",
+    "thematicId": "TH_PARKING",
+    "pCodeSeo": "13001",
+    "lat": 43.293203,
+    "communication": {
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220029064/tiles/geodetic/43.290203,5.369346?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247c84ae5f1c50c634ac",
+    "name": "Parking Q-Park Corderie",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247c84ae5f1c50c634ac/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "06154542",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "35 bd Corderie",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247c84ae5f1c50c634ac.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000220029064",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 23h",
+    "pCode": "13007",
+    "wayNumber": "35",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220029064/tiles/geodetic/43.290203,5.369346?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "bd Corderie",
+    "lng": 5.36934,
+    "pjBlocId": "06154542700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.290251,
+    "pCodeSeo": "13007",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040019914/tiles/geodetic/43.290752,5.570099?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b246684ae5f1c50c63461",
+    "name": "Parking Q-park Beaumond",
+    "townCode": "13005",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b246684ae5f1c50c63461/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Aubagne",
+    "pjId": "09649980",
+    "rubricId": "parkings-exploitation",
+    "town": "Aubagne",
+    "way": "65 r République",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b246684ae5f1c50c63461.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000040019914",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13400",
+    "wayNumber": "65",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040019914/tiles/geodetic/43.290752,5.570099?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r République",
+    "lng": 5.570179,
+    "pjBlocId": "09649980700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.290796,
+    "pCodeSeo": "13400",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040013935/tiles/geodetic/43.29395,5.570462?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5a9559780351d1668d736d7b",
+    "name": "Parking Q-park Centre Ancien Terres Rouges",
+    "townCode": "13005",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559780351d1668d736d7b/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Aubagne",
+    "pjId": "12001649",
+    "rubricId": "parkings-exploitation",
+    "town": "Aubagne",
+    "way": "30 av Elzéard Rougier",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559780351d1668d736d7b.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000040013935",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13400",
+    "wayNumber": "30",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040013935/tiles/geodetic/43.29395,5.570462?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "av Elzéard Rougier",
+    "lng": 5.570463,
+    "pjBlocId": "12001649700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.293943,
+    "pCodeSeo": "13400",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014466124/tiles/geodetic/43.29433,5.564113?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "528d42e2e4b0b574f831eb4e",
+    "name": "Parking Q-Park 8 mai 1945",
+    "townCode": "13005",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/528d42e2e4b0b574f831eb4e/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Aubagne",
+    "pjId": "08737212",
+    "rubricId": "parkings-exploitation",
+    "town": "Aubagne",
+    "way": "120 chem Isle des Marronniers",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/528d42e2e4b0b574f831eb4e.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000014466124",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13400",
+    "wayNumber": "120",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000014466124/tiles/geodetic/43.29433,5.564113?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "chem Isle des Marronniers",
+    "lng": 5.564084,
+    "pjBlocId": "08737212700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.294325,
+    "pCodeSeo": "13400",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040013667/tiles/geodetic/43.29494,5.571176?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "50acc1ea84aedc8b8a09d5b7",
+    "name": "Parking Q-Park Marché",
+    "townCode": "13005",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/50acc1ea84aedc8b8a09d5b7/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Aubagne",
+    "pjId": "50131170",
+    "rubricId": "parkings-exploitation",
+    "town": "Aubagne",
+    "way": "17 av Gabriel Péri",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/50acc1ea84aedc8b8a09d5b7.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000040013667",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à minuit",
+    "pCode": "13400",
+    "wayNumber": "17",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040013667/tiles/geodetic/43.29494,5.571176?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "av Gabriel Péri",
+    "lng": 5.571195,
+    "pjBlocId": "50131170700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.294943,
+    "pCodeSeo": "13400",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015092984/tiles/geodetic/43.300583,5.370043?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247f84ae5f1c50c634b3",
+    "name": "Parking Q-Park Phocéens",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247f84ae5f1c50c634b3/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "50149518",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "12 r Jean Marc Cathala",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247f84ae5f1c50c634b3.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000015092984",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 21h15",
+    "pCode": "13002",
+    "wayNumber": "12",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000015092984/tiles/geodetic/43.300583,5.370043?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Jean Marc Cathala",
+    "lng": 5.37007,
+    "pjBlocId": "50149518700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.300589,
+    "pCodeSeo": "13002",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220041107/tiles/geodetic/43.304226,5.366124?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247e84ae5f1c50c634b1",
+    "name": "Parking Q-park Joliette",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b1/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "53560733",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "37 r Mazenod",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b1.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000220041107",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 22h",
+    "pCode": "13002",
+    "wayNumber": "37",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220041107/tiles/geodetic/43.304226,5.366124?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Mazenod",
+    "lng": 5.366161,
+    "pjBlocId": "53560733700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.304225,
+    "pCodeSeo": "13002",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220026827/tiles/geodetic/43.291096,5.375481?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "55141071e4b02829b421455b",
+    "name": "Parking Q-Park Monthyon",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/55141071e4b02829b421455b/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54257137",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "31 r Breteuil",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/55141071e4b02829b421455b.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000220026827",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à minuit",
+    "pCode": "13006",
+    "wayNumber": "31",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220026827/tiles/geodetic/43.291096,5.375481?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Breteuil",
+    "lng": 5.375481,
+    "pjBlocId": "54257137700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.291096,
+    "pCodeSeo": "13006",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220021642/tiles/geodetic/43.292084,5.40198?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247e84ae5f1c50c634b0",
+    "name": "Parking Q-Park La Timone",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b0/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54257124",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "264 r St Pierre",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247e84ae5f1c50c634b0.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000220021642",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 21h",
+    "pCode": "13005",
+    "wayNumber": "264",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220021642/tiles/geodetic/43.292084,5.40198?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r St Pierre",
+    "lng": 5.401994,
+    "pjBlocId": "54257124700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.292073,
+    "pCodeSeo": "13005",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210014390/tiles/geodetic/43.298992,5.383202?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5a9559890351d1668d736d8a",
+    "name": "Parking Q-Park Gambetta",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559890351d1668d736d8a/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54257120",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "38 all Léon Gambetta",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559890351d1668d736d8a.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210014390",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 22h30",
+    "pCode": "13001",
+    "wayNumber": "38",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210014390/tiles/geodetic/43.298992,5.383202?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "all Léon Gambetta",
+    "lng": 5.383218,
+    "pjBlocId": "54257120700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.299014,
+    "pCodeSeo": "13001",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230001160/tiles/geodetic/43.306293,5.366602?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "5a9559880351d1668d736d89",
+    "name": "Parking Q-Park Espercieux",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559880351d1668d736d89/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54256012",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "r Docks",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5a9559880351d1668d736d89.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000230001160",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert jusqu'à 22h",
+    "pCode": "13002",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230001160/tiles/geodetic/43.306293,5.366602?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Docks",
+    "lng": 5.366562,
+    "pjBlocId": "54256012700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.306318,
+    "pCodeSeo": "13002",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210041262/tiles/geodetic/43.29437,5.383146?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b247d84ae5f1c50c634ad",
+    "name": "Parking Q-park Cours Julien",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247d84ae5f1c50c634ad/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Marseille",
+    "pjId": "54256017",
+    "rubricId": "parkings-exploitation",
+    "town": "Marseille",
+    "way": "58 cours Julien",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b247d84ae5f1c50c634ad.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "2000210041262",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13006",
+    "wayNumber": "58",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210041262/tiles/geodetic/43.29437,5.383146?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "cours Julien",
+    "lng": 5.383146,
+    "pjBlocId": "54256017700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.29437,
+    "pCodeSeo": "13006",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  },
+  {
+    "illustration": {
+      "numberOfImages": 1,
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002803934/tiles/geodetic/43.28931,5.57154?redirect=true&fallbackradius=10&preview=false"
+    },
+    "prov": "pj",
+    "id": "512b246684ae5f1c50c63462",
+    "name": "Parking Q-Park Potiers",
+    "townCode": "13005",
+    "tabs": [
+      {
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b246684ae5f1c50c63462/pj",
+        "appId": "pj"
+      }
+    ],
+    "townSeo": "Aubagne",
+    "pjId": "54256366",
+    "rubricId": "parkings-exploitation",
+    "town": "Aubagne",
+    "way": "r Tuiliers",
+    "offer": "FREE",
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/512b246684ae5f1c50c63462.json?contextRubricId=parkings-exploitation",
+    "closestPanoramicId": "1000002803934",
+    "offerType": "NONE",
+    "phone": "0 810 077 275",
+    "openingHours": "Ouvert 24h/24",
+    "pCode": "13400",
+    "rubric": {
+      "parent": "parking",
+      "id": "parkings-exploitation",
+      "label": "Parking public"
+    },
+    "additionalInfo": {
+      "illustration": {
+        "numberOfImages": 1,
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002803934/tiles/geodetic/43.28931,5.57154?redirect=true&fallbackradius=10&preview=false"
+      },
+      "appId": "pj"
+    },
+    "countryCode": 250,
+    "street": "r Tuiliers",
+    "lng": 5.571539,
+    "pjBlocId": "54256366700001C0001",
+    "thematicId": "TH_PARKING",
+    "mail": "service.clients@q-park.fr",
+    "lat": 43.289301,
+    "pCodeSeo": "13400",
+    "communication": {
+      "email": "service.clients@q-park.fr",
+      "phone": {
+        "number": "0 810 077 275",
+        "text": "Service 0,06 € / min + prix appel",
+        "category": "framboise",
+        "againstDirectMarketing": false
+      }
+    }
+  }
+]

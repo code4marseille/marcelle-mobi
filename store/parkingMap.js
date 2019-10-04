@@ -1,7 +1,8 @@
+
+
 export const state = () => ({
   chargingStations: [],
-  parkingStations: {},
-  carPoolStations: [],
+
   // 43.43 ~ Marignane - 43.15 ~ La Ciotat
   // Longitudes 5.09 ~ Sausset les pins -  5.7 ~ Ceyreste
 
@@ -36,20 +37,4 @@ export const actions = {
   },
 
 
-  async fetchParkingStations({ commit, state }) {
-    const ParkingStations = await this.$axios.get("https://uws2.mappy.net/data/poi/5.3/applications/parking", { params: { bbox: state.bbox, max: state.max, } })
-
-    commit("SET_PARKING_STATIONS", ParkingStations)
-  },
-
-  async fetchCarPoolStations({ commit, state }) {
-    // debugger
-    const carPoolStations = await this.$axios.get("https://search.mappy.net/search/1.1/find?extend_bbox=1&bbox=43.138572924273255,5.123748779296876,43.45142348523913,5.648345947265626&q=Aire%20de%20covoiturage%20marseille&favorite_country=250&language=FRE&loc_format=geojson&mid=3482934797&tagid=SPD_RESPONSE_SEARCH&abtest=NA&max_results=500")
-
-
-
-
-    commit("SET_CAR_POOL_STATIONS", carPoolStations)
-
-  }
 }

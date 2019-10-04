@@ -1,0 +1,1426 @@
+[
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00e9e50351d15d3ba0ea1b",
+    "lat": 43.377338,
+    "lng": 5.363028,
+    "name": "Borne de rechargement Urbis Park",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Boulevard Pierre Dramard",
+    "street": "Boulevard Pierre Dramard",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9e50351d15d3ba0ea1b/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9e50351d15d3ba0ea1b.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000220043857",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220043857/tiles/geodetic/43.377347,5.363006?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220043857/tiles/geodetic/43.377347,5.363006?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 21h30",
+    "countryCode": 250,
+    "pCode": "13015",
+    "pCodeSeo": "13015"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00e9de0351d15d3ba0ea11",
+    "lat": 43.29634,
+    "lng": 5.368732,
+    "name": "Borne de rechargement Q-Park",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Place Jules Verne",
+    "street": "Place Jules Verne",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9de0351d15d3ba0ea11/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9de0351d15d3ba0ea11.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000220025319",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220025319/tiles/geodetic/43.29634,5.368732?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220025319/tiles/geodetic/43.29634,5.368732?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 23h59",
+    "countryCode": 250,
+    "pCode": "13002",
+    "pCodeSeo": "13002"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00e9f80351d15d3ba0ea54",
+    "lat": 43.265517,
+    "lng": 5.39451,
+    "name": "Borne de rechargement Renault",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Boulevard Michelet",
+    "street": "Boulevard Michelet",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9f80351d15d3ba0ea54/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9f80351d15d3ba0ea54.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvre à 14h",
+    "countryCode": 250,
+    "pCode": "13008",
+    "pCodeSeo": "13008"
+  },
+  {
+    "id": "5d4abe4c54c4c037b7bbe4eb",
+    "lat": 43.2998897,
+    "lng": 5.4826255,
+    "name": "Borne de rechargement IKEA La Valentine",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Rue Thyde Monnier",
+    "street": "Rue Thyde Monnier",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4eb/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4eb.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {},
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13011",
+    "pCodeSeo": "13011"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ecb80351d15d3ba0fc43",
+    "lat": 43.297265,
+    "lng": 5.443246,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb80351d15d3ba0fc43/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb80351d15d3ba0fc43.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "1000002525372",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002525372/tiles/geodetic/43.297306,5.443209?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002525372/tiles/geodetic/43.297306,5.443209?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13012",
+    "pCodeSeo": "13012"
+  },
+  {
+    "id": "5d4abe4c54c4c037b7bbe4ef",
+    "lat": 43.297998,
+    "lng": 5.590457,
+    "name": "Borne de rechargement Auchan AUBAGNE EN PROVENCE",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Aubagne",
+    "townSeo": "Aubagne",
+    "townCode": "13005",
+    "way": "Route de Gémenos",
+    "street": "Route de Gémenos",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ef/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ef.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000040007168",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040007168/tiles/geodetic/43.2979978,5.590457?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      }
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040007168/tiles/geodetic/43.2979978,5.590457?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13400",
+    "pCodeSeo": "13400"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ec950351d15d3ba0fae2",
+    "lat": 43.273922,
+    "lng": 5.392081,
+    "name": "Borne de rechargement Public",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Boulevard Onfroy",
+    "street": "Boulevard Onfroy",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ec950351d15d3ba0fae2/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ec950351d15d3ba0fae2.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000210035748",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210035748/tiles/geodetic/43.273884,5.39213?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210035748/tiles/geodetic/43.273884,5.39213?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13008",
+    "pCodeSeo": "13008"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00e9de0351d15d3ba0ea12",
+    "lat": 43.342968,
+    "lng": 5.41015,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Rue du Pèbre d'Ail",
+    "street": "Rue du Pèbre d'Ail",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9de0351d15d3ba0ea12/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9de0351d15d3ba0ea12.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000210027568",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210027568/tiles/geodetic/43.342969,5.409949?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210027568/tiles/geodetic/43.342969,5.409949?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 20h",
+    "countryCode": 250,
+    "pCode": "13014",
+    "pCodeSeo": "13014"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00eb890351d15d3ba0f2f8",
+    "lat": 43.29857,
+    "lng": 5.363163,
+    "name": "Borne de rechargement Indigo",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb890351d15d3ba0f2f8/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb890351d15d3ba0f2f8.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000230007672",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230007672/tiles/geodetic/43.298576,5.363102?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230007672/tiles/geodetic/43.298576,5.363102?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13002",
+    "pCodeSeo": "13002"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5315fd0351d12e92993a22",
+    "lat": 43.287259,
+    "lng": 5.442016,
+    "name": "Borne de rechargement Public",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "wayNumber": "49",
+    "way": "49 Avenue du Docteur Heckel",
+    "street": "Avenue du Docteur Heckel",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315fd0351d12e92993a22/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315fd0351d12e92993a22.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000210009111",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210009111/tiles/geodetic/43.287275,5.442041?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210009111/tiles/geodetic/43.287275,5.442041?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 16h30",
+    "countryCode": 250,
+    "pCode": "13011",
+    "pCodeSeo": "13011"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c53162f0351d12e92994074",
+    "lat": 43.288016,
+    "lng": 5.584023,
+    "name": "Borne de rechargement Renault",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Aubagne",
+    "townSeo": "Aubagne",
+    "townCode": "13005",
+    "way": "Chemin de Ceinture",
+    "street": "Chemin de Ceinture",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c53162f0351d12e92994074/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c53162f0351d12e92994074.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000040006996",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040006996/tiles/geodetic/43.287867,5.584146?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000040006996/tiles/geodetic/43.287867,5.584146?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 18h30",
+    "countryCode": 250,
+    "pCode": "13400",
+    "pCodeSeo": "13400"
+  },
+  {
+    "id": "5d4abe4c54c4c037b7bbe4ea",
+    "lat": 43.274966,
+    "lng": 5.415806,
+    "name": "Borne de rechargement Auchan MARSEILLE SAINT LOUP",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "wayNumber": "206",
+    "way": "206 Boulevard Romain Rolland",
+    "street": "Boulevard Romain Rolland",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ea/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ea.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000210040696",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210040696/tiles/geodetic/43.2749597,5.41577159?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      }
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000210040696/tiles/geodetic/43.2749597,5.41577159?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13010",
+    "pCodeSeo": "13010"
+  },
+  {
+    "id": "5d4abe4c54c4c037b7bbe4ee",
+    "lat": 43.429274,
+    "lng": 5.26788999,
+    "name": "Borne de rechargement IKEA Vitrolles",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Vitrolles",
+    "townSeo": "Vitrolles",
+    "townCode": "13117",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ee/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ee.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {},
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13127",
+    "pCodeSeo": "13127"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ebfb0351d15d3ba0f624",
+    "lat": 43.213529,
+    "lng": 5.537936,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Cassis",
+    "townSeo": "Cassis",
+    "townCode": "13022",
+    "way": "Quai Saint-Pierre",
+    "street": "Quai Saint-Pierre",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ebfb0351d15d3ba0f624/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ebfb0351d15d3ba0f624.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13260",
+    "pCodeSeo": "13260"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ebd60351d15d3ba0f43b",
+    "lat": 43.166973,
+    "lng": 5.694532,
+    "name": "Borne de rechargement Mouv'Elec",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Saint-Cyr-sur-Mer",
+    "townSeo": "Saint-Cyr-sur-Mer",
+    "townCode": "83112",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ebd60351d15d3ba0f43b/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ebd60351d15d3ba0f43b.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "83270",
+    "pCodeSeo": "83270"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00eba80351d15d3ba0f356",
+    "lat": 43.30583,
+    "lng": 5.365468,
+    "name": "Borne de rechargement Indigo",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Quai du Lazaret",
+    "street": "Quai du Lazaret",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eba80351d15d3ba0f356/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eba80351d15d3ba0f356.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000230010582",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230010582/tiles/geodetic/43.305821,5.365481?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230010582/tiles/geodetic/43.305821,5.365481?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13002",
+    "pCodeSeo": "13002"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c53164f0351d12e9299444d",
+    "lat": 43.290765,
+    "lng": 5.483067,
+    "name": "Borne de rechargement Renault",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Avenue de Saint-Menet",
+    "street": "Avenue de Saint-Menet",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c53164f0351d12e9299444d/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c53164f0351d12e9299444d.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000080030981",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000080030981/tiles/geodetic/43.290751,5.483173?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000080030981/tiles/geodetic/43.290751,5.483173?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 19h",
+    "countryCode": 250,
+    "pCode": "13011",
+    "pCodeSeo": "13011"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5316060351d12e92993b4b",
+    "lat": 43.184561,
+    "lng": 5.613741,
+    "name": "Borne de rechargement Yess",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "La Ciotat",
+    "townSeo": "La Ciotat",
+    "townCode": "13028",
+    "wayNumber": "34",
+    "way": "34 Avenue Émile Ripert",
+    "street": "Avenue Émile Ripert",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316060351d12e92993b4b/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316060351d12e92993b4b.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvre à 13h30",
+    "countryCode": 250,
+    "pCode": "13600",
+    "pCodeSeo": "13600"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ea1a0351d15d3ba0eacc",
+    "lat": 43.345213,
+    "lng": 5.430608,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ea1a0351d15d3ba0eacc/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ea1a0351d15d3ba0eacc.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvre à 14h",
+    "countryCode": 250,
+    "pCode": "13013",
+    "pCodeSeo": "13013"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ec9e0351d15d3ba0fb40",
+    "lat": 43.328624,
+    "lng": 5.367492,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "wayNumber": "22",
+    "way": "22 Boulevard du Capitaine Gèze",
+    "street": "Boulevard du Capitaine Gèze",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ec9e0351d15d3ba0fb40/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ec9e0351d15d3ba0fb40.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13015",
+    "pCodeSeo": "13015"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ecb20351d15d3ba0fc08",
+    "lat": 43.410778,
+    "lng": 5.325409,
+    "name": "Borne de rechargement New Motion",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Les Pennes-Mirabeau",
+    "townSeo": "Les Pennes-Mirabeau",
+    "townCode": "13071",
+    "way": "Avenue du Plan de Campagne",
+    "street": "Avenue du Plan de Campagne",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb20351d15d3ba0fc08/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb20351d15d3ba0fc08.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13170",
+    "pCodeSeo": "13170"
+  },
+  {
+    "id": "5d4abe4c54c4c037b7bbe4ec",
+    "lat": 43.359378,
+    "lng": 5.340782,
+    "name": "Borne de rechargement Concession NISSAN Marseille",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Avenue Fernand Sardou",
+    "street": "Avenue Fernand Sardou",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ec/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abe4c54c4c037b7bbe4ec.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000220045150",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220045150/tiles/geodetic/43.3593634,5.340776?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      }
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000220045150/tiles/geodetic/43.3593634,5.340776?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13016",
+    "pCodeSeo": "13016"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00eb870351d15d3ba0f2f6",
+    "lat": 43.307281,
+    "lng": 5.365845,
+    "name": "Borne de rechargement Indigo",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Quai du Lazaret",
+    "street": "Quai du Lazaret",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb870351d15d3ba0f2f6/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb870351d15d3ba0f2f6.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000230010566",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230010566/tiles/geodetic/43.307301,5.36579?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230010566/tiles/geodetic/43.307301,5.36579?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13002",
+    "pCodeSeo": "13002"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5316a70351d12e92994ef1",
+    "lat": 43.4201,
+    "lng": 5.35848,
+    "name": "Borne de rechargement Freshmile",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Cabriès",
+    "townSeo": "Cabriès",
+    "townCode": "13019",
+    "way": "Rue Albert Manoukian",
+    "street": "Rue Albert Manoukian",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316a70351d12e92994ef1/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316a70351d12e92994ef1.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13480",
+    "pCodeSeo": "13480"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5316a60351d12e92994ee8",
+    "lat": 43.34527,
+    "lng": 5.44861,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "wayNumber": "306",
+    "way": "306 Rue Albert Einstein",
+    "street": "Rue Albert Einstein",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316a60351d12e92994ee8/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316a60351d12e92994ee8.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 20h",
+    "countryCode": 250,
+    "pCode": "13013",
+    "pCodeSeo": "13013"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00ecb90351d15d3ba0fc48",
+    "lat": 43.285972,
+    "lng": 5.481066,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "wayNumber": "99",
+    "way": "99 Boulevard de la Barasse",
+    "street": "Boulevard de la Barasse",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb90351d15d3ba0fc48/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00ecb90351d15d3ba0fc48.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13011",
+    "pCodeSeo": "13011"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5315e10351d12e929936de",
+    "lat": 43.215752,
+    "lng": 5.541458,
+    "name": "Borne de rechargement Effia",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Cassis",
+    "townSeo": "Cassis",
+    "townCode": "13022",
+    "way": "Allée Henri Crémieux",
+    "street": "Allée Henri Crémieux",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315e10351d12e929936de/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315e10351d12e929936de.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13260",
+    "pCodeSeo": "13260"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5315ee0351d12e92993852",
+    "lat": 43.216721,
+    "lng": 5.536841,
+    "name": "Borne de rechargement Effia",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Cassis",
+    "townSeo": "Cassis",
+    "townCode": "13022",
+    "way": "Rue de la Viguerie",
+    "street": "Rue de la Viguerie",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315ee0351d12e92993852/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315ee0351d12e92993852.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13260",
+    "pCodeSeo": "13260"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5315fb0351d12e929939e6",
+    "lat": 43.417992,
+    "lng": 5.228247,
+    "name": "Borne de rechargement Renault",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Saint-Victoret",
+    "townSeo": "Saint-Victoret",
+    "townCode": "13102",
+    "way": "Avenue du 8 Mai 1945",
+    "street": "Avenue du 8 Mai 1945",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315fb0351d12e929939e6/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5315fb0351d12e929939e6.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvre à 14h",
+    "countryCode": 250,
+    "pCode": "13730",
+    "pCodeSeo": "13730"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00e9e80351d15d3ba0ea1e",
+    "lat": 43.231577,
+    "lng": 5.437957,
+    "name": "Borne de rechargement STATION Electra",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9e80351d15d3ba0ea1e/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00e9e80351d15d3ba0ea1e.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "1000003897461",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003897461/tiles/geodetic/43.231573,5.43797?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000003897461/tiles/geodetic/43.231573,5.43797?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "openingHours": "Ouvert jusqu'à 23h59",
+    "countryCode": 250,
+    "pCode": "13009",
+    "pCodeSeo": "13009"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00eb9e0351d15d3ba0f33f",
+    "lat": 43.173289,
+    "lng": 5.610942,
+    "name": "Borne de rechargement Public",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "La Ciotat",
+    "townSeo": "La Ciotat",
+    "townCode": "13028",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb9e0351d15d3ba0f33f/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb9e0351d15d3ba0f33f.json?contextRubricId=borne-de-recharge",
+    "additionalInfo": {
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13600",
+    "pCodeSeo": "13600"
+  },
+  {
+    "id": "5d4abc6b54c4c037b7bbd7e1",
+    "lat": 43.302274,
+    "lng": 5.383098,
+    "name": "Borne de rechargement Effia",
+    "offer": "FREE",
+    "prov": "generic_easytrip",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Avenue Pierre Semard",
+    "street": "Avenue Pierre Semard",
+    "tabs": [
+      {
+        "appId": "easytrip",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abc6b54c4c037b7bbd7e1/easytrip"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d4abc6b54c4c037b7bbd7e1.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "1000002592192",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002592192/tiles/geodetic/43.302295,5.383131?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      }
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000002592192/tiles/geodetic/43.302295,5.383131?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13001",
+    "pCodeSeo": "13001"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5c5316000351d12e92993a83",
+    "lat": 43.303516,
+    "lng": 5.378881,
+    "name": "Borne de rechargement Effia",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "way": "Avenue du Général Leclerc",
+    "street": "Avenue du Général Leclerc",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316000351d12e92993a83/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5c5316000351d12e92993a83.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "2000230006430",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230006430/tiles/geodetic/43.30352,5.378826?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/2000230006430/tiles/geodetic/43.30352,5.378826?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13003",
+    "pCodeSeo": "13003"
+  },
+  {
+    "brand": "renault_zoe",
+    "brandIconUrl": "//poiassets.mappy.net/assets/1/branding/V6/renault_zoe.png",
+    "roundBrandIconUrl": "//poiassets.mappy.net/assets/1/branding/CMM/round_icon_renault_zoe.png",
+    "id": "5d00eb890351d15d3ba0f2f7",
+    "lat": 43.290536,
+    "lng": 5.379418,
+    "name": "Borne de rechargement Indigo",
+    "offer": "BRANDED",
+    "prov": "generic_br_zoe",
+    "rubric": {
+      "id": "borne-de-recharge",
+      "label": "Borne de recharge",
+      "parent": "borne-de-recharge"
+    },
+    "rubricId": "borne-de-recharge",
+    "thematicId": "TH_STATION_SERVICE",
+    "town": "Marseille",
+    "townSeo": "Marseille",
+    "townCode": "13055",
+    "tabs": [
+      {
+        "appId": "br_zoe",
+        "url": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb890351d15d3ba0f2f7/br_zoe"
+      }
+    ],
+    "contextualPoiUrl": "https://uws2.mappy.net/data/poi/5.3/geoentity/5d00eb890351d15d3ba0f2f7.json?contextRubricId=borne-de-recharge",
+    "closestPanoramicId": "1000032010204",
+    "additionalInfo": {
+      "illustration": {
+        "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032010204/tiles/geodetic/43.290501,5.37938?redirect=true&fallbackradius=10&preview=false",
+        "numberOfImages": 1
+      },
+      "teasing": "<em>Zoe se recharge ici</em>",
+      "appId": "br_zoe"
+    },
+    "illustration": {
+      "url": "https://uws2.mappy.net/data/pano/1.10/panoramics/1000032010204/tiles/geodetic/43.290501,5.37938?redirect=true&fallbackradius=10&preview=false",
+      "numberOfImages": 1
+    },
+    "offerType": "VDR",
+    "countryCode": 250,
+    "pCode": "13006",
+    "pCodeSeo": "13006"
+  }
+]
