@@ -102,7 +102,7 @@ export const actions = {
   },
 
   async fetchAirQuality({ commit }) {
-    const airQuality = await this.$axios.$get('/airs/quality', { params: { city: 'Marseille' } })
+    const airQuality = await this.$axios.$get('/air/quality_by_city', { params: { city: 'Marseille' } })
     const scoreOn10 = Math.round((300 - airQuality.data.aqi) / 3) / 10
     commit('SET_AIRQUALITY', scoreOn10)
   },
