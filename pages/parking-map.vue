@@ -40,6 +40,7 @@
           :googleMap="googleRoute"
           :visible="buttons[2].state"
         />
+        <l-marker v-if="markerLatLng" :lat-lng="markerLatLng"></l-marker>
         <Locatecontrol />
       </l-map>
     </div>
@@ -79,7 +80,7 @@
 </template>
 
 <script>
-import { LMap } from 'vue2-leaflet'
+import { LMap, Lmarker } from 'vue2-leaflet'
 import Locatecontrol from '~/components/LocateControl'
 import ChargingMarker from '~/components/ChargingMarker.vue'
 import ParkingMarker from '~/components/ParkingMarker.vue'
@@ -98,7 +99,7 @@ export default {
   data() {
     return {
       initialLocation: [43.295336, 5.373907],
-
+      markerLatLng: null,
       searchAddress: '',
       buttons: [
         {
@@ -155,15 +156,12 @@ export default {
         { params: { q: this.searchAddress, limit: 1 } }
       )
       const found = this.getMpmAddress(coord)
-      if (found) {
-        const lat = found.geometry.coordinates[1]
-        const lng = found.geometry.coordinates[0]
+      if (!found) return this.$bvModal.show('notFound')
 
-        L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
-        this.flyTo([lat, lng], 18)
-      } else {
-        this.$bvModal.show('notFound')
-      }
+      const lat = found.geometry.coordinates[1]
+      const lng = found.geometry.coordinates[0]
+      this.markerLatLng = [lat, lng]
+      this.flyTo([lat, lng], 18)
     }
   },
   created() {
