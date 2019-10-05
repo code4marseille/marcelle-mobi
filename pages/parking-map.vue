@@ -7,13 +7,11 @@
         <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
           <div class="search_content">
             <b-input
-              id="inline-form-input-name "
               placeholder="Rechercher une adresse"
               v-model="searchAddress"
-              style="width:90%; z-index:468; border-radius: 10px 0 0 10px"
               class="ml-3 searchbox"
             ></b-input>
-            <b-button type="submit" style="width:20%; z-index:468" class="pr-3 text-right loupe">
+            <b-button type="submit" style="z-index:468" class="pr-3 text-right loupe">
               <i class="fas fa-search"></i>
             </b-button>
           </div>
@@ -121,13 +119,6 @@ export default {
       ]
     }
   },
-  computed: {
-    toggleButton() {
-      return this.toggleView
-        ? 'Afficher les parkings'
-        : 'Afficher les bornes de recharge'
-    }
-  },
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
@@ -141,11 +132,7 @@ export default {
         'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
       )
     },
-    toggleParkingButton() {
-      this.toggleView = !this.toggleView
-    },
-
-    GetMpmAddress(addresses) {
+    getMpmAddress(addresses) {
       const coordMpm = this.$store.state.parkingMap.bbox.split(',')
       //coordMpm[0] = minLat
       //coordMpm[1] = minlng
@@ -158,26 +145,21 @@ export default {
           city.geometry.coordinates[0] <= coordMpm[3] &&
           city.geometry.coordinates[0] >= coordMpm[1]
       )
-      if (found != undefined) {
-        return found
-      } else return false
+      return found || false
     },
 
     async onSubmit(evt) {
       if (this.searchAddress == '') return
       let coord = await this.$axios.get(
         'https://api-adresse.data.gouv.fr/search/',
-        { params: { q: this.searchAddress, limit: 1000 } }
+        { params: { q: this.searchAddress, limit: 1 } }
       )
-      const found = this.GetMpmAddress(coord)
+      const found = this.getMpmAddress(coord)
       if (found) {
         const lat = found.geometry.coordinates[1]
         const lng = found.geometry.coordinates[0]
 
-        //      coord = coord.data.features[0].geometry.coordinates
-        // const marker = L.marker([coord[1], coord[0]])
         L.marker([lat, lng]).addTo(this.$refs.map.mapObject)
-
         this.flyTo([lat, lng], 18)
       } else {
         this.$bvModal.show('notFound')
@@ -301,6 +283,8 @@ export default {
   .searchbox {
     border: none;
     border-radius: 10px 0 0 10px;
+    width: 90%;
+    z-index: 468;
     margin-left: 0px !important;
   }
 
