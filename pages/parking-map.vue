@@ -281,7 +281,7 @@ export default {
   .searchbox {
     border: none;
     border-radius: 10px 0 0 10px;
-    width: 90%;
+    width: 100%;
     z-index: 468;
     margin-left: 0px !important;
   }
