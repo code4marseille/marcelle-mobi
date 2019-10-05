@@ -16,11 +16,11 @@
         </p>
       </div>
       <!--  -->
-      <div class="flex3 col-4">
+      <div class="flex3 col-4 py-1">
         <a v-if="$device.isIos && vehiculeInfo.linkIos" :href="vehiculeInfo.linkIos">
           <button type="button" class="btn buttonGoApp">
-            Vers l'appli
-            <img svg-inline src="~/assets/images/openApp.svg" />
+            Vers l'app
+            <img svg-inline src="~/assets/images/openApp.svg" class="ml-2" />
           </button>
         </a>
 
@@ -29,13 +29,13 @@
           @click="openApp(vehiculeInfo.linkApp,vehiculeInfo.linkStore )"
         >
           <button type="button" class="btn buttonGoApp">
-            Vers l'appli
-            <img svg-inline src="~/assets/images/openApp.svg" />
+            Vers l'app
+            <img svg-inline src="~/assets/images/openApp.svg" class="ml-2" />
           </button>
         </a>
 
-        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser" target="blank">
-          <button type="button" class="btn buttonGoApp">Vers le site web</button>
+        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser" target="_blank">
+          <button type="button" class="btn buttonGoApp">Site web</button>
         </a>
       </div>
       <!--  -->
@@ -94,7 +94,7 @@ export default {
         leVelo: v => {
           return {
             line1: v.address,
-            line2: `Velo dispo.: ${v.availableBikes} - Place dispo.: ${v.availableBikeStands}`,
+            line2: `Vélos : ${v.availableBikes} - Places : ${v.availableBikeStands}`,
             line3: null,
             icon: require(`~/assets/images/velo.svg`),
             linkStore: `http://www.levelo-mpm.fr/`,
