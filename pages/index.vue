@@ -38,7 +38,7 @@
       >
         <i class="fas fa-wind"></i>
         <span class="indice-quality">{{ $store.state.dashboard.airQuality}}</span> /10
-        <span class="indice-quality">{{ $store.state.dashboard.airQualitySummary}}</span>
+        <span class="ml-3 indice-quality">{{ $store.state.dashboard.airQualitySummary}}</span>
 
         <div>{{$store.state.dashboard.airQualityText}}</div>
       </div>
@@ -47,17 +47,13 @@
     <div>
       <p>à faire aujourd'hui :</p>
       <div class="activitiesProposees d-flex justify-content-around">
-        <span v-for="(act, id)
-     in $store.state.dashboard.activitesProposees" :key="id">
-          <b-button v-b-tooltip.hover v-bind:title="act.name" style="padding:0px">
+        <span v-for="(act, id) in $store.getters['dashboard/activitesProposees']" :key="id">
+          <b-button v-b-tooltip.hover :title="act.name" class="p-0">
             <i class="fa" :class="act.icon"></i>
           </b-button>
         </span>
-        <!-- <i class="fas fa-basketball-ball px-5"></i>
-        <i class="fas fa-bicycle px-5"></i>-->
       </div>
     </div>
-    <!-- <keep-alive> -->
     <div>
       <b-button class="btn-dark-blue" pill variant="primary" to="/map">Trouver un moyen de transport</b-button>
     </div>
@@ -69,32 +65,34 @@
         </div>
       </b-button>
       <b-collapse id="collapse-1-inner" class="fixed-bottom" :visible="show">
-        <div class="" tabindex="-1" role="dialog" aria-hidden="true" >
-          <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document" style="height: 80vh;">
+        <div class tabindex="-1" role="dialog" aria-hidden="true">
+          <div
+            class="modal-dialog modal-dialog-scrollable modal-lg"
+            role="document"
+            style="height: 80vh;"
+          >
             <div class="modal-content">
               <div class="modal-header">
-            <h3 class="modal_header mx-3 mb-0 text-uppercase text-center">perturbations en cours</h3>
-                <button type="button" class="close" @click="show = !show" >
+                <h3 class="modal_header mx-3 mb-0 text-uppercase text-center">Perturbations en cours</h3>
+                <button type="button" class="close" @click="show = !show">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-
-          <div
-            v-for="(alert, id) in $store.state.dashboard.alertsRtm"
-            :key="id"
-            class="content-alert-rtm mt-3 text-center border-bottom"
-          >
-                    <h4 class="modal_title text-uppercase font-weight-bold">{{ alert[1] }}</h4>
-            <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
-            <p class="modal_description">{{ alert[2] }}</p>
-          </div>
+                <div
+                  v-for="(alert, id) in $store.state.dashboard.alertsRtm"
+                  :key="id"
+                  class="content-alert-rtm mt-3 text-center border-bottom"
+                >
+                  <h4 class="modal_title text-uppercase font-weight-bold">{{ alert[1] }}</h4>
+                  <p class="modal_date text-uppercase mb-1">{{ alert[0] }}</p>
+                  <p class="modal_description">{{ alert[2] }}</p>
+                </div>
               </div>
             </div>
-  </div>
-</div>
+          </div>
+        </div>
       </b-collapse>
-
     </div>
   </div>
 </template>
@@ -121,7 +119,6 @@ export default {
   color: white;
   text-align: center;
   font-size: 1.1em;
-  text-transform: uppercase;
   min-height: 100vh;
   padding: 2vh;
 
