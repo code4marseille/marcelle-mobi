@@ -16,27 +16,39 @@
         </p>
       </div>
       <!--  -->
-      <div class="flex3 col-4">
-        <a v-if="$device.isIos && vehiculeInfo.linkIos" :href="vehiculeInfo.linkIos">
-          <button type="button" class="btn buttonGoApp">
-            Vers l'appli
-            <img svg-inline src="~/assets/images/openApp.svg" />
-          </button>
+      <div class="flex3 col-4 py-1">
+        <a
+          v-if="$device.isIos && vehiculeInfo.linkIos"
+          :href="vehiculeInfo.linkIos"
+          class="btn buttonGoApp"
+        >
+          {{vehiculeInfo.action || `Vers l'app`}}
+          <img
+            svg-inline
+            src="~/assets/images/openApp.svg"
+            class="ml-2"
+          />
         </a>
 
         <a
           v-else-if="$device.isMobileOrTablet && vehiculeInfo.linkApp"
           @click="openApp(vehiculeInfo.linkApp,vehiculeInfo.linkStore )"
+          class="btn buttonGoApp"
         >
-          <button type="button" class="btn buttonGoApp">
-            Vers l'appli
-            <img svg-inline src="~/assets/images/openApp.svg" />
-          </button>
+          {{vehiculeInfo.action || `Vers l'app`}}
+          <img
+            svg-inline
+            src="~/assets/images/openApp.svg"
+            class="ml-2"
+          />
         </a>
 
-        <a v-else-if="vehiculeInfo.linkBrowser" :href="vehiculeInfo.linkBrowser" target="blank">
-          <button type="button" class="btn buttonGoApp">Vers le site web</button>
-        </a>
+        <a
+          v-else-if="vehiculeInfo.linkBrowser"
+          :href="vehiculeInfo.linkBrowser"
+          target="_blank"
+          class="btn buttonGoApp"
+        >{{vehiculeInfo.action || 'Site web'}}</a>
       </div>
       <!--  -->
     </div>
@@ -69,6 +81,18 @@ export default {
             linkBrowser: `https://citiz.coop/`
           }
         },
+        totem: v => {
+          return {
+            line1: v.provider,
+            line2: `Immat.: ${v.imat}`,
+            line3: `Batterie: ${v.batteryLevel}%`,
+            icon: require(`~/assets/images/totem.svg`),
+            linkApp: 'com.atrioom.totem_mobi://',
+            linkStore: `https://play.google.com/store/apps/details?id=com.atrioom.totem_mobi&hl=fr`,
+            linkIos: `https://apps.apple.com/us/app/totem-mobi/id1328267922`,
+            linkBrowser: `http://www.totem-mobi.fr/`
+          }
+        },
         bus: v => {
           return {
             icon: require(`~/assets/images/bus.svg`),
@@ -89,17 +113,17 @@ export default {
               'hiver_horaires.pdf'
           }
         },
-
-        //Borne vélo
         leVelo: v => {
+          const gmapsLink = `https://www.google.com/maps/search/?api=1&query=${v.position.lat},${v.position.lng}`
           return {
-            line1: v.address,
-            line2: `Velo dispo.: ${v.availableBikes} - Place dispo.: ${v.availableBikeStands}`,
+            action: 'Itinéraire',
+            line1: v.address.split('-')[0],
+            line2: `Vélos : ${v.availableBikes} - Places : ${v.availableBikeStands}`,
             line3: null,
             icon: require(`~/assets/images/velo.svg`),
-            linkStore: `http://www.levelo-mpm.fr/`,
-            linkIos: `http://www.levelo-mpm.fr/`,
-            linkBrowser: `http://www.levelo-mpm.fr/`
+            linkStore: gmapsLink,
+            linkIos: gmapsLink,
+            linkBrowser: gmapsLink
           }
         },
 
@@ -126,7 +150,7 @@ export default {
             linkApp: `goflash://`,
             linkStore: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/circ-trottinettes-%C3%A9lectrique/id1446543957`,
-            linkBrowser: `https://play.google.com/store/apps/details?id=com.goflash.consumer&hl=fr`
+            linkBrowser: `https://goflash.com/`
           }
         },
 
@@ -139,7 +163,7 @@ export default {
             linkApp: 'bird.android://',
             linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
             linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
-            linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
+            linkBrowser: `https://www.bird.co/`
           }
         },
 
@@ -150,21 +174,9 @@ export default {
             line3: `Batterie: ${v.battery}%`,
             icon: require(`~/assets/images/tier.svg`),
             linkApp: `tier://`,
-            linkStore: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`,
-            linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
-            linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
-          }
-        },
-        totem: v => {
-          return {
-            line1: v.provider,
-            line2: `Immat.: ${v.imat}`,
-            line3: `Batterie: ${v.batteryLevel}%`,
-            icon: require(`~/assets/images/totem.svg`),
-            linkApp: 'com.atrioom.totem_mobi://',
-            linkStore: `https://play.google.com/store/apps/details?id=com.atrioom.totem_mobi&hl=fr`,
-            linkIos: `https://apps.apple.com/fr/app/bird-pr%C3%AAt-pour-lenvol/id1260842311`,
-            linkBrowser: `https://play.google.com/store/apps/details?id=co.bird.android&hl=fr`
+            linkStore: `https://play.google.com/store/apps/details?id=com.tier.app&hl=en_US`,
+            linkIos: `https://apps.apple.com/app/id1436140272?mt=8`,
+            linkBrowser: `https://www.tier.app/fr/`
           }
         }
       }
@@ -199,7 +211,7 @@ export default {
   .buttonGoApp {
     background: #25a9e8;
     border-radius: 100px;
-    color: #ffffff;
+    color: #ffffff !important;
     text-align: center;
     opacity: 1 !important;
     font-size: 1.3em;

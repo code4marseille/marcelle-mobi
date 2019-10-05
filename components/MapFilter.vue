@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="filterGo">
-      <div class="containerButtonsMap">
-        <v-btn class="mx-2 btn-refresh spin" fab light small @click="refreshMap">
+      <div class="containerButtonsMap mr-2 mb-3">
+        <v-btn class="btn-refresh" fab light small @click="refreshMap">
           <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
         </v-btn>
         <div
-            @click="$store.commit('map/TOGGLE_FILTER')"
-            class="buttonGo"
-          >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
+          @click="$store.commit('map/TOGGLE_FILTER')"
+          class="buttonGo"
+        >{{$store.state.map.filterVisible ? 'X' : 'Go'}}</div>
       </div>
-      <b-collapse id="collapse-1" :visible="$store.state.map.filterVisible" class="mt-2">
+      <b-collapse :visible="$store.state.map.filterVisible">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
           <div class="row justify-content-between mx-0">
             <div
@@ -75,7 +75,7 @@ export default {
     SelectedVehicule
   },
   props: {
-    location: {type: Object, required: true}
+    location: { type: Object, required: true }
   },
 
   data() {
@@ -128,7 +128,8 @@ export default {
   }
 
   .buttonGo {
-    width: 50px;
+    width: 40px;
+    height: 40px;
     background: #0e5da4;
     box-shadow: 2px 2px 8px #aaa;
     font: bold 1rem Arial;
@@ -137,13 +138,13 @@ export default {
     color: white;
     right: 2vw;
     text-align: center;
-    padding: 15px 0px;
+    padding: 10px 0px;
     margin-top: 20px;
   }
 
   .containerButtonsMap {
     position: absolute;
-    right: 1vw;
+    right: 0;
     bottom: 100%;
     display: flex;
     flex-direction: column;
@@ -159,6 +160,5 @@ export default {
     margin-top: 0.5rem;
     font-size: 1.3rem;
   }
-
 }
 </style>

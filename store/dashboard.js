@@ -1,11 +1,9 @@
 import Vue from 'vue'
-
 import weatherStatuses from "~/static/weatherStatuses"
 import activitiesStatuses from "~/static/activitiesStatuses"
 
 export const state = () => ({
   activeBackground: require('~/assets/images/scuba.svg'),
-  activitesProposees: [],
   airQuality: '-',
   airQualitySummary: '',
   airQualityText: "",
@@ -25,6 +23,18 @@ export const state = () => ({
   weatherIcon: ""
 })
 
+// GETTERS
+export const getters = {
+  activitesProposees: state => {
+    return (
+      activitiesStatuses.activities.filter(activity => activity.conditions.minTemp <= state.temperature && activity.conditions.maxTemp >= state.temperature &&
+        activity.conditions.minWind <= state.windSpeed &&
+        activity.conditions.maxWind >= state.windSpeed
+        && activity.conditions.clear === state.weather.clear && activity.conditions.airQualityMin < state.airQuality
+      )
+    )
+  }
+}
 
 
 export const mutations = {
@@ -73,9 +83,7 @@ export const mutations = {
   'SET_ORIENTATION'(state, orientation) {
     state.orientation = "transform:rotate(" + orientation + "deg)"
   },
-  'SET_ACTIVITIES'(state, activities) {
-    state.activitesProposees = activities
-  },
+
   'SET_ALERTSRTM'(state, alertsRtm) {
     state.alertsRtm = alertsRtm
 
@@ -83,8 +91,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchWeather({ commit, state }) {
-
+  async fetchWeather({ commit }) {
     const weatherObject = await this.$axios.$get('/weathers/today', { params: { q: 'Marseille' } })
     const weatherStatus = weatherObject.weather[0].main
     const wind = weatherObject.wind
@@ -92,27 +99,19 @@ export const actions = {
     commit('SET_WEATHER', weatherStatuses[weatherStatus])
     commit('SET_WIND', Math.trunc(wind.speed * 3.6))
     commit('SET_ORIENTATION', wind.deg)
-
-    commit('SET_ACTIVITIES', activitiesStatuses.activities.filter(activity => activity.conditions.minTemp <= state.temperature && activity.conditions.maxTemp >= state.temperature &&
-      activity.conditions.minWind <= state.windSpeed &&
-      activity.conditions.maxWind >= state.windSpeed
-      && activity.conditions.clear === state.weather.clear && activity.conditions.airQualityMin < state.airQuality
-
-
-
-    ))
-
   },
+
   async fetchAirQuality({ commit }) {
-    const airQuality = await this.$axios.$get('/airs/quality')
-    commit('SET_AIRQUALITY', Math.round((300 - airQuality.data.aqi) / 3) / 10)
-
+    const airQuality = await this.$axios.$get('/airs/quality', { params: { city: 'Marseille' } })
+    const scoreOn10 = Math.round((300 - airQuality.data.aqi) / 3) / 10
+    commit('SET_AIRQUALITY', scoreOn10)
   },
+
   async fetchAlertsRtm({ commit }) {
     let tabInfos = []
     const alertsRtm = await this.$axios.$get('/alerts/rtm')
-    alertsRtm.forEach(e => {
-      tabInfos.push(e.title.replace('-', '').split(':'))
+    alertsRtm.forEach(alert => {
+      tabInfos.push(alert.title.replace('-', '').split(':'))
     });
     commit("SET_ALERTSRTM", tabInfos)
   }

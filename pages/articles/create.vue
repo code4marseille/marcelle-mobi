@@ -1,11 +1,9 @@
 <template>
   <div id="createArticlePage">
-    <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-3 ml-3 text-center flex-grow-1 w-75">Ajouter un article</h2>
+    <header class="px-3 py-2 d-flex justify-content-center">
+      <h3 class="text-uppercase pt-3">Ajouter un article</h3>
     </header>
-    <div class="form-contener">
-      <!-- title -->
-
+    <div class="form-contener pb-5">
       <b-input-group id="input-group-1" label="Lien url" label-for="input-3" class="label mt-3">
         <b-form-input
           id="input-3"
@@ -62,6 +60,7 @@
             type="text"
             required
             placeholder="Votre nom"
+            autocomplete="first_name"
             class="mb-4 inputFormCreateArticle"
           ></b-form-input>
         </b-form-group>
@@ -71,6 +70,7 @@
             id="input-5"
             v-model="form.publisherEmail"
             type="email"
+            autocomplete="email"
             required
             placeholder="Votre mail"
             class="mb-4 inputFormCreateArticle"
@@ -95,8 +95,9 @@
         <b-button
           @click.prevent="sendArticle"
           type="submit"
+          block
+          pill
           variant="primary"
-          class="btn btn-dark-blue"
           :disabled="emptyFields"
         >Valider votre article</b-button>
       </template>
@@ -173,6 +174,9 @@ export default {
 
 <style lang="scss">
 #createArticlePage {
+  header {
+    z-index: 4;
+  }
   .fa-bars {
     font-size: 2em;
   }
@@ -220,11 +224,6 @@ export default {
   .btn-caption {
     background-color: rgba(255, 255, 255, 0.2);
     opacity: 0.5;
-  }
-
-  .btn-dark-blue[type='submit'] {
-    margin: 3vh auto;
-    display: flex;
   }
 }
 </style>

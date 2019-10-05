@@ -26,6 +26,10 @@ export default {
       }
     ]
   },
+  // PWA
+  manifest: {
+    theme_color: '#25A9E8'
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -37,7 +41,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/axios" }],
+  plugins: [
+    { src: "~/plugins/axios" },
+    { src: '~/plugins/infinite-loading' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

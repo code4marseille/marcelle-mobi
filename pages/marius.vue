@@ -13,7 +13,7 @@
         <div>
           <p class="mt-5">Choisis qui va t'aider !</p>
         </div>
-        <div class="d-flex justify-content-between w-100">
+        <div class="d-flex justify-content-around w-100">
           <div
             class="marcelle_marius_avatar"
             v-for="(avatar, i) in avatars"
@@ -27,6 +27,7 @@
         </div>
         <b-button
           class="btn-avatar mt-5"
+          size="lg"
           @click="validate"
           :disabled="selectedAvatarIdx == null"
         >Valider</b-button>
@@ -38,30 +39,32 @@
           <div class="col-8">
             <div class="text-center mt-5 pt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
-              <b-form-input
-                id="address1"
-                placeholder="Boulevard Madeleine Rémusat"
-                autocomplete="address"
+              <VueBootstrapTypeahead
+                :data="addresses"
                 v-model="from"
-                @change="showInputTo=true"
-                class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
-              ></b-form-input>
+                :serializer="a => a.properties.label"
+                placeholder="Tapez une adresse..."
+                @hit="setLatLng('fromLatLng', $event)"
+                autofocus
+                input-class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
+              />
             </div>
-            <div v-if="showInputTo" class="text-center mt-5 pt-5">
+            <div v-if="fromLatLng" class="text-center mt-5 pt-5">
               <div class="text-secondary bg-white rounded-pill p-3">où vas-tu ?</div>
-              <b-form-input
-                id="address2"
-                placeholder="Rue Paradis, Marseille"
-                autocomplete="work address"
-                class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
+              <VueBootstrapTypeahead
+                :data="addresses"
                 v-model="to"
-                @change="showModes=true"
-              ></b-form-input>
+                :serializer="a => a.properties.label"
+                placeholder="Tapez une adresse..."
+                @hit="setLatLng('toLatLng', $event)"
+                autofocus
+                input-class="mt-3 border-top-0 border-left-0 border-right-0 border-primary bg-secondary text-white"
+              />
             </div>
           </div>
         </div>
 
-        <div class="rounded mt-5" v-if="showModes">
+        <div class="rounded mt-5" v-if="toLatLng">
           <h4>Choisissez votre moyen de transport</h4>
           <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
             <b-button
@@ -76,6 +79,7 @@
           </b-button-group>
           <b-button
             class="block"
+            size="lg"
             pill
             style="margin-top:70px"
             variant="primary"
@@ -88,27 +92,33 @@
     </div>
     <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
       <div>laisse moi réflechir</div>
-      <img :src="avatar.icon" alt />
+      <img :src="avatar.icon" style="max-height: 70vh" />
     </div>
   </div>
 </template>
 
 <script>
+import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
+import _ from 'underscore'
+const API_URL = 'https://api-adresse.data.gouv.fr/search/'
 export default {
+  components: { VueBootstrapTypeahead },
   data() {
     return {
       isThinking: false,
       loading: true,
-      showInputTo: false,
       showModes: false,
       from: '',
       to: '',
+      fromLatLng: null,
+      toLatLng: null,
       selectedMode: null,
       selectedAvatarIdx: null,
+      addresses: [],
       modes: [
-        { logo: 'trot.svg', value: 'bike' },
+        { logo: 'trot.svg', value: 'bss' },
         { logo: 'walk.svg', value: 'walking' },
-        { logo: 'rtm.svg.png', value: 'walking' },
+        { logo: 'rtm.svg', value: 'walking' },
         { logo: 'bike.svg', value: 'bike' },
         { logo: 'car.svg', value: 'car' }
       ],
@@ -131,16 +141,32 @@ export default {
     }
   },
   methods: {
+    setLatLng(key, event) {
+      this[key] = [event.geometry.coordinates[1], event.geometry.coordinates[0]]
+    },
+    async getAddresses(query) {
+      let results = await this.$axios.$get(API_URL, {
+        params: { q: query, autocomplete: 1, limit: 10 }
+      })
+      console.log(results.features)
+
+      this.addresses = results.features
+    },
+
     async submit() {
       this.isThinking = true
-      await this.$store.dispatch('marius/fetchitineraries', {
-        from: this.from,
-        to: this.to,
-        mode: this.selectedMode.value
-      })
-      this.$router.push({
-        path: '/marius_map'
-      })
+      try {
+        await this.$store.dispatch('marius/fetchitineraries', {
+          fromLatLng: this.fromLatLng,
+          toLatLng: this.toLatLng,
+          mode: this.selectedMode.value
+        })
+        this.$router.push({
+          path: '/marius_map'
+        })
+      } catch (error) {
+        this.isThinking = false
+      }
     },
 
     setMode(mode) {
@@ -153,6 +179,14 @@ export default {
     selectAvatar(i) {
       this.selectedAvatarIdx = i
     }
+  },
+  watch: {
+    from: _.debounce(function(addr) {
+      this.getAddresses(addr)
+    }, 500),
+    to: _.debounce(function(addr) {
+      this.getAddresses(addr)
+    }, 500)
   }
 }
 </script>

@@ -11,8 +11,7 @@
       </p>
     </l-popup>
 
-    <l-icon :icon-url="marker.image" class="covoit_marker"></l-icon>
-    <!-- <l-icon :icon-size="[40, 40]" :icon-url="require('~/assets/images/carPool.png')"></l-icon> -->
+    <l-icon :icon-url="marker.image" :icon-size="[30, 30]" :icon-anchor="[15,0]"></l-icon>
   </l-marker>
 </template>
 
