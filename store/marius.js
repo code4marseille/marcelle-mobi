@@ -83,10 +83,16 @@ export const mutations = {
 
 
 export const actions = {
-  async fetchitineraries({ commit }, { from, to, mode }) {
-    const itineraries = await this.$axios.$get(
-      "/itineraries/calculate", { params: { departure_address: from, arrival_address: to, mode } }
-    )
+  async fetchitineraries({ commit }, { fromLatLng, toLatLng, mode }) {
+    const itineraries = await this.$axios.$get("/itineraries/calculate", {
+      params: {
+        lat_departure: fromLatLng[0],
+        lng_departure: fromLatLng[1],
+        lat_arrival: toLatLng[0],
+        lng_arrival: toLatLng[1],
+        mode: mode
+      }
+    })
     commit("SET_ITINERARIES", itineraries);
   },
 }
