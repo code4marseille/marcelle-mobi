@@ -7,10 +7,10 @@
         </div>
         <div class="bg-light itineraries px-3 py-3 d-flex justify-content-between">
           <div>
-            <p class="text-left mb-1">Moyen de transport : {{$store.getters['marius/getMode']}}</p>
+            <p class="text-left mb-1 font-weight-bold">{{modes[$store.getters['marius/getMode']]}}</p>
             <p
               class="text-left mb-1"
-            >Emission de Co2 : {{$store.getters['marius/co2current']}} g/km Co2</p>
+            >Emission de Co2 : {{Math.round($store.getters['marius/co2current'])}} g/km</p>
             <p class="text-left mb-1">Durée : {{$store.getters['marius/durationcurrent']}} min</p>
           </div>
 
@@ -29,8 +29,10 @@
           :key="i"
         >
           <div>
-            <p class="text-left mb-0 pb-1">Moyen de transport : {{alternativesDetails.mode}}</p>
-            <p class="text-left mb-0 pb-1">Emission de Co2 : {{alternativesDetails.co2}} g/km Co2</p>
+            <p class="text-left mb-0 pb-1 font-weight-bold">{{modes[alternativesDetails.mode]}}</p>
+            <p
+              class="text-left mb-0 pb-1"
+            >Emission de Co2 : {{Math.round(alternativesDetails.co2)}} g/km</p>
             <p class="text-left mb-0 pb-1">Durée : {{alternativesDetails.duration}} min</p>
           </div>
 
@@ -59,7 +61,15 @@
 export default {
   props: {
     colors: { type: Array, required: true }
-  }
+  },
+  data: () => ({
+    modes: {
+      walking: 'Transport en commun',
+      bike: 'Vélo',
+      bss: 'LeVélo et marche à pied',
+      car: 'En voiture'
+    }
+  })
 }
 </script>
 

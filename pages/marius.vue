@@ -92,7 +92,7 @@
     </div>
     <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
       <div>laisse moi réflechir</div>
-      <img :src="avatar.icon" alt />
+      <img :src="avatar.icon" style="max-height: 70vh" />
     </div>
   </div>
 </template>
@@ -181,10 +181,10 @@ export default {
     }
   },
   watch: {
-    from: _.debounce(addr => {
+    from: _.debounce(function(addr) {
       this.getAddresses(addr)
     }, 500),
-    to: _.debounce(addr => {
+    to: _.debounce(function(addr) {
       this.getAddresses(addr)
     }, 500)
   }
