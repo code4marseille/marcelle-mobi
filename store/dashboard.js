@@ -108,9 +108,12 @@ export const actions = {
   },
 
   async fetchAlertsRtm({ commit }) {
-    let alertsRtm = await this.$axios.$get('/alerts/rtm')
-    alertsRtm.map(alert => alert.title.replace('-', '').split(':'))
-    commit("SET_ALERTSRTM", alertsRtm)
+    let tabInfos = []
+    const alertsRtm = await this.$axios.$get('/alerts/rtm')
+    alertsRtm.forEach(alert => {
+      tabInfos.push(alert.title.replace('-', '').split(':'))
+    });
+    commit("SET_ALERTSRTM", tabInfos)
   }
 }
 
