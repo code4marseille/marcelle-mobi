@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column justify-content-between" id="validatePage">
     <header class="px-3 py-2 d-flex">
-      <h2 class="text-uppercase pt-2 text-center flex-grow-1">Envoyé</h2>
+      <h2 class="text-uppercase pt-3 text-center flex-grow-1">Envoyé</h2>
     </header>
     <div class="text-uppercase w-75 mx-auto">
       <p>La création de votre article a bien été prise en compte !</p>

@@ -4,7 +4,7 @@
       <h2 class="text-uppercase pt-3 text-center flex-grow-1">Bon à savoir</h2>
     </header>
     <main>
-      <p class="text-white">Marius vous a listé des ressources qui pourraient vous intéresser</p>
+      <p class="text-white">Marcelle vous a listé des ressources qui pourraient vous intéresser</p>
       <div class="contener-collapse mb-2">
         <b-button
           v-b-toggle="'collapse-2'"
@@ -24,7 +24,7 @@
           >{{category}}</b-list-group-item>
         </b-collapse>
       </div>
-      <b-row>
+      <b-row class="justify-content-center">
         <b-col cols="12" md="6" lg="4" v-for="(article, id) in filteredArticles" :key="id">
           <b-card class="mb-1 rounded" :img-src="article.imgUrl">
             <a :href="article.url" target="_blank" append="true" class="stretched-link">
@@ -39,7 +39,9 @@
           </b-card>
         </b-col>
         <!--  -->
-        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+        <b-col>
+          <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+        </b-col>
         <!--  -->
         <p v-if="noArticles" class="white py-5 text-center text-white mx-auto">
           Aucun article à afficher dans
@@ -56,24 +58,7 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
-import Vue from 'vue'
-
-Vue.use(InfiniteLoading, {
-  slots: {
-    noMore: '',
-    noResults: ''
-  },
-  props: {
-    spinner: 'spiral'
-  }
-})
-
 export default {
-  components: {
-    InfiniteLoading
-  },
-
   data() {
     return {
       articles: [],
