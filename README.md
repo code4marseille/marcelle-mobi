@@ -75,7 +75,7 @@ yarn dev
 
 ## ACCÈS API
 
-DOCUMENTATION : https://documenter.getpostman.com/view/8993685/SVtN5YCA?version=latest
+DOCUMENTATION : https://documenter.getpostman.com/view/6818477/SVtR3r1b
 
 Pour chaque requête il est nécessaire de passer le Token fourni en params
 
