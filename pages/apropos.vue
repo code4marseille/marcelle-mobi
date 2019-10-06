@@ -16,12 +16,14 @@
               v-for="link in links"
               :key="link.title"
             >
-              <img svg-inline :src="link.icon" alt class="icon-list-links" />
               <b-list-group-item
-                class="list-group-item"
+                class="d-flex align-items-center"
                 :href="link.site"
                 target="_blank"
-              >{{link.title}}</b-list-group-item>
+              >
+                <img svg-inline :src="link.icon" class="icon-list-links" />
+                <div class="ml-3">{{link.title}}</div>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </b-collapse>
@@ -40,12 +42,14 @@
               v-for="application in applications"
               :key="application.title"
             >
-              <img svg-inline :src="application.icon" alt class="icon-app-list-links" />
               <b-list-group-item
-                class="list-group-item"
+                class="d-flex align-items-center"
                 :href="application.site"
                 target="_blank"
-              >{{application.title}}</b-list-group-item>
+              >
+                <img svg-inline :src="application.icon" alt class="icon-app-list-links" />
+                <div class="ml-3">{{application.title}}</div>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </b-collapse>
