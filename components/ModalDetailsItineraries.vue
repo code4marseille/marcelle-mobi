@@ -1,47 +1,47 @@
 <template>
-  <div class="filterGo fixed-bottom">
+  <div class="modalDetails">
     <b-collapse :visible="$store.state.marius.seeModal">
-      <div id="filter_itineraire" class="container">
-        <div class="row justify-content-between mx-0">
-          <p class="text-white moyen_transport">CE QUE TU FAIS ACTUELLEMENT:</p>
-        </div>
-        <div class="bg-light itineraries px-3 py-3 d-flex justify-content-between">
-          <div>
-            <p class="text-left mb-1 font-weight-bold">{{modes[$store.getters['marius/getMode']]}}</p>
-            <p
-              class="text-left mb-1"
-            >Emission de Co2 : {{Math.round($store.getters['marius/co2current'])}} g/km</p>
-            <p class="text-left mb-1">Durée : {{$store.getters['marius/durationcurrent']}} min</p>
-          </div>
+      <div
+        class="mx-auto modal-dialog-scrollable modal-lg rounded-top bg-secondary border-0"
+        style="height: 80vh;"
+      >
+        <div class="modal-body">
+          <p class="text-white text-center">CE QUE TU FAIS ACTUELLEMENT:</p>
+          <div class="bg-light itineraries px-3 py-3 d-flex justify-content-between">
+            <div>
+              <p class="text-left mb-1 font-weight-bold">{{modes[$store.getters['marius/getMode']]}}</p>
+              <p
+                class="text-left mb-1"
+              >Emission de Co2 : {{Math.round($store.getters['marius/co2current'])}} g/km</p>
+              <p class="text-left mb-1">Durée : {{$store.getters['marius/durationcurrent']}} min</p>
+            </div>
 
-          <img
-            class="iconVehicule transport_now"
-            :src="require('assets/images/' + $store.getters['marius/getMode'] +`.svg`)"
-          />
-        </div>
-        <div class="row justify-content-between mx-0">
-          <p class="moyen_transport mt-2 text-white">CE QUE MARIUS TE PROPOSE :</p>
-        </div>
-
-        <div
-          class="bg-light itineraries px-3 py-3 d-flex justify-content-between"
-          v-for="(alternativesDetails, i) in $store.getters  ['marius/alternativesDetails']"
-          :key="i"
-        >
-          <div>
-            <p class="text-left mb-0 pb-1 font-weight-bold">{{modes[alternativesDetails.mode]}}</p>
-            <p
-              class="text-left mb-0 pb-1"
-            >Emission de Co2 : {{Math.round(alternativesDetails.co2)}} g/km</p>
-            <p class="text-left mb-0 pb-1">Durée : {{alternativesDetails.duration}} min</p>
-          </div>
-
-          <div>
             <img
-              class="iconVehicule"
-              :style="{borderBottom: `3px solid ${colors[i]} !important`}"
-              :src="require('assets/images/' + alternativesDetails.mode +`.svg`)"
+              class="iconVehicule transport_now"
+              :src="require('assets/images/' + $store.getters['marius/getMode'] +`.svg`)"
             />
+          </div>
+          <p class="mt-2 text-white text-center">CE QUE MARIUS TE PROPOSE :</p>
+          <div
+            class="bg-light itineraries px-3 py-3 d-flex justify-content-between"
+            v-for="(alternativesDetails, i) in $store.getters  ['marius/alternativesDetails']"
+            :key="i"
+          >
+            <div>
+              <p class="text-left mb-0 pb-1 font-weight-bold">{{modes[alternativesDetails.mode]}}</p>
+              <p
+                class="text-left mb-0 pb-1"
+              >Emission de Co2 : {{Math.round(alternativesDetails.co2)}} g/km</p>
+              <p class="text-left mb-0 pb-1">Durée : {{alternativesDetails.duration}} min</p>
+            </div>
+
+            <div>
+              <img
+                class="iconVehicule"
+                :style="{borderBottom: `3px solid ${colors[i]} !important`}"
+                :src="require('assets/images/' + alternativesDetails.mode +`.svg`)"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -74,18 +74,23 @@ export default {
 </script>
 
 <style lang="scss">
-.iconVehicule {
-  width: 50px;
-  height: 50px;
-}
+.modalDetails {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  .iconVehicule {
+    width: 50px;
+    height: 50px;
+  }
 
-#modalTop {
-  z-index: 469;
-  background-color: #25a9e8;
-  border-radius: 0px;
-}
+  #modalTop {
+    z-index: 0;
+    background-color: #25a9e8;
+    border-radius: 0px;
+  }
 
-.filterGo {
   #filter_itineraire {
     text-align: center;
     width: 100% !important;
@@ -99,10 +104,6 @@ export default {
     margin: 10px 7px;
     border-radius: 10px;
     position: relative;
-  }
-
-  .moyen_transport {
-    margin: 0 auto;
   }
 
   .iconVehicule {

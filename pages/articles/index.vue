@@ -123,13 +123,13 @@ export default {
   button.btn.btn-categorie.btn-secondary {
     font-weight: bolder;
     background-color: white;
-    color: rgba(37, 169, 232);
+    color: rgb(37, 169, 232);
     border-radius: 1rem !important;
   }
 
   .item-collapse {
     background-color: white;
-    color: rgba(37, 169, 232);
+    color: rgb(37, 169, 232);
   }
 
   .btn-block + .btn-block {
@@ -137,7 +137,7 @@ export default {
   }
 
   .card-text-cat {
-    color: rgba(37, 169, 232);
+    color: rgb(37, 169, 232);
   }
 
   .rounded {

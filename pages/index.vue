@@ -61,11 +61,11 @@
       <b-button id="show-btn" @click="show = !show">
         <div class="slideInUp">
           <img src="~/assets/images/up-arrow.svg" width="30px" alt />
-          <p class="mb-0">Infos Traffic RTM</p>
+          <p class="mb-0">Infos Trafic RTM</p>
         </div>
       </b-button>
       <b-collapse id="collapse-1-inner" class="fixed-bottom" :visible="show">
-        <div class tabindex="-1" role="dialog" aria-hidden="true">
+        <div tabindex="-1" role="dialog" aria-hidden="true">
           <div
             class="modal-dialog modal-dialog-scrollable modal-lg"
             role="document"

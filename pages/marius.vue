@@ -33,11 +33,11 @@
         >Valider</b-button>
       </div>
 
-      <div v-else class="container pt-5 px-2">
+      <div v-else class="container py-5 px-2">
         <div class="row align-items-end">
           <img :src="avatar.icon" class="img-fluid col-4" />
           <div class="col-8">
-            <div class="text-center mt-5 pt-5">
+            <div class="text-center mt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
               <VueBootstrapTypeahead
                 :data="addresses"
@@ -143,6 +143,7 @@ export default {
   methods: {
     setLatLng(key, event) {
       this[key] = [event.geometry.coordinates[1], event.geometry.coordinates[0]]
+      this.$nextTick(() => window.scrollTo(0, document.body.scrollHeight))
     },
     async getAddresses(query) {
       let results = await this.$axios.$get(API_URL, {
