@@ -5,87 +5,81 @@
     </header>
     <content class="d-flex justify-content-around">
       <div class="mt-5">
-        <first>
-          <div class="category_apropos" v-b-toggle.collapse-1>
-            <p class="text_card_apropos" style="position: absolute; top: 65px; right: 20px;">Données</p>
-            <img src="~/assets/images/Data.svg" class="image_data" alt style="width:220px;" />
-          </div>
-          <b-collapse id="collapse-1" class="mt-2">
-            <b-card class="collapse_card_apropos">
-              <b-list-group
-                class="list-group list-group-flush links-container border-bottom"
-                v-for="link in links"
-                :key="link.title"
-              >
-                <img svg-inline :src="link.icon" alt class="icon-list-links" />
-                <b-list-group-item
-                  class="list-group-item"
-                  :href="link.site"
-                  target="_blank"
-                >{{link.title}}</b-list-group-item>
-              </b-list-group>
-            </b-card>
-          </b-collapse>
-        </first>
+        <div class="category_apropos" v-b-toggle.collapse-1>
+          <p class="text_card_apropos" style="position: absolute; top: 65px; right: 20px;">Données</p>
+          <img src="~/assets/images/Data.svg" class="image_data" alt style="width:220px;" />
+        </div>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card class="collapse_card_apropos">
+            <b-list-group
+              class="list-group list-group-flush links-container border-bottom"
+              v-for="link in links"
+              :key="link.title"
+            >
+              <img svg-inline :src="link.icon" alt class="icon-list-links" />
+              <b-list-group-item
+                class="list-group-item"
+                :href="link.site"
+                target="_blank"
+              >{{link.title}}</b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-collapse>
 
-        <second>
-          <div class="category_apropos mt-4" v-b-toggle.collapse-2>
-            <p
-              class="text_card_apropos"
-              style="position: absolute; top: 65px; right: 20px;"
-            >Applications</p>
-            <img src="~/assets/images/mobility.svg" class="image_mobility" alt style="width:220px;" />
-          </div>
-          <b-collapse id="collapse-2" class="mt-2">
-            <b-card class="collapse_card_apropos">
-              <b-list-group
-                class="list-group list-group-flush links-container border-bottom"
-                v-for="application in applications"
-                :key="application.title"
-              >
-                <img svg-inline :src="application.icon" alt class="icon-app-list-links" />
-                <b-list-group-item
-                  class="list-group-item"
-                  :href="application.site"
-                  target="_blank"
-                >{{application.title}}</b-list-group-item>
-              </b-list-group>
-            </b-card>
-          </b-collapse>
-        </second>
+        <div class="category_apropos mt-4" v-b-toggle.collapse-2>
+          <p
+            class="text_card_apropos"
+            style="position: absolute; top: 65px; right: 20px;"
+          >Applications</p>
+          <img src="~/assets/images/mobility.svg" class="image_mobility" alt style="width:220px;" />
+        </div>
+        <b-collapse id="collapse-2" class="mt-2">
+          <b-card class="collapse_card_apropos">
+            <b-list-group
+              class="list-group list-group-flush links-container border-bottom"
+              v-for="application in applications"
+              :key="application.title"
+            >
+              <img svg-inline :src="application.icon" alt class="icon-app-list-links" />
+              <b-list-group-item
+                class="list-group-item"
+                :href="application.site"
+                target="_blank"
+              >{{application.title}}</b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-collapse>
 
-        <third>
-          <div class="category_apropos mt-4" v-b-toggle.collapse-3>
-            <p
-              class="text_card_apropos"
-              style="position: absolute; top: 65px; right: 20px;"
-            >Partenaires</p>
-            <img
-              src="~/assets/images/partenaire.svg"
-              class="image_partenaire"
-              alt
-              style="width:220px;"
-            />
-          </div>
-          <b-collapse id="collapse-3" class="mt-2">
-            <b-card class="collapse_card_apropos">
-              <b-list-group
-                class="list-group list-group-flush links-container border-bottom"
-                v-for="partenaire in partenaires"
-                :key="partenaire.title"
+        <div class="category_apropos mt-4" v-b-toggle.collapse-3>
+          <p
+            class="text_card_apropos"
+            style="position: absolute; top: 65px; right: 20px;"
+          >Partenaires</p>
+          <img
+            src="~/assets/images/partenaire.svg"
+            class="image_partenaire"
+            alt
+            style="width:220px;"
+          />
+        </div>
+        <b-collapse id="collapse-3" class="mt-2">
+          <b-card class="collapse_card_apropos">
+            <b-list-group
+              class="list-group list-group-flush links-container border-bottom"
+              v-for="partenaire in partenaires"
+              :key="partenaire.title"
+            >
+              <b-list-group-item
+                class="d-flex align-items-center"
+                :href="partenaire.site"
+                target="_blank"
               >
-                <b-list-group-item
-                  class="d-flex align-items-center"
-                  :href="partenaire.site"
-                  target="_blank"
-                >
-                  <img svg-inline :src="partenaire.icon" alt class="icon-list-links" />
-                  <div class="ml-3">{{partenaire.title}}</div>
-                </b-list-group-item>
-              </b-list-group>
-            </b-card>
-          </b-collapse>
-        </third>
+                <img svg-inline :src="partenaire.icon" alt class="icon-list-links" />
+                <div class="ml-3">{{partenaire.title}}</div>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-collapse>
       </div>
     </content>
   </div>
