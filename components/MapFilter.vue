@@ -12,7 +12,7 @@
       </div>
       <b-collapse :visible="$store.state.map.filterVisible">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
-          <div class="row justify-content-between mx-0">
+          <div class="row justify-content-between mx-0 clickable">
             <div
               class="col-4 borderBottom"
               @click="$store.commit('map/TOGGLE_BUS')"
