@@ -74,12 +74,14 @@
                 v-for="partenaire in partenaires"
                 :key="partenaire.title"
               >
-                <img svg-inline :src="partenaire.icon" alt class="icon-list-links" />
                 <b-list-group-item
-                  class="list-group-item"
+                  class="d-flex align-items-center"
                   :href="partenaire.site"
                   target="_blank"
-                >{{partenaire.title}}</b-list-group-item>
+                >
+                  <img svg-inline :src="partenaire.icon" alt class="icon-list-links" />
+                  <div class="ml-3">{{partenaire.title}}</div>
+                </b-list-group-item>
               </b-list-group>
             </b-card>
           </b-collapse>
@@ -91,7 +93,6 @@
 
 <script>
 export default {
-  name: 'apropos',
   data() {
     return {
       links: [
@@ -181,15 +182,11 @@ export default {
           icon: require('~/assets/images/code4marseille.svg')
         },
         {
-          title: 'DEPARTEMENT 13',
+          title: 'Conseil Départemental des Bouches-du-Rhône',
           site: 'https://www.departement13.fr/',
           icon: require('~/assets/images/departementbdr.svg')
         },
-        {
-          title: 'LE CLOITRE',
-          site: 'https://www.lecloitre13.fr',
-          icon: require('~/assets/images/cloitre.svg')
-        },
+
         {
           title: 'MISSION LOCALE',
           site: 'https://missionlocalemarseille.fr/',
@@ -201,24 +198,76 @@ export default {
           icon: require('~/assets/images/poleemploi.svg')
         },
         {
+          title: 'VILLE DE MARSEILLE',
+          site: 'http://www.marseille.fr/',
+          icon: require('~/assets/images/marseille.svg')
+        },
+
+        {
+          title: 'Préfecture',
+          site: 'http://www.bouches-du-rhone.gouv.fr/',
+          icon: require('~/assets/images/prefecture.jpg')
+        },
+        {
+          title: 'La Grande Ecole du Numérique',
+          site: 'https://www.grandeecolenumerique.fr/',
+          icon: require('~/assets/images/gen.png')
+        },
+        {
+          title: 'La CIC',
+          site: 'https://www.cic.fr/fr/index.html',
+          icon: require('~/assets/images/cic.png')
+        },
+        {
+          title: 'La Métropole Marseille Provence',
+          site: 'http://www.marseille-provence.fr/',
+          icon: require('~/assets/images/mpm.jpeg')
+        },
+
+        {
+          title: 'French Tech Aix-Marseille',
+          site: 'https://lafrenchtech-aixmarseille.fr/',
+          icon: require('~/assets/images/french_tech.png')
+        },
+        {
+          title: 'Jaguar Network',
+          site: 'https://www.jaguar-network.com/',
+          icon: require('~/assets/images/jaguar.png')
+        },
+        {
+          title: 'LE WAGON',
+          site: 'https://www.lewagon.com/fr/marseille',
+          icon: require('~/assets/images/wagon.svg')
+        },
+        {
           title: 'SIMPLON',
           site: 'https://simplon.co/marseille-cloitre1/',
           icon: require('~/assets/images/simplon.svg')
         },
         {
-          title: 'VILLE DE MARSEILLE',
-          site: 'http://www.marseille.fr/',
-          icon: require('~/assets/images/marseille.svg')
+          title: '3W Academy',
+          site: 'https://3wa.fr/',
+          icon: require('~/assets/images/3w.png')
         },
         {
-          title: 'WAGON',
-          site: 'https://www.lewagon.com/fr/marseille',
-          icon: require('~/assets/images/wagon.svg')
+          title: 'Wild Code School',
+          site: 'https://www.wildcodeschool.com/fr-FR/campus/marseille',
+          icon: require('~/assets/images/wild.png')
         },
         {
-          title: 'WEBFORCE3',
-          site: 'https://www.wf3.fr/',
-          icon: require('~/assets/images/webforce3.svg')
+          title: 'Passerelle Numérique',
+          site: 'https://passerelle-numerique.fr/',
+          icon: require('~/assets/images/passerelle.png')
+        },
+        {
+          title: 'Coding Academy by Epitech ',
+          site: 'https://www.coding-academy.fr/',
+          icon: require('~/assets/images/coding_academy.png')
+        },
+        {
+          title: 'La Plateforme',
+          site: 'https://laplateforme.io/',
+          icon: require('~/assets/images/plateforme.png')
         }
       ]
     }
@@ -293,8 +342,8 @@ export default {
     }
 
     .icon-list-links {
-      min-width: 70px;
-      min-height: 50px;
+      width: 70px;
+      margin: 10px 0;
     }
 
     .icon-app-list-links {
