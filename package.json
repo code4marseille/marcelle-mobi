@@ -28,12 +28,12 @@
     "underscore": "^1.9.1",
     "vue-bootstrap-typeahead": "^0.2.6",
     "vue-infinite-loading": "^2.4.4",
+    "vue-sidebar-menu": "^4.2.3",
     "vue2-leaflet": "^2.2.1",
     "vue2-leaflet-locatecontrol": "^1.0.1",
     "vue2-leaflet-markercluster": "^3.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.9.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.3",
     "sass-loader": "^8.0.0"

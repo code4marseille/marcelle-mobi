@@ -2,9 +2,9 @@
   <div>
     <div class="filterGo">
       <div class="containerButtonsMap mr-2 mb-3">
-        <v-btn class="btn-refresh" fab light small @click="refreshMap">
-          <v-icon dark>mdi-cached {{ isLoading ? 'fa-spin' : ''}}</v-icon>
-        </v-btn>
+        <b-button variant="light" pill @click="refreshMap" style="width: 40px;height: 40px;">
+          <i :class="['fas fa-sync-alt', {'fa-spin': isLoading}]"></i>
+        </b-button>
         <div
           @click="$store.commit('map/TOGGLE_FILTER')"
           class="buttonGo"

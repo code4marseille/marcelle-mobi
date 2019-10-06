@@ -4,13 +4,13 @@
 
 ## SETUP
 
-1. Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/ 
+1. Installer ou upgrader vers NodeJS 10 https://nodejs.org/fr/download/
 
 **Mac OS (avec homebrew)**
 ```
 brew install node
 **OR**
-brew update 
+brew update
 brew upgrade node
 ```
 
@@ -24,7 +24,7 @@ sudo apt install nodejs
 
 **Mac OS**
 ```
-brew install yarn 
+brew install yarn
 ```
 
 **Linux**
@@ -36,7 +36,7 @@ sudo apt-get update && sudo apt-get install yarn
 
 Un éditeur de code : https://code.visualstudio.com/
 
-### OPTION 1 : Travailler dans l'application existante 
+### OPTION 1 : Travailler dans l'application existante
 
 #### En VueJS [exemple pour ajouter une page dans l'app](exemples/page.vue)
 #### VueJS+JSX [exemple en JSX](exemples/jsx.vue)
@@ -44,16 +44,16 @@ Un éditeur de code : https://code.visualstudio.com/
 
 
 1. Forker le repo [Aide](https://help.github.com/en/articles/fork-a-repo)
-2. Cloner votre repo 
+2. Cloner votre repo
 
 **Cloner votre repo**
 ```
-git clone git@github.com:VOTRE_USERNAME_GITHUB/marcelle-mobi.git 
+git clone git@github.com:VOTRE_USERNAME_GITHUB/marcelle-mobi.git
 cd marcelle-mobi
 yarn install
 ```
 Ajouter un fichier nommé `.env` à la racine du dossier de votre application, qui contient :
-``` 
+```
 CODE4MARSEILLE_API_KEY=LE_TOKEN_QUI_VOUS EST_DONNÉ_LE_JOUR_DU_HACKATHON
 ```
 
@@ -77,7 +77,7 @@ yarn dev
 
 DOCUMENTATION : https://documenter.getpostman.com/view/8993685/SVtN5YCA?version=latest
 
-Pour chaque requête il est nécessaire de passer le Token fourni en params 
+Pour chaque requête il est nécessaire de passer le Token fourni en params
 
 ## Librairies utilisées
 Voir [Package.json](package.json)
@@ -91,9 +91,8 @@ Les Docs :
 
 Docs UI :
 
-- https://getbootstrap.com/docs/4.3/getting-started/introduction/ (Pour le CSS)   
-- https://bootstrap-vue.js.org/ (Pour le JS)    
+- https://getbootstrap.com/docs/4.3/getting-started/introduction/ (Pour le CSS)
+- https://bootstrap-vue.js.org/ (Pour le JS)
 - https://fontawesome.com/icons?d=gallery
-- https://vuetifyjs.com/en/
 
 **Bon Hackathon !**
