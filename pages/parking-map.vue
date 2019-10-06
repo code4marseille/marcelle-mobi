@@ -4,7 +4,7 @@
       <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
         <MapboxTile />
 
-        <b-form @submit.prevent="onSubmit" inline style=" z-index:468" class="mt-3">
+        <b-form @submit.prevent="onSubmit" inline style="z-index:468" class="mt-3 fixed-top">
           <div class="search_content">
             <b-input
               placeholder="Rechercher une adresse"
