@@ -77,7 +77,11 @@ yarn dev
 
 DOCUMENTATION : https://documenter.getpostman.com/view/6818477/SVtR3r1b
 
-Pour chaque requête il est nécessaire de passer le Token fourni en params
+Pour chaque requête il est nécessaire de passer le grant_token fourni en params. 
+Ex: `http://marcelle-mobi-api.herokuapp.com/airs/quality?grant_token=LE_TOKEN_QUI_VOUS EST_DONNÉ_LE_JOUR_DU_HACKATHON` 
+
+Vous êtes libre d'utiliser d'autres sources de données. 
+Je vous conseille de parcourir https://www.datasud.fr/
 
 ## Librairies utilisées
 Voir [Package.json](package.json)
