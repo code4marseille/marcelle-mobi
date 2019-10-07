@@ -60,9 +60,9 @@ export default {
   methods: {
     openApp(linkApp, linkStore) {
       //Deep link URL for existing users with app already installed on their device
-      window.open(linkApp)
+      location.href = linkApp
       //Download URL (TUNE link) for new users to download the app -->
-      setTimeout(window.open(linkStore), 1000)
+      setTimeout(location.href = linkStore, 1000)
     }
   },
   computed: {
