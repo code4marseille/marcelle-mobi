@@ -25,18 +25,13 @@ export const mutations = {
 
 export const actions = {
   async fetchChargingStations({ commit }, { latitude, longitude }) {
-    const chargingStations = await this.$axios.$get("https://api.openchargemap.io/v3/poi/", {
-      params: {
-        output: 'json', countrycode: 'FR', latitude, longitude, distanceunit: 'KM', verbose: false, camelcase: true, maxresults: 1000, distance: 25
-      }
-    });
+    const chargingStations = await this.$axios.$get('/parkings/charge_station');
     commit("SET_CHARGING_STATIONS", chargingStations);
   },
 
-
   async fetchParkingStations({ commit, state }) {
-    const ParkingStations = await this.$axios.$get("https://uws2.mappy.net/data/poi/5.3/applications/parking", { params: { bbox: state.bbox, max: state.max, } })
-    commit("SET_PARKING_STATIONS", ParkingStations)
+    const parkingStations = await this.$axios.$get('/parkings/toll_parking')
+    commit("SET_PARKING_STATIONS", parkingStations)
   },
 
   async fetchCarPoolStations({ commit }) {
