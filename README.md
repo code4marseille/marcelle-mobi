@@ -43,12 +43,12 @@ Un éditeur de code : https://code.visualstudio.com/
 #### HTML+CSS+JS [exemple Vanilla](exemples/vanilla.vue)
 
 
-1. Forker le repo [Aide](https://help.github.com/en/articles/fork-a-repo)
-2. Cloner votre repo
+1. Forker le repo [Aide](https://help.github.com/en/articles/fork-a-repo) (1 personne par équipe le fait)
+2. Cloner le repo de l'équipe
 
-**Cloner votre repo**
+**Cloner le repo**
 ```
-git clone git@github.com:VOTRE_USERNAME_GITHUB/marcelle-mobi.git
+git clone git@github.com:GUTHUB_USERNAME_DU_CLONEUR/marcelle-mobi.git
 cd marcelle-mobi
 yarn install
 ```
