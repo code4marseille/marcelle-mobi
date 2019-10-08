@@ -12,12 +12,21 @@ export default {
   mounted() {
     mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
-    const markers = [
-      {
-        coordinates: [5.373907, 43.295336]
-      },
+    const markers = [];
 
-    ];
+    const addMarkerToMap = coordinates => {
+      const el = document.createElement('div');
+      el.className = 'marker';
+
+      new mapboxgl.Marker(el)
+                  .setLngLat(coordinates)
+                  .addTo(map);
+    };
+
+    const createMarker = ({ result }) => {
+      markers.push(result);
+      addMarkerToMap(result.center);
+    }
 
     const map = new mapboxgl.Map({
       container: "map",
@@ -27,23 +36,21 @@ export default {
       hash: true
     })
 
-    map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        marker: false,
-      }),
-    );
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      language: "fr",
+      proximity: [5.373907, 43.295336],
+      bbox: [5.3072, 43.1716, 5.43, 43.44],
+      marker: false,
+    });
 
-    const addMarkerToMap = (coordinates) => {
-      var el = document.createElement('div');
-      el.className = 'marker';
+    geocoder.setFlyTo(false);
+    geocoder.on("result", result => {
+      createMarker(result);
+      geocoder.clear();
+    });
 
-      new mapboxgl.Marker(el)
-                  .setLngLat(coordinates)
-                  .addTo(map);
-    };
-
-    addMarkerToMap(markers[0].coordinates);
+    map.addControl(geocoder);
   }
 }
 </script>
