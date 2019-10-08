@@ -13,20 +13,20 @@
           />
         </v-marker-cluster>
         <LocateControl />
-        <MapFilter :location="location"/>
+        <MapFilter :location="location" />
       </l-map>
     </div>
   </div>
 </template>
 
 <script>
-import { LMap } from 'vue2-leaflet'
-import * as L from 'leaflet'
-import LocateControl from '~/components/LocateControl'
-import MapFilter from '~/components/MapFilter.vue'
-import VehiculeMarker from '~/components/VehiculeMarker.vue'
-import MapboxTile from '~/components/MapboxTile.vue'
-import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
+import { LMap } from "vue2-leaflet";
+import * as L from "leaflet";
+import LocateControl from "~/components/LocateControl";
+import MapFilter from "~/components/MapFilter.vue";
+import VehiculeMarker from "~/components/VehiculeMarker.vue";
+import MapboxTile from "~/components/MapboxTile.vue";
+import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 export default {
   components: {
     LMap,
@@ -34,9 +34,9 @@ export default {
     MapFilter,
     VehiculeMarker,
     MapboxTile,
-    'v-marker-cluster': Vue2LeafletMarkerCluster
+    "v-marker-cluster": Vue2LeafletMarkerCluster
   },
-  data() {
+  /*data() {
     return {
       location: { lat: 43.295336, lng: 5.373907 },
       clusterOptions: {
@@ -44,35 +44,56 @@ export default {
         maxClusterRadius: 40,
         disableClusteringAtZoom: 17,
         iconCreateFunction: cluster => {
-          var markers = cluster.getAllChildMarkers()
-          var html = `<div>${markers.length}</div>`
+          var markers = cluster.getAllChildMarkers();
+          var html = `<div>${markers.length}</div>`;
           return L.divIcon({
             html: html,
-            className: 'clusterMarker',
+            className: "clusterMarker",
             iconSize: L.point(32, 32)
-          })
+          });
         }
       }
-    }
+    };
+  }, */
+
+  data() {
+    return {
+      location: { lat: 43.301999, lng: 5.36554 },
+      clusterOptions: {
+        spiderfyOnMaxZoom: false,
+        maxClusterRadius: 40,
+        disableClusteringAtZoom: 17,
+        iconCreateFunction: cluster => {
+          var markers = cluster.getAllChildMarkers();
+          var html = `<div>${markers.length}</div>`;
+          return L.divIcon({
+            html: html,
+            className: "clusterMarker",
+            iconSize: L.point(32, 32)
+          });
+        }
+      }
+    };
   },
+
   created() {
-    this.$store.dispatch('map/fetchAllVehicles', this.location)
+    this.$store.dispatch("map/fetchAllVehicles", this.location);
   },
 
   methods: {
     flyTo(latLng, zoom) {
-      this.$refs.map.mapObject.flyTo(latLng, zoom)
+      this.$refs.map.mapObject.flyTo(latLng, zoom);
     },
     selectVehicule(latLng, vehicule, provider) {
-      this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', { vehicule })
+      this.flyTo(latLng, 18);
+      this.$store.commit("map/SELECT_VEHICULE", { vehicule });
     },
     updateVehicules(center) {
-      this.location = center
-      this.$store.dispatch('map/fetchTrots', center)
+      this.location = center;
+      this.$store.dispatch("map/fetchTrots", center);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
