@@ -61,7 +61,7 @@
         <!---------------------Fin de la Modification du code greg----------------------------->
       </div>
     </div>
-    <img v-else class="mx-0" src="../assets/images/spin.svg" style="max-height: 100vh" />
+    <img v-else class="loading" src="../assets/images/spin.svg" style="max-height: 100vh" />
   </div>
 </template>
 
@@ -260,6 +260,11 @@ export default {
       width: 80px;
       margin-top: 5px;
     }
+  }
+
+  .loading {
+    margin-top: 50vh;
+    transform: translateY(-50%);
   }
 }
 </style>
