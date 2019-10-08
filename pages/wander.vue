@@ -15,10 +15,10 @@
   const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
   const lineColors = {
-    "bike": '#e63bcd',
+    "bike": '#020887',
     "bss": '#19ddff',
-    "walking": '#19ff37',
-    "public_transport": '#19adff',
+    "walking": '#FD151B',
+    "public_transport": '#A4B0F5',
   };
 
   const layerFactory = (coordinates, tag) => {
@@ -46,7 +46,7 @@
       },
       "paint": {
         "line-color": lineColor,
-        "line-width": 8,
+        "line-width": 5,
       },
     })
   };
