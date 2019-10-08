@@ -2,8 +2,14 @@
   <div id="marius" class="bg-secondary">
     <div v-if="!isThinking">
       <div class="container py-5 px-2">
+<<<<<<< HEAD
         <div class="row align-items-center">
           <div class="col-8 offset-2">
+=======
+        <div class="row align-items-end">
+          <img :src="require('~/assets/images/supergrandfather.svg')" class="img-fluid col-4" />
+          <div class="col-8">
+>>>>>>> Greg
             <div class="text-center mt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
               <VueBootstrapTypeahead
@@ -61,7 +67,9 @@
         <!---------------------Fin de la Modification du code greg----------------------------->
       </div>
     </div>
+<<<<<<< HEAD
     <img v-else class="loading" src="../assets/images/spin.svg" style="max-height: 100vh" />
+=======
   </div>
 </template>
 
@@ -120,7 +128,10 @@ export default {
         toLatLng: this.toLatLng,
         mode: 'car'
       })
+<<<<<<< HEAD
       Push.create('WAWAWA !!!!!');
+=======
+>>>>>>> Greg
       this.$router.push({
         path: '/marius_map2'
       })
