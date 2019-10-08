@@ -13,7 +13,7 @@
           />
         </v-marker-cluster>
         <LocateControl />
-        <MapFilter :location="location"/>
+        <MapFilter :location="location" />
       </l-map>
     </div>
   </div>
@@ -128,4 +128,3 @@ export default {
   }
 }
 </style>
-
