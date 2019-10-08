@@ -15,7 +15,7 @@
         <!-- {{ weatherIcon}}  -->
         <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
-        <span class="indice-quality">{{$store.state.dashboard.temperature}}</span>
+        <span class="indice-quality">{{$store.state.dashboard.temperature}} je trouve</span>
         °C
       </p>
       <p>
