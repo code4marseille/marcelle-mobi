@@ -53,6 +53,18 @@ export default {
           }
         },
         {
+          title: 'La map écolo',
+          href: '/ecolo_map',
+          hiddenOnCollapse: true,
+          icon: {
+            element: 'img',
+            class: 'icon-sidebar',
+            attributes: {
+              src: require('~/assets/images/navbarMap.svg')
+            }
+          }
+        },
+        {
           title: 'Se garer / Se Recharger',
           href: '/parking-map',
           hiddenOnCollapse: true,
