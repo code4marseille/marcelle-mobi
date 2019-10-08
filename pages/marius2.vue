@@ -5,7 +5,7 @@
         v-if="loading"
         class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
       >
-        <div>Bonjour a toi !</div>
+        <div>Bonjour a toi ! (TEST SAFE MODE)</div>
         <p></p>
         <div
           class="mb-4"
@@ -167,7 +167,7 @@ export default {
           mode: this.selectedMode.value
         })
         this.$router.push({
-          path: '/marius_map'
+          path: '/marius_map2'
         })
       } catch (error) {
         this.isThinking = false
