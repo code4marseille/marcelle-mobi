@@ -15,7 +15,7 @@
         <!-- {{ weatherIcon}}  -->
         <!-- {{ }} -->
         <i class="fas fa-thermometer-half"></i>
-        <span class="indice-quality">{{$store.state.dashboard.temperature}} je trouve</span>
+        <span class="indice-quality">{{$store.state.dashboard.temperature}}</span>
         °C
       </p>
       <p>
@@ -48,7 +48,7 @@
       <p>à faire aujourd'hui :</p>
       <div class="activitiesProposees d-flex justify-content-around">
         <span v-for="(act, id) in $store.getters['dashboard/activitesProposees']" :key="id">
-          <b-button v-b-tooltip.hover :title="act.name" class="p-0">
+          <b-button v-b-tooltip.hover :title="act.name" @click="truc()" class="p-0">
             <i class="fa" :class="act.icon"></i>
           </b-button>
         </span>
@@ -104,10 +104,23 @@ export default {
       show: false
     }
   },
+  methods: {
+    truc: () => {
+      console.log(event.target)
+      // ev.style.fontSize = '43px'
+    }
+  },
   created() {
     this.$store.dispatch('dashboard/fetchAirQuality')
     this.$store.dispatch('dashboard/fetchWeather')
     this.$store.dispatch('dashboard/fetchAlertsRtm')
+  },
+  mount() {
+    const hiking = this.document.querySelector('.fa-hiking')
+    hiking.addEventListener('click', () => {
+      console.log('yo')
+      hiking.style.fontSize = '43px'
+    })
   }
 }
 </script>
