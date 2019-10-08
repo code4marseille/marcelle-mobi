@@ -1,0 +1,14 @@
+#mapid {
+  height: 380px;
+  width: 90%;
+}
+
+h1 {
+  color: red;
+}
+
+div.line-mouse-marker {
+  background-color: #ffffff;
+  border: 2px solid black;
+  border-radius: 10px;
+}
