@@ -1,41 +1,8 @@
 <template>
   <div id="marius" class="bg-secondary">
     <div v-if="!isThinking">
-      <div
-        v-if="loading"
-        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
-      >
-        <div>Bonjour a toi !</div>
-        <p></p>
-        <div
-          class="mb-4"
-        >ENSEMBLE NOUS ALLONS TROUVER LE MOYEN DE TRANSPORT QUI CONVIENT À TON TRAJET POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
-        <div>
-          <p class="mt-5">Choisis qui va t'aider !</p>
-        </div>
-        <div class="d-flex justify-content-around w-100">
-          <div
-            class="marcelle_marius_avatar"
-            v-for="(avatar, i) in avatars"
-            :key="i"
-            @click="selectAvatar(i)"
-            :class="{active: i == selectedAvatarIdx}"
-          >
-            <img class="photo_avatar" :src="avatar.icon" />
-            <div class="nom_avatar">{{avatar.name}}</div>
-          </div>
-        </div>
-        <b-button
-          class="btn-avatar mt-5"
-          size="lg"
-          @click="validate"
-          :disabled="selectedAvatarIdx == null"
-        >Valider</b-button>
-      </div>
-
-      <div v-else class="container py-5 px-2">
+      <div class="container py-5 px-2">
         <div class="row align-items-end">
-          <img :src="avatar.icon" class="img-fluid col-4" />
           <div class="col-8">
             <div class="text-center mt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
@@ -90,10 +57,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
-      <div>laisse moi réflechir</div>
-      <img :src="avatar.icon" style="max-height: 70vh" />
-    </div>
+    <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100"></div>
   </div>
 </template>
 
