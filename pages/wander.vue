@@ -18,9 +18,11 @@
     "bike": '#e63bcd',
     "bss": '#19ddff',
     "walking": '#19ff37',
+    "public_transport": '#19adff',
   };
 
   const layerFactory = (coordinates, tag) => {
+    console.log(coordinates);
     const id = coordinates[0][0].toString();
     const lineColor = lineColors[tag];
 
@@ -130,25 +132,27 @@
 
       const sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
 
-      console.log({ sortedOptions });
-
       let bestOption = sortedOptions[0];
       const walkingOption = sortedOptions.find(section => section.tags.includes("walking"));
       if (walkingOption && walkingOption.duration < 1200) {
         bestOption = walkingOption;
       }
 
-      console.log({ bestOption });
-
       const sections = bestOption.sections.map(section => {
-        return section.geojson && section.geojson.coordinates
+        return section.geojson && ({
+          coordinates: section.geojson.coordinates,
+          mode: section.mode || section.type
+        });
       });
 
-      const filtered = sections.filter(el => el).flat();
+      const filtered = sections.filter(el => el);
+      console.log({sections, filtered})
+      filtered.forEach(section => {
+        const polyLine = layerFactory(section.coordinates, section.mode);
 
-      const polyLine = layerFactory(filtered, bestOption.tags[0]);
+        this.map.addLayer(polyLine);
+      })
 
-      this.map.addLayer(polyLine);
     }
 
     init() {
