@@ -60,7 +60,7 @@ export default {
             element: 'img',
             class: 'icon-sidebar',
             attributes: {
-              src: require('~/assets/images/navbarMap.svg')
+              src: require('~/assets/images/ecolo.png')
             }
           }
         },
