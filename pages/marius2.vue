@@ -115,7 +115,7 @@ export default {
       to: '',
       fromLatLng: null,
       toLatLng: null,
-      selectedMode: null,
+      selectedMode: 'car',
       selectedAvatarIdx: null,
       safeMode: false,
       addresses: [],
@@ -160,18 +160,14 @@ export default {
 
     async submit() {
       this.isThinking = true
-      try {
-        await this.$store.dispatch('marius/fetchitineraries', {
-          fromLatLng: this.fromLatLng,
-          toLatLng: this.toLatLng,
-          mode: this.selectedMode.value
-        })
-        this.$router.push({
-          path: '/marius_map2'
-        })
-      } catch (error) {
-        this.isThinking = false
-      }
+      await this.$store.dispatch('marius/fetchitineraries', {
+        fromLatLng: this.fromLatLng,
+        toLatLng: this.toLatLng,
+        mode: 'car'
+      })
+      this.$router.push({
+        path: '/marius_map2'
+      })
     },
 
     setMode(mode) {
