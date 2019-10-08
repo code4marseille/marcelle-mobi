@@ -54,7 +54,7 @@ yarn install
 ```
 Ajouter un fichier nommé `.env` à la racine du dossier de votre application, qui contient :
 ```
-CODE4MARSEILLE_API_KEY=LE_TOKEN_QUI_VOUS EST_DONNÉ_LE_JOUR_DU_HACKATHON
+CODE4MARSEILLE_API_KEY=code4marseillefrioul
 ```
 
 Lancer le serveur en local sur http://localhost:3000
@@ -78,7 +78,7 @@ yarn dev
 DOCUMENTATION : https://documenter.getpostman.com/view/6818477/SVtR3r1b
 
 Pour chaque requête il est nécessaire de passer le grant_token fourni en params. 
-Ex: `http://marcelle-mobi-api.herokuapp.com/airs/quality?grant_token=LE_TOKEN_QUI_VOUS EST_DONNÉ_LE_JOUR_DU_HACKATHON` 
+Ex: `http://marcelle-mobi-api.herokuapp.com/airs/quality?grant_token=code4marseillefrioul` 
 
 Vous êtes libre d'utiliser d'autres sources de données. 
 Je vous conseille de parcourir https://www.datasud.fr/
