@@ -53,6 +53,18 @@ export default {
           }
         },
         {
+          title: 'Découvrir',
+          href: '/wander',
+          hiddenOnCollapse: true,
+          icon: {
+            element: 'img',
+            class: 'icon-sidebar',
+            attributes: {
+              src: require('~/assets/images/camera.svg')
+            }
+          }
+        },
+        {
           title: 'Se garer / Se Recharger',
           href: '/parking-map',
           hiddenOnCollapse: true,
