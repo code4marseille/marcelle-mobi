@@ -40,7 +40,9 @@
 
     _handleResult = ({ result }) => {
       this.geocoder.clear();
+
       this.markers.push(result);
+
       this._addMarkerToMap(result.center);
       this._getItinary();
     }
@@ -50,6 +52,15 @@
       el.className = 'marker';
 
       new mapboxgl.Marker(el).setLngLat(coordinates).addTo(this.map);
+
+      this._fitToBounds();
+    };
+
+    _fitToBounds = () => {
+      const bounds = new mapboxgl.LngLatBounds();
+
+      this.markers.forEach(marker => bounds.extend(marker.center));
+      this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 800 });
     };
 
     _getItinary = () => {
