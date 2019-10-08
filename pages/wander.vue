@@ -17,12 +17,11 @@
   const lineColors = {
     "bike": '#020887',
     "bss": '#19ddff',
-    "walking": '#FD151B',
+    "walking": '#19ddff',
     "public_transport": '#A4B0F5',
   };
 
   const layerFactory = (coordinates, tag) => {
-    console.log(coordinates);
     const id = coordinates[0][0].toString();
     const lineColor = lineColors[tag];
 
@@ -54,6 +53,7 @@
   class Wander {
     constructor() {
       this.markers = [];
+      this.trips = [];
 
       this.map = new mapboxgl.Map({
         container: "map",
@@ -137,6 +137,8 @@
       if (walkingOption && walkingOption.duration < 1200) {
         bestOption = walkingOption;
       }
+      this.trips.push(bestOption);
+      console.log(this.trips);
 
       const sections = bestOption.sections.map(section => {
         return section.geojson && ({
@@ -146,7 +148,6 @@
       });
 
       const filtered = sections.filter(el => el);
-      console.log({sections, filtered})
       filtered.forEach(section => {
         const polyLine = layerFactory(section.coordinates, section.mode);
 
