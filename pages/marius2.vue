@@ -120,6 +120,7 @@ export default {
         toLatLng: this.toLatLng,
         mode: 'car'
       })
+      Push.create('WAWAWA !!!!!');
       this.$router.push({
         path: '/marius_map2'
       })
