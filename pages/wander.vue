@@ -3,52 +3,62 @@
     <div id="map"></div>
   </div>
 </template>
+
 <script>
-import mapboxgl from "mapbox-gl";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import axios from 'axios';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+  import mapboxgl from "mapbox-gl";
+  import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+  import axios from 'axios';
+  import 'mapbox-gl/dist/mapbox-gl.css';
+  import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-const grant_token = process.env.CODE4MARSEILLE_API_KEY;
+  mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+  const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
-export default {
-  mounted() {
-    mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+  class Wander {
+    constructor() {
+      this.markers = [];
 
-    const markers = [];
+      this.map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [5.373907, 43.295336],
+        zoom: 16,
+        hash: true,
+      })
 
-    const addMarkerToMap = coordinates => {
+      this.geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        language: "fr",
+        proximity: [5.373907, 43.295336],
+        bbox: [5.3072, 43.1716, 5.43, 43.44],
+        marker: false,
+      });
+
+      this.geocoder.setFlyTo(false);
+      this.map.addControl(this.geocoder);
+    }
+
+    _handleResult = ({ result }) => {
+      this.geocoder.clear();
+      this.markers.push(result);
+      this._addMarkerToMap(result.center);
+      this._getItinary();
+    }
+
+    _addMarkerToMap = coordinates => {
       const el = document.createElement('div');
       el.className = 'marker';
 
-      new mapboxgl.Marker(el)
-                  .setLngLat(coordinates)
-                  .addTo(map);
+      new mapboxgl.Marker(el).setLngLat(coordinates).addTo(this.map);
     };
 
-    const createMarker = ({ result }) => {
-      markers.push(result);
-      addMarkerToMap(result.center);
-    }
-
-    const drawBestResult = ({ current, alternatives }) => {
-      const options = [current, ...alternatives];
-      const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
-
-      const sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
-      const bestOption = sortedOptions[0];
-
-      console.log({ bestOption });
-    }
-
-    const getItinary = () => {
-      if (markers.length < 2) {
+    _getItinary = () => {
+      if (this.markers.length < 2) {
         return;
       }
 
-      const departure = markers[markers.length - 2];
-      const arrival = markers[markers.length - 1];
+      const departure = this.markers[this.markers.length - 2];
+      const arrival = this.markers[this.markers.length - 1];
 
       const [lng_departure, lat_departure] = departure.center;
       const [lng_arrival, lat_arrival] = arrival.center;
@@ -64,39 +74,35 @@ export default {
 
       axios
         .get('http://marcelle-mobi-api.herokuapp.com/itineraries/calculate', { params })
-        .then(({ data }) => drawBestResult(data))
+        .then(({ data }) => this._drawBestResult(data))
         .catch(error => console.log({ error }))
     }
 
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [5.373907, 43.295336],
-      zoom: 16,
-      hash: true
-    })
+    _drawBestResult = ({ current, alternatives }) => {
+      const options = [current, ...alternatives];
+      const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
 
-    const geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      language: "fr",
-      proximity: [5.373907, 43.295336],
-      bbox: [5.3072, 43.1716, 5.43, 43.44],
-      marker: false,
-    });
+      const sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
+      const bestOption = sortedOptions[0];
 
-    geocoder.setFlyTo(false);
-    geocoder.on("result", result => {
-      createMarker(result);
-      geocoder.clear();
-      getItinary();
-    });
+      console.log({ bestOption });
+    }
 
-    map.addControl(geocoder);
+    init() {
+      this.geocoder.on("result", result => this._handleResult(result));
+    }
   }
-}
+
+  export default {
+    mounted() {
+      const wander = new Wander();
+      wander.init();
+    }
+  }
 </script>
+
 <style lang='scss'>
- #wander {
+  #wander {
     #map {
       width: 100%;
       height: 100vh;
@@ -109,5 +115,4 @@ export default {
       cursor: pointer;
     }
   }
-
 </style>
