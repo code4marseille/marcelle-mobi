@@ -14,6 +14,41 @@
   mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
   const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
+  const lineColors = {
+    "bike": '#e63bcd',
+    "bss": '#19ddff',
+    "walking": '#19ff37',
+  };
+
+  const layerFactory = (coordinates, tag) => {
+    const id = coordinates[0][0].toString();
+    const lineColor = lineColors[tag];
+
+    return ({
+      "id": id,
+      "type": "line",
+      "source": {
+        "type": "geojson",
+        "data": {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "LineString",
+            "coordinates": coordinates,
+          },
+        },
+      },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": lineColor,
+        "line-width": 8,
+      },
+    })
+  };
+
   class Wander {
     constructor() {
       this.markers = [];
@@ -97,6 +132,13 @@
       const bestOption = sortedOptions[0];
 
       console.log({ bestOption });
+
+      const sections = bestOption.sections.map(section => section.geojson.coordinates)
+                                          .flat();
+
+      const polyLine = layerFactory(sections, bestOption.tags[0]);
+
+      this.map.addLayer(polyLine);
     }
 
     init() {
