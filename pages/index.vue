@@ -6,7 +6,7 @@
   >
     <header>
       <!--<Navbar /> -->
-      <div class="display-4">Marseille</div>https://discord.gg/b9gCKY
+      <div class="display-4">Marseille</div>
     </header>
 
     <div>

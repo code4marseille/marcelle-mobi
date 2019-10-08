@@ -17,13 +17,16 @@ export default {
         content: "Déplacez-vous autrement dans Marseille"
       }
     ],
+    script: [
+      { src: 'https://cartealacarte.ign.fr/api.js' },
+    ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
         href:
           "https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"
-      }
+      },
     ]
   },
   // PWA
