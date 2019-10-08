@@ -1,4 +1,5 @@
 <!-- pages/jsx.vue => localhost:3000/jsx -->
+<!-- test -->
 <script>
 export default {
   data() {
