@@ -1,41 +1,9 @@
 <template>
   <div id="marius" class="bg-secondary">
     <div v-if="!isThinking">
-      <div
-        v-if="loading"
-        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
-      >
-        <div>Bonjour a toi !</div>
-        <p></p>
-        <div
-          class="mb-4"
-        >ENSEMBLE NOUS ALLONS TROUVER LE MOYEN DE TRANSPORT QUI CONVIENT À TON TRAJET POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
-        <div>
-          <p class="mt-5">Choisis qui va t'aider !</p>
-        </div>
-        <div class="d-flex justify-content-around w-100">
-          <div
-            class="marcelle_marius_avatar"
-            v-for="(avatar, i) in avatars"
-            :key="i"
-            @click="selectAvatar(i)"
-            :class="{active: i == selectedAvatarIdx}"
-          >
-            <img class="photo_avatar" :src="avatar.icon" />
-            <div class="nom_avatar">{{avatar.name}}</div>
-          </div>
-        </div>
-        <b-button
-          class="btn-avatar mt-5"
-          size="lg"
-          @click="validate"
-          :disabled="selectedAvatarIdx == null"
-        >Valider</b-button>
-      </div>
-
-      <div v-else class="container py-5 px-2">
+      <div class="container py-5 px-2">
         <div class="row align-items-end">
-          <img :src="avatar.icon" class="img-fluid col-4" />
+          <img :src="require('~/assets/images/supergrandfather.svg')" class="img-fluid col-4" />
           <div class="col-8">
             <div class="text-center mt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
@@ -63,6 +31,7 @@
             </div>
           </div>
         </div>
+
         <div class="rounded mt-5" v-if="toLatLng">
           <h4>Choisissez le Safe Mode</h4>
           <!--------------------Modification du code greg----------------------------->
@@ -93,10 +62,7 @@
         <!---------------------Fin de la Modification du code greg----------------------------->
       </div>
     </div>
-    <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
-      <div>laisse moi réflechir un peu</div>
-      <img :src="avatar.icon" style="max-height: 70vh" />
-    </div>
+    <img v-else class="mx-0" src="../assets/images/spin.svg" style="max-height: 100vh" />
   </div>
 </template>
 
@@ -115,7 +81,7 @@ export default {
       to: '',
       fromLatLng: null,
       toLatLng: null,
-      selectedMode: null,
+      selectedMode: 'car',
       selectedAvatarIdx: null,
       safeMode: false,
       addresses: [],
@@ -125,16 +91,6 @@ export default {
         { logo: 'rtm.svg', value: 'walking' },
         { logo: 'bike.svg', value: 'bike' },
         { logo: 'car.svg', value: 'car' }
-      ],
-      avatars: [
-        {
-          icon: require('~/assets/images/grandmother.svg'),
-          name: 'MARCELLE'
-        },
-        {
-          icon: require('~/assets/images/grandfather.svg'),
-          name: 'MARIUS'
-        }
       ]
     }
   },
@@ -160,18 +116,14 @@ export default {
 
     async submit() {
       this.isThinking = true
-      try {
-        await this.$store.dispatch('marius/fetchitineraries', {
-          fromLatLng: this.fromLatLng,
-          toLatLng: this.toLatLng,
-          mode: this.selectedMode.value
-        })
-        this.$router.push({
-          path: '/marius_map'
-        })
-      } catch (error) {
-        this.isThinking = false
-      }
+      await this.$store.dispatch('marius/fetchitineraries', {
+        fromLatLng: this.fromLatLng,
+        toLatLng: this.toLatLng,
+        mode: 'car'
+      })
+      this.$router.push({
+        path: '/marius_map2'
+      })
     },
 
     setMode(mode) {
