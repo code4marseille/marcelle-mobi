@@ -133,10 +133,13 @@
 
       console.log({ bestOption });
 
-      const sections = bestOption.sections.map(section => section.geojson.coordinates)
-                                          .flat();
+      const sections = bestOption.sections.map(section => {
+        return section.geojson && section.geojson.coordinates
+      });
 
-      const polyLine = layerFactory(sections, bestOption.tags[0]);
+      const filtered = sections.filter(el => el).flat();
+
+      const polyLine = layerFactory(filtered, bestOption.tags[0]);
 
       this.map.addLayer(polyLine);
     }
