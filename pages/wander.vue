@@ -1,7 +1,7 @@
 <!-- pages/le_nom_de_ma_page.vue => localhost:3000/le_nom_de_ma_page -->
 <template>
   <div class="text-center pt-5">
-    <h1 id="titre">Click HERE</h1>
+    <h1 id="titre">Caca</h1>
     <h2>Je suis un example de page en VanillaJS</h2>
   </div>
 </template>
