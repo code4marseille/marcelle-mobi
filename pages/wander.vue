@@ -1,4 +1,3 @@
-<!-- pages/le_nom_de_ma_page.vue => localhost:3000/le_nom_de_ma_page -->
 <template>
   <div id="map"></div>
 </template>
@@ -9,26 +8,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 export default {
   mounted() {
-    // const map = L.map('map', { zoomControl: false })
-    //              .setView([43.295336, 5.373907], 16);
-
-    // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    //   maxZoom: 18,
-    //   id: 'streets-v11',
-    //   accessToken: process.env.MAPBOX_API_KEY
-    // }).addTo(map);
-
-    // L.control.zoom({
-    //   position:'topright'
-    // }).addTo(map);
+    const markers = [43.270038, 5.395930];
 
     const initMap = () => {
       mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
       const map = new mapboxgl.Map({
         container: "map",
-        style: "mapbox://styles/mapbox/streets-v11", 
+        style: "mapbox://styles/mapbox/streets-v11",
         center: [5.373907, 43.295336],
-        zoom: 16, 
+        zoom: 16,
         hash: true
       })
 
@@ -38,9 +26,23 @@ export default {
           marker: false,
         }),
       );
-    }
+    };
+
+    const addMarkerToMap = () => {
+        geojson.features.forEach(function(marker) {
+
+        var el = document.createElement('div');
+        el.className = 'marker';
+
+          // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+      });
+    };
 
     initMap();
+    addMarkerToMap();
   }
 }
 </script>
