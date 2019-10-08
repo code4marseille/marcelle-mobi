@@ -12,7 +12,7 @@
               <p class="text-left mb-1 font-weight-bold">{{modes[$store.getters['marius/getMode']]}}</p>
               <p
                 class="text-left mb-1"
-              >Emission de Co2 : {{Math.round($store.getters['marius/co2current'])}} g/km</p>
+              >Emission de Co2 : {{Math.round($store.getters['marius/co2current'])}} g</p>
               <p class="text-left mb-1">Durée : {{$store.getters['marius/durationcurrent']}} min</p>
             </div>
 
@@ -31,7 +31,7 @@
               <p class="text-left mb-0 pb-1 font-weight-bold">{{modes[alternativesDetails.mode]}}</p>
               <p
                 class="text-left mb-0 pb-1"
-              >Emission de Co2 : {{Math.round(alternativesDetails.co2)}} g/km</p>
+              >Emission de Co2 : {{Math.round(alternativesDetails.co2)}} g</p>
               <p class="text-left mb-0 pb-1">Durée : {{alternativesDetails.duration}} min</p>
             </div>
 
