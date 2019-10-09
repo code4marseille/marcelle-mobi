@@ -242,6 +242,11 @@ export default {
           site: 'https://simplon.co/marseille-cloitre1/',
           icon: require('~/assets/images/simplon.svg')
         },
+         {
+          title: 'WEBFORCE3',
+          site: 'https://www.wf3.fr/',
+          icon: require('~/assets/images/webforce3.png')
+        },
         {
           title: '3W Academy',
           site: 'https://3wa.fr/',
