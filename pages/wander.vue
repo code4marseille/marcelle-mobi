@@ -1,6 +1,7 @@
 <template>
   <div id="wander">
     <div id="map"></div>
+    <ModalDiscoveryDetails />
   </div>
 </template>
 
@@ -10,7 +11,7 @@
   import axios from 'axios';
   import 'mapbox-gl/dist/mapbox-gl.css';
   import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
+  import ModalDiscoveryDetails from '~/components/ModalDiscoveryDetails'
   mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
   const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
@@ -91,6 +92,7 @@
       new mapboxgl.Marker(el).setLngLat(coordinates).addTo(this.map);
 
       this._fitToBounds();
+      this._addMarkerToModal();
     };
 
     _fitToBounds = () => {
@@ -99,6 +101,12 @@
       this.markers.forEach(marker => bounds.extend(marker.center));
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 800 });
     };
+
+    _addMarkerToModal = () => {
+      const titleModal = document.querySelector(`.poi${this.markers.length}`);
+      const marker = this.markers[this.markers.length - 1];
+      titleModal.insertAdjacentHTML('beforeend',`<div class="container-details"><p class="nbr-trajet">${this.markers.length}</p><p class="poi-name">${marker.text_fr}</p>`);
+    }
 
     _getItinary = () => {
       if (this.markers.length < 2) {
@@ -162,6 +170,7 @@
   }
 
   export default {
+    components: {ModalDiscoveryDetails},
     mounted() {
       const wander = new Wander();
       wander.init();
