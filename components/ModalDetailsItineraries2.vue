@@ -89,10 +89,12 @@ export default {
     },
 
     displayButtons: function() {
-      console.log('BUTTONS')
-      // this.$router.push({
-      //   path: '/buttons'
-      // })
+      setTimeout(() => {
+        confirm('Etes vous bien arrivé ?')
+      }, 5000)
+      this.$router.push({
+        path: '/buttons'
+      })
     }
   }
 }

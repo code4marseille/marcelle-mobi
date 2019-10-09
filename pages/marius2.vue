@@ -118,7 +118,7 @@ export default {
       await this.$store.dispatch('marius/fetchitineraries', {
         fromLatLng: this.fromLatLng,
         toLatLng: this.toLatLng,
-        mode: 'car'
+        mode: 'bss'
       })
       this.$router.push({
         path: '/marius_map2'
