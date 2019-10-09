@@ -52,6 +52,20 @@ export default {
             }
           }
         },
+        //AJOUT SAFE ZONE
+        {
+          title: 'Itinéraire',
+          href: '/marius2',
+          hiddenOnCollapse: true,
+          icon: {
+            element: 'img',
+            class: 'icon-sidebar',
+            attributes: {
+              src: require('~/assets/images/itineraire.svg')
+            }
+          }
+        },
+        //FIN AJOUT SAFE ZONE
         {
           title: 'Se garer / Se Recharger',
           href: '/parking-map',
