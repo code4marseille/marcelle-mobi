@@ -1,14 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map
-        id="map"
-        :zoom="$store.state.map.mapZoom"
-        :center="location"
-        ref="map"
-        @update:center="updateVehicules"
-        @update:zoom="updateZoom"
-      >
+      <l-map id="map" :center="location" :zoom="zoom" ref="map" @update:zoom="updateZoom">
         <MapboxTile />
         <l-wms-tile-layer
           base-url="http://geoservices.atmosud.org/geoserver/mod_sudpaca_2018/wms?"
@@ -19,17 +12,7 @@
           :opacity="0.3"
           :visible="$store.state.map.polVisible"
         />
-        <v-marker-cluster :options="clusterOptions">
-          <VehiculeMarker
-            v-for="(vehicule, i) in $store.getters['map/allVehicules']"
-            :key="i"
-            :vehicule="vehicule"
-            :select="selectVehicule"
-            :provider="vehicule.provider"
-          />
-        </v-marker-cluster>
         <LocateControl />
-        <MapFilter :location="location" />
       </l-map>
     </div>
   </div>
@@ -39,58 +22,36 @@
 import { LMap, LWMSTileLayer } from 'vue2-leaflet'
 import * as L from 'leaflet'
 import LocateControl from '~/components/LocateControl'
-import MapFilter from '~/components/MapFilter.vue'
-import VehiculeMarker from '~/components/VehiculeMarker.vue'
 import MapboxTile from '~/components/MapboxTile.vue'
-import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
+
 export default {
   components: {
     LMap,
     LocateControl,
-    MapFilter,
-    VehiculeMarker,
-    MapboxTile,
     'l-wms-tile-layer': LWMSTileLayer,
-    'v-marker-cluster': Vue2LeafletMarkerCluster
+    MapboxTile
   },
   data() {
     return {
       location: { lat: 43.295336, lng: 5.373907 },
-      clusterOptions: {
-        spiderfyOnMaxZoom: false,
-        maxClusterRadius: 40,
-        disableClusteringAtZoom: 17,
-        iconCreateFunction: cluster => {
-          var markers = cluster.getAllChildMarkers()
-          var html = `<div>${markers.length}</div>`
-          return L.divIcon({
-            html: html,
-            className: 'clusterMarker',
-            iconSize: L.point(32, 32)
-          })
-        }
-      }
+      zoom: 13
     }
   },
   created() {
     this.$store.dispatch('map/fetchAllVehicles', this.location)
     this.$store.commit('map/RESET_MAP')
+    this.$store.commit('map/TOGGLE_POL')
   },
-
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
     },
-    selectVehicule(latLng, vehicule, provider) {
-      this.flyTo(latLng, 18)
-      this.$store.commit('map/SELECT_VEHICULE', { vehicule })
-    },
-    updateVehicules(center) {
-      this.location = center
-      this.$store.dispatch('map/fetchTrots', center)
+    togglePolMap() {
+      this.isVisible = !this.isVisible
+      this.zoomUpdated(13)
     },
     updateZoom(zoom) {
-      this.$store.commit('map/ZOOM_UPDATE', { zoom })
+      this.zoom = zoom
     }
   }
 }
