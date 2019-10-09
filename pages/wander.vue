@@ -15,9 +15,10 @@
   const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
   const lineColors = {
-    "bike": '#e63bcd',
+    "bike": '#020887',
     "bss": '#19ddff',
-    "walking": '#19ff37',
+    "walking": '#19ddff',
+    "public_transport": '#A4B0F5',
   };
 
   const layerFactory = (coordinates, tag) => {
@@ -44,7 +45,7 @@
       },
       "paint": {
         "line-color": lineColor,
-        "line-width": 8,
+        "line-width": 5,
       },
     })
   };
@@ -52,6 +53,7 @@
   class Wander {
     constructor() {
       this.markers = [];
+      this.trips = [];
 
       this.map = new mapboxgl.Map({
         container: "map",
@@ -129,16 +131,29 @@
       const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
 
       const sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
-      const bestOption = sortedOptions[0];
 
-      console.log({ bestOption });
+      let bestOption = sortedOptions[0];
+      const walkingOption = sortedOptions.find(section => section.tags.includes("walking"));
+      if (walkingOption && walkingOption.duration < 1200) {
+        bestOption = walkingOption;
+      }
+      this.trips.push(bestOption);
+      console.log(this.trips);
 
-      const sections = bestOption.sections.map(section => section.geojson.coordinates)
-                                          .flat();
+      const sections = bestOption.sections.map(section => {
+        return section.geojson && ({
+          coordinates: section.geojson.coordinates,
+          mode: section.mode || section.type
+        });
+      });
 
-      const polyLine = layerFactory(sections, bestOption.tags[0]);
+      const filtered = sections.filter(el => el);
+      filtered.forEach(section => {
+        const polyLine = layerFactory(section.coordinates, section.mode);
 
-      this.map.addLayer(polyLine);
+        this.map.addLayer(polyLine);
+      })
+
     }
 
     init() {
