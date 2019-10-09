@@ -1,8 +1,11 @@
-<!-- pages/le_nom_de_ma_page.vue => localhost:3000/le_nom_de_ma_page -->
 <template>
   <div>
-    <h1>{{message}}</h1>
-    <h2>Je suis un example de page VueJS</h2>
+    <img :src="require('~/assets/images/supergrandfather.svg')" class="img-fluid col-4 offset-4" />
+
+    <div
+      class="text-white text-center bg-danger rounded-pill p-3 mx-5 click"
+      @click="sendEmergencyMsg()"
+    >URGENCE</div>
   </div>
 </template>
 <script>
@@ -15,7 +18,7 @@ export default {
 }
 </script>
 <style scoped>
-h1 {
-  color: red;
+.click {
+  cursor: pointer;
 }
 </style>
