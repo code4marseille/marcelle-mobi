@@ -237,8 +237,7 @@ export default {
     height: 10vh;
     max-width: 80px;
   }
-
-  .icons_search {
+  bus .icons_search {
     min-height: 25px;
     min-width: 25px;
   }

@@ -81,9 +81,9 @@ export default {
       safeMode: false,
       addresses: [],
       modes: [
-        { logo: 'trot.svg', value: 'bss' },
+        { logo: 'trot.svg', value: 'trot' },
         { logo: 'walk.svg', value: 'walking' },
-        { logo: 'rtm.svg', value: 'walking' },
+        { logo: 'rtm.svg', value: 'bss' },
         { logo: 'bike.svg', value: 'bike' },
         { logo: 'car.svg', value: 'car' }
       ]
