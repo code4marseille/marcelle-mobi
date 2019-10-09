@@ -1,7 +1,8 @@
 <template>
   <div id="wander">
-    <div id="map"></div>
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div id="map"><div id="loader" class="hidden"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
+    
+
     <ModalDiscoveryDetails />
   </div>
 </template>
@@ -130,6 +131,7 @@
         mode: "walking",
       };
 
+      this._toggleLoader();
       axios
         .get('http://marcelle-mobi-api.herokuapp.com/itineraries/calculate', { params })
         .then(({ data }) => this._drawBestResult(data))
@@ -137,6 +139,7 @@
     }
 
     _drawBestResult = ({ current, alternatives }) => {
+      this._toggleLoader();
       const options = [current, ...alternatives];
       const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
 
@@ -194,6 +197,12 @@
       })
     }
 
+    _toggleLoader = () => {
+      const loader = document.querySelector("#loader");
+      loader.classList.toggle("hidden");
+      console.log("toggling");
+    }
+
     init() {
       this.geocoder.on("result", result => this._handleResult(result));
     }
@@ -222,6 +231,10 @@
       cursor: pointer;
     }
 
+    .hidden#loader {
+      display: none;
+    }
+
     .bike-marker {
       background-image: url('../assets/images/bike.svg');
       background-size: cover;
@@ -229,21 +242,32 @@
       height: 25px;
       cursor: pointer;
     }
-
+    
+    #loader {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      position: absolute;
+    }
     .lds-ring {
       display: inline-block;
-      position: relative;
-      width: 64px;
-      height: 64px;
+      position: absolute;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      z-index: 1000;
     }
     .lds-ring div {
       box-sizing: border-box;
       display: block;
       position: absolute;
-      width: 51px;
-      height: 51px;
-      margin: 6px;
-      border: 6px solid #fff;
+      width: 40px;
+      height: 40px;
+      margin: 8px;
+      border: 4px solid #fff;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: #fff transparent transparent transparent;
