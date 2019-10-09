@@ -2,6 +2,8 @@ import Vue from "vue";
 
 export const state = () => ({
   filterVisible: true,
+  polVisible: false,
+  mapZoom: 16,
   cars: [],
   bikes: [],
   trots: [],
@@ -61,6 +63,18 @@ export const mutations = {
   TOGGLE_FILTER(state) {
     state.filterVisible = !state.filterVisible;
     if (state.selectedVehicule && state.filterVisible) state.selectedVehicule = null
+  },
+  TOGGLE_POL(state) {
+    state.polVisible = !state.polVisible
+    if (state.polVisible) state.mapZoom = 13
+  },
+  ZOOM_UPDATE(state, { zoom }) {
+    if (state.polVisible && zoom > 13) state.polVisible = false
+    state.mapZoom = zoom
+  },
+  RESET_MAP(state) {
+    state.mapZoom = 16
+    state.polVisible = false
   },
   SELECT_VEHICULE(state, { vehicule }) {
     state.selectedVehicule = vehicule

@@ -1,8 +1,24 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
+      <l-map
+        id="map"
+        :zoom="$store.state.map.mapZoom"
+        :center="location"
+        ref="map"
+        @update:center="updateVehicules"
+        @update:zoom="updateZoom"
+      >
         <MapboxTile />
+        <l-wms-tile-layer
+          base-url="http://geoservices.atmosud.org/geoserver/mod_sudpaca_2018/wms?"
+          layers="mod_sudpaca_2018_no2_moyan"
+          format="image/png"
+          layer-type="base"
+          :transparent="true"
+          :opacity="0.3"
+          :visible="$store.state.map.polVisible"
+        />
         <v-marker-cluster :options="clusterOptions">
           <VehiculeMarker
             v-for="(vehicule, i) in $store.getters['map/allVehicules']"
@@ -13,14 +29,14 @@
           />
         </v-marker-cluster>
         <LocateControl />
-        <MapFilter :location="location"/>
+        <MapFilter :location="location" />
       </l-map>
     </div>
   </div>
 </template>
 
 <script>
-import { LMap } from 'vue2-leaflet'
+import { LMap, LWMSTileLayer } from 'vue2-leaflet'
 import * as L from 'leaflet'
 import LocateControl from '~/components/LocateControl'
 import MapFilter from '~/components/MapFilter.vue'
@@ -34,6 +50,7 @@ export default {
     MapFilter,
     VehiculeMarker,
     MapboxTile,
+    'l-wms-tile-layer': LWMSTileLayer,
     'v-marker-cluster': Vue2LeafletMarkerCluster
   },
   data() {
@@ -57,6 +74,7 @@ export default {
   },
   created() {
     this.$store.dispatch('map/fetchAllVehicles', this.location)
+    this.$store.commit('map/RESET_MAP')
   },
 
   methods: {
@@ -70,6 +88,9 @@ export default {
     updateVehicules(center) {
       this.location = center
       this.$store.dispatch('map/fetchTrots', center)
+    },
+    updateZoom(zoom) {
+      this.$store.commit('map/ZOOM_UPDATE', { zoom })
     }
   }
 }

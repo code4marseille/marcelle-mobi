@@ -1,15 +1,7 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map
-        id="map"
-        :center="location"
-        :zoom="zoom"
-        ref="map"
-        @update:zoom="zoomUpdated"
-        @update:center="centerUpdated"
-        @update:bounds="boundsUpdated"
-      >
+      <l-map id="map" :center="location" :zoom="zoom" ref="map" @update:zoom="updateZoom">
         <MapboxTile />
         <l-wms-tile-layer
           base-url="http://geoservices.atmosud.org/geoserver/mod_sudpaca_2018/wms?"
@@ -18,9 +10,8 @@
           layer-type="base"
           :transparent="true"
           :opacity="0.3"
-          :visible="isVisible"
+          :visible="$store.state.map.polVisible"
         />
-
         <LocateControl />
       </l-map>
     </div>
@@ -43,12 +34,13 @@ export default {
   data() {
     return {
       location: { lat: 43.295336, lng: 5.373907 },
-      isVisible: false,
-      zoom: 16
+      zoom: 13
     }
   },
   created() {
     this.$store.dispatch('map/fetchAllVehicles', this.location)
+    this.$store.commit('map/RESET_MAP')
+    this.$store.commit('map/TOGGLE_POL')
   },
   methods: {
     flyTo(latLng, zoom) {
@@ -58,14 +50,8 @@ export default {
       this.isVisible = !this.isVisible
       this.zoomUpdated(13)
     },
-    zoomUpdated(zoom) {
+    updateZoom(zoom) {
       this.zoom = zoom
-    },
-    centerUpdated(center) {
-      this.location = center
-    },
-    boundsUpdated(bounds) {
-      this.bounds = bounds
     }
   }
 }
