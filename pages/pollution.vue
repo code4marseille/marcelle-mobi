@@ -1,7 +1,15 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="location" ref="map">
+      <l-map
+        id="map"
+        :center="location"
+        :zoom="zoom"
+        ref="map"
+        @update:zoom="zoomUpdated"
+        @update:center="centerUpdated"
+        @update:bounds="boundsUpdated"
+      >
         <MapboxTile />
         <l-wms-tile-layer
           base-url="http://geoservices.atmosud.org/geoserver/mod_sudpaca_2018/wms?"
@@ -9,8 +17,10 @@
           format="image/png"
           layer-type="base"
           :transparent="true"
-          opacity="0.5"
+          :opacity="0.3"
+          :visible="isVisible"
         />
+
         <LocateControl />
       </l-map>
     </div>
@@ -33,20 +43,8 @@ export default {
   data() {
     return {
       location: { lat: 43.295336, lng: 5.373907 },
-      clusterOptions: {
-        spiderfyOnMaxZoom: false,
-        maxClusterRadius: 40,
-        disableClusteringAtZoom: 17,
-        iconCreateFunction: cluster => {
-          var markers = cluster.getAllChildMarkers()
-          var html = `<div>${markers.length}</div>`
-          return L.divIcon({
-            html: html,
-            className: 'clusterMarker',
-            iconSize: L.point(32, 32)
-          })
-        }
-      }
+      isVisible: false,
+      zoom: 16
     }
   },
   created() {
@@ -55,6 +53,19 @@ export default {
   methods: {
     flyTo(latLng, zoom) {
       this.$refs.map.mapObject.flyTo(latLng, zoom)
+    },
+    togglePolMap() {
+      this.isVisible = !this.isVisible
+      this.zoomUpdated(13)
+    },
+    zoomUpdated(zoom) {
+      this.zoom = zoom
+    },
+    centerUpdated(center) {
+      this.location = center
+    },
+    boundsUpdated(bounds) {
+      this.bounds = bounds
     }
   }
 }
