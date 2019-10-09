@@ -34,8 +34,6 @@
 
         <div class="rounded mt-5" v-if="toLatLng">
           <h4>Choisissez le Safe Mode</h4>
-          <!--------------------Modification du code greg----------------------------->
-          <!-- -->
           <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
             <b-button
               class="safemode"
@@ -44,9 +42,7 @@
             >
               <img :src="require('~/assets/images/PICTO_SAFETY/picto-blanc-contour1.svg')" />
             </b-button>
-            <!---->
           </b-button-group>
-          <!---->
 
           <b-button
             class="block"
