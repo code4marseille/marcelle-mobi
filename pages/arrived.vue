@@ -1,4 +1,3 @@
-<!-- pages/le_nom_de_ma_page.vue => localhost:3000/le_nom_de_ma_page -->
 <template>
   <div>
     <h1>{{message}}</h1>

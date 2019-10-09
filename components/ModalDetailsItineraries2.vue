@@ -50,11 +50,12 @@ export default {
   props: {
     colors: { type: Array, required: true }
   },
+
   data: () => ({
     modes: {
-      walking: 'Transport en commun',
+      walking: 'Marche à pieds',
       bike: 'Vélo',
-      bss: 'LeVélo et/ou marche à pied',
+      bss: 'Transport en commun',
       car: 'En voiture'
     }
   }),
@@ -67,17 +68,17 @@ export default {
 
       let travelmode
       switch (traveltype) {
+        case 'walking':
+          travelmode = 'walking'
+          break
         case 'bike':
           travelmode = 'bicycling'
           break
         case 'bss':
-          travelmode = 'walking'
+          travelmode = 'transit'
           break
         case 'car':
           travelmode = 'driving'
-          break
-        case 'walking':
-          travelmode = 'transit'
           break
       }
 
@@ -90,7 +91,7 @@ export default {
 
     displayButtons: function() {
       setTimeout(() => {
-        if (confirm('Êtes vous bien arrivé(e) ?')) {
+        if (confirm('Etes vous bien arrivé ?')) {
           this.$router.push({
             path: '/arrived'
           })
