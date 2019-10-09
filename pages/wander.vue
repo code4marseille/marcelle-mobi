@@ -256,18 +256,18 @@
       display: inline-block;
       position: absolute;
       align-items: center;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       z-index: 1000;
     }
     .lds-ring div {
       box-sizing: border-box;
       display: block;
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       margin: 8px;
-      border: 4px solid #fff;
+      border: 8px solid #fff;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: #fff transparent transparent transparent;
