@@ -2,6 +2,11 @@
   <div>
     <div class="filterGo">
       <div class="containerButtonsMap mr-2 mb-3">
+        <div @click="$store.commit('map/TOGGLE_FILTER')" class="buttonGo1">
+          <i class="fas fa-smog"></i>
+          {{$store.state.map.filterVisible ? '' : 'pollution'}}
+        </div>
+
         <b-button variant="light" pill @click="refreshMap" style="width: 40px;height: 40px;">
           <i :class="['fas fa-sync-alt', {'fa-spin': isLoading}]"></i>
         </b-button>
@@ -125,6 +130,22 @@ export default {
 
   .borderBottom {
     border-bottom: 1px solid rgba(182, 181, 181, 0.5);
+  }
+
+  .buttonGo1 {
+    width: 40px;
+    height: 40px;
+    background: #0e5da4;
+    box-shadow: 2px 2px 8px #aaa;
+    font: bold 1rem Arial;
+    border-radius: 50%;
+    border: 2px solid White;
+    color: white;
+    right: 2vw;
+    text-align: center;
+    padding: 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .buttonGo {
