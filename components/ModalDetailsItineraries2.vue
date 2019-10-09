@@ -90,7 +90,11 @@ export default {
 
     displayButtons: function() {
       setTimeout(() => {
-        confirm('Etes vous bien arrivé ?')
+        if (confirm('Êtes vous bien arrivé(e) ?')) {
+          this.$router.push({
+            path: '/arrived'
+          })
+        }
       }, 15000)
       this.$router.push({
         path: '/buttons'
