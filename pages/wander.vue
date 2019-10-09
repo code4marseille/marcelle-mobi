@@ -139,6 +139,7 @@
       const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
 
       const sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
+      console.log(sortedOptions);
 
       let bestOption = sortedOptions[0];
       const walkingOption = sortedOptions.find(section => section.tags.includes("walking"));
