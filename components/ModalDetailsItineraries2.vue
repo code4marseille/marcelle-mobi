@@ -13,6 +13,7 @@
             :key="i"
             :href="gMap(i, alternativesDetails.mode)"
             target="_blank"
+            @click="displayButtons"
           >
             <div>
               <p class="text-left mb-0 pb-1 font-weight-bold">{{modes[alternativesDetails.mode]}}</p>
@@ -85,6 +86,13 @@ export default {
       }&destination=${destination[0]},${
         destination[1]
       }&travelmode=${travelmode}`
+    },
+
+    displayButtons: function() {
+      console.log('BUTTONS')
+      // this.$router.push({
+      //   path: '/buttons'
+      // })
     }
   }
 }
