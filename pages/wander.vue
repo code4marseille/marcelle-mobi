@@ -12,6 +12,8 @@
   import 'mapbox-gl/dist/mapbox-gl.css';
   import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
   import ModalDiscoveryDetails from '~/components/ModalDiscoveryDetails'
+  import Bike from '../assets/images/bike.png';
+
   mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
   const grant_token = process.env.CODE4MARSEILLE_API_KEY;
 
@@ -22,7 +24,7 @@
     "public_transport": '#A4B0F5',
   };
 
-  const layerFactory = (coordinates, tag) => {
+  const polylineLayerFactory = (coordinates, tag) => {
     const id = coordinates[0][0].toString();
     const lineColor = lineColors[tag];
 
@@ -51,6 +53,17 @@
     })
   };
 
+  const featureCollection = features => ({
+    type: "geojson",
+    data: {
+      "type": "FeatureCollection",
+      "features": features,
+    },
+    cluster: true,
+    clusterMaxZoom: 14,
+    clusterRadius: 40,
+  })
+
   class Wander {
     constructor() {
       this.markers = [];
@@ -74,7 +87,8 @@
 
       this.geocoder.setFlyTo(false);
       this.map.addControl(this.geocoder);
-      this._getBikes();
+
+      this.map.on('load', this._getBikes);
     }
 
     _handleResult = ({ result }) => {
@@ -152,7 +166,7 @@
       console.log('sections', filtered);
 
       filtered.forEach(section => {
-        const polyLine = layerFactory(section.coordinates, section.mode);
+        const polyLine = polylineLayerFactory(section.coordinates, section.mode);
         this.map.addLayer(polyLine);
       })
     }
@@ -185,12 +199,34 @@
         .catch(error => console.log({ error }))
     }
 
-    _drawBikes = (bikes) => {
-      bikes.forEach(bike => {
-        const bikeMarker = document.createElement('div');
-        bikeMarker.className = 'bike-marker';
-        new mapboxgl.Marker(bikeMarker).setLngLat([bike.position.lng, bike.position.lat]).addTo(this.map);
-      })
+    _drawBikes = bikes => {
+      const features = bikes.map(bike => ({
+        "type": "Feature",
+        "properties": {
+          "id": bike.address,
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [bike.position.lng, bike.position.lat],
+        }
+      }));
+
+      this.map.addSource("bikes", featureCollection(features));
+
+      this.map.loadImage(Bike, (error, image) => {
+        if (error) throw error;
+        this.map.addImage('bike', image);
+
+        this.map.addLayer({
+          "id": "bike-points",
+          "type": "symbol",
+          "source": "bikes",
+          "layout": {
+            "icon-image": "bike",
+            "icon-size": 0.25,
+          },
+        });
+      });
     }
 
     init() {
