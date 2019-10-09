@@ -66,8 +66,17 @@
       routeWhileDragging: true
     }).addTo(mymap);
 
+    route = L.routing.control({
+      waypoints: waypoints,
+      router: L.routing.graphHopper(myApi, {
+        urlParameters: {
+          vehicle: 'foot'
+        }
+      })
+    });
+
     // --- change icons ----
-    var myIcon = L.icon({
+    var hikingIcon = L.icon({
       iconUrl: '../leaflet-routing-machine-3.2.12/icons/hiking.png',
       iconSize: [35, 35],
       iconAnchor: [0, 0],
@@ -76,7 +85,51 @@
       shadowAnchor: [0, 0]
     });
 
-    L.marker([43.401999, 5.30804], { icon: myIcon }).addTo(mymap);
+    L.marker([43.401999, 5.30804], { icon: hikingIcon }).addTo(mymap);
+
+    var footballIcon = L.icon({
+      iconUrl: '../leaflet-routing-machine-3.2.12/icons/football.png',
+      iconSize: [35, 35],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, 0],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+
+    L.marker([43.501999, 5.30804], { icon: footballIcon }).addTo(mymap);
+
+    var basketballIcon = L.icon({
+      iconUrl: '../leaflet-routing-machine-3.2.12/icons/basketball.png',
+      iconSize: [35, 35],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, 0],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+
+    L.marker([43.601999, 5.30804], { icon: basketballIcon }).addTo(mymap);
+
+    var nautiqueIcon = L.icon({
+      iconUrl: '../leaflet-routing-machine-3.2.12/icons/nautique.png',
+      iconSize: [35, 35],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, 0],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+
+    L.marker([43.401999, 5.40804], { icon: nautiqueIcon }).addTo(mymap);
+
+    var runningIcon = L.icon({
+      iconUrl: '../leaflet-routing-machine-3.2.12/icons/running.png',
+      iconSize: [35, 35],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, 0],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+
+    L.marker([43.401999, 5.50804], { icon: runningIcon }).addTo(mymap);
 
 
 
