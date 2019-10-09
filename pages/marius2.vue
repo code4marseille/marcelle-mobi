@@ -1,41 +1,9 @@
 <template>
   <div id="marius" class="bg-secondary">
     <div v-if="!isThinking">
-      <div
-        v-if="loading"
-        class="d-flex flex-column justify-content-center align-content-center vh-100 px-3"
-      >
-        <div>Bonjour a toi !</div>
-        <p></p>
-        <div
-          class="mb-4"
-        >ENSEMBLE NOUS ALLONS TROUVER LE MOYEN DE TRANSPORT QUI CONVIENT À TON TRAJET POUR AÉRER NOTRE VILLE ET SAUVER LA PLANETE</div>
-        <div>
-          <p class="mt-5">Choisis qui va t'aider !</p>
-        </div>
-        <div class="d-flex justify-content-around w-100">
-          <div
-            class="marcelle_marius_avatar"
-            v-for="(avatar, i) in avatars"
-            :key="i"
-            @click="selectAvatar(i)"
-            :class="{active: i == selectedAvatarIdx}"
-          >
-            <img class="photo_avatar" :src="avatar.icon" />
-            <div class="nom_avatar">{{avatar.name}}</div>
-          </div>
-        </div>
-        <b-button
-          class="btn-avatar mt-5"
-          size="lg"
-          @click="validate"
-          :disabled="selectedAvatarIdx == null"
-        >Valider</b-button>
-      </div>
-
-      <div v-else class="container py-5 px-2">
+      <div class="container py-5 px-2">
         <div class="row align-items-end">
-          <img :src="avatar.icon" class="img-fluid col-4" />
+          <img :src="require('~/assets/images/supergrandfather.svg')" class="img-fluid col-4" />
           <div class="col-8">
             <div class="text-center mt-5">
               <div class="text-secondary bg-white rounded-pill p-3">d'où pars tu ?</div>
@@ -65,18 +33,17 @@
         </div>
 
         <div class="rounded mt-5" v-if="toLatLng">
-          <h4>Choisissez votre moyen de transport</h4>
+          <h4>Choisissez le Safe Mode</h4>
           <b-button-group class="d-flex justify-content-center align-content-center px-3 mt-4">
             <b-button
-              v-for="(mode, idx) in modes"
-              :key="idx"
-              @click="setMode(mode)"
-              class="btn_mode"
-              :class="{active: selectedMode === mode}"
+              class="safemode"
+              :class="{active: safeMode == true}"
+              @click="selectSafeMode()"
             >
-              <img :src="require('~/assets/images/' + mode.logo)" :alt="mode.text" />
+              <img :src="require('~/assets/images/PICTO_SAFETY/picto-blanc-contour1.svg')" />
             </b-button>
           </b-button-group>
+
           <b-button
             class="block"
             size="lg"
@@ -84,16 +51,13 @@
             style="margin-top:70px"
             variant="primary"
             id="submit"
-            :disabled="!selectedMode"
+            :disabled="!selectSafeMode"
             @click="submit"
-          >Analyser mon parcours</b-button>
+          >Itinéraire</b-button>
         </div>
       </div>
     </div>
-    <div v-else class="d-flex flex-column justify-content-around align-content-center vh-100">
-      <div>laisse moi réflechir</div>
-      <img :src="avatar.icon" style="max-height: 70vh" />
-    </div>
+    <img v-else class="loading" src="../assets/images/spin.svg" style="max-height: 100vh" />
   </div>
 </template>
 
@@ -112,25 +76,16 @@ export default {
       to: '',
       fromLatLng: null,
       toLatLng: null,
-      selectedMode: null,
+      selectedMode: 'car',
       selectedAvatarIdx: null,
+      safeMode: false,
       addresses: [],
       modes: [
-        { logo: 'trot.svg', value: 'bss' },
+        { logo: 'trot.svg', value: 'trot' },
         { logo: 'walk.svg', value: 'walking' },
-        { logo: 'rtm.svg', value: 'walking' },
+        { logo: 'rtm.svg', value: 'bss' },
         { logo: 'bike.svg', value: 'bike' },
         { logo: 'car.svg', value: 'car' }
-      ],
-      avatars: [
-        {
-          icon: require('~/assets/images/grandmother.svg'),
-          name: 'MARCELLE'
-        },
-        {
-          icon: require('~/assets/images/grandfather.svg'),
-          name: 'MARIUS'
-        }
       ]
     }
   },
@@ -156,18 +111,14 @@ export default {
 
     async submit() {
       this.isThinking = true
-      try {
-        await this.$store.dispatch('marius/fetchitineraries', {
-          fromLatLng: this.fromLatLng,
-          toLatLng: this.toLatLng,
-          mode: this.selectedMode.value
-        })
-        this.$router.push({
-          path: '/marius_map'
-        })
-      } catch (error) {
-        this.isThinking = false
-      }
+      await this.$store.dispatch('marius/fetchitineraries', {
+        fromLatLng: this.fromLatLng,
+        toLatLng: this.toLatLng,
+        mode: 'bss'
+      })
+      this.$router.push({
+        path: '/marius_map2'
+      })
     },
 
     setMode(mode) {
@@ -179,6 +130,10 @@ export default {
     },
     selectAvatar(i) {
       this.selectedAvatarIdx = i
+    },
+    selectSafeMode() {
+      this.safeMode = !this.safeMode
+      //alert(this.safeMode)
     }
   },
   watch: {
@@ -237,7 +192,8 @@ export default {
     height: 10vh;
     max-width: 80px;
   }
-  bus .icons_search {
+
+  .icons_search {
     min-height: 25px;
     min-width: 25px;
   }
@@ -269,6 +225,19 @@ export default {
       margin-top: 5px;
     }
   }
+  //--------------------------------------------------------modif css
+  .safemode {
+    max-width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    padding: 0px;
+  }
+
+  .safemode img {
+    height: 120px;
+    margin-top: 10px;
+  }
+  //------------------------------------------------------------fin modif CSS
 
   .marcelle_marius_avatar {
     background-color: rgba($color: #fff, $alpha: 0.2);
@@ -287,6 +256,11 @@ export default {
       width: 80px;
       margin-top: 5px;
     }
+  }
+
+  .loading {
+    margin-top: 50vh;
+    transform: translateY(-50%);
   }
 }
 </style>
