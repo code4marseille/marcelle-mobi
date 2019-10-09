@@ -136,46 +136,46 @@
     }
 
     _drawBestResult = ({ current, alternatives }) => {
-      const options = [current, ...alternatives];
+      const bestOption = this._computeBestOption([current, ...alternatives]);
+      console.log({ bestOption });
+
+      this.trips.push(bestOption);
+      console.log('trips', this.trips);
+
+      const sections = bestOption.sections.map(section => section.geojson && ({
+        coordinates: section.geojson.coordinates,
+        mode: section.mode || section.type
+      }));
+
+
+      const filtered = sections.filter(el => el);
+      console.log('sections', filtered);
+
+      filtered.forEach(section => {
+        const polyLine = layerFactory(section.coordinates, section.mode);
+        this.map.addLayer(polyLine);
+      })
+    }
+
+    _computeBestOption(options) {
       const withoutCar = options.filter(({ tags }) => !tags.includes('car'));
 
       let sortedOptions = withoutCar.sort((a, b) => a.duration - b.duration);
-      sortedOptions = sortedOptions.filter(option => {
-        return !option.tags.includes("bike") || (option.tags.includes("bike") && option.duration < 1200)
-      })
-
-
+      sortedOptions = sortedOptions.filter(option =>
+        !option.tags.includes("bike") || (option.tags.includes("bike") && option.duration < 1200)
+      );
 
       let bestOption = sortedOptions[0];
-      // const bikeOption = sortedOptions.find(option => option.tags.includes("bike"));
-      // const ptOption = sortedOptions.find(option => option.tags.includes("walking") && option.sections.length > 1);
-      // if (bikeOption && bikeOption.duration > 1200) {
-      //   bestOption = ptOption;
-      // }
 
-      const walkingOption = sortedOptions.find(option => option.tags.includes("walking") && option.sections.length === 1);
+      const walkingOption = sortedOptions.find(option =>
+        option.tags.includes("walking") && option.sections.length === 1
+      );
+
       if (walkingOption && walkingOption.duration < 1200) {
         bestOption = walkingOption;
       }
-      this.trips.push(bestOption);
-      console.log(this.trips);
 
-      const sections = bestOption.sections.map(section => {
-        return section.geojson && ({
-          coordinates: section.geojson.coordinates,
-          mode: section.mode || section.type
-        });
-      });
-
-      console.log({bestOption});
-      const filtered = sections.filter(el => el);
-      filtered.forEach(section => {
-        console.log({section})
-        const polyLine = layerFactory(section.coordinates, section.mode);
-
-        this.map.addLayer(polyLine);
-      })
-
+      return bestOption;
     }
 
     _getBikes = () => {
