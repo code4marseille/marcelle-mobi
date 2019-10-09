@@ -74,6 +74,7 @@
 
       this.geocoder.setFlyTo(false);
       this.map.addControl(this.geocoder);
+      this._getBikes();
     }
 
     _handleResult = ({ result }) => {
@@ -165,6 +166,21 @@
 
     }
 
+    _getBikes = () => {
+      axios
+        .get(`http://marcelle-mobi-api.herokuapp.com/vehicules/bike?grant_token=${grant_token}`)
+        .then(({ data }) => this._drawBikes(data))
+        .catch(error => console.log({ error }))
+    }
+
+    _drawBikes = (bikes) => {
+      bikes.forEach(bike => {
+        const bikeMarker = document.createElement('div');
+        bikeMarker.className = 'bike-marker';
+        new mapboxgl.Marker(bikeMarker).setLngLat([bike.position.lng, bike.position.lat]).addTo(this.map);
+      })
+    }
+
     init() {
       this.geocoder.on("result", result => this._handleResult(result));
     }
@@ -190,6 +206,14 @@
       background-size: cover;
       width: 40px;
       height: 40px;
+      cursor: pointer;
+    }
+
+    .bike-marker {
+      background-image: url('../assets/images/bike.svg');
+      background-size: cover;
+      width: 25px;
+      height: 25px;
       cursor: pointer;
     }
   }
