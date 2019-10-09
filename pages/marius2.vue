@@ -2,7 +2,6 @@
   <div id="marius" class="bg-secondary">
     <div v-if="!isThinking">
       <div class="container py-5 px-2">
-          <div class="col-8 offset-2">
         <div class="row align-items-end">
           <img :src="require('~/assets/images/supergrandfather.svg')" class="img-fluid col-4" />
           <div class="col-8">
@@ -59,8 +58,6 @@
             :disabled="!selectSafeMode"
             @click="submit"
           >Itinéraire</b-button>
-        </div>
-        <!---------------------Fin de la Modification du code greg----------------------------->
         </div>
       </div>
     </div>
