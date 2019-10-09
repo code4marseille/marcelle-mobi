@@ -77,6 +77,18 @@ export default {
           }
         },
         {
+          title: "Pollution de l'air",
+          href: '/pollution',
+          hiddenOnCollapse: true,
+          icon: {
+            element: 'img',
+            class: 'icon-sidebar',
+            attributes: {
+              src: require('~/assets/images/pollution.svg')
+            }
+          }
+        },
+        {
           title: 'Bon à savoir',
           href: '/articles',
           hiddenOnCollapse: true,
