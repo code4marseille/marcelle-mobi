@@ -8,15 +8,7 @@ export default {
    */
   head: {
     title: 'Marcelle-mobi',
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: "Déplacez-vous autrement dans Marseille"
-      }
-    ],
+
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
@@ -27,6 +19,10 @@ export default {
     ]
   },
   // PWA
+  meta: {
+    // name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+    nativeUI: true,
+  },
   manifest: {
     theme_color: '#25A9E8'
   },
