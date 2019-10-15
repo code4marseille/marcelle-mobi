@@ -1,21 +1,28 @@
 <template>
   <div id="parkingMapPage">
     <div id="position">
-      <l-map id="map" :zoom="13" :center="initialLocation" ref="map">
+      <b-form @submit.prevent="onSubmit" inline style="z-index:468" class="mt-3 fixed-top">
+        <div class="search_content">
+          <b-input
+            placeholder="Rechercher une adresse"
+            v-model="searchAddress"
+            class="ml-3 searchbox"
+          ></b-input>
+          <b-button type="submit" style="z-index:468" class="pr-3 text-right loupe">
+            <i class="fas fa-search"></i>
+          </b-button>
+        </div>
+      </b-form>
+      <l-map
+        id="map"
+        ref="map"
+        :zoom="13"
+        :center="initialLocation"
+        :max-bounds="[[43.149564,5.240460 ],[43.425466,5.583783]]"
+        :max-bounds-viscosity="1.0"
+        :min-zoom="10"
+      >
         <MapboxTile />
-
-        <b-form @submit.prevent="onSubmit" inline style="z-index:468" class="mt-3 fixed-top">
-          <div class="search_content">
-            <b-input
-              placeholder="Rechercher une adresse"
-              v-model="searchAddress"
-              class="ml-3 searchbox"
-            ></b-input>
-            <b-button type="submit" style="z-index:468" class="pr-3 text-right loupe">
-              <i class="fas fa-search"></i>
-            </b-button>
-          </div>
-        </b-form>
 
         <ChargingMarker
           v-for="(charging,i) in $store.state.parkingMap.chargingStations"
@@ -295,6 +302,10 @@ export default {
     margin-left: 70px;
     margin-right: 50px;
     width: 100%;
+  }
+
+  .leaflet-popup-content-wrapper a {
+    color: rgba(0, 0, 0, 0.8);
   }
 }
 

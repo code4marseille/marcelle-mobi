@@ -67,7 +67,7 @@ export default {
     text-align: left !important;
   }
 
-  .leaflet-container a {
+  .leaflet-popup-content a {
     color: rgba(0, 0, 0, 0.8) !important;
     font-size: 16px;
     margin-top: 0px;
@@ -85,13 +85,5 @@ export default {
   p {
     font-size: 14px;
   }
-
-  .leaflet-container a {
-    color: rgba(0, 0, 0, 0.8) !important;
-  }
-}
-
-.leaflet-container a {
-  color: rgba(0, 0, 0, 0.8) !important;
 }
 </style>
