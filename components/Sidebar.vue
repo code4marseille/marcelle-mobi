@@ -134,6 +134,9 @@ export default {
 
   .v-sidebar-menu {
     background: linear-gradient(156.38deg, #0e5da4 57.92%, #25a9e8 99.79%);
+    .vsm--link_hover {
+      background: inherit;
+    }
     .vsm--link_level-1 .vsm--icon {
       background-color: initial !important;
     }
