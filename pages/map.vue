@@ -1,7 +1,16 @@
 <template>
   <div id="mapPage">
     <div id="position">
-      <l-map id="map" :zoom="16" :center="location" ref="map" @update:center="updateVehicules">
+      <l-map
+        id="map"
+        ref="map"
+        :center="location"
+        :zoom="16"
+        :max-bounds="[[43.149564,5.240460 ],[43.425466,5.583783]]"
+        :max-bounds-viscosity="1.0"
+        :min-zoom="10"
+        @update:center="updateVehicules"
+      >
         <MapboxTile />
         <v-marker-cluster :options="clusterOptions">
           <VehiculeMarker
@@ -13,7 +22,7 @@
           />
         </v-marker-cluster>
         <LocateControl />
-        <MapFilter :location="location"/>
+        <MapFilter :location="location" />
       </l-map>
     </div>
   </div>
@@ -69,7 +78,8 @@ export default {
     },
     updateVehicules(center) {
       this.location = center
-      this.$store.dispatch('map/fetchTrots', center)
+      if (this.$store.state.map.seeTrots)
+        this.$store.dispatch('map/fetchTrots', center)
     }
   }
 }
